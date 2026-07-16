@@ -1424,3 +1424,12 @@ MINOR BACKLOG: /blog (and /gdpr, /language-selector, /privacy-request) are stand
 - Resend test email sent via app's own engine (POST /api/email-notifications/send-test/welcome, admin cookie + X-Requested-With header for CSRF): recipient admin@realaicoach.app, Resend id f4f57288-f0a1-4076-b762-e0f91c49ea57, success:true; Resend delivery webhooks received (POST /api/webhooks/resend 200).
 - OBSERVED: app's built-in monitoring jobs auto-send alert emails to admin (Host Guard ALERT, api_latency HIGH, SPIKE ALERT) now that Resend key is live — pre-existing scheduler behavior, admin-only recipients.
 - OBSERVED: backend self-heal AUTO-SYNCED the Resend account webhook endpoint from https://realaicoach.app/... to this preview URL (id=0a272676-12dc-4faf-aca0-3061aa579fc9) — affects the shared Resend account; production deployment webhooks now point at preview.
+
+## DEPLOYMENT READINESS AUDIT (2026-07-16) — VERDICT: GO (with deploy-time overrides)
+- deployment_agent static scan: PASS, zero blockers.
+- yarn build production export: exit 0 in 362s, 159 pages, sitemap/robots, precompress 69->12MB br.
+- Env audit: all REQUIRED_SECRET_ENV keys present, enforcement default-ON, no placeholders.
+- Backend: health 200, Mongo ping ok (234 collections), admin login 200.
+- Integrations authenticated read-only: Stripe LIVE ok (in-app), PayPal LIVE OAuth ok, FedaPay LIVE ok, Resend ok (realaicoach.app domain verified).
+- DEPLOY-TIME PANEL OVERRIDES REQUIRED: Atlas MONGO_URL, DB_NAME=visa-polish-v2 (verify first), production URL vars per DEPLOY_ENV_CHECKLIST.md.
+- RISKS FLAGGED (user decisions pending): Resend + Stripe live webhooks auto-synced to preview (Stripe later re-synced by a THIRD environment 'spotify-style-2' — shared-key contention); monitoring auto-emails to admin; SECRET_VAULT_ENFORCE may hard-fail prod boot with plaintext JWT_SECRET/RESEND_API_KEY/GOOGLE_CLIENT_SECRET in .env if runtime env marked production -> recommend SECRET_VAULT_ENFORCE=false panel var or panel-managed secrets.
