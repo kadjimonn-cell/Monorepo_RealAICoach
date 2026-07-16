@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-07-16T19:13:41.412Z",
+  "scanned_files": 822,
+  "used_key_count": 10221,
+  "locale_key_count": 11771,
+  "missing_now_count": 62,
+  "baseline_missing_count": 62,
+  "newly_missing_count": 0,
+  "resolved_from_baseline_count": 0,
+  "newly_missing_keys": [],
+  "resolved_from_baseline_keys": []
+}

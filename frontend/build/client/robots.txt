@@ -4,4 +4,4 @@ Disallow: /admin
 Disallow: /auth
 Disallow: /api
 
-Sitemap: https://d0d6be56-1aaa-42b3-8b03-6651c7c3f735.preview.emergentagent.com/sitemap.xml
+Sitemap: https://full-stack-migrate-1.preview.emergentagent.com/sitemap.xml

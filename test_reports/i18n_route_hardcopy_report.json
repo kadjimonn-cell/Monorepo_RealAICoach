@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-07-16T19:13:41.175Z",
+  "scanned_files": 219,
+  "baseline_violation_count": 0,
+  "current_violation_count": 0,
+  "zero_baseline_mode": true,
+  "newly_introduced_count": 0,
+  "resolved_from_baseline_count": 0,
+  "newly_introduced": [],
+  "resolved_from_baseline": []
+}
