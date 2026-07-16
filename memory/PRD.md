@@ -1380,3 +1380,26 @@ MINOR BACKLOG: /blog (and /gdpr, /language-selector, /privacy-request) are stand
 - New continuation job created from visa-polish-v2 (/frontend + /backend). Preview connected to LOCAL MongoDB (user-approved); production Atlas MONGO_URL is deploy-time-only via publishing panel.
 - Fixed: corrupted yarn.lock (348 integrity lines), pip dependency conflict (kkiapay), Metro OOM (node heap 5632MB within 8GB cgroup), and CRITICAL scheduler watchdog bug (metro probe on wrong port 3001 → expo restart storm every 2 min; now METRO_PROBE_PORT env, default 3000).
 - Admin re-registered + seed data loaded on local DB. Backend smoke test 7/7 pass. Evidence: WEB_MGMT_JOB_ENV_BRINGUP_CHECKPOINTS_A_D.md
+
+---
+
+## FULL-STACK IMPORT INTO NEW JOB (2026-07-16)
+
+**Task**: Faithful import of RealAICoach-Web-Version repo into fresh Emergent full-stack template. No feature changes, no redesign.
+
+**What was imported**:
+- Repo /backend -> /app/backend (FastAPI, 3,417 /api routes, Motor/MongoDB, APScheduler)
+- Repo /frontend (Expo expo-router WEB app) -> /app/frontend (dev server via `yarn start`, Metro on port 3000)
+- Repo root scripts/ -> /app/scripts (export-pipeline gates), memory/ -> /app/memory, uploads/ -> /app/uploads
+- Expo mobile concerns: none existed (repo is web-only; no /web folder existed despite the initial task wording — user approved importing Expo /frontend as the web app)
+
+**Changes made to make it run (import breakage only)**:
+1. Created /app/backend/.env: MONGO_URL local, DB_NAME=test_database, JWT_SECRET, ADMIN_EMAILS=admin@realaicoach.app, METRO_PROBE_PORT=3000, EMERGENT_LLM_KEY, STRIPE_API_KEY=sk_test_emergent (pod placeholder), REQUIRED_SECRET_ENV_ENFORCE=false (Resend/PayPal keys missing in dev)
+2. Created /app/frontend/.env: REACT_APP_BACKEND_URL + EXPO_PUBLIC_BACKEND_URL (backend self-heal synced all URL keys to canonical preview host)
+3. pip install with kkiapay workaround (install all except kkiapay, then kkiapay==0.0.6 --no-deps)
+4. package.json `start` script: added NODE_OPTIONS=--max-old-space-size=5632 (Metro OOM'd at default V8 heap; matches repo's own expo helper convention)
+5. Registered admin@realaicoach.app (auto-promoted). Credentials in /app/memory/test_credentials.md
+
+**Missing keys (features fail gracefully, need user-provided values)**: RESEND_API_KEY (+webhook secret), PAYPAL_CLIENT_ID/PAYPAL_SECRET, FEDAPAY_* keys, GOOGLE_CLIENT_ID/SECRET (SSO+Calendar), AZURE_* (Microsooft SSO), APPLE_* (SSO+IAP), VAPID push keys, real Stripe key (current sk_test_emergent is placeholder), ASC_*/Google Play analytics keys. OPENAI_API_KEY covered by EMERGENT_LLM_KEY.
+
+**Verified (testing_agent iteration_1)**: backend 7/7 (health, register/login, admin login, /api/auth/me, admin-gated /api/openapi.json 401-anon/200-admin), frontend landing + admin sign-in + dashboard + /pricing + /features all render. /api/openapi.json is admin-gated BY DESIGN.
