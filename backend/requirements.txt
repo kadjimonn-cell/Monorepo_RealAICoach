@@ -77,7 +77,6 @@ jq==1.11.0
 jsonpath-ng==1.8.0
 jsonschema==4.26.0
 jsonschema-specifications==2025.9.1
-kkiapay==0.0.6
 librt==0.7.8
 license-expression==30.4.4
 litellm==1.80.0
