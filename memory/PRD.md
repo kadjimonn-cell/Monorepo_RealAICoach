@@ -1433,3 +1433,10 @@ MINOR BACKLOG: /blog (and /gdpr, /language-selector, /privacy-request) are stand
 - Integrations authenticated read-only: Stripe LIVE ok (in-app), PayPal LIVE OAuth ok, FedaPay LIVE ok, Resend ok (realaicoach.app domain verified).
 - DEPLOY-TIME PANEL OVERRIDES REQUIRED: Atlas MONGO_URL, DB_NAME=visa-polish-v2 (verify first), production URL vars per DEPLOY_ENV_CHECKLIST.md.
 - RISKS FLAGGED (user decisions pending): Resend + Stripe live webhooks auto-synced to preview (Stripe later re-synced by a THIRD environment 'spotify-style-2' — shared-key contention); monitoring auto-emails to admin; SECRET_VAULT_ENFORCE may hard-fail prod boot with plaintext JWT_SECRET/RESEND_API_KEY/GOOGLE_CLIENT_SECRET in .env if runtime env marked production -> recommend SECRET_VAULT_ENFORCE=false panel var or panel-managed secrets.
+
+## DEPLOY BUILD_IMAGE FAILURE — FIXED (2026-07-16)
+Root causes (reproduced locally in clean conditions):
+- RC1: requirements.txt not cleanly installable — kkiapay==0.0.6 pins requests==2.22.0 vs required requests==2.33.0 -> pip ResolutionImpossible in fresh venv. kkiapay never imported in code (only string label in utils/receipt_generator.py:192). FIX: removed kkiapay line from requirements.txt.
+- RC2: export:web ('yarn build') ran expo export WITHOUT heap bump -> cold container (~3000 modules, no metro cache; .metro-cache is gitignored) OOMs at default V8 heap. FIX: added NODE_OPTIONS=--max-old-space-size=5632 + node --max-old-space-size=5632 to the export invocation in package.json (repo's own convention).
+Proof: fresh-venv pip install exit 0 (all 228 pkgs); cold yarn build (caches wiped) exit 0 in 354.6s; verify-package-json gate passes.
+Verified: testing_agent iteration_3 — 100% backend (7/7) + frontend (admin UI login->dashboard), fixes confirmed on disk, pip dry-run resolution exit 0. Ready to redeploy.
