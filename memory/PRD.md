@@ -1440,3 +1440,14 @@ Root causes (reproduced locally in clean conditions):
 - RC2: export:web ('yarn build') ran expo export WITHOUT heap bump -> cold container (~3000 modules, no metro cache; .metro-cache is gitignored) OOMs at default V8 heap. FIX: added NODE_OPTIONS=--max-old-space-size=5632 + node --max-old-space-size=5632 to the export invocation in package.json (repo's own convention).
 Proof: fresh-venv pip install exit 0 (all 228 pkgs); cold yarn build (caches wiped) exit 0 in 354.6s; verify-package-json gate passes.
 Verified: testing_agent iteration_3 — 100% backend (7/7) + frontend (admin UI login->dashboard), fixes confirmed on disk, pip dry-run resolution exit 0. Ready to redeploy.
+
+## WEBHOOK RESTORE + PREVIEW QUIET MODE (2026-07-16)
+- Webhooks re-pointed to production and verified via provider APIs:
+  Resend id 0a272676 -> https://realaicoach.app/api/webhooks/resend
+  Stripe we_1T4taJEnP8R2bqtwwq14JARd -> https://realaicoach.app/api/webhook/stripe (enabled)
+  PayPal 09F7714599439745U -> https://realaicoach.app/api/webhook/paypal
+  FedaPay 5719 -> https://realaicoach.app/api/payments/fedapay/webhook
+- Anti-hijack: new env flag WEBHOOK_AUTO_SYNC_ENABLED (default true = prod unchanged; false in preview .env) gates all 4 auto-sync blocks in server.py startup. Verified: boot logs 'sync skipped: auto-sync disabled', zero AUTO-SYNCED lines.
+- Alert quieting: new NONPROD_EMAIL_SUPPRESS_TEMPLATES_ALL_RECIPIENTS in email_service.send_email (default empty = unchanged; active ONLY in non-production runtime). Preview list: system_alert_admin, anomaly_digest, admin_detailed_system_alert, automation_alert, server_anomaly_alert, security_scan_alert, security_runbook_monitor_report, nightly_acceptance_report, nightly_blocked_export_v7, logo_render_probe, gtec_scan_v2_report, daily_usage_summary. Product/user emails untouched.
+- Verified: testing_agent iteration_4 100% (9/9 backend incl. new email suppression tests, frontend login smoke). Quiet window observed: 0 emails sent post-restart.
+- KNOWN EXTERNAL RISK: other preview pods sharing the same live keys (observed: spotify-style-2, anthropic-chat-v2) can re-hijack provider webhooks; uncontrollable from this pod.
