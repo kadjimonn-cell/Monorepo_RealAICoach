@@ -1403,3 +1403,12 @@ MINOR BACKLOG: /blog (and /gdpr, /language-selector, /privacy-request) are stand
 **Missing keys (features fail gracefully, need user-provided values)**: RESEND_API_KEY (+webhook secret), PAYPAL_CLIENT_ID/PAYPAL_SECRET, FEDAPAY_* keys, GOOGLE_CLIENT_ID/SECRET (SSO+Calendar), AZURE_* (Microsooft SSO), APPLE_* (SSO+IAP), VAPID push keys, real Stripe key (current sk_test_emergent is placeholder), ASC_*/Google Play analytics keys. OPENAI_API_KEY covered by EMERGENT_LLM_KEY.
 
 **Verified (testing_agent iteration_1)**: backend 7/7 (health, register/login, admin login, /api/auth/me, admin-gated /api/openapi.json 401-anon/200-admin), frontend landing + admin sign-in + dashboard + /pricing + /features all render. /api/openapi.json is admin-gated BY DESIGN.
+
+## ENV UPDATE — PRODUCTION KEYS WIRED (2026-07-16)
+- /app/backend/.env rewritten with user-provided block: LIVE Stripe/PayPal/FedaPay, Resend, Google/Azure/Apple SSO, VAPID, IAP, auth flags.
+- All preview-host URL vars rewritten fullstack-aicoach -> full-stack-migrate-1.preview.emergentagent.com (realaicoach.app entries preserved).
+- DB_NAME switched test_database -> realtalk_db (fresh); admin re-registered (admin@realaicoach.app, auto-promoted).
+- REQUIRED_SECRET_ENV_ENFORCE=false removed (all required keys now present; enforcement passes).
+- Kept: template TIGRIS_* keys, EMERGENT_LLM_KEY. APPLE_PRIVATE_KEY kept single-line \n format (loader replaces \\n).
+- App self-heal restored AZURE_CLIENT_ID/TENANT_ID to known-good UUIDs (provided values were non-UUID labels) — by design.
+- Verified: testing_agent iteration_2 — 100% backend (7/7 + sso-config/sso-status reflect new host) and 100% frontend (landing, admin UI login, dashboard). No live payment endpoints exercised.
