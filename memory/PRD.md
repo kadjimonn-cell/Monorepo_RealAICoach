@@ -1412,3 +1412,9 @@ MINOR BACKLOG: /blog (and /gdpr, /language-selector, /privacy-request) are stand
 - Kept: template TIGRIS_* keys, EMERGENT_LLM_KEY. APPLE_PRIVATE_KEY kept single-line \n format (loader replaces \\n).
 - App self-heal restored AZURE_CLIENT_ID/TENANT_ID to known-good UUIDs (provided values were non-UUID labels) — by design.
 - Verified: testing_agent iteration_2 — 100% backend (7/7 + sso-config/sso-status reflect new host) and 100% frontend (landing, admin UI login, dashboard). No live payment endpoints exercised.
+
+## FRONTEND ENV MERGE (2026-07-16)
+- /app/frontend/.env merged with user block: EXPO_PUBLIC_* app values, REACT_APP auth-guard flags, build/runtime flags (NODE_OPTIONS 5632, METRO_CACHE_ROOT=/tmp/frontend-metro-cache, EXPO_NO_METRO_LAZY, EXPO_USE_FAST_RESOLVER, etc.), SEO_BASE_URL.
+- Preserved existing: EXPO_PACKAGER_PROXY_URL/HOSTNAME, EXPO_TUNNEL_SUBDOMAIN, EXPECTED_PREVIEW_HOST, WDS_SOCKET_PORT, ENABLE_HEALTH_CHECK. Both backend URLs = https://full-stack-migrate-1.preview.emergentagent.com.
+- KNOWN CONSTRAINT: pod cgroup = 8GB (verified /sys/fs/cgroup/memory.max). Cold-cache Metro bundling can OOM-crash 1-3 times before the /tmp metro cache warms enough to succeed; supervisor auto-restart self-recovers (~5-8 min to healthy after a cold pod boot). METRO_CACHE_ROOT on /tmp means cache resets on pod restart.
+- Verified: landing renders externally, all bootstrap /api calls 200 on correct host (anon /api/auth/me 401 expected).
