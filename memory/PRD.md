@@ -1418,3 +1418,9 @@ MINOR BACKLOG: /blog (and /gdpr, /language-selector, /privacy-request) are stand
 - Preserved existing: EXPO_PACKAGER_PROXY_URL/HOSTNAME, EXPO_TUNNEL_SUBDOMAIN, EXPECTED_PREVIEW_HOST, WDS_SOCKET_PORT, ENABLE_HEALTH_CHECK. Both backend URLs = https://full-stack-migrate-1.preview.emergentagent.com.
 - KNOWN CONSTRAINT: pod cgroup = 8GB (verified /sys/fs/cgroup/memory.max). Cold-cache Metro bundling can OOM-crash 1-3 times before the /tmp metro cache warms enough to succeed; supervisor auto-restart self-recovers (~5-8 min to healthy after a cold pod boot). METRO_CACHE_ROOT on /tmp means cache resets on pod restart.
 - Verified: landing renders externally, all bootstrap /api calls 200 on correct host (anon /api/auth/me 401 expected).
+
+## OPS: METRO CACHE PERSISTENCE + RESEND TEST (2026-07-16)
+- METRO_CACHE_ROOT moved to /app/frontend/.metro-cache (persistent, gitignored, warm cache copied from /tmp). Frontend restarted healthy, no OOM.
+- Resend test email sent via app's own engine (POST /api/email-notifications/send-test/welcome, admin cookie + X-Requested-With header for CSRF): recipient admin@realaicoach.app, Resend id f4f57288-f0a1-4076-b762-e0f91c49ea57, success:true; Resend delivery webhooks received (POST /api/webhooks/resend 200).
+- OBSERVED: app's built-in monitoring jobs auto-send alert emails to admin (Host Guard ALERT, api_latency HIGH, SPIKE ALERT) now that Resend key is live — pre-existing scheduler behavior, admin-only recipients.
+- OBSERVED: backend self-heal AUTO-SYNCED the Resend account webhook endpoint from https://realaicoach.app/... to this preview URL (id=0a272676-12dc-4faf-aca0-3061aa579fc9) — affects the shared Resend account; production deployment webhooks now point at preview.
