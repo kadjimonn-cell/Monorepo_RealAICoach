@@ -1,0 +1,45 @@
+{
+  "module": "client",
+  "version": "v1",
+  "base_path": "/api/client",
+  "notes": "Public multi-platform bootstrap handshake. Called once on app launch by any client (web, Android, iOS).",
+  "endpoints": [
+    {
+      "path": "/api/client/bootstrap",
+      "method": "get",
+      "auth": "public",
+      "response_contract": {
+        "required_fields": [
+          "api_version",
+          "base_paths",
+          "platforms",
+          "version_enforcement",
+          "auth",
+          "capabilities",
+          "i18n",
+          "theming",
+          "docs"
+        ]
+      }
+    },
+    {
+      "path": "/api/admin/client-version-policy",
+      "method": "get",
+      "auth": "admin",
+      "response_contract": {
+        "required_fields": ["platforms", "enforcement"]
+      }
+    },
+    {
+      "path": "/api/admin/client-version-policy/{platform}",
+      "method": "put",
+      "auth": "admin",
+      "request_contract": {
+        "optional_fields": ["min_supported_version", "latest_version", "update_url", "enforced"]
+      },
+      "response_contract": {
+        "required_fields": ["platform", "policy"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-05-14T14:20:53.534785+00:00",
+  "base_url": "https://coach-web-preview.preview.emergentagent.com",
+  "checks": {
+    "frontend_routes": {
+      "rows": [
+        {
+          "path": "/",
+          "status_code": 200,
+          "pass": true
+        },
+        {
+          "path": "/welcome",
+          "status_code": 200,
+          "pass": true
+        },
+        {
+          "path": "/features",
+          "status_code": 200,
+          "pass": true
+        },
+        {
+          "path": "/login",
+          "status_code": 200,
+          "pass": true
+        },
+        {
+          "path": "/features/games-station",
+          "status_code": 200,
+          "pass": true
+        },
+        {
+          "path": "/features/travel-visa",
+          "status_code": 200,
+          "pass": true
+        },
+        {
+          "path": "/ai-learning-hub",
+          "status_code": 200,
+          "pass": true
+        }
+      ],
+      "all_pass": true
+    },
+    "backend_core": {
+      "health_status": 200,
+      "registry_status": 200,
+      "registry_total": 24,
+      "registry_pass": true
+    },
+    "users": {
+      "admin": {
+        "login_status": 200,
+        "has_token": true,
+        "plan": "premium",
+        "ai_conversations_daily": -1,
+        "admin_alias_pass": true,
+        "admin_legacy_pass": true
+      },
+      "free": {
+        "login_status": 200,
+        "has_token": true,
+        "plan": "free",
+        "ai_conversations_daily": 3,
+        "admin_alias_pass": true,
+        "admin_legacy_pass": true
+      },
+      "basic": {
+        "login_status": 200,
+        "has_token": true,
+        "plan": "basic",
+        "ai_conversations_daily": 10,
+        "admin_alias_pass": true,
+        "admin_legacy_pass": true
+      },
+      "premium": {
+        "login_status": 200,
+        "has_token": true,
+        "plan": "premium",
+        "ai_conversations_daily": -1,
+        "admin_alias_pass": true,
+        "admin_legacy_pass": true
+      }
+    }
+  },
+  "summary": {
+    "overall_pass": true,
+    "total_checks": 15,
+    "pass_checks": 15
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "scope": "admin-tabs",
+  "mode": "scan",
+  "files_scanned": 259,
+  "files_with_hex": 3,
+  "total_hex_tokens": 10,
+  "offenders": [
+    {
+      "file": "src/components/admin/FeatureManagerPanel.tsx",
+      "count": 6,
+      "samples": [
+        {
+          "line": 473,
+          "code": "backgroundColor: filterCat === c.id ? '#0F766E20' : colors.surface,"
+        },
+        {
+          "line": 474,
+          "code": "borderWidth: 1, borderColor: filterCat === c.id ? '#0F766E40' : colors.border,"
+        },
+        {
+          "line": 487,
+          "code": "backgroundColor: filterCat === c.id ? '#0F766E20' : colors.surface,"
+        },
+        {
+          "line": 488,
+          "code": "borderWidth: 1, borderColor: filterCat === c.id ? '#0F766E40' : colors.border,"
+        },
+        {
+          "line": 803,
+          "code": "backgroundColor: form.category === c.id ? '#0F766E20' : 'transparent',"
+        }
+      ]
+    },
+    {
+      "file": "src/components/admin/AIFeatureAnalyticsPanel.tsx",
+      "count": 3,
+      "samples": [
+        {
+          "line": 123,
+          "code": "<View style={{ width: 26, height: 26, borderRadius: 8, backgroundColor: i === 0 ? '#0F766E20' : i === 1 ? '#0F766E20' : i === 2 ? '#0F766E20' : T.bgSoft, alignItems: 'center', just"
+        }
+      ]
+    },
+    {
+      "file": "src/components/admin/MatchdayRemindersOpsPanel.tsx",
+      "count": 1,
+      "samples": [
+        {
+          "line": 81,
+          "code": "trackColor={{ false: colors.border, true: '#0F766E60' }}"
+        }
+      ]
+    }
+  ],
+  "changed_files_count": 0,
+  "changed_files": []
+}

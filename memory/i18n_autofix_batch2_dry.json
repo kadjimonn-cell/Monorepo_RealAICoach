@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-04-27T01:53:18.472Z",
+  "writeMode": false,
+  "scanRoots": [
+    "app/security.tsx",
+    "app/scan-history.tsx",
+    "app/progress-tracker.tsx",
+    "app/subscription/payment.tsx",
+    "app/subscription/plans.tsx"
+  ],
+  "minRepeats": 2,
+  "namespace": "autofix",
+  "filesScanned": 5,
+  "repeatedLiteralCount": 1,
+  "changedFiles": 2,
+  "replacementsApplied": 2,
+  "newLocaleKeyCount": 1,
+  "newLocaleEntries": {
+    "autofix.tax.jurisdiction": "Tax Jurisdiction:"
+  },
+  "changedFilePaths": [
+    "app/subscription/payment.tsx",
+    "app/subscription/plans.tsx"
+  ]
+}

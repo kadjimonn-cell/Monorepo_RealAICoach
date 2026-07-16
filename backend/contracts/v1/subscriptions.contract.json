@@ -1,0 +1,30 @@
+{
+  "module": "subscriptions",
+  "version": "v1",
+  "base_path": "/api/payments/subscriptions",
+  "notes": "Subscription and entitlement state is server-authoritative and synchronized across all client platforms.",
+  "endpoints": [
+    {
+      "path": "/api/payments/subscriptions/plans",
+      "method": "get",
+      "auth": "session",
+      "response_contract": {
+        "required_fields": ["plans"]
+      }
+    },
+    {
+      "path": "/api/payments/subscriptions/status",
+      "method": "get",
+      "auth": "session",
+      "response_contract": {
+        "required_fields": ["plan"]
+      }
+    },
+    {
+      "path": "/api/payments/subscriptions/my-subscription",
+      "method": "get",
+      "auth": "session",
+      "response_contract": {}
+    }
+  ]
+}

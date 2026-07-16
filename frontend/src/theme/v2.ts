@@ -1,0 +1,242 @@
+/**
+ * Theme v2 — RealAICoach Teal Enterprise Design System
+ * Permanent global palette aligned to the RealAICoach brand.
+ */
+
+export const THEME_V2_VERSION = 'v2' as const;
+
+export const V2_LIGHT = {
+  bg: '#F7F9FC',
+  bgAlt: '#FFFFFF',
+  bgSoft: '#EEF4F7',
+  card: '#FFFFFF',
+  cardMuted: '#F8FBFC',
+  cardSoft: '#FCFEFE',
+  surface: '#FFFFFF',
+  surfaceHover: '#F2F7F7',
+  surfaceElevated: '#FFFFFF',
+
+  text: '#0F172A',
+  textSec: '#475569',
+  textSecondary: '#475569',
+  textMuted: '#5D6C82',
+  textDim: '#7B8BA1',
+  textDisabled: '#A8B3C2',
+
+  border: '#E5E7EB',
+  borderMd: '#D7DEE7',
+  borderBright: '#CBD5E1',
+  borderLight: '#EEF2F7',
+  borderStrong: '#D1D9E4',
+  divider: '#E5E7EB',
+
+  tabBar: '#FFFFFF',
+  headerBg: 'rgba(247,249,252,0.94)',
+
+  primary: '#0F766E',
+  primarySoft: '#0F766E14',
+  primaryText: '#FFFFFF',
+  accent: '#0F766E',
+  accentSoft: '#0F766E14',
+  accentHover: '#0B5F58',
+  accentText: '#0F766E',
+
+  success: '#14B8A6',
+  successSoft: '#14B8A614',
+  successText: '#0F766E',
+  warning: '#D97706',
+  warningSoft: '#D9770614',
+  warningText: '#B45309',
+  error: '#DC2626',
+  errorSoft: '#DC262614',
+  errorText: '#B91C1C',
+  info: '#0F766E',
+  infoSoft: '#0F766E14',
+  infoText: '#0F766E',
+
+  blue: '#0F766E',
+  blueSoft: '#0F766E14',
+  blueText: '#0F766E',
+  purple: '#14B8A6',
+  purpleSoft: '#14B8A614',
+  purpleText: '#0F766E',
+  indigo: '#5EEAD4',
+  indigoSoft: '#5EEAD418',
+  indigoText: '#0F766E',
+  orange: '#D97706',
+  orangeSoft: '#D9770614',
+  orangeText: '#B45309',
+
+  hover: 'rgba(15,118,110,0.08)',
+  active: 'rgba(15,118,110,0.14)',
+  focus: 'rgba(20,184,166,0.28)',
+  overlay: 'rgba(15,23,42,0.42)',
+  shadowColor: 'rgba(15,23,42,0.08)',
+
+  input: '#FFFFFF',
+  inputBorder: '#D7DEE7',
+  inputText: '#0F172A',
+  placeholder: '#94A3B8',
+
+  badge: '#ECFDFB',
+  badgeText: '#0F766E',
+
+  skeleton: '#E5E7EB',
+
+  chartGrid: '#E5E7EB',
+  chartAxis: '#64748B',
+  chartTooltipBg: '#FFFFFF',
+  chartTooltipBorder: '#D7DEE7',
+  chartLinePrimary: '#0F766E',
+  chartLineSecondary: '#14B8A6',
+  chartLineTertiary: '#5EEAD4',
+  chartLineQuaternary: '#D97706',
+  chartSurface: '#FFFFFF',
+
+  glassBorder: 'rgba(15,23,42,0.08)',
+  glassSurface: 'rgba(255,255,255,0.86)',
+
+  notificationInfo: '#0F766E',
+  cyan: '#14B8A6',
+  teal: '#14B8A6',
+  momo: '#0F766E',
+  finance: '#0F766E',
+
+  // ── Developer-shorthand aliases ──
+  // Historically some components referenced `colors.background`, `colors.muted`,
+  // `colors.green`, etc. — these weren't defined, so they resolved to `undefined`
+  // and either fell back via `||` chains or broke styles silently.
+  // These aliases close that gap at the source. Keep in sync with V2_DARK below.
+  background: '#F7F9FC',
+  muted: '#5D6C82',
+  subText: '#475569',
+  tint: '#0F766E',
+  bgCard: '#FFFFFF',
+  buttonText: '#FFFFFF',
+  green: '#14B8A6',
+  red: '#DC2626',
+  yellow: '#D97706',
+  borderSoft: '#E2E8F0',
+  primaryHover: '#0D6B63',
+  cardAlt: '#FFFFFF',
+  cardBg: '#FFFFFF',
+  bgSecondary: '#EEF4F7',
+  dim: '#CBD5E1',
+} as const;
+
+export const V2_DARK = {
+  bg: '#0B1220',
+  bgAlt: '#0F172A',
+  bgSoft: '#111827',
+  card: '#0F172A',
+  cardMuted: '#111827',
+  cardSoft: '#111827',
+  surface: '#0F172A',
+  surfaceHover: '#162033',
+  surfaceElevated: '#111827',
+
+  text: '#E6EAF2',
+  textSec: '#9AA4B2',
+  textSecondary: '#9AA4B2',
+  textMuted: '#94A3B8',
+  textDim: '#7B8797',
+  textDisabled: '#72849D',
+
+  border: '#1F2937',
+  borderMd: '#334155',
+  borderBright: '#475569',
+  borderLight: '#172033',
+  borderStrong: '#334155',
+  divider: '#1F2937',
+
+  tabBar: '#0B1220',
+  headerBg: 'rgba(11,18,32,0.92)',
+
+  primary: '#14B8A6',
+  primarySoft: '#14B8A622',
+  primaryText: '#0B1220',
+  accent: '#14B8A6',
+  accentSoft: '#14B8A622',
+  accentHover: '#0F766E',
+  accentText: '#2DD4BF',
+
+  success: '#2DD4BF',
+  successSoft: '#2DD4BF22',
+  successText: '#99F6E4',
+  warning: '#F59E0B',
+  warningSoft: '#F59E0B22',
+  warningText: '#FCD34D',
+  error: '#F87171',
+  errorSoft: '#F8717122',
+  errorText: '#FECACA',
+  info: '#14B8A6',
+  infoSoft: '#14B8A622',
+  infoText: '#99F6E4',
+
+  blue: '#14B8A6',
+  blueSoft: '#14B8A622',
+  blueText: '#99F6E4',
+  purple: '#5EEAD4',
+  purpleSoft: '#5EEAD422',
+  purpleText: '#99F6E4',
+  indigo: '#5EEAD4',
+  indigoSoft: '#5EEAD422',
+  indigoText: '#5EEAD4',
+  orange: '#F59E0B',
+  orangeSoft: '#F59E0B22',
+  orangeText: '#FCD34D',
+
+  hover: 'rgba(20,184,166,0.14)',
+  active: 'rgba(20,184,166,0.22)',
+  focus: 'rgba(94,234,212,0.36)',
+  overlay: 'rgba(2,6,23,0.72)',
+  shadowColor: 'rgba(0,0,0,0.45)',
+
+  input: '#111827',
+  inputBorder: '#334155',
+  inputText: '#E6EAF2',
+  placeholder: '#64748B',
+
+  badge: '#123734',
+  badgeText: '#99F6E4',
+
+  skeleton: '#1F2937',
+
+  chartGrid: '#1F2937',
+  chartAxis: '#9AA4B2',
+  chartTooltipBg: '#111827',
+  chartTooltipBorder: '#334155',
+  chartLinePrimary: '#14B8A6',
+  chartLineSecondary: '#5EEAD4',
+  chartLineTertiary: '#2DD4BF',
+  chartLineQuaternary: '#F59E0B',
+  chartSurface: '#111827',
+
+  glassBorder: 'rgba(255,255,255,0.08)',
+  glassSurface: 'rgba(15,23,42,0.82)',
+
+  notificationInfo: '#14B8A6',
+  cyan: '#5EEAD4',
+  teal: '#14B8A6',
+  momo: '#14B8A6',
+  finance: '#14B8A6',
+
+  // ── Developer-shorthand aliases ── (keep in sync with V2_LIGHT)
+  background: '#0B1220',
+  muted: '#94A3B8',
+  subText: '#CBD5E1',
+  tint: '#14B8A6',
+  bgCard: '#0F172A',
+  buttonText: '#0B1220',
+  green: '#14B8A6',
+  red: '#EF4444',
+  yellow: '#F59E0B',
+  borderSoft: '#1E293B',
+  primaryHover: '#5EEAD4',
+  cardAlt: '#111827',
+  cardBg: '#0F172A',
+  bgSecondary: '#111827',
+  dim: '#334155',
+} as const;
+
+export type ThemeColorsV2 = typeof V2_LIGHT;

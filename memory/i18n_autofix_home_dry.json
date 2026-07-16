@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-04-27T01:23:37.491Z",
+  "writeMode": false,
+  "scanRoots": [
+    "src/components/home"
+  ],
+  "minRepeats": 2,
+  "namespace": "autofix",
+  "filesScanned": 9,
+  "repeatedLiteralCount": 0,
+  "changedFiles": 0,
+  "replacementsApplied": 0,
+  "newLocaleKeyCount": 0,
+  "newLocaleEntries": {}
+}

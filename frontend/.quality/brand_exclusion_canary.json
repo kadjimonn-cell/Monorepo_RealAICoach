@@ -1,0 +1,70 @@
+{
+  "generated_at": "2026-07-15T01:38:47.029Z",
+  "route": "/welcome",
+  "platform_brand": "RealAICoach",
+  "languages": [
+    "en",
+    "fr",
+    "es",
+    "ar",
+    "zh"
+  ],
+  "checks": [
+    {
+      "language": "en",
+      "pass": true,
+      "checks": {
+        "has_brand_selector": true,
+        "uses_platform_brand_constant": true,
+        "has_html_brand_regex_guards": true,
+        "high_risk_surfaces_have_canonical_brand": true,
+        "high_risk_surfaces_avoid_forbidden_fragment_composition": true
+      }
+    },
+    {
+      "language": "fr",
+      "pass": true,
+      "checks": {
+        "has_brand_selector": true,
+        "uses_platform_brand_constant": true,
+        "has_html_brand_regex_guards": true,
+        "high_risk_surfaces_have_canonical_brand": true,
+        "high_risk_surfaces_avoid_forbidden_fragment_composition": true
+      }
+    },
+    {
+      "language": "es",
+      "pass": true,
+      "checks": {
+        "has_brand_selector": true,
+        "uses_platform_brand_constant": true,
+        "has_html_brand_regex_guards": true,
+        "high_risk_surfaces_have_canonical_brand": true,
+        "high_risk_surfaces_avoid_forbidden_fragment_composition": true
+      }
+    },
+    {
+      "language": "ar",
+      "pass": true,
+      "checks": {
+        "has_brand_selector": true,
+        "uses_platform_brand_constant": true,
+        "has_html_brand_regex_guards": true,
+        "high_risk_surfaces_have_canonical_brand": true,
+        "high_risk_surfaces_avoid_forbidden_fragment_composition": true
+      }
+    },
+    {
+      "language": "zh",
+      "pass": true,
+      "checks": {
+        "has_brand_selector": true,
+        "uses_platform_brand_constant": true,
+        "has_html_brand_regex_guards": true,
+        "high_risk_surfaces_have_canonical_brand": true,
+        "high_risk_surfaces_avoid_forbidden_fragment_composition": true
+      }
+    }
+  ],
+  "pass": true
+}

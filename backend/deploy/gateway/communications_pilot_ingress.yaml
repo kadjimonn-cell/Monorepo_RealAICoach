@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: communications-pilot-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "120"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "120"
+spec:
+  rules:
+    - host: app.realaicoach.internal
+      http:
+        paths:
+          - path: /api/email-notifications
+            pathType: Prefix
+            backend:
+              service:
+                name: communications-service
+                port:
+                  number: 80

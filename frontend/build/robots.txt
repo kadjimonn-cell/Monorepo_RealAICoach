@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /auth/
+Disallow: /admin-*
+Disallow: /executive-dashboard
+Disallow: /edit-profile
+Disallow: /settings
+
+Sitemap: https://realaicoach.app/api/sitemap.xml

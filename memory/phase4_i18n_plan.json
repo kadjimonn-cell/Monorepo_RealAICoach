@@ -1,0 +1,236 @@
+{
+  "current_total": 434,
+  "target_budget": 932,
+  "needed_reduction": 0,
+  "selected_reduction_capacity": 0,
+  "selected_file_count": 0,
+  "top_offenders": [
+    {
+      "path": "frontend/src/components/admin/CatAnalyticsPanel.tsx",
+      "count": 12
+    },
+    {
+      "path": "frontend/src/components/admin/DeploymentOrchestrationPanel.tsx",
+      "count": 12
+    },
+    {
+      "path": "frontend/src/components/admin/RealityValidationPanel.tsx",
+      "count": 12
+    },
+    {
+      "path": "frontend/src/components/admin/SelfRepairPanel.tsx",
+      "count": 12
+    },
+    {
+      "path": "frontend/src/components/admin/SupportTicketsPanel.tsx",
+      "count": 12
+    },
+    {
+      "path": "frontend/src/components/admin/WAFFirewallPanel.tsx",
+      "count": 12
+    },
+    {
+      "path": "frontend/src/components/admin/email-templates/ClientSandboxView.tsx",
+      "count": 12
+    },
+    {
+      "path": "frontend/src/components/admin/email-templates/DeliverabilityView.tsx",
+      "count": 12
+    },
+    {
+      "path": "frontend/src/components/admin/email-templates/PerformanceChartsView.tsx",
+      "count": 12
+    },
+    {
+      "path": "frontend/src/components/admin/AppStoreConnectPanel.tsx",
+      "count": 11
+    },
+    {
+      "path": "frontend/src/components/admin/CompetitorKeywordPanel.tsx",
+      "count": 11
+    },
+    {
+      "path": "frontend/src/components/admin/AIInsightsPanel.tsx",
+      "count": 9
+    },
+    {
+      "path": "frontend/src/components/admin/AIRemediationPanel.tsx",
+      "count": 9
+    },
+    {
+      "path": "frontend/src/components/admin/AccessMatrixPanel.tsx",
+      "count": 9
+    },
+    {
+      "path": "frontend/src/components/admin/AdminAnalyticsPanel.tsx",
+      "count": 9
+    },
+    {
+      "path": "frontend/src/components/admin/ApplicantThreadPanel.tsx",
+      "count": 9
+    },
+    {
+      "path": "frontend/src/components/admin/AutomationEnginePanel.tsx",
+      "count": 9
+    },
+    {
+      "path": "frontend/src/components/admin/CriticalJourneyMonitorPanel.tsx",
+      "count": 9
+    },
+    {
+      "path": "frontend/src/components/admin/GTECPanel.tsx",
+      "count": 9
+    },
+    {
+      "path": "frontend/src/components/admin/GlobalPerformanceSection.tsx",
+      "count": 9
+    },
+    {
+      "path": "frontend/src/components/admin/KeywordRow.tsx",
+      "count": 9
+    },
+    {
+      "path": "frontend/src/components/admin/SubscriptionPlanManagementPanel.tsx",
+      "count": 8
+    },
+    {
+      "path": "frontend/src/components/admin/TranslationQualityReview.tsx",
+      "count": 8
+    },
+    {
+      "path": "frontend/src/components/admin/V2ComplianceGuardrailPanel.tsx",
+      "count": 8
+    },
+    {
+      "path": "frontend/src/components/admin/ZeroTrustRootCauseBoard.tsx",
+      "count": 8
+    },
+    {
+      "path": "frontend/src/components/admin/ASOAnalyticsSection.tsx",
+      "count": 7
+    },
+    {
+      "path": "frontend/src/components/admin/ActivitySummaryWidget.tsx",
+      "count": 7
+    },
+    {
+      "path": "frontend/src/components/admin/AutonomousContentMarketingCard.tsx",
+      "count": 7
+    },
+    {
+      "path": "frontend/src/components/admin/MobileIndexingSection.tsx",
+      "count": 6
+    },
+    {
+      "path": "frontend/src/components/admin/PlatformIntegrationsDashboard.tsx",
+      "count": 6
+    },
+    {
+      "path": "frontend/src/components/admin/UserInsightsPanel.tsx",
+      "count": 6
+    },
+    {
+      "path": "frontend/src/components/admin/session-management/SecurityPanel.tsx",
+      "count": 6
+    },
+    {
+      "path": "frontend/src/components/admin/DependencyScanPanel.tsx",
+      "count": 5
+    },
+    {
+      "path": "frontend/src/components/admin/InvitationQRModal.tsx",
+      "count": 5
+    },
+    {
+      "path": "frontend/src/components/admin/OnboardingABPanel.tsx",
+      "count": 5
+    },
+    {
+      "path": "frontend/src/components/admin/PdfPolicyMonitorPanel.tsx",
+      "count": 5
+    },
+    {
+      "path": "frontend/src/components/admin/ResponsivenessSection.tsx",
+      "count": 5
+    },
+    {
+      "path": "frontend/src/components/admin/RevenuePanel.tsx",
+      "count": 5
+    },
+    {
+      "path": "frontend/src/components/admin/RouteI18nReportCardWidget.tsx",
+      "count": 5
+    },
+    {
+      "path": "frontend/src/components/admin/SecurityRecommendationsPanel.tsx",
+      "count": 5
+    },
+    {
+      "path": "frontend/src/components/admin/TeamAnalyticsPanel.tsx",
+      "count": 5
+    },
+    {
+      "path": "frontend/src/components/admin/ThemeComplianceWidget.tsx",
+      "count": 5
+    },
+    {
+      "path": "frontend/src/components/admin/TrustedDevicesPanel.tsx",
+      "count": 5
+    },
+    {
+      "path": "frontend/src/components/admin/AIInsightHelpers.tsx",
+      "count": 4
+    },
+    {
+      "path": "frontend/src/components/admin/CareerEnhancements.tsx",
+      "count": 4
+    },
+    {
+      "path": "frontend/src/components/admin/DashboardLayoutManager.tsx",
+      "count": 4
+    },
+    {
+      "path": "frontend/src/components/admin/SecurityMonitoringPanel.tsx",
+      "count": 4
+    },
+    {
+      "path": "frontend/src/components/admin/ThemeTokenRemediationPanel.tsx",
+      "count": 4
+    },
+    {
+      "path": "frontend/src/components/admin/TickertapeAnalyticsPanel.tsx",
+      "count": 4
+    },
+    {
+      "path": "frontend/src/components/admin/TopBrokenPanelsWidget.tsx",
+      "count": 4
+    }
+  ],
+  "selected_offenders": [],
+  "batches": [
+    {
+      "batch": 1,
+      "target_reduction": 0,
+      "planned_reduction": 0,
+      "items": []
+    },
+    {
+      "batch": 2,
+      "target_reduction": 0,
+      "planned_reduction": 0,
+      "items": []
+    },
+    {
+      "batch": 3,
+      "target_reduction": 0,
+      "planned_reduction": 0,
+      "items": []
+    },
+    {
+      "batch": 4,
+      "target_reduction": 0,
+      "planned_reduction": 0,
+      "items": []
+    }
+  ]
+}

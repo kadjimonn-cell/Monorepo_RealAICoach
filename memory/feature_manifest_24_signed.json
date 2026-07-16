@@ -1,0 +1,154 @@
+{
+  "manifest_version": "v1",
+  "source_endpoint": "https://coach-web-preview.preview.emergentagent.com/api/features/registry",
+  "generated_at_utc": "2026-05-14T13:22:17.327356+00:00",
+  "total_features": 24,
+  "signature_algorithm": "SHA-256(canonical_json)",
+  "signature_sha256": "122a303a2556ffbf403a6297a98e80221c1ae3ce053c839096639b8ad8b9f58d",
+  "features": [
+    {
+      "feature_id": "ai-automations",
+      "title": "Workflow Builder",
+      "route": "/features/ai-automations",
+      "category": "productivity"
+    },
+    {
+      "feature_id": "ai-chatbot",
+      "title": "Personal AI Assistant",
+      "route": "/features/ai-chatbot",
+      "category": "productivity"
+    },
+    {
+      "feature_id": "ai-cognitive",
+      "title": "Decision Coach",
+      "route": "/features/ai-cognitive",
+      "category": "productivity"
+    },
+    {
+      "feature_id": "ai-enterprise",
+      "title": "Business Operations Copilot",
+      "route": "/features/ai-enterprise",
+      "category": "tech"
+    },
+    {
+      "feature_id": "ai-found-love",
+      "title": "Relationship Coach",
+      "route": "/features/ai-found-love",
+      "category": "lifestyle"
+    },
+    {
+      "feature_id": "ai-learning-hub",
+      "title": "Learning Hub",
+      "route": "/ai-learning-hub",
+      "category": "education"
+    },
+    {
+      "feature_id": "ai-photo",
+      "title": "Image & Design Studio",
+      "route": "/features/ai-photo",
+      "category": "tech"
+    },
+    {
+      "feature_id": "ai-search",
+      "title": "Deep Research Navigator",
+      "route": "/features/ai-search",
+      "category": "productivity"
+    },
+    {
+      "feature_id": "ai-speech",
+      "title": "Voice Studio",
+      "route": "/features/ai-speech",
+      "category": "tech"
+    },
+    {
+      "feature_id": "ai-video",
+      "title": "Video Creator Studio",
+      "route": "/features/ai-video",
+      "category": "lifestyle"
+    },
+    {
+      "feature_id": "ai-writer",
+      "title": "Smart Writing Studio",
+      "route": "/features/ai-writer",
+      "category": "productivity"
+    },
+    {
+      "feature_id": "bill-generator",
+      "title": "Bill Generator",
+      "route": "/features/bill-generator",
+      "category": "business"
+    },
+    {
+      "feature_id": "buy-smart-home",
+      "title": "Property Decision Advisor",
+      "route": "/features/buy-smart-home",
+      "category": "lifestyle"
+    },
+    {
+      "feature_id": "fitness",
+      "title": "Fitness Planner Pro",
+      "route": "/features/fitness",
+      "category": "health"
+    },
+    {
+      "feature_id": "games-station",
+      "title": "Games Station",
+      "route": "/features/games-station",
+      "category": "entertainment"
+    },
+    {
+      "feature_id": "lexicon-intelligence",
+      "title": "Lexicon Intelligence Hub",
+      "route": "/features/lexicon-intelligence",
+      "category": "productivity"
+    },
+    {
+      "feature_id": "medimate",
+      "title": "Health Guide",
+      "route": "/features/medimate",
+      "category": "health"
+    },
+    {
+      "feature_id": "pennypilot",
+      "title": "Money Strategy Hub",
+      "route": "/features/pennypilot",
+      "category": "finance"
+    },
+    {
+      "feature_id": "school-tutor",
+      "title": "Learning Coach",
+      "route": "/features/school-tutor",
+      "category": "education"
+    },
+    {
+      "feature_id": "smart-cars",
+      "title": "Mobility Assistant",
+      "route": "/features/smart-cars",
+      "category": "lifestyle"
+    },
+    {
+      "feature_id": "smartbuy",
+      "title": "Smart Shopping Advisor",
+      "route": "/features/smartbuy",
+      "category": "finance"
+    },
+    {
+      "feature_id": "travel-visa",
+      "title": "Travel Visa",
+      "route": "/features/travel-visa",
+      "category": "travel"
+    },
+    {
+      "feature_id": "travelpal",
+      "title": "Travel Planner Pro",
+      "route": "/features/travelpal",
+      "category": "lifestyle"
+    },
+    {
+      "feature_id": "watch-videos",
+      "title": "Watch Videos",
+      "route": "/features/watch-videos",
+      "category": "productivity"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-05-14T15:50:48.823867+00:00",
+  "bulk_update_role_without_token": {
+    "status": 428,
+    "body": {
+      "detail": {
+        "message": "Dual-admin approval required for high-risk RBAC operation.",
+        "approval_request_id": "rbacreq_cfcba0db9e59",
+        "next_step": "A different admin must approve this request via /api/admin/access-control/approvals/{approval_request_id}/approve, then retry with x-rbac-approval-token."
+      }
+    }
+  },
+  "self_approval_attempt": {
+    "status": 503,
+    "body": {
+      "detail": "Blocked by Production Security Policy Gate",
+      "code": "PRODUCTION_POLICY_GATE_BLOCKED",
+      "reason_code": "security_prerequisites_failed",
+      "message": "Blocked by Production Security Policy Gate because mandatory security prerequisites are failing.",
+      "gate_scope": "sensitive_admin_mutation",
+      "failed_checks": [
+        "admin_e2e_health_gate",
+        "subscription_plan_guardrail",
+        "cia_trust_score"
+      ],
+      "decision_id": "pg_8c3e753d7dff40"
+    }
+  },
+  "approval_request_id": "rbacreq_cfcba0db9e59"
+}

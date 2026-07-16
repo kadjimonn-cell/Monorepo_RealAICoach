@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: analytics-service
+  labels:
+    app: analytics-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: analytics-service
+  template:
+    metadata:
+      labels:
+        app: analytics-service
+    spec:
+      containers:
+        - name: analytics-service
+          image: realaicoach/analytics-service:latest
+          imagePullPolicy: IfNotPresent
+          command: ["python", "-m", "uvicorn", "modules.analytics_service_app:app", "--host", "0.0.0.0", "--port", "8103"]
+          ports:
+            - containerPort: 8103
+          env:
+            - name: MONGO_URL
+              valueFrom:
+                secretKeyRef:
+                  name: realaicoach-backend
+                  key: MONGO_URL
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: realaicoach-backend
+                  key: DB_NAME
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: analytics-service
+  labels:
+    app: analytics-service
+spec:
+  selector:
+    app: analytics-service
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8103

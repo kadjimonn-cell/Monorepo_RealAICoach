@@ -1,0 +1,408 @@
+{
+  "task_id": "gtec_c5_ad852aacad8d",
+  "execution_hash": "c2e72b2fc69fbea3",
+  "status": "INFRA_BLOCKED",
+  "critical_vulns": 0,
+  "high_vulns": 1,
+  "medium_vulns": 0,
+  "low_vulns": 0,
+  "regressions": "NO",
+  "security_scan": "FAIL",
+  "e2e_tests": "FAIL",
+  "responsiveness": "FAIL",
+  "performance": "FAIL",
+  "rbac_status": "FAIL",
+  "subscription_enforcement": "FAIL",
+  "i18n_status": "FAIL",
+  "learning_memory_updated": "YES",
+  "summary": "INFRA_BLOCKED \u2014 runtime preflight did not reach required stability (1/3 checks). Reasons: external_preview_unstable.",
+  "severity_counts": {
+    "critical": 0,
+    "high": 1,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+  },
+  "sections": {
+    "preflight": {
+      "status": "FAIL",
+      "findings": [
+        {
+          "severity": "high",
+          "category": "infra",
+          "label": "scan_preflight_unstable",
+          "detail": "INFRA_BLOCKED \u2014 runtime preflight did not reach required stability (1/3 checks). Reasons: external_preview_unstable.",
+          "count": 1,
+          "sample": {
+            "required_checks": 3,
+            "attempts_completed": 1,
+            "reasons": [
+              "external_preview_unstable"
+            ]
+          }
+        }
+      ],
+      "counts": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "low": 0,
+        "info": 0
+      },
+      "elapsed_ms": 0
+    },
+    "sast": {
+      "status": "FAIL",
+      "findings": [
+        {
+          "severity": "high",
+          "category": "sast",
+          "label": "sast_skipped_preflight",
+          "detail": "sast validation unavailable due to preflight instability: external_preview_unstable",
+          "count": 1
+        }
+      ],
+      "counts": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "low": 0,
+        "info": 0
+      },
+      "elapsed_ms": 0
+    },
+    "dep": {
+      "status": "FAIL",
+      "findings": [
+        {
+          "severity": "high",
+          "category": "dep",
+          "label": "dep_skipped_preflight",
+          "detail": "dep validation unavailable due to preflight instability: external_preview_unstable",
+          "count": 1
+        }
+      ],
+      "counts": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "low": 0,
+        "info": 0
+      },
+      "elapsed_ms": 0
+    },
+    "dast": {
+      "status": "FAIL",
+      "findings": [
+        {
+          "severity": "high",
+          "category": "dast",
+          "label": "dast_skipped_preflight",
+          "detail": "dast validation unavailable due to preflight instability: external_preview_unstable",
+          "count": 1
+        }
+      ],
+      "counts": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "low": 0,
+        "info": 0
+      },
+      "elapsed_ms": 0,
+      "crawler_totals": {
+        "scans": 0,
+        "passing": 0
+      },
+      "responsiveness_status": "FAIL",
+      "performance_status": "FAIL",
+      "performance_p50_ms": 0
+    },
+    "acl": {
+      "rbac_status": "FAIL",
+      "subscription_status": "FAIL",
+      "findings": [
+        {
+          "severity": "high",
+          "category": "acl",
+          "label": "acl_checks_skipped_preflight",
+          "detail": "ACL probes unavailable due to preflight instability: external_preview_unstable",
+          "count": 1
+        }
+      ],
+      "counts": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "low": 0,
+        "info": 0
+      },
+      "elapsed_ms": 0,
+      "rbac_pass": 0,
+      "rbac_total": 0,
+      "subscription_pass": 0,
+      "subscription_total": 0
+    },
+    "i18n": {
+      "status": "FAIL",
+      "findings": [
+        {
+          "severity": "high",
+          "category": "i18n",
+          "label": "i18n_skipped_preflight",
+          "detail": "i18n validation unavailable due to preflight instability: external_preview_unstable",
+          "count": 1
+        }
+      ],
+      "counts": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "low": 0,
+        "info": 0
+      },
+      "elapsed_ms": 0
+    },
+    "duplicate": {
+      "status": "FAIL",
+      "findings": [
+        {
+          "severity": "high",
+          "category": "duplicate",
+          "label": "duplicate_skipped_preflight",
+          "detail": "duplicate validation unavailable due to preflight instability: external_preview_unstable",
+          "count": 1
+        }
+      ],
+      "counts": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "low": 0,
+        "info": 0
+      },
+      "elapsed_ms": 0
+    },
+    "api_contract": {
+      "status": "FAIL",
+      "findings": [
+        {
+          "severity": "high",
+          "category": "api_contract",
+          "label": "api_contract_skipped_preflight",
+          "detail": "api_contract validation unavailable due to preflight instability: external_preview_unstable",
+          "count": 1
+        }
+      ],
+      "counts": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "low": 0,
+        "info": 0
+      },
+      "elapsed_ms": 0
+    },
+    "threat_model": {
+      "status": "FAIL",
+      "findings": [
+        {
+          "severity": "high",
+          "category": "threat_model",
+          "label": "threat_model_skipped_preflight",
+          "detail": "threat_model validation unavailable due to preflight instability: external_preview_unstable",
+          "count": 1
+        }
+      ],
+      "counts": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "low": 0,
+        "info": 0
+      },
+      "elapsed_ms": 0
+    }
+  },
+  "steps_skipped": [
+    "acl",
+    "api_contract",
+    "dast",
+    "dep",
+    "duplicate",
+    "i18n",
+    "sast",
+    "threat_model"
+  ],
+  "directive_version": "3ab3a705bf380cab",
+  "generated_at": "2026-07-16T17:16:24.010521+00:00",
+  "v3_output": {
+    "SYSTEM_STATUS": "INFRA_BLOCKED",
+    "SECURITY_STATUS": "FAIL",
+    "PERFORMANCE_STATUS": "FAIL",
+    "I18N_STATUS": "FAIL",
+    "RBAC_STATUS": "FAIL",
+    "REGRESSION_STATUS": "PASS",
+    "ERROR_COUNT": "1",
+    "ACTIVE_FIXES": "YES",
+    "MONITORING": "ACTIVE",
+    "LEARNING_MEMORY": "UPDATED",
+    "CONFIDENCE_LEVEL": "LOW"
+  },
+  "triggered_by": "scheduler",
+  "actor": "apscheduler",
+  "attempt_tag": "initial",
+  "attempt_index": 0,
+  "scan_mode": "STRICT_GLOBAL",
+  "strict_global_mode": true,
+  "transient_artifact_count": 0,
+  "strict_gate_passed": false,
+  "preflight": {
+    "passed": false,
+    "required_checks": 3,
+    "attempts_completed": 1,
+    "reasons": [
+      "external_preview_unstable"
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "ok": false,
+        "local_backend": {
+          "base_url": "http://127.0.0.1:8001",
+          "url": "http://127.0.0.1:8001/api/health",
+          "ok": true,
+          "status_code": 200,
+          "error": null,
+          "body_excerpt": "{\"status\":\"healthy\",\"service\":\"RealAICoach API\"}"
+        },
+        "external_preview": {
+          "base_url": "https://82e85aef-7a96-4d84-a6a1-b8079e99c71e.preview.emergentagent.com",
+          "stable": false,
+          "checks": [
+            {
+              "path": "/_preview/health",
+              "status_code": 502,
+              "ok": false,
+              "error": null
+            },
+            {
+              "path": "/auth/login",
+              "status_code": 502,
+              "ok": false,
+              "error": null
+            }
+          ],
+          "checked_at": "2026-07-16T17:16:24.000153+00:00"
+        }
+      }
+    ],
+    "require_external_preview": true,
+    "require_local_backend": true,
+    "checked_at": "2026-07-16T17:16:24.000178+00:00"
+  },
+  "preflight_policy": {
+    "require_external_preview": true,
+    "require_local_backend": true,
+    "required_stable_checks": 3
+  },
+  "restart_count": 0,
+  "remediation_ledgers": [],
+  "incident_auto_closure": {
+    "evaluated_incidents": 0,
+    "active_finding_keys": 9,
+    "transitioned_to_pending_verification": 0,
+    "auto_closed": 0,
+    "reopened": 0,
+    "streak_resets": 0,
+    "policy": {
+      "clean_rescans_required": 3,
+      "pending_verification_hours": 24
+    },
+    "evaluated_at": "2026-07-16T17:16:24.010570+00:00"
+  },
+  "c5_notification_snapshot": {
+    "snapshot_version": "c5-notification-snapshot.v2",
+    "source_task_id": "gtec_c5_ad852aacad8d",
+    "source_execution_hash": "c2e72b2fc69fbea3",
+    "source_generated_at": "2026-07-16T17:16:24.010521+00:00",
+    "global_binding": {
+      "bound_to_latest_trust_task": false,
+      "latest_trust_task_id": ""
+    },
+    "trust": {
+      "score_percent": 0.0,
+      "passed_gates": 0,
+      "total_gates": 0,
+      "generated_at": "2026-07-16T17:16:24.011245+00:00"
+    },
+    "white_screen_sentry": {
+      "status": "UNKNOWN",
+      "run_id": "",
+      "failed_checks": 0,
+      "total_checks": 0,
+      "routes_tested": 0,
+      "route_source": "",
+      "generated_at": "2026-07-16T17:16:24.011249+00:00"
+    },
+    "responsive_viewport_matrix": {
+      "artifact_count": 0,
+      "viewports": [
+        "mobile",
+        "tablet",
+        "desktop"
+      ],
+      "matrix_summary": {}
+    },
+    "external_host_certification": {
+      "status": "skipped_preflight_unstable",
+      "certification_id": "",
+      "reason": "external_preview_unstable",
+      "started_at": null,
+      "finished_at": null,
+      "retry_plan": {
+        "needs_retry": true,
+        "reasons": [
+          "external_preview_unstable"
+        ]
+      }
+    },
+    "incident_auto_closure": {
+      "evaluated_incidents": 0,
+      "transitioned_to_pending_verification": 0,
+      "auto_closed": 0,
+      "reopened": 0,
+      "streak_resets": 0,
+      "policy": {
+        "clean_rescans_required": 3,
+        "pending_verification_hours": 24
+      },
+      "evaluated_at": "2026-07-16T17:16:24.011253+00:00"
+    },
+    "run_policy": {
+      "scan_mode": "STRICT_GLOBAL",
+      "strict_global_mode": true,
+      "transient_artifact_count": 0,
+      "strict_gate_passed": false,
+      "preflight_require_external_preview": true,
+      "preflight_require_local_backend": true
+    },
+    "generated_at": "2026-07-16T17:16:24.011256+00:00",
+    "snapshot_status": "INCOMPLETE",
+    "data_freshness": "INFRA_BLOCKED",
+    "consistency": {
+      "passed": false,
+      "issues": [
+        "scan_preflight_unstable"
+      ]
+    },
+    "fail_reason_summary": "INFRA_BLOCKED because: runtime preflight stability not met (1/3); reasons=external_preview_unstable"
+  },
+  "canonical_model_write": {
+    "execution_graph_written": true,
+    "finding_catalog_rows": 9,
+    "remediation_plans_updated": 0,
+    "canonical_incidents_synced": 0,
+    "policy_store_written": true
+  }
+}

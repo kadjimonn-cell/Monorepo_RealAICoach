@@ -1,0 +1,2412 @@
+{
+  "weights": {
+    "ui": 0.3,
+    "data": 0.25,
+    "business": 0.2,
+    "interaction": 0.15,
+    "code": 0.1
+  },
+  "candidate_count": 955,
+  "candidates": [
+    {
+      "executive_tab_id": "ai-command-center",
+      "executive_label": "AI Command Center",
+      "executive_route": "/executive-dashboard?section=ai-command-center",
+      "operations_tab_id": "ai-command-center",
+      "operations_label": "AI Command Center",
+      "operations_route": "/admin-console?category=overview&tab=ai-command-center",
+      "similarity_score": 81.8,
+      "dimension_scores": {
+        "ui_structure": 100.0,
+        "data_schema": 27.3,
+        "business_purpose": 100.0,
+        "interaction_pattern": 100.0,
+        "code_similarity": 100.0
+      },
+      "evidence": {
+        "shared_component": "AICommandCenterPanel",
+        "shared_component_match": true
+      }
+    },
+    {
+      "executive_tab_id": "enterprise-security",
+      "executive_label": "Enterprise Security",
+      "executive_route": "/executive-dashboard?section=enterprise-security",
+      "operations_tab_id": "enterprise-security",
+      "operations_label": "Enterprise Security",
+      "operations_route": "/admin-console?category=security&tab=enterprise-security",
+      "similarity_score": 80.6,
+      "dimension_scores": {
+        "ui_structure": 100.0,
+        "data_schema": 22.2,
+        "business_purpose": 100.0,
+        "interaction_pattern": 100.0,
+        "code_similarity": 100.0
+      },
+      "evidence": {
+        "shared_component": "EnterpriseSecurityPanel",
+        "shared_component_match": true
+      }
+    },
+    {
+      "executive_tab_id": "automation-engine",
+      "executive_label": "Automation Engine",
+      "executive_route": "/executive-dashboard?section=automation-engine",
+      "operations_tab_id": "automation-engine",
+      "operations_label": "Automation Engine",
+      "operations_route": "/admin-console?category=operations&tab=automation-engine",
+      "similarity_score": 80.0,
+      "dimension_scores": {
+        "ui_structure": 100.0,
+        "data_schema": 20.0,
+        "business_purpose": 100.0,
+        "interaction_pattern": 100.0,
+        "code_similarity": 100.0
+      },
+      "evidence": {
+        "shared_component": "AutomationEnginePanel",
+        "shared_component_match": true
+      }
+    },
+    {
+      "executive_tab_id": "platform-settings",
+      "executive_label": "Platform Settings",
+      "executive_route": "/executive-dashboard?section=platform-settings",
+      "operations_tab_id": "platform-settings",
+      "operations_label": "Platform Settings",
+      "operations_route": "/admin-console?category=operations&tab=platform-settings",
+      "similarity_score": 80.0,
+      "dimension_scores": {
+        "ui_structure": 100.0,
+        "data_schema": 20.0,
+        "business_purpose": 100.0,
+        "interaction_pattern": 100.0,
+        "code_similarity": 100.0
+      },
+      "evidence": {
+        "shared_component": "PlatformSettingsPanel",
+        "shared_component_match": true
+      }
+    },
+    {
+      "executive_tab_id": "theme-validation",
+      "executive_label": "Theme Validation",
+      "executive_route": "/executive-dashboard?section=theme-validation",
+      "operations_tab_id": "theme-validation",
+      "operations_label": "Theme Validation",
+      "operations_route": "/admin-console?category=operations&tab=theme-validation",
+      "similarity_score": 80.0,
+      "dimension_scores": {
+        "ui_structure": 100.0,
+        "data_schema": 20.0,
+        "business_purpose": 100.0,
+        "interaction_pattern": 100.0,
+        "code_similarity": 100.0
+      },
+      "evidence": {
+        "shared_component": "ThemeValidationDashboard",
+        "shared_component_match": true
+      }
+    },
+    {
+      "executive_tab_id": "iap-management",
+      "executive_label": "In-App Purchases",
+      "executive_route": "/executive-dashboard?section=iap-management",
+      "operations_tab_id": "iap",
+      "operations_label": "In-App Purchases",
+      "operations_route": "/admin-console?category=finance&tab=iap",
+      "similarity_score": 77.5,
+      "dimension_scores": {
+        "ui_structure": 100.0,
+        "data_schema": 10.0,
+        "business_purpose": 100.0,
+        "interaction_pattern": 100.0,
+        "code_similarity": 100.0
+      },
+      "evidence": {
+        "shared_component": "IAPManagementPanel",
+        "shared_component_match": true
+      }
+    },
+    {
+      "executive_tab_id": "newsletter",
+      "executive_label": "Newsletter Analytics",
+      "executive_route": "/executive-dashboard?section=newsletter",
+      "operations_tab_id": "newsletter-analytics",
+      "operations_label": "Newsletter Analytics",
+      "operations_route": "/admin-console?category=comms&tab=newsletter-analytics",
+      "similarity_score": 77.5,
+      "dimension_scores": {
+        "ui_structure": 100.0,
+        "data_schema": 10.0,
+        "business_purpose": 100.0,
+        "interaction_pattern": 100.0,
+        "code_similarity": 100.0
+      },
+      "evidence": {
+        "shared_component": "NewsletterAnalyticsPanel",
+        "shared_component_match": true
+      }
+    },
+    {
+      "executive_tab_id": "otp",
+      "executive_label": "OTP Delivery",
+      "executive_route": "/executive-dashboard?section=otp",
+      "operations_tab_id": "otp-delivery",
+      "operations_label": "OTP Delivery",
+      "operations_route": "/admin-console?category=operations&tab=otp-delivery",
+      "similarity_score": 77.5,
+      "dimension_scores": {
+        "ui_structure": 100.0,
+        "data_schema": 10.0,
+        "business_purpose": 100.0,
+        "interaction_pattern": 100.0,
+        "code_similarity": 100.0
+      },
+      "evidence": {
+        "shared_component": "OTPDeliveryDashboardPanel",
+        "shared_component_match": true
+      }
+    },
+    {
+      "executive_tab_id": "templates",
+      "executive_label": "Email Gallery",
+      "executive_route": "/executive-dashboard?section=templates",
+      "operations_tab_id": "email-templates",
+      "operations_label": "Email Templates",
+      "operations_route": "/admin-console?category=comms&tab=email-templates",
+      "similarity_score": 64.2,
+      "dimension_scores": {
+        "ui_structure": 100.0,
+        "data_schema": 10.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 100.0,
+        "code_similarity": 100.0
+      },
+      "evidence": {
+        "shared_component": "EmailTemplatesPanel",
+        "shared_component_match": true
+      }
+    },
+    {
+      "executive_tab_id": "llm-billing",
+      "executive_label": "LLM Usage & Billing",
+      "executive_route": "/admin/llm-billing",
+      "operations_tab_id": "llm-usage-billing",
+      "operations_label": "LLM Usage & Billing",
+      "operations_route": "/admin-console?category=finance&tab=llm-usage-billing",
+      "similarity_score": 53.7,
+      "dimension_scores": {
+        "ui_structure": 35.0,
+        "data_schema": 37.5,
+        "business_purpose": 100.0,
+        "interaction_pattern": 40.0,
+        "code_similarity": 78.6
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "ops-dashboard",
+      "operations_label": "Operations Center",
+      "operations_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "similarity_score": 52.9,
+      "dimension_scores": {
+        "ui_structure": 41.7,
+        "data_schema": 100.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 27.8
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "performance",
+      "executive_label": "Performance",
+      "executive_route": "/executive-dashboard?section=performance",
+      "operations_tab_id": "ab-performance",
+      "operations_label": "A/B Performance",
+      "operations_route": "/admin-console?category=dev&tab=ab-performance",
+      "similarity_score": 47.8,
+      "dimension_scores": {
+        "ui_structure": 35.0,
+        "data_schema": 10.0,
+        "business_purpose": 100.0,
+        "interaction_pattern": 40.0,
+        "code_similarity": 88.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "performance",
+      "executive_label": "Performance",
+      "executive_route": "/executive-dashboard?section=performance",
+      "operations_tab_id": "perf-advisor",
+      "operations_label": "Performance Advisor",
+      "operations_route": "/admin-console?category=operations&tab=perf-advisor",
+      "similarity_score": 46.0,
+      "dimension_scores": {
+        "ui_structure": 82.5,
+        "data_schema": 0.0,
+        "business_purpose": 50.0,
+        "interaction_pattern": 40.0,
+        "code_similarity": 52.2
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "route-health-link",
+      "executive_label": "Route Health",
+      "executive_route": "/ops-route-health",
+      "operations_tab_id": "system-health",
+      "operations_label": "System Health",
+      "operations_route": "/admin-console?category=operations&tab=system-health",
+      "similarity_score": 44.4,
+      "dimension_scores": {
+        "ui_structure": 76.7,
+        "data_schema": 11.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 60.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "notifications",
+      "executive_label": "Notification Mgmt",
+      "executive_route": "/executive-dashboard?section=notifications",
+      "operations_tab_id": "notification-rules",
+      "operations_label": "Notification Rules",
+      "operations_route": "/admin-console?category=operations&tab=notification-rules",
+      "similarity_score": 44.1,
+      "dimension_scores": {
+        "ui_structure": 76.7,
+        "data_schema": 0.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 83.9
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "performance",
+      "executive_label": "Performance",
+      "executive_route": "/executive-dashboard?section=performance",
+      "operations_tab_id": "performance-guardian",
+      "operations_label": "Performance Guardian",
+      "operations_route": "/admin-console?category=operations&tab=performance-guardian",
+      "similarity_score": 39.8,
+      "dimension_scores": {
+        "ui_structure": 47.5,
+        "data_schema": 10.0,
+        "business_purpose": 50.0,
+        "interaction_pattern": 40.0,
+        "code_similarity": 71.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "performance-observability-link",
+      "executive_label": "Performance Observability",
+      "executive_route": "/ops-performance",
+      "operations_tab_id": "perf-advisor",
+      "operations_label": "Performance Advisor",
+      "operations_route": "/admin-console?category=operations&tab=perf-advisor",
+      "similarity_score": 38.5,
+      "dimension_scores": {
+        "ui_structure": 76.7,
+        "data_schema": 0.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 28.6
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "self-repair",
+      "operations_label": "Self-Repair Engine",
+      "operations_route": "/admin-console?category=operations&tab=self-repair",
+      "similarity_score": 36.8,
+      "dimension_scores": {
+        "ui_structure": 65.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 11.8
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "enterprise-security",
+      "executive_label": "Enterprise Security",
+      "executive_route": "/executive-dashboard?section=enterprise-security",
+      "operations_tab_id": "security-posture",
+      "operations_label": "Security Posture",
+      "operations_route": "/admin-console?category=security&tab=security-posture",
+      "similarity_score": 35.7,
+      "dimension_scores": {
+        "ui_structure": 53.3,
+        "data_schema": 10.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 45.7
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "automation-engine",
+      "executive_label": "Automation Engine",
+      "executive_route": "/executive-dashboard?section=automation-engine",
+      "operations_tab_id": "autonomous-engine",
+      "operations_label": "Autonomous Engine",
+      "operations_route": "/admin-console?category=operations&tab=autonomous-engine",
+      "similarity_score": 35.1,
+      "dimension_scores": {
+        "ui_structure": 41.7,
+        "data_schema": 9.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 76.5
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "system-monitor",
+      "executive_label": "System Monitor",
+      "executive_route": "/executive-dashboard?section=system-monitor",
+      "operations_tab_id": "system-health",
+      "operations_label": "System Health",
+      "operations_route": "/admin-console?category=operations&tab=system-health",
+      "similarity_score": 34.9,
+      "dimension_scores": {
+        "ui_structure": 46.7,
+        "data_schema": 9.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 59.3
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "security",
+      "executive_label": "Security Dashboard",
+      "executive_route": "/executive-dashboard?section=security",
+      "operations_tab_id": "security-posture",
+      "operations_label": "Security Posture",
+      "operations_route": "/admin-console?category=security&tab=security-posture",
+      "similarity_score": 34.6,
+      "dimension_scores": {
+        "ui_structure": 41.7,
+        "data_schema": 11.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 66.7
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "notifications",
+      "executive_label": "Notification Mgmt",
+      "executive_route": "/executive-dashboard?section=notifications",
+      "operations_tab_id": "notification-history",
+      "operations_label": "Notification History",
+      "operations_route": "/admin-console?category=support&tab=notification-history",
+      "similarity_score": 34.5,
+      "dimension_scores": {
+        "ui_structure": 46.7,
+        "data_schema": 0.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 78.8
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "performance-observability-link",
+      "executive_label": "Performance Observability",
+      "executive_route": "/ops-performance",
+      "operations_tab_id": "performance-guardian",
+      "operations_label": "Performance Guardian",
+      "operations_route": "/admin-console?category=operations&tab=performance-guardian",
+      "similarity_score": 34.3,
+      "dimension_scores": {
+        "ui_structure": 41.7,
+        "data_schema": 12.5,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 60.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "ai-features",
+      "executive_label": "AI Feature Analytics",
+      "executive_route": "/executive-dashboard?section=ai-features",
+      "operations_tab_id": "nova-analytics",
+      "operations_label": "Nova AI Analytics",
+      "operations_route": "/admin-console?category=analytics&tab=nova-analytics",
+      "similarity_score": 34.1,
+      "dimension_scores": {
+        "ui_structure": 52.5,
+        "data_schema": 0.0,
+        "business_purpose": 50.0,
+        "interaction_pattern": 40.0,
+        "code_similarity": 24.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "security",
+      "executive_label": "Security Dashboard",
+      "executive_route": "/executive-dashboard?section=security",
+      "operations_tab_id": "security-incidents",
+      "operations_label": "Security Incidents",
+      "operations_route": "/admin-console?category=security&tab=security-incidents",
+      "similarity_score": 34.1,
+      "dimension_scores": {
+        "ui_structure": 41.7,
+        "data_schema": 11.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 61.5
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "security",
+      "executive_label": "Security Dashboard",
+      "executive_route": "/executive-dashboard?section=security",
+      "operations_tab_id": "enterprise-security",
+      "operations_label": "Enterprise Security",
+      "operations_route": "/admin-console?category=security&tab=enterprise-security",
+      "similarity_score": 33.9,
+      "dimension_scores": {
+        "ui_structure": 41.7,
+        "data_schema": 11.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 59.3
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "ai-analytics-link",
+      "executive_label": "AI Analytics",
+      "executive_route": "/ai-feature-dashboard",
+      "operations_tab_id": "nova-analytics",
+      "operations_label": "Nova AI Analytics",
+      "operations_route": "/admin-console?category=analytics&tab=nova-analytics",
+      "similarity_score": 33.4,
+      "dimension_scores": {
+        "ui_structure": 23.3,
+        "data_schema": 0.0,
+        "business_purpose": 66.7,
+        "interaction_pattern": 40.0,
+        "code_similarity": 71.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "ai-support",
+      "executive_label": "AI Auto-Support",
+      "executive_route": "/executive-dashboard?section=ai-support",
+      "operations_tab_id": "auto-detect",
+      "operations_label": "AI Auto-Detection",
+      "operations_route": "/admin-console?category=operations&tab=auto-detect",
+      "similarity_score": 33.1,
+      "dimension_scores": {
+        "ui_structure": 47.5,
+        "data_schema": 0.0,
+        "business_purpose": 50.0,
+        "interaction_pattern": 40.0,
+        "code_similarity": 28.6
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "route-health-link",
+      "executive_label": "Route Health",
+      "executive_route": "/ops-route-health",
+      "operations_tab_id": "platform-health",
+      "operations_label": "Platform Health",
+      "operations_route": "/admin-console?category=operations&tab=platform-health",
+      "similarity_score": 32.9,
+      "dimension_scores": {
+        "ui_structure": 41.7,
+        "data_schema": 11.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 50.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "users",
+      "executive_label": "User Management",
+      "executive_route": "/executive-dashboard?section=users",
+      "operations_tab_id": "uba-dashboard",
+      "operations_label": "User Behavior",
+      "operations_route": "/admin-console?category=analytics&tab=uba-dashboard",
+      "similarity_score": 32.5,
+      "dimension_scores": {
+        "ui_structure": 46.7,
+        "data_schema": 10.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 33.3
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "enterprise-security",
+      "executive_label": "Enterprise Security",
+      "executive_route": "/executive-dashboard?section=enterprise-security",
+      "operations_tab_id": "security-incidents",
+      "operations_label": "Security Incidents",
+      "operations_route": "/admin-console?category=security&tab=security-incidents",
+      "similarity_score": 32.0,
+      "dimension_scores": {
+        "ui_structure": 41.7,
+        "data_schema": 10.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 43.2
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "sessions",
+      "executive_label": "Session Management",
+      "executive_route": "/executive-dashboard?section=sessions",
+      "operations_tab_id": "session-replay",
+      "operations_label": "Session Replay",
+      "operations_route": "/admin-console?category=operations&tab=session-replay",
+      "similarity_score": 31.5,
+      "dimension_scores": {
+        "ui_structure": 41.7,
+        "data_schema": 0.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 63.6
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "theme-governance-dashboard",
+      "operations_label": "Theme Governance Dashboard",
+      "operations_route": "/admin-console?category=operations&tab=theme-governance-dashboard",
+      "similarity_score": 31.2,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 66.7,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 32.7
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "overview",
+      "executive_label": "Executive Overview",
+      "executive_route": "/executive-dashboard?section=overview",
+      "operations_tab_id": "dashboard",
+      "operations_label": "Control Dashboard",
+      "operations_route": "/admin-console?category=overview&tab=dashboard",
+      "similarity_score": 30.4,
+      "dimension_scores": {
+        "ui_structure": 65.0,
+        "data_schema": 25.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 23.5
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "automation-engine",
+      "operations_label": "Automation Engine",
+      "operations_route": "/admin-console?category=operations&tab=automation-engine",
+      "similarity_score": 30.1,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 50.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "performance-guardian",
+      "operations_label": "Performance Guardian",
+      "operations_route": "/admin-console?category=operations&tab=performance-guardian",
+      "similarity_score": 29.8,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 46.5
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "sessions",
+      "executive_label": "Session Management",
+      "executive_route": "/executive-dashboard?section=sessions",
+      "operations_tab_id": "mfa-settings",
+      "operations_label": "MFA Management",
+      "operations_route": "/admin-console?category=security&tab=mfa-settings",
+      "similarity_score": 29.7,
+      "dimension_scores": {
+        "ui_structure": 46.7,
+        "data_schema": 0.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 30.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "autonomous-engine",
+      "operations_label": "Autonomous Engine",
+      "operations_route": "/admin-console?category=operations&tab=autonomous-engine",
+      "similarity_score": 29.6,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 45.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "risk",
+      "executive_label": "Risk & Compliance",
+      "executive_route": "/executive-dashboard?section=risk",
+      "operations_tab_id": "auth-compliance-dashboard",
+      "operations_label": "Auth Compliance",
+      "operations_route": "/admin-console?category=analytics&tab=auth-compliance-dashboard",
+      "similarity_score": 29.6,
+      "dimension_scores": {
+        "ui_structure": 46.7,
+        "data_schema": 9.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 6.9
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "notification-rules",
+      "operations_label": "Notification Rules",
+      "operations_route": "/admin-console?category=operations&tab=notification-rules",
+      "similarity_score": 29.5,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 43.9
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "policy-console-link",
+      "executive_label": "Policy Console",
+      "executive_route": "/policy-console",
+      "operations_tab_id": "cookie-policy-broadcast",
+      "operations_label": "Cookie Policy Updated",
+      "operations_route": "/admin-console?category=operations&tab=cookie-policy-broadcast",
+      "similarity_score": 29.4,
+      "dimension_scores": {
+        "ui_structure": 38.8,
+        "data_schema": 25.0,
+        "business_purpose": 25.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 42.9
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "performance-observability-link",
+      "executive_label": "Performance Observability",
+      "executive_route": "/ops-performance",
+      "operations_tab_id": "ab-performance",
+      "operations_label": "A/B Performance",
+      "operations_route": "/admin-console?category=dev&tab=ab-performance",
+      "similarity_score": 29.4,
+      "dimension_scores": {
+        "ui_structure": 17.5,
+        "data_schema": 12.5,
+        "business_purpose": 50.0,
+        "interaction_pattern": 40.0,
+        "code_similarity": 50.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "policy-console-link",
+      "executive_label": "Policy Console",
+      "executive_route": "/policy-console",
+      "operations_tab_id": "privacy-policy-broadcast",
+      "operations_label": "Privacy Policy Updated",
+      "operations_route": "/admin-console?category=operations&tab=privacy-policy-broadcast",
+      "similarity_score": 29.3,
+      "dimension_scores": {
+        "ui_structure": 38.8,
+        "data_schema": 25.0,
+        "business_purpose": 25.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 41.9
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "platform-integrations",
+      "operations_label": "Platform Integrations",
+      "operations_route": "/admin-console?category=operations&tab=platform-integrations",
+      "similarity_score": 29.2,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 40.9
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "platform-settings",
+      "operations_label": "Platform Settings",
+      "operations_route": "/admin-console?category=operations&tab=platform-settings",
+      "similarity_score": 29.1,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 40.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "perf-advisor",
+      "operations_label": "Performance Advisor",
+      "operations_route": "/admin-console?category=operations&tab=perf-advisor",
+      "similarity_score": 29.1,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 40.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "system-dashboard-link",
+      "executive_label": "System Dashboard",
+      "executive_route": "/admin-system",
+      "operations_tab_id": "system-health",
+      "operations_label": "System Health",
+      "operations_route": "/admin-console?category=operations&tab=system-health",
+      "similarity_score": 28.6,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 28.6,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 52.9
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "deployment-orchestration",
+      "operations_label": "Deployments",
+      "operations_route": "/admin-console?category=operations&tab=deployment-orchestration",
+      "similarity_score": 28.5,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 34.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "fraud",
+      "executive_label": "Fraud Detection",
+      "executive_route": "/executive-dashboard?section=fraud",
+      "operations_tab_id": "anomaly-detection",
+      "operations_label": "Anomaly Detection",
+      "operations_route": "/admin-console?category=analytics&tab=anomaly-detection",
+      "similarity_score": 28.5,
+      "dimension_scores": {
+        "ui_structure": 46.7,
+        "data_schema": 0.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 18.2
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "enterprise-control-plane",
+      "operations_label": "Enterprise Control Plane",
+      "operations_route": "/admin-console?category=operations&tab=enterprise-control-plane",
+      "similarity_score": 28.4,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 50.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 46.8
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "ai-remediation",
+      "operations_label": "AI Remediation",
+      "operations_route": "/admin-console?category=operations&tab=ai-remediation",
+      "similarity_score": 28.4,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 32.4
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "session-replay",
+      "operations_label": "Session Replay",
+      "operations_route": "/admin-console?category=operations&tab=session-replay",
+      "similarity_score": 28.4,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 32.4
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "tos-management",
+      "operations_label": "Terms of Service",
+      "operations_route": "/admin-console?category=operations&tab=tos-management",
+      "similarity_score": 28.4,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 32.4
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "platform-health",
+      "operations_label": "Platform Health",
+      "operations_route": "/admin-console?category=operations&tab=platform-health",
+      "similarity_score": 28.3,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 31.6
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "theme-validation",
+      "operations_label": "Theme Validation",
+      "operations_route": "/admin-console?category=operations&tab=theme-validation",
+      "similarity_score": 28.2,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 30.8
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "reality-validation",
+      "operations_label": "Reality Validation",
+      "operations_route": "/admin-console?category=operations&tab=reality-validation",
+      "similarity_score": 28.1,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 29.3
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "auto-scaling",
+      "operations_label": "Auto-Scaling",
+      "operations_route": "/admin-console?category=operations&tab=auto-scaling",
+      "similarity_score": 28.0,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 28.6
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "fraud",
+      "executive_label": "Fraud Detection",
+      "executive_route": "/executive-dashboard?section=fraud",
+      "operations_tab_id": "threat-detection",
+      "operations_label": "Threat Detection",
+      "operations_route": "/admin-console?category=security&tab=threat-detection",
+      "similarity_score": 28.0,
+      "dimension_scores": {
+        "ui_structure": 41.7,
+        "data_schema": 0.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 28.6
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "ab-testing",
+      "executive_label": "A/B Testing",
+      "executive_route": "/executive-dashboard?section=ab-testing",
+      "operations_tab_id": "ab-testing",
+      "operations_label": "Email A/B Tests",
+      "operations_route": "/admin-console?category=dev&tab=ab-testing",
+      "similarity_score": 27.8,
+      "dimension_scores": {
+        "ui_structure": 35.0,
+        "data_schema": 20.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 100.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "ai-features",
+      "executive_label": "AI Feature Analytics",
+      "executive_route": "/executive-dashboard?section=ai-features",
+      "operations_tab_id": "ai-resolution",
+      "operations_label": "AI Resolution",
+      "operations_route": "/admin-console?category=analytics&tab=ai-resolution",
+      "similarity_score": 27.6,
+      "dimension_scores": {
+        "ui_structure": 43.8,
+        "data_schema": 9.1,
+        "business_purpose": 25.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 50.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "theme-audit",
+      "operations_label": "Theme Audit",
+      "operations_route": "/admin-console?category=operations&tab=theme-audit",
+      "similarity_score": 27.5,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 23.5
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "auto-detect",
+      "operations_label": "AI Auto-Detection",
+      "operations_route": "/admin-console?category=operations&tab=auto-detect",
+      "similarity_score": 27.5,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 23.5
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "otp-delivery",
+      "operations_label": "OTP Delivery",
+      "operations_route": "/admin-console?category=operations&tab=otp-delivery",
+      "similarity_score": 27.4,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 22.9
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "system-monitor",
+      "executive_label": "System Monitor",
+      "executive_route": "/executive-dashboard?section=system-monitor",
+      "operations_tab_id": "critical-journey-monitor",
+      "operations_label": "Critical Journey Monitor",
+      "operations_route": "/admin-console?category=operations&tab=critical-journey-monitor",
+      "similarity_score": 27.2,
+      "dimension_scores": {
+        "ui_structure": 43.8,
+        "data_schema": 8.3,
+        "business_purpose": 25.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 47.4
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "ai-platform-integrity",
+      "operations_label": "AI Platform Integrity & Auto-Fix Engine",
+      "operations_route": "/admin-console?category=operations&tab=ai-platform-integrity",
+      "similarity_score": 26.9,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 50.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 31.8
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "system-health",
+      "operations_label": "System Health",
+      "operations_route": "/admin-console?category=operations&tab=system-health",
+      "similarity_score": 26.8,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 16.7
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "ai-analytics-link",
+      "executive_label": "AI Analytics",
+      "executive_route": "/ai-feature-dashboard",
+      "operations_tab_id": "team-analytics",
+      "operations_label": "Team Analytics",
+      "operations_route": "/admin-console?category=analytics&tab=team-analytics",
+      "similarity_score": 26.8,
+      "dimension_scores": {
+        "ui_structure": 23.3,
+        "data_schema": 0.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 71.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "privacy-policy-broadcast",
+      "operations_label": "Privacy Policy Updated",
+      "operations_route": "/admin-console?category=operations&tab=privacy-policy-broadcast",
+      "similarity_score": 26.7,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 50.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 29.8
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "ai-support",
+      "executive_label": "AI Auto-Support",
+      "executive_route": "/executive-dashboard?section=ai-support",
+      "operations_tab_id": "ai-platform-integrity",
+      "operations_label": "AI Platform Integrity & Auto-Fix Engine",
+      "operations_route": "/admin-console?category=operations&tab=ai-platform-integrity",
+      "similarity_score": 26.6,
+      "dimension_scores": {
+        "ui_structure": 40.0,
+        "data_schema": 8.3,
+        "business_purpose": 28.6,
+        "interaction_pattern": 15.0,
+        "code_similarity": 45.2
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "gps-state-management",
+      "operations_label": "GPS State Management",
+      "operations_route": "/admin-console?category=operations&tab=gps-state-management",
+      "similarity_score": 26.5,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 50.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 27.9
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "legal-notice-broadcast",
+      "operations_label": "Legal Notice Broadcast",
+      "operations_route": "/admin-console?category=operations&tab=legal-notice-broadcast",
+      "similarity_score": 26.4,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 50.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 26.7
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "critical-journey-monitor",
+      "operations_label": "Critical Journey Monitor",
+      "operations_route": "/admin-console?category=operations&tab=critical-journey-monitor",
+      "similarity_score": 26.3,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 50.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 25.5
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "ai-analytics-link",
+      "executive_label": "AI Analytics",
+      "executive_route": "/ai-feature-dashboard",
+      "operations_tab_id": "hiring-analytics",
+      "operations_label": "Hiring Analytics",
+      "operations_route": "/admin-console?category=people&tab=hiring-analytics",
+      "similarity_score": 26.3,
+      "dimension_scores": {
+        "ui_structure": 23.3,
+        "data_schema": 0.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 66.7
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "onboarding-analytics",
+      "executive_label": "Onboarding Analytics",
+      "executive_route": "/executive-dashboard?section=onboarding-analytics",
+      "operations_tab_id": "hiring-analytics",
+      "operations_label": "Hiring Analytics",
+      "operations_route": "/admin-console?category=people&tab=hiring-analytics",
+      "similarity_score": 26.2,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 9.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 77.8
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "feature-manager",
+      "operations_label": "Feature Manager",
+      "operations_route": "/admin-console?category=operations&tab=feature-manager",
+      "similarity_score": 26.2,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 55.6,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 10.5
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "sub-analytics",
+      "executive_label": "Subscription Analytics",
+      "executive_route": "/executive-dashboard?section=sub-analytics",
+      "operations_tab_id": "team-analytics",
+      "operations_label": "Team Analytics",
+      "operations_route": "/admin-console?category=analytics&tab=team-analytics",
+      "similarity_score": 26.1,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 10.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 74.1
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "sso-analytics",
+      "executive_label": "SSO Analytics",
+      "executive_route": "/executive-dashboard?section=sso-analytics",
+      "operations_tab_id": "team-analytics",
+      "operations_label": "Team Analytics",
+      "operations_route": "/admin-console?category=analytics&tab=team-analytics",
+      "similarity_score": 26.1,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 10.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 74.1
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "cookie-policy-broadcast",
+      "operations_label": "Cookie Policy Updated",
+      "operations_route": "/admin-console?category=operations&tab=cookie-policy-broadcast",
+      "similarity_score": 25.9,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 50.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 21.7
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "ai-command-center",
+      "executive_label": "AI Command Center",
+      "executive_route": "/executive-dashboard?section=ai-command-center",
+      "operations_tab_id": "ai-resolution",
+      "operations_label": "AI Resolution",
+      "operations_route": "/admin-console?category=analytics&tab=ai-resolution",
+      "similarity_score": 25.8,
+      "dimension_scores": {
+        "ui_structure": 43.8,
+        "data_schema": 8.3,
+        "business_purpose": 25.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 33.3
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "sso-analytics",
+      "executive_label": "SSO Analytics",
+      "executive_route": "/executive-dashboard?section=sso-analytics",
+      "operations_tab_id": "platform-analytics",
+      "operations_label": "Platform Analytics",
+      "operations_route": "/admin-console?category=analytics&tab=platform-analytics",
+      "similarity_score": 25.8,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 10.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 71.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "platform-settings",
+      "executive_label": "Platform Settings",
+      "executive_route": "/executive-dashboard?section=platform-settings",
+      "operations_tab_id": "platform-integrations",
+      "operations_label": "Platform Integrations",
+      "operations_route": "/admin-console?category=operations&tab=platform-integrations",
+      "similarity_score": 25.8,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 9.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 73.7
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "system-dashboard-link",
+      "executive_label": "System Dashboard",
+      "executive_route": "/admin-system",
+      "operations_tab_id": "dashboard",
+      "operations_label": "Control Dashboard",
+      "operations_route": "/admin-console?category=overview&tab=dashboard",
+      "similarity_score": 25.7,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 14.3,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 60.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "id-checker",
+      "executive_label": "ID Checker",
+      "executive_route": "/executive-dashboard?section=id-checker",
+      "operations_tab_id": "zero-trust-center",
+      "operations_label": "Zero-Trust Center",
+      "operations_route": "/admin-console?category=security&tab=zero-trust-center",
+      "similarity_score": 25.5,
+      "dimension_scores": {
+        "ui_structure": 65.0,
+        "data_schema": 0.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 37.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "platform-settings",
+      "executive_label": "Platform Settings",
+      "executive_route": "/executive-dashboard?section=platform-settings",
+      "operations_tab_id": "platform-analytics",
+      "operations_label": "Platform Analytics",
+      "operations_route": "/admin-console?category=analytics&tab=platform-analytics",
+      "similarity_score": 25.5,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 10.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 68.6
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "theme-validation",
+      "executive_label": "Theme Validation",
+      "executive_route": "/executive-dashboard?section=theme-validation",
+      "operations_tab_id": "reality-validation",
+      "operations_label": "Reality Validation",
+      "operations_route": "/admin-console?category=operations&tab=reality-validation",
+      "similarity_score": 25.5,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 9.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 70.6
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "route-health-link",
+      "executive_label": "Route Health",
+      "executive_route": "/ops-route-health",
+      "operations_tab_id": "code-health",
+      "operations_label": "Code Health",
+      "operations_route": "/admin-console?category=dev&tab=code-health",
+      "similarity_score": 25.4,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 11.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 64.3
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "device-audit",
+      "executive_label": "Device Audit",
+      "executive_route": "/executive-dashboard?section=device-audit",
+      "operations_tab_id": "theme-audit",
+      "operations_label": "Theme Audit",
+      "operations_route": "/admin-console?category=operations&tab=theme-audit",
+      "similarity_score": 25.4,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 9.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 69.6
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "sub-analytics",
+      "executive_label": "Subscription Analytics",
+      "executive_route": "/executive-dashboard?section=sub-analytics",
+      "operations_tab_id": "hiring-analytics",
+      "operations_label": "Hiring Analytics",
+      "operations_route": "/admin-console?category=people&tab=hiring-analytics",
+      "similarity_score": 25.3,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 9.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 69.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "sso-analytics",
+      "executive_label": "SSO Analytics",
+      "executive_route": "/executive-dashboard?section=sso-analytics",
+      "operations_tab_id": "hiring-analytics",
+      "operations_label": "Hiring Analytics",
+      "operations_route": "/admin-console?category=people&tab=hiring-analytics",
+      "similarity_score": 25.3,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 9.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 69.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "platform-settings",
+      "executive_label": "Platform Settings",
+      "executive_route": "/executive-dashboard?section=platform-settings",
+      "operations_tab_id": "platform-health",
+      "operations_label": "Platform Health",
+      "operations_route": "/admin-console?category=operations&tab=platform-health",
+      "similarity_score": 25.3,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 9.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 68.8
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "ai-features",
+      "executive_label": "AI Feature Analytics",
+      "executive_route": "/executive-dashboard?section=ai-features",
+      "operations_tab_id": "ai-command-center",
+      "operations_label": "AI Command Center",
+      "operations_route": "/admin-console?category=overview&tab=ai-command-center",
+      "similarity_score": 25.2,
+      "dimension_scores": {
+        "ui_structure": 42.0,
+        "data_schema": 8.3,
+        "business_purpose": 20.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 42.9
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "id-checker",
+      "executive_label": "ID Checker",
+      "executive_route": "/executive-dashboard?section=id-checker",
+      "operations_tab_id": "enterprise-security",
+      "operations_label": "Enterprise Security",
+      "operations_route": "/admin-console?category=security&tab=enterprise-security",
+      "similarity_score": 25.2,
+      "dimension_scores": {
+        "ui_structure": 65.0,
+        "data_schema": 0.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 34.5
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "sub-analytics",
+      "executive_label": "Subscription Analytics",
+      "executive_route": "/executive-dashboard?section=sub-analytics",
+      "operations_tab_id": "platform-analytics",
+      "operations_label": "Platform Analytics",
+      "operations_route": "/admin-console?category=analytics&tab=platform-analytics",
+      "similarity_score": 25.1,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 10.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 64.5
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "sub-analytics",
+      "executive_label": "Subscription Analytics",
+      "executive_route": "/executive-dashboard?section=sub-analytics",
+      "operations_tab_id": "newsletter-analytics",
+      "operations_label": "Newsletter Analytics",
+      "operations_route": "/admin-console?category=comms&tab=newsletter-analytics",
+      "similarity_score": 25.1,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 9.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 66.7
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "sso-analytics",
+      "executive_label": "SSO Analytics",
+      "executive_route": "/executive-dashboard?section=sso-analytics",
+      "operations_tab_id": "newsletter-analytics",
+      "operations_label": "Newsletter Analytics",
+      "operations_route": "/admin-console?category=comms&tab=newsletter-analytics",
+      "similarity_score": 25.1,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 9.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 66.7
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "onboarding-analytics",
+      "executive_label": "Onboarding Analytics",
+      "executive_route": "/executive-dashboard?section=onboarding-analytics",
+      "operations_tab_id": "team-analytics",
+      "operations_label": "Team Analytics",
+      "operations_route": "/admin-console?category=analytics&tab=team-analytics",
+      "similarity_score": 25.1,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 10.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 64.7
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "platform-trust-center",
+      "operations_label": "Platform Trust Center",
+      "operations_route": "/admin-console?category=operations&tab=platform-trust-center",
+      "similarity_score": 25.1,
+      "dimension_scores": {
+        "ui_structure": 30.0,
+        "data_schema": 50.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 13.6
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "theme-validation",
+      "executive_label": "Theme Validation",
+      "executive_route": "/executive-dashboard?section=theme-validation",
+      "operations_tab_id": "theme-audit",
+      "operations_label": "Theme Audit",
+      "operations_route": "/admin-console?category=operations&tab=theme-audit",
+      "similarity_score": 25.1,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 9.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 66.7
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "onboarding-analytics",
+      "executive_label": "Onboarding Analytics",
+      "executive_route": "/executive-dashboard?section=onboarding-analytics",
+      "operations_tab_id": "platform-analytics",
+      "operations_label": "Platform Analytics",
+      "operations_route": "/admin-console?category=analytics&tab=platform-analytics",
+      "similarity_score": 25.0,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 10.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 63.2
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "operations-console-link",
+      "executive_label": "Operations Console",
+      "executive_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "operations_tab_id": "certificate-template-manager",
+      "operations_label": "Certificate Template",
+      "operations_route": "/admin-console?category=analytics&tab=certificate-template-manager",
+      "similarity_score": 25.0,
+      "dimension_scores": {
+        "ui_structure": 35.0,
+        "data_schema": 36.4,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 31.4
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "risk",
+      "executive_label": "Risk & Compliance",
+      "executive_route": "/executive-dashboard?section=risk",
+      "operations_tab_id": "security-posture",
+      "operations_label": "Security Posture",
+      "operations_route": "/admin-console?category=security&tab=security-posture",
+      "similarity_score": 24.8,
+      "dimension_scores": {
+        "ui_structure": 65.0,
+        "data_schema": 0.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 30.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "gdpr-requests",
+      "executive_label": "GDPR Self-Service",
+      "executive_route": "/admin/gdpr-requests",
+      "operations_tab_id": "zero-trust-center",
+      "operations_label": "Zero-Trust Center",
+      "operations_route": "/admin-console?category=security&tab=zero-trust-center",
+      "similarity_score": 24.8,
+      "dimension_scores": {
+        "ui_structure": 53.3,
+        "data_schema": 10.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 40.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "tickertape-analytics",
+      "executive_label": "Welcome \u00b7 Tickertape CTR",
+      "executive_route": "/executive-dashboard?section=tickertape-analytics",
+      "operations_tab_id": "zero-trust-root-cause-board",
+      "operations_label": "Zero-Trust Root-Cause Board",
+      "operations_route": "/admin-console?category=security&tab=zero-trust-root-cause-board",
+      "similarity_score": 24.7,
+      "dimension_scores": {
+        "ui_structure": 65.0,
+        "data_schema": 0.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 29.8
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "sub-analytics",
+      "executive_label": "Subscription Analytics",
+      "executive_route": "/executive-dashboard?section=sub-analytics",
+      "operations_tab_id": "certificate-analytics",
+      "operations_label": "Certificate Analytics",
+      "operations_route": "/admin-console?category=analytics&tab=certificate-analytics",
+      "similarity_score": 24.5,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 10.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 58.8
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "ai-features",
+      "executive_label": "AI Feature Analytics",
+      "executive_route": "/executive-dashboard?section=ai-features",
+      "operations_tab_id": "security-recs",
+      "operations_label": "AI Recommendations",
+      "operations_route": "/admin-console?category=security&tab=security-recs",
+      "similarity_score": 24.5,
+      "dimension_scores": {
+        "ui_structure": 43.8,
+        "data_schema": 0.0,
+        "business_purpose": 25.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 41.7
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "sso-analytics",
+      "executive_label": "SSO Analytics",
+      "executive_route": "/executive-dashboard?section=sso-analytics",
+      "operations_tab_id": "certificate-analytics",
+      "operations_label": "Certificate Analytics",
+      "operations_route": "/admin-console?category=analytics&tab=certificate-analytics",
+      "similarity_score": 24.5,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 10.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 58.8
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "sso-analytics",
+      "executive_label": "SSO Analytics",
+      "executive_route": "/executive-dashboard?section=sso-analytics",
+      "operations_tab_id": "sso-status",
+      "operations_label": "SSO Providers",
+      "operations_route": "/admin-console?category=security&tab=sso-status",
+      "similarity_score": 24.5,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 9.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 60.9
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "ai-support",
+      "executive_label": "AI Auto-Support",
+      "executive_route": "/executive-dashboard?section=ai-support",
+      "operations_tab_id": "ai-remediation",
+      "operations_label": "AI Remediation",
+      "operations_route": "/admin-console?category=operations&tab=ai-remediation",
+      "similarity_score": 24.5,
+      "dimension_scores": {
+        "ui_structure": 38.8,
+        "data_schema": 9.1,
+        "business_purpose": 25.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 33.3
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "gdpr-requests",
+      "executive_label": "GDPR Self-Service",
+      "executive_route": "/admin/gdpr-requests",
+      "operations_tab_id": "enterprise-security",
+      "operations_label": "Enterprise Security",
+      "operations_route": "/admin-console?category=security&tab=enterprise-security",
+      "similarity_score": 24.5,
+      "dimension_scores": {
+        "ui_structure": 53.3,
+        "data_schema": 12.5,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 31.2
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "onboarding-analytics",
+      "executive_label": "Onboarding Analytics",
+      "executive_route": "/executive-dashboard?section=onboarding-analytics",
+      "operations_tab_id": "newsletter-analytics",
+      "operations_label": "Newsletter Analytics",
+      "operations_route": "/admin-console?category=comms&tab=newsletter-analytics",
+      "similarity_score": 24.4,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 9.1,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 60.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "performance",
+      "executive_label": "Performance",
+      "executive_route": "/executive-dashboard?section=performance",
+      "operations_tab_id": "auto-scaling",
+      "operations_label": "Auto-Scaling",
+      "operations_route": "/admin-console?category=operations&tab=auto-scaling",
+      "similarity_score": 24.4,
+      "dimension_scores": {
+        "ui_structure": 65.0,
+        "data_schema": 0.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 26.1
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "risk",
+      "executive_label": "Risk & Compliance",
+      "executive_route": "/executive-dashboard?section=risk",
+      "operations_tab_id": "enterprise-security",
+      "operations_label": "Enterprise Security",
+      "operations_route": "/admin-console?category=security&tab=enterprise-security",
+      "similarity_score": 24.4,
+      "dimension_scores": {
+        "ui_structure": 65.0,
+        "data_schema": 0.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 26.1
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "performance-observability-link",
+      "executive_label": "Performance Observability",
+      "executive_route": "/ops-performance",
+      "operations_tab_id": "auto-scaling",
+      "operations_label": "Auto-Scaling",
+      "operations_route": "/admin-console?category=operations&tab=auto-scaling",
+      "similarity_score": 24.1,
+      "dimension_scores": {
+        "ui_structure": 65.0,
+        "data_schema": 0.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 23.8
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "id-checker",
+      "executive_label": "ID Checker",
+      "executive_route": "/executive-dashboard?section=id-checker",
+      "operations_tab_id": "security-posture",
+      "operations_label": "Security Posture",
+      "operations_route": "/admin-console?category=security&tab=security-posture",
+      "similarity_score": 24.1,
+      "dimension_scores": {
+        "ui_structure": 65.0,
+        "data_schema": 0.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 23.1
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "ai-usage",
+      "executive_label": "AI Usage Analytics",
+      "executive_route": "/executive-dashboard?section=ai-usage",
+      "operations_tab_id": "nova-analytics",
+      "operations_label": "Nova AI Analytics",
+      "operations_route": "/admin-console?category=analytics&tab=nova-analytics",
+      "similarity_score": 24.0,
+      "dimension_scores": {
+        "ui_structure": 17.5,
+        "data_schema": 0.0,
+        "business_purpose": 50.0,
+        "interaction_pattern": 40.0,
+        "code_similarity": 27.3
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "onboarding-analytics",
+      "executive_label": "Onboarding Analytics",
+      "executive_route": "/executive-dashboard?section=onboarding-analytics",
+      "operations_tab_id": "certificate-analytics",
+      "operations_label": "Certificate Analytics",
+      "operations_route": "/admin-console?category=analytics&tab=certificate-analytics",
+      "similarity_score": 24.0,
+      "dimension_scores": {
+        "ui_structure": 11.7,
+        "data_schema": 10.0,
+        "business_purpose": 33.3,
+        "interaction_pattern": 40.0,
+        "code_similarity": 53.7
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "jobs",
+      "executive_label": "Job Control Center",
+      "executive_route": "/executive-dashboard?section=jobs",
+      "operations_tab_id": "ops-dashboard",
+      "operations_label": "Operations Center",
+      "operations_route": "/admin-console?category=operations&tab=ops-dashboard",
+      "similarity_score": 23.7,
+      "dimension_scores": {
+        "ui_structure": 38.8,
+        "data_schema": 10.0,
+        "business_purpose": 25.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 23.5
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "route-health-link",
+      "executive_label": "Route Health",
+      "executive_route": "/ops-route-health",
+      "operations_tab_id": "critical-journey-monitor",
+      "operations_label": "Critical Journey Monitor",
+      "operations_route": "/admin-console?category=operations&tab=critical-journey-monitor",
+      "similarity_score": 23.7,
+      "dimension_scores": {
+        "ui_structure": 65.0,
+        "data_schema": 0.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 19.5
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    },
+    {
+      "executive_tab_id": "risk",
+      "executive_label": "Risk & Compliance",
+      "executive_route": "/executive-dashboard?section=risk",
+      "operations_tab_id": "zero-trust-center",
+      "operations_label": "Zero-Trust Center",
+      "operations_route": "/admin-console?category=security&tab=zero-trust-center",
+      "similarity_score": 23.7,
+      "dimension_scores": {
+        "ui_structure": 65.0,
+        "data_schema": 0.0,
+        "business_purpose": 0.0,
+        "interaction_pattern": 15.0,
+        "code_similarity": 19.0
+      },
+      "evidence": {
+        "shared_component": null,
+        "shared_component_match": false
+      }
+    }
+  ]
+}

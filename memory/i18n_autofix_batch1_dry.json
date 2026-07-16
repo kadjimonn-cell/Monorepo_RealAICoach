@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-04-27T01:24:39.704Z",
+  "writeMode": false,
+  "scanRoots": [
+    "src/components/admin/ABTestingPanel.tsx",
+    "src/components/admin/AICommandCenterPanel.tsx",
+    "src/components/admin/AnomalyDetectionPanel.tsx",
+    "src/components/admin/AutomationEnginePanel.tsx",
+    "src/components/admin/AutonomousEnginePanel.tsx",
+    "src/components/admin/CareerApplicationsPanel.tsx",
+    "src/components/admin/CodeHealthPanel.tsx",
+    "src/components/admin/EnterpriseControlPlanePanel.tsx"
+  ],
+  "minRepeats": 2,
+  "namespace": "autofix",
+  "filesScanned": 8,
+  "repeatedLiteralCount": 7,
+  "changedFiles": 5,
+  "replacementsApplied": 16,
+  "newLocaleKeyCount": 5,
+  "newLocaleEntries": {
+    "autofix.last.run": "Last run:",
+    "autofix.ms": "ms /",
+    "autofix.ms.over": "ms over",
+    "autofix.cron.expression": "Cron Expression",
+    "autofix.7d.avg": "7d avg"
+  },
+  "changedFilePaths": [
+    "src/components/admin/AICommandCenterPanel.tsx",
+    "src/components/admin/AnomalyDetectionPanel.tsx",
+    "src/components/admin/AutomationEnginePanel.tsx",
+    "src/components/admin/AutonomousEnginePanel.tsx",
+    "src/components/admin/EnterpriseControlPlanePanel.tsx"
+  ]
+}

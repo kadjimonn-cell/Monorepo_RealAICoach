@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-07-01T17:01:58.782Z",
+  "started_at": "2026-07-01T17:01:57.598Z",
+  "mode": "gate",
+  "status": "FAIL",
+  "failed_step": "i18n-route-hardcopy-gate",
+  "steps": [
+    {
+      "name": "theme-build-gate",
+      "status": "PASS",
+      "exit_code": 0,
+      "error": null
+    },
+    {
+      "name": "theme-warning-ratchet-gate",
+      "status": "PASS",
+      "exit_code": 0,
+      "error": null
+    },
+    {
+      "name": "i18n-route-hardcopy-gate",
+      "status": "FAIL",
+      "exit_code": 1,
+      "error": null
+    },
+    {
+      "name": "i18n-missing-keys-regression-gate",
+      "status": "PASS",
+      "exit_code": 0,
+      "error": null
+    },
+    {
+      "name": "critical-surface-i18n-gate",
+      "status": "PASS",
+      "exit_code": 0,
+      "error": null
+    },
+    {
+      "name": "v7-platform-boundary-gate",
+      "status": "PASS",
+      "exit_code": 0,
+      "error": null
+    },
+    {
+      "name": "layout-validation-regression-gate",
+      "status": "FAIL",
+      "exit_code": 1,
+      "error": null
+    },
+    {
+      "name": "admin-dashboard-viewport-guard",
+      "status": "PASS",
+      "exit_code": 0,
+      "error": null
+    },
+    {
+      "name": "payment-picker-viewport-guard",
+      "status": "PASS",
+      "exit_code": 0,
+      "error": null
+    },
+    {
+      "name": "footer-route-contract-gate",
+      "status": "PASS",
+      "exit_code": 0,
+      "error": null
+    },
+    {
+      "name": "ui-contract-gate",
+      "status": "PASS",
+      "exit_code": 0,
+      "error": null
+    }
+  ]
+}

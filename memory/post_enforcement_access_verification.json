@@ -1,0 +1,87 @@
+{
+  "generated_at": "2026-05-14T15:50:29.397938+00:00",
+  "base_url": "https://coach-web-preview.preview.emergentagent.com",
+  "users": {
+    "admin": {
+      "login_status": 200,
+      "token": true,
+      "subscription_plan_from_login": null,
+      "effective_plan": "premium",
+      "actor_type": "admin",
+      "ai_conversations_daily": -1,
+      "team_management_api_status": 200,
+      "check_route_admin_employees": {
+        "allowed": true,
+        "reason": "admin",
+        "status_code": 200
+      },
+      "check_route_admin_access_control": {
+        "allowed": true,
+        "reason": "admin",
+        "status_code": 200
+      }
+    },
+    "free": {
+      "login_status": 200,
+      "token": true,
+      "subscription_plan_from_login": null,
+      "effective_plan": "free",
+      "actor_type": "user",
+      "ai_conversations_daily": 3,
+      "team_management_api_status": 403,
+      "check_route_admin_employees": {
+        "allowed": false,
+        "reason": "admin_required",
+        "status_code": 200
+      },
+      "check_route_admin_access_control": {
+        "allowed": false,
+        "reason": "admin_required",
+        "status_code": 200
+      }
+    },
+    "basic_user_now_expected_free": {
+      "login_status": 200,
+      "token": true,
+      "subscription_plan_from_login": null,
+      "effective_plan": "free",
+      "actor_type": "user",
+      "ai_conversations_daily": 3,
+      "team_management_api_status": 403,
+      "check_route_admin_employees": {
+        "allowed": false,
+        "reason": "admin_required",
+        "status_code": 200
+      },
+      "check_route_admin_access_control": {
+        "allowed": false,
+        "reason": "admin_required",
+        "status_code": 200
+      }
+    },
+    "premium_user_now_expected_free": {
+      "login_status": 200,
+      "token": true,
+      "subscription_plan_from_login": null,
+      "effective_plan": "free",
+      "actor_type": "user",
+      "ai_conversations_daily": 3,
+      "team_management_api_status": 403,
+      "check_route_admin_employees": {
+        "allowed": false,
+        "reason": "admin_required",
+        "status_code": 200
+      },
+      "check_route_admin_access_control": {
+        "allowed": false,
+        "reason": "admin_required",
+        "status_code": 200
+      }
+    }
+  },
+  "checks": {
+    "registry_total": 24,
+    "registry_status": 200,
+    "health_status": 200
+  }
+}

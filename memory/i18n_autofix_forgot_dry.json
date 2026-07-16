@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-04-27T01:23:29.506Z",
+  "writeMode": false,
+  "scanRoots": [
+    "app/auth/forgot-password.tsx"
+  ],
+  "minRepeats": 2,
+  "namespace": "autofix",
+  "filesScanned": 1,
+  "repeatedLiteralCount": 1,
+  "changedFiles": 0,
+  "replacementsApplied": 0,
+  "newLocaleKeyCount": 1,
+  "newLocaleEntries": {
+    "autofix.back.to.login": "Back to Login"
+  }
+}

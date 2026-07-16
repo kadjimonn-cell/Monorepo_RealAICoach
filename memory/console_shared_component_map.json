@@ -1,0 +1,87 @@
+{
+  "shared": [
+    {
+      "component": "AICommandCenterPanel",
+      "executive_tabs": [
+        "ai-command-center"
+      ],
+      "operations_tabs": [
+        "ai-command-center"
+      ]
+    },
+    {
+      "component": "AutomationEnginePanel",
+      "executive_tabs": [
+        "automation-engine"
+      ],
+      "operations_tabs": [
+        "automation-engine"
+      ]
+    },
+    {
+      "component": "EmailTemplatesPanel",
+      "executive_tabs": [
+        "templates"
+      ],
+      "operations_tabs": [
+        "email-templates"
+      ]
+    },
+    {
+      "component": "EnterpriseSecurityPanel",
+      "executive_tabs": [
+        "enterprise-security"
+      ],
+      "operations_tabs": [
+        "enterprise-security"
+      ]
+    },
+    {
+      "component": "IAPManagementPanel",
+      "executive_tabs": [
+        "iap-management"
+      ],
+      "operations_tabs": [
+        "iap"
+      ]
+    },
+    {
+      "component": "NewsletterAnalyticsPanel",
+      "executive_tabs": [
+        "newsletter"
+      ],
+      "operations_tabs": [
+        "newsletter-analytics"
+      ]
+    },
+    {
+      "component": "OTPDeliveryDashboardPanel",
+      "executive_tabs": [
+        "otp"
+      ],
+      "operations_tabs": [
+        "otp-delivery"
+      ]
+    },
+    {
+      "component": "PlatformSettingsPanel",
+      "executive_tabs": [
+        "platform-settings"
+      ],
+      "operations_tabs": [
+        "platform-settings"
+      ]
+    },
+    {
+      "component": "ThemeValidationDashboard",
+      "executive_tabs": [
+        "theme-validation"
+      ],
+      "operations_tabs": [
+        "theme-validation"
+      ]
+    }
+  ],
+  "executive_tab_count": 54,
+  "operations_tab_count": 96
+}

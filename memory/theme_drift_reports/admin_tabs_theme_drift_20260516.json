@@ -1,0 +1,10 @@
+{
+  "scope": "admin-tabs",
+  "mode": "scan",
+  "files_scanned": 253,
+  "files_with_hex": 0,
+  "total_hex_tokens": 0,
+  "offenders": [],
+  "changed_files_count": 0,
+  "changed_files": []
+}

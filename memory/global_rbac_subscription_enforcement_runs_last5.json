@@ -1,0 +1,64 @@
+[
+  {
+    "run_id": "manual_global_enf_b332284bd7a7",
+    "timestamp": "2026-05-14T15:49:10.937344+00:00",
+    "admin_allowlist": [
+      "admin@realaicoach.app"
+    ],
+    "pre": {
+      "total_users": 483,
+      "admins": 6,
+      "non_admin_basic": 0,
+      "non_admin_premium": 0,
+      "non_admin_paid_unverified": 0,
+      "non_admin_full_access": 0,
+      "non_admin_subscription_permanent": 0,
+      "non_admin_premium_access": 0
+    },
+    "mutations": {
+      "baseline_downgraded_non_admin_paid": 0,
+      "revoked_non_admin_privilege_flags": 0,
+      "downgraded_non_admin_unverified_paid": 0,
+      "sessions_revoked_for_impacted_users": 0
+    },
+    "post": {
+      "non_admin_basic": 0,
+      "non_admin_premium": 0,
+      "non_admin_paid_unverified": 0,
+      "non_admin_full_access": 0,
+      "non_admin_subscription_permanent": 0,
+      "non_admin_premium_access": 0
+    }
+  },
+  {
+    "run_id": "manual_global_enf_07ed4c12282c",
+    "timestamp": "2026-05-14T15:48:50.691447+00:00",
+    "admin_allowlist": [
+      "admin@realaicoach.app"
+    ],
+    "pre": {
+      "total_users": 483,
+      "admins": 6,
+      "non_admin_basic": 35,
+      "non_admin_premium": 25,
+      "non_admin_paid_unverified": 47,
+      "non_admin_full_access": 0,
+      "non_admin_subscription_permanent": 1,
+      "non_admin_premium_access": 1
+    },
+    "mutations": {
+      "baseline_downgraded_non_admin_paid": 60,
+      "revoked_non_admin_privilege_flags": 3,
+      "downgraded_non_admin_unverified_paid": 0,
+      "sessions_revoked_for_impacted_users": 60
+    },
+    "post": {
+      "non_admin_basic": 0,
+      "non_admin_premium": 0,
+      "non_admin_paid_unverified": 0,
+      "non_admin_full_access": 0,
+      "non_admin_subscription_permanent": 0,
+      "non_admin_premium_access": 0
+    }
+  }
+]

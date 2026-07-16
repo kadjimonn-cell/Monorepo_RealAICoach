@@ -1,0 +1,123 @@
+[
+ {
+  "txt": "Run Backup",
+  "cr": 1.12,
+  "fg": "rgb(0, 0, 0)",
+  "bg": "rgb(11,18,32)",
+  "tid": "trigger-backup-btn",
+  "route": "/admin-system",
+  "landed": "/admin-system",
+  "mode": "dark",
+  "who": "admin"
+ },
+ {
+  "txt": "206",
+  "cr": 1.18,
+  "fg": "rgb(0, 0, 0)",
+  "bg": "rgb(17,24,39)",
+  "tid": "scan-card-0",
+  "route": "/admin-system",
+  "landed": "/admin-system",
+  "mode": "dark",
+  "who": "admin"
+ },
+ {
+  "txt": "101",
+  "cr": 1.18,
+  "fg": "rgb(0, 0, 0)",
+  "bg": "rgb(17,24,39)",
+  "tid": "scan-card-1",
+  "route": "/admin-system",
+  "landed": "/admin-system",
+  "mode": "dark",
+  "who": "admin"
+ },
+ {
+  "txt": "96",
+  "cr": 1.18,
+  "fg": "rgb(0, 0, 0)",
+  "bg": "rgb(17,24,39)",
+  "tid": "scan-card-2",
+  "route": "/admin-system",
+  "landed": "/admin-system",
+  "mode": "dark",
+  "who": "admin"
+ },
+ {
+  "txt": "94",
+  "cr": 1.18,
+  "fg": "rgb(0, 0, 0)",
+  "bg": "rgb(17,24,39)",
+  "tid": "scan-card-3",
+  "route": "/admin-system",
+  "landed": "/admin-system",
+  "mode": "dark",
+  "who": "admin"
+ },
+ {
+  "txt": "92",
+  "cr": 1.18,
+  "fg": "rgb(0, 0, 0)",
+  "bg": "rgb(17,24,39)",
+  "tid": "scan-card-4",
+  "route": "/admin-system",
+  "landed": "/admin-system",
+  "mode": "dark",
+  "who": "admin"
+ },
+ {
+  "txt": "90",
+  "cr": 1.18,
+  "fg": "rgb(0, 0, 0)",
+  "bg": "rgb(17,24,39)",
+  "tid": "scan-card-5",
+  "route": "/admin-system",
+  "landed": "/admin-system",
+  "mode": "dark",
+  "who": "admin"
+ },
+ {
+  "txt": "88",
+  "cr": 1.18,
+  "fg": "rgb(0, 0, 0)",
+  "bg": "rgb(17,24,39)",
+  "tid": "scan-card-6",
+  "route": "/admin-system",
+  "landed": "/admin-system",
+  "mode": "dark",
+  "who": "admin"
+ },
+ {
+  "txt": "86",
+  "cr": 1.18,
+  "fg": "rgb(0, 0, 0)",
+  "bg": "rgb(17,24,39)",
+  "tid": "scan-card-7",
+  "route": "/admin-system",
+  "landed": "/admin-system",
+  "mode": "dark",
+  "who": "admin"
+ },
+ {
+  "txt": "79",
+  "cr": 1.18,
+  "fg": "rgb(0, 0, 0)",
+  "bg": "rgb(17,24,39)",
+  "tid": "scan-card-8",
+  "route": "/admin-system",
+  "landed": "/admin-system",
+  "mode": "dark",
+  "who": "admin"
+ },
+ {
+  "txt": "77",
+  "cr": 1.18,
+  "fg": "rgb(0, 0, 0)",
+  "bg": "rgb(17,24,39)",
+  "tid": "scan-card-9",
+  "route": "/admin-system",
+  "landed": "/admin-system",
+  "mode": "dark",
+  "who": "admin"
+ }
+]

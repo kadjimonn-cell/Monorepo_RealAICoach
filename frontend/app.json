@@ -1,0 +1,92 @@
+{
+  "expo": {
+    "name": "RealAICoach",
+    "slug": "realaicoach",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "realaicoach",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0F172A"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.realaicoach.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Take profile photos and scan documents",
+        "NSPhotoLibraryUsageDescription": "Upload profile photos from your gallery",
+        "NSMicrophoneUsageDescription": "Record voice messages for AI coaching",
+        "NSFaceIDUsageDescription": "Use Face ID for quick and secure login",
+        "CFBundleDisplayName": "RealAICoach"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#0F172A"
+      },
+      "package": "com.realaicoach.app",
+      "versionCode": 1,
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "RECORD_AUDIO",
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT",
+        "android.permission.USE_BIOMETRIC",
+        "android.permission.USE_FINGERPRINT"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "server",
+      "favicon": "./assets/images/favicon.png",
+      "name": "RealAICoach",
+      "shortName": "RealAICoach",
+      "description": "AI-Powered Life Assistant - 17 AI features for health, finance, fitness, writing, automation & more.",
+      "themeColor": "#0EA5E9",
+      "backgroundColor": "#0F172A"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "https://realaicoach.app",
+          "headOrigin": "https://realaicoach.app",
+          "asyncRoutes": {
+            "web": false
+          }
+        }
+      ],
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Allow RealAICoach to use Face ID for quick login"
+        }
+      ],
+      "expo-font",
+      "expo-web-browser",
+      "expo-notifications"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": "https://realaicoach.app",
+        "headOrigin": "https://realaicoach.app",
+        "asyncRoutes": {
+          "web": false
+        }
+      },
+      "eas": {
+        "projectId": "391b98a8-29da-4861-924a-4934ed4a4cd3"
+      }
+    },
+    "owner": "hypoduchrist91"
+  }
+}

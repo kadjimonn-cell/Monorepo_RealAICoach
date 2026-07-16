@@ -1,0 +1,17 @@
+Feature 26 Sprint 3 commercial UX contract
+
+Candidate route expected test IDs:
+- job-platform-candidate-commercial-panel
+- job-platform-candidate-priority-apply-btn
+- job-platform-candidate-boost-btn
+
+Employer route expected test IDs:
+- job-platform-employer-commercial-panel
+- job-platform-employer-commercial-status
+- job-platform-employer-explainability-0 (or empty state)
+- job-platform-employer-premium-events-count
+
+Admin route expected test IDs:
+- job-platform-admin-deprecation-panel
+- job-platform-admin-deprecation-progress
+- job-platform-admin-deprecation-events

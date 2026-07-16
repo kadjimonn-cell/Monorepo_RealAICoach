@@ -1,0 +1,11 @@
+Feature 26 Sprint 2 UI decomposition contract
+
+Expected modular components:
+- JobsPortalHeroSection.tsx
+- JobsPortalSummaryMetrics.tsx
+- JobsPortalTabsFrame.tsx
+
+Expected job-platform route usage:
+- import JobsPortalHeroSection
+- import JobsPortalSummaryMetrics
+- import JobsPortalTabsFrame

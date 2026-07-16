@@ -1,0 +1,646 @@
+import React, { useCallback, useMemo, useState } from 'react';
+import { View, Text, TouchableOpacity, useWindowDimensions, ScrollView, Platform } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
+import PublicPageShell from '../src/components/PublicPageLayout';
+import { useTheme } from '../src/context/ThemeContext';
+import { useTranslation } from '../src/hooks/useTranslation';
+import { StaticContentSkeleton, usePageReady } from '../src/components/SkeletonLoaders';
+import api from '../src/services/api';
+import { handleAppRecoverableError } from '../src/utils/appRecoverableError';
+
+type StatCard = { value: string; label: string; accent: string };
+
+export default function AboutUsPage() {
+  const { colors: C } = useTheme();
+  const pageReady = usePageReady();
+  const { width } = useWindowDimensions();
+  const m = width < 760;
+  const router = useRouter();
+  const { tx } = useTranslation();
+  const [activeLeader, setActiveLeader] = useState(0);
+  const [activeStoryPanel, setActiveStoryPanel] = useState(0);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+
+  const stats: StatCard[] = [
+    { value: '3.2M+', label: tx('aboutUs.stats.users', 'users guided globally'), accent: C.primary },
+    { value: '98.4%', label: tx('aboutUs.stats.satisfaction', 'satisfaction across support journeys'), accent: C.successText },
+    { value: '190+', label: tx('aboutUs.stats.countries', 'countries with active learners'), accent: C.warningText },
+    { value: '24/7', label: tx('aboutUs.stats.availability', 'platform + support availability'), accent: C.info },
+  ];
+
+  const values = [
+    {
+      icon: 'people-outline',
+      title: tx('aboutUs.values.customerObsessed', 'Customer-obsessed execution'),
+      desc: tx('aboutUs.values.customerObsessedDesc', 'Every release is evaluated by real user outcomes: clarity, speed, and confidence.'),
+    },
+    {
+      icon: 'shield-checkmark-outline',
+      title: tx('aboutUs.values.trustFirst', 'Trust-first architecture'),
+      desc: tx('aboutUs.values.trustFirstDesc', 'Security, compliance, and ethical AI controls are designed into every core workflow.'),
+    },
+    {
+      icon: 'rocket-outline',
+      title: tx('aboutUs.values.compoundingInnovation', 'Compounding innovation'),
+      desc: tx('aboutUs.values.compoundingInnovationDesc', 'We ship practical AI that grows value over time, not novelty that fades.'),
+    },
+    {
+      icon: 'sparkles-outline',
+      title: tx('aboutUs.values.humanCenteredAI', 'Human-centered AI'),
+      desc: tx('aboutUs.values.humanCenteredAIDesc', 'Our AI amplifies human decisions with explainable guidance and measurable impact.'),
+    },
+  ];
+
+  const trustSignals = [
+    tx('footer.trust.ssl256', '256-bit SSL'),
+    tx('footer.trust.gdprReady', 'GDPR Ready'),
+    tx('footer.globalReach', 'Global Reach'),
+    tx('footer.uptimeSla', '99.99% Uptime SLA'),
+  ];
+
+  const storyPanels = [
+    {
+      key: 'story',
+      title: tx('aboutUs.story.title', 'Our story'),
+      body: tx(
+        'aboutUs.story.p1',
+        'We started RealAICoach with a simple goal: make high-impact AI guidance accessible, accountable, and immediately useful in real life workflows.',
+      ),
+    },
+    {
+      key: 'values',
+      title: tx('aboutUs.values.title', 'What we stand for'),
+      body: tx(
+        'aboutUs.story.p2',
+        'Today, our platform supports founders, professionals, and enterprise teams with secure systems, practical automations, and measurable business outcomes.',
+      ),
+    },
+    {
+      key: 'outcomes',
+      title: tx('aboutUs.testimonials.title', 'Customer outcomes'),
+      body: testimonials[activeTestimonial]?.quote || testimonials[0]?.quote || '',
+    },
+  ];
+
+  const selectedLeader = leadership[activeLeader] || leadership[0];
+  const selectedStoryPanel = storyPanels[activeStoryPanel] || storyPanels[0];
+  const selectedTestimonial = testimonials[activeTestimonial] || testimonials[0];
+
+  const milestones = [
+    { year: '2026', text: tx('aboutUs.milestones.2026', 'Launched RealAICoach core platform and enterprise-grade reliability stack.') },
+    { year: '2027', text: tx('aboutUs.milestones.2027', 'Expanded to global multi-language coaching with adaptive learning intelligence.') },
+    { year: '2028', text: tx('aboutUs.milestones.2028', 'Introduced operations-grade AI workflows for teams, founders, and enterprises.') },
+  ];
+
+  const leadership = [
+    {
+      name: tx('aboutUs.leadership.nova.name', 'Nova Carter'),
+      role: tx('aboutUs.leadership.nova.role', 'Chief Product & AI Systems Officer'),
+      initials: 'NC',
+      bio: tx('aboutUs.leadership.nova.bio', 'Leads product strategy and practical AI execution across high-impact user journeys.'),
+    },
+    {
+      name: tx('aboutUs.leadership.ryan.name', 'Ryan Patel'),
+      role: tx('aboutUs.leadership.ryan.role', 'VP, Reliability Engineering'),
+      initials: 'RP',
+      bio: tx('aboutUs.leadership.ryan.bio', 'Owns platform resilience, security posture, and enterprise reliability standards.'),
+    },
+    {
+      name: tx('aboutUs.leadership.amara.name', 'Amara Lewis'),
+      role: tx('aboutUs.leadership.amara.role', 'Director, Customer Outcomes'),
+      initials: 'AL',
+      bio: tx('aboutUs.leadership.amara.bio', 'Transforms customer signals into measurable growth and retention improvements.'),
+    },
+  ];
+
+  const testimonials = [
+    {
+      quote: tx(
+        'aboutUs.testimonials.t1.quote',
+        '“RealAICoach reduced our team planning cycle from weekly to daily execution decisions.”',
+      ),
+      name: tx('aboutUs.testimonials.t1.name', 'Head of Operations, B2B SaaS'),
+      outcome: tx('aboutUs.testimonials.t1.outcome', '42% faster decision turnaround'),
+    },
+    {
+      quote: tx(
+        'aboutUs.testimonials.t2.quote',
+        '“We launched two new workflows in a month with higher confidence and cleaner accountability.”',
+      ),
+      name: tx('aboutUs.testimonials.t2.name', 'Founder, Growth Startup'),
+      outcome: tx('aboutUs.testimonials.t2.outcome', '2.3x workflow adoption in 30 days'),
+    },
+    {
+      quote: tx(
+        'aboutUs.testimonials.t3.quote',
+        '“The platform finally gave us a unified rhythm across product, support, and analytics teams.”',
+      ),
+      name: tx('aboutUs.testimonials.t3.name', 'Program Lead, Enterprise L&D'),
+      outcome: tx('aboutUs.testimonials.t3.outcome', '31% improvement in execution consistency'),
+    },
+  ];
+
+  const conversionSessionKey = useMemo(() => {
+    const fallback = `about-us-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+    if (Platform.OS !== 'web' || typeof window === 'undefined') return fallback;
+    try {
+      const key = 'about_us_conversion_session_key_v1';
+      const existing = window.sessionStorage.getItem(key);
+      if (existing) return existing;
+      window.sessionStorage.setItem(key, fallback);
+      return fallback;
+    } catch {
+      return fallback;
+    }
+  }, []);
+
+  const trackAboutConversion = useCallback(
+    async (source: 'about_us_signup_cta' | 'about_us_book_demo_cta', planId: 'basic' | 'premium') => {
+      try {
+        await api.post(
+          '/subscription-conversion/telemetry',
+          {
+            session_key: conversionSessionKey,
+            event_type: 'plan_cta_click',
+            plan_id: planId,
+            role: 'public_visitor',
+            device_bucket: width < 760 ? 'mobile' : width < 1100 ? 'tablet' : 'desktop',
+            route: '/about-us',
+            source,
+          },
+          { silentLoading: true },
+        );
+      } catch (error) {
+        handleAppRecoverableError({
+          scope: 'about-us.tsx#trackAboutConversion',
+          error,
+          message: 'Unable to capture conversion event.',
+          notifyMode: 'silent',
+        });
+      }
+    },
+    [conversionSessionKey, width],
+  );
+
+  const onPrevTestimonial = () => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  const onNextTestimonial = () => setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+
+  if (!pageReady) return <PublicPageShell><StaticContentSkeleton /></PublicPageShell>;
+
+  return (
+    <PublicPageShell data-testid="about-us-shell" testID="about-us-shell">
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 42 }}
+        data-testid="about-us-page"
+        testID="about-us-page"
+      >
+        <View
+          style={{
+            marginBottom: m ? 28 : 40,
+            borderRadius: 22,
+            borderWidth: 1,
+            borderColor: `${C.primary}2E`,
+            backgroundColor: `${C.primary}0D`,
+            padding: m ? 18 : 28,
+          }}
+          data-testid="about-us-hero-wrap"
+          testID="about-us-hero-wrap"
+        >
+          <View
+            style={{
+              alignSelf: 'flex-start',
+              paddingHorizontal: 12,
+              paddingVertical: 6,
+              borderRadius: 999,
+              backgroundColor: `${C.primary}18`,
+              borderWidth: 1,
+              borderColor: `${C.primary}40`,
+              marginBottom: 12,
+            }}
+            data-testid="about-us-hero-badge"
+            testID="about-us-hero-badge"
+          >
+            <Text style={{ color: C.primary, fontSize: 11, fontWeight: '800', letterSpacing: 0.6 }}>
+              {tx('aboutUs.badge', 'ABOUT REALAICOACH')}
+            </Text>
+          </View>
+
+          <Text
+            style={{ color: C.text, fontSize: m ? 32 : 46, fontWeight: '900', lineHeight: m ? 38 : 54, letterSpacing: -1 }}
+            data-testid="about-us-hero-title"
+            testID="about-us-hero-title"
+          >
+            {tx('aboutUs.title', 'We build AI that helps people and teams perform at their best.')}
+          </Text>
+
+          <Text
+            style={{ color: C.textSec, fontSize: m ? 14 : 16, lineHeight: m ? 22 : 26, marginTop: 12, maxWidth: 960 }}
+            data-testid="about-us-hero-subtitle"
+            testID="about-us-hero-subtitle"
+          >
+            {tx(
+              'aboutUs.subtitle',
+              'RealAICoach combines practical AI systems, enterprise reliability, and human-centered product design to turn daily work into compounding progress.',
+            )}
+          </Text>
+
+          <View style={{ flexDirection: m ? 'column' : 'row', gap: 10, marginTop: 16, width: m ? '100%' : 'auto' as any }}>
+            <TouchableOpacity
+              onPress={async () => {
+                await trackAboutConversion('about_us_signup_cta', 'basic');
+                router.push('/auth/register');
+              }}
+              style={{
+                borderRadius: 12,
+                backgroundColor: C.primary,
+                paddingVertical: 12,
+                paddingHorizontal: 20,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              data-testid="about-us-hero-start-trial"
+              testID="about-us-hero-start-trial"
+            >
+              <Text style={{ color: C.primaryText, fontSize: 13, fontWeight: '800' }}>
+                {tx('aboutUs.cta.startTrial', 'Start Free Trial')}
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={async () => {
+                await trackAboutConversion('about_us_book_demo_cta', 'premium');
+                router.push('/contact?intent=demo');
+              }}
+              style={{
+                borderRadius: 12,
+                backgroundColor: C.card,
+                borderWidth: 1,
+                borderColor: C.border,
+                paddingVertical: 12,
+                paddingHorizontal: 20,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              data-testid="about-us-hero-book-demo"
+              testID="about-us-hero-book-demo"
+            >
+              <Text style={{ color: C.text, fontSize: 13, fontWeight: '800' }}>
+                {tx('aboutUs.cta.bookDemo', 'Book Demo')}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginBottom: m ? 28 : 40 }}>
+          {stats.map((s, idx) => (
+            <View
+              key={s.label}
+              style={{
+                flex: 1,
+                minWidth: m ? '46%' as any : 220,
+                borderRadius: 14,
+                borderWidth: 1,
+                borderColor: C.border,
+                backgroundColor: C.card,
+                padding: m ? 14 : 18,
+              }}
+              data-testid={`about-us-stat-${idx}`}
+              testID={`about-us-stat-${idx}`}
+            >
+              <Text style={{ color: s.accent, fontSize: m ? 24 : 30, fontWeight: '900', letterSpacing: -0.6 }}>{s.value}</Text>
+              <Text style={{ color: C.textMuted, fontSize: 12, marginTop: 4, lineHeight: 18 }}>{s.label}</Text>
+            </View>
+          ))}
+        </View>
+
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: m ? 24 : 32 }} data-testid="about-us-trust-signals" testID="about-us-trust-signals">
+          {trustSignals.map((signal, idx) => (
+            <View
+              key={`${signal}-${idx}`}
+              style={{
+                borderRadius: 999,
+                borderWidth: 1,
+                borderColor: C.border,
+                backgroundColor: C.card,
+                paddingHorizontal: 12,
+                paddingVertical: 8,
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: 6,
+              }}
+              data-testid={`about-us-trust-signal-${idx}`}
+              testID={`about-us-trust-signal-${idx}`}
+            >
+              <Ionicons name="shield-checkmark-outline" size={12} color={C.primary} />
+              <Text style={{ color: C.textSec, fontSize: 11, fontWeight: '700' }}>{signal}</Text>
+            </View>
+          ))}
+        </View>
+
+        <View
+          style={{
+            borderRadius: 16,
+            borderWidth: 1,
+            borderColor: C.border,
+            backgroundColor: C.card,
+            padding: m ? 16 : 24,
+            marginBottom: m ? 24 : 34,
+          }}
+          data-testid="about-us-story-section"
+          testID="about-us-story-section"
+        >
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 12 }}>
+            {storyPanels.map((panel, idx) => {
+              const active = activeStoryPanel === idx;
+              return (
+                <TouchableOpacity
+                  key={panel.key}
+                  onPress={() => setActiveStoryPanel(idx)}
+                  style={{
+                    borderRadius: 999,
+                    borderWidth: 1,
+                    borderColor: active ? C.primary : C.border,
+                    backgroundColor: active ? C.primary : C.card,
+                    paddingHorizontal: 12,
+                    paddingVertical: 7,
+                  }}
+                  data-testid={`about-us-story-tab-${idx}`}
+                  testID={`about-us-story-tab-${idx}`}
+                >
+                  <Text style={{ color: active ? C.primaryText : C.text, fontSize: 12, fontWeight: '700' }}>{panel.title}</Text>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+          <Text style={{ color: C.text, fontSize: m ? 20 : 26, fontWeight: '800', marginBottom: 8 }} data-testid="about-us-story-active-title" testID="about-us-story-active-title">
+            {selectedStoryPanel.title}
+          </Text>
+          <Text style={{ color: C.textSec, fontSize: m ? 14 : 15, lineHeight: m ? 22 : 25 }} data-testid="about-us-story-active-body" testID="about-us-story-active-body">
+            {selectedStoryPanel.body}
+          </Text>
+        </View>
+
+        <View style={{ marginBottom: m ? 24 : 34 }} data-testid="about-us-leadership-section" testID="about-us-leadership-section">
+          <Text style={{ color: C.text, fontSize: m ? 20 : 26, fontWeight: '800', marginBottom: 14 }}>
+            {tx('aboutUs.leadership.title', 'Leadership highlights')}
+          </Text>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 12 }}>
+            {leadership.map((leader, idx) => {
+              const active = idx === activeLeader;
+              return (
+                <TouchableOpacity
+                  key={leader.name}
+                  onPress={() => setActiveLeader(idx)}
+                  style={{
+                    borderRadius: 999,
+                    borderWidth: 1,
+                    borderColor: active ? C.primary : C.border,
+                    backgroundColor: active ? C.primary : C.card,
+                    paddingHorizontal: 12,
+                    paddingVertical: 8,
+                  }}
+                  data-testid={`about-us-leader-tab-${idx}`}
+                  testID={`about-us-leader-tab-${idx}`}
+                >
+                  <Text style={{ color: active ? C.primaryText : C.text, fontSize: 12, fontWeight: '700' }}>{leader.name}</Text>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+
+          <View
+            style={{
+              borderRadius: 14,
+              borderWidth: 1,
+              borderColor: C.border,
+              backgroundColor: C.card,
+              padding: m ? 14 : 18,
+              flexDirection: 'row',
+              gap: 12,
+            }}
+            data-testid="about-us-leader-active-card"
+            testID="about-us-leader-active-card"
+          >
+            <View
+              style={{
+                width: 50,
+                height: 50,
+                borderRadius: 14,
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: `${C.primary}1A`,
+              }}
+              data-testid="about-us-leader-active-avatar"
+              testID="about-us-leader-active-avatar"
+            >
+              <Text style={{ color: C.primary, fontSize: 14, fontWeight: '800' }}>{selectedLeader.initials}</Text>
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={{ color: C.text, fontSize: 16, fontWeight: '800' }} data-testid="about-us-leader-active-name" testID="about-us-leader-active-name">{selectedLeader.name}</Text>
+              <Text style={{ color: C.primary, fontSize: 12, fontWeight: '700', marginTop: 2 }} data-testid="about-us-leader-active-role" testID="about-us-leader-active-role">{selectedLeader.role}</Text>
+              <Text style={{ color: C.textSec, fontSize: 13, lineHeight: 20, marginTop: 6 }} data-testid="about-us-leader-active-bio" testID="about-us-leader-active-bio">{selectedLeader.bio}</Text>
+            </View>
+          </View>
+        </View>
+
+        <View
+          style={{
+            borderRadius: 16,
+            borderWidth: 1,
+            borderColor: C.border,
+            backgroundColor: C.card,
+            padding: m ? 16 : 24,
+            marginBottom: m ? 26 : 34,
+          }}
+          data-testid="about-us-testimonials-section"
+          testID="about-us-testimonials-section"
+        >
+          <Text style={{ color: C.text, fontSize: m ? 20 : 24, fontWeight: '800', marginBottom: 10 }}>
+            {tx('aboutUs.testimonials.title', 'Customer outcomes')}
+          </Text>
+
+          <View style={{ borderRadius: 12, borderWidth: 1, borderColor: `${C.primary}2C`, backgroundColor: `${C.primary}0E`, padding: 14 }} data-testid="about-us-testimonial-active" testID="about-us-testimonial-active">
+            <Text style={{ color: C.text, fontSize: 14, fontWeight: '700', lineHeight: 22 }} data-testid="about-us-testimonial-active-quote" testID="about-us-testimonial-active-quote">
+              {selectedTestimonial.quote}
+            </Text>
+            <Text style={{ color: C.textSec, fontSize: 12, marginTop: 8 }} data-testid="about-us-testimonial-active-name" testID="about-us-testimonial-active-name">
+              {selectedTestimonial.name}
+            </Text>
+            <Text style={{ color: C.successText, fontSize: 12, fontWeight: '700', marginTop: 4 }} data-testid="about-us-testimonial-active-outcome" testID="about-us-testimonial-active-outcome">
+              {selectedTestimonial.outcome}
+            </Text>
+          </View>
+
+          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 10 }}>
+            <TouchableOpacity
+              onPress={onPrevTestimonial}
+              style={{ borderRadius: 10, borderWidth: 1, borderColor: C.border, backgroundColor: C.card, paddingHorizontal: 10, paddingVertical: 7 }}
+              data-testid="about-us-testimonial-prev"
+              testID="about-us-testimonial-prev"
+            >
+              <Ionicons name="chevron-back" size={14} color={C.textSec} />
+            </TouchableOpacity>
+
+            <View style={{ flexDirection: 'row', gap: 6 }}>
+              {testimonials.map((_, idx) => (
+                <View
+                  key={idx}
+                  style={{
+                    width: 8,
+                    height: 8,
+                    borderRadius: 4,
+                    backgroundColor: idx === activeTestimonial ? C.primary : C.border,
+                  }}
+                  data-testid={`about-us-testimonial-dot-${idx}`}
+                  testID={`about-us-testimonial-dot-${idx}`}
+                />
+              ))}
+            </View>
+
+            <TouchableOpacity
+              onPress={onNextTestimonial}
+              style={{ borderRadius: 10, borderWidth: 1, borderColor: C.border, backgroundColor: C.card, paddingHorizontal: 10, paddingVertical: 7 }}
+              data-testid="about-us-testimonial-next"
+              testID="about-us-testimonial-next"
+            >
+              <Ionicons name="chevron-forward" size={14} color={C.textSec} />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={{ marginBottom: m ? 24 : 34 }}>
+          <Text style={{ color: C.text, fontSize: m ? 20 : 26, fontWeight: '800', marginBottom: 14 }}>
+            {tx('aboutUs.values.title', 'What we stand for')}
+          </Text>
+          <View style={{ gap: 10 }}>
+            {values.map((v, idx) => (
+              <View
+                key={v.title}
+                style={{
+                  borderRadius: 14,
+                  borderWidth: 1,
+                  borderColor: C.border,
+                  backgroundColor: C.card,
+                  padding: m ? 14 : 18,
+                  flexDirection: 'row',
+                  gap: 12,
+                }}
+                data-testid={`about-us-value-${idx}`}
+                testID={`about-us-value-${idx}`}
+              >
+                <View
+                  style={{
+                    width: 42,
+                    height: 42,
+                    borderRadius: 12,
+                    backgroundColor: `${C.primary}15`,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Ionicons name={v.icon as any} size={20} color={C.primary} />
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Text style={{ color: C.text, fontSize: 15, fontWeight: '800', marginBottom: 4 }}>{v.title}</Text>
+                  <Text style={{ color: C.textSec, fontSize: 13, lineHeight: 20 }}>{v.desc}</Text>
+                </View>
+              </View>
+            ))}
+          </View>
+        </View>
+
+        <View
+          style={{
+            borderRadius: 16,
+            borderWidth: 1,
+            borderColor: `${C.primary}33`,
+            backgroundColor: `${C.primary}10`,
+            padding: m ? 16 : 24,
+            marginBottom: m ? 28 : 38,
+          }}
+          data-testid="about-us-milestones-section"
+          testID="about-us-milestones-section"
+        >
+          <Text style={{ color: C.text, fontSize: m ? 19 : 24, fontWeight: '800', marginBottom: 12 }}>
+            {tx('aboutUs.milestones.title', 'Milestones')}
+          </Text>
+          <View style={{ gap: 10 }}>
+            {milestones.map((mstone, idx) => (
+              <View key={mstone.year} style={{ flexDirection: 'row', gap: 10 }} data-testid={`about-us-milestone-${idx}`} testID={`about-us-milestone-${idx}`}>
+                <Text style={{ color: C.primary, fontSize: 13, fontWeight: '800', minWidth: 40 }}>{mstone.year}</Text>
+                <Text style={{ color: C.textSec, fontSize: 13, lineHeight: 20, flex: 1 }}>{mstone.text}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+
+        <View
+          style={{
+            borderRadius: 18,
+            borderWidth: 1,
+            borderColor: C.border,
+            backgroundColor: C.card,
+            padding: m ? 18 : 28,
+            alignItems: m ? 'stretch' : 'center',
+          }}
+          data-testid="about-us-cta-block"
+          testID="about-us-cta-block"
+        >
+          <Text style={{ color: C.text, fontSize: m ? 22 : 30, fontWeight: '900', textAlign: m ? 'left' : 'center', letterSpacing: -0.6 }}>
+            {tx('aboutUs.cta.title', 'Ready to grow with RealAICoach?')}
+          </Text>
+          <Text style={{ color: C.textSec, fontSize: m ? 14 : 15, marginTop: 8, marginBottom: 16, textAlign: m ? 'left' : 'center', lineHeight: 22 }}>
+            {tx('aboutUs.cta.subtitle', 'Start your free trial or book a guided walkthrough with our team.')}
+          </Text>
+          <View style={{ flexDirection: m ? 'column' : 'row', gap: 10, width: m ? '100%' : 'auto' as any }}>
+            <TouchableOpacity
+              onPress={async () => {
+                await trackAboutConversion('about_us_signup_cta', 'basic');
+                router.push('/auth/register');
+              }}
+              style={{
+                borderRadius: 12,
+                backgroundColor: C.primary,
+                paddingVertical: 13,
+                paddingHorizontal: 24,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              data-testid="about-us-cta-start-trial"
+              testID="about-us-cta-start-trial"
+            >
+              <Text style={{ color: C.primaryText, fontSize: 14, fontWeight: '800' }}>
+                {tx('aboutUs.cta.startTrial', 'Start Free Trial')}
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={async () => {
+                await trackAboutConversion('about_us_book_demo_cta', 'premium');
+                router.push('/contact?intent=demo');
+              }}
+              style={{
+                borderRadius: 12,
+                backgroundColor: C.bgSoft,
+                borderWidth: 1,
+                borderColor: C.border,
+                paddingVertical: 13,
+                paddingHorizontal: 24,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              data-testid="about-us-cta-book-demo"
+              testID="about-us-cta-book-demo"
+            >
+              <Text style={{ color: C.text, fontSize: 14, fontWeight: '800' }}>
+                {tx('aboutUs.cta.bookDemo', 'Book Demo')}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
+    </PublicPageShell>
+  );
+}

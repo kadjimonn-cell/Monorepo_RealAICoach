@@ -1,0 +1,57 @@
+{
+  "platform_brand": "RealAICoach",
+  "required_terms": [
+    "RealAICoach",
+    "Real AI Coach",
+    "Real-AI-Coach",
+    "Realaicoach"
+  ],
+  "brand_surface_files": [
+    "app/welcome.tsx",
+    "src/components/Footer.tsx",
+    "app/terms.tsx",
+    "app/privacy-policy.tsx"
+  ],
+  "brand_surface_roots": [
+    "src/components/welcome",
+    "app/features",
+    "src/components/admin/email-templates"
+  ],
+  "forbidden_source_patterns": [
+    "t\\(\\s*['\"]autofix\\.precision12\\.real['\"]\\s*\\)\\s*\\+\\s*<Text[^>]*>AI<\\/Text>\\s*\\+\\s*t\\(\\s*['\"]autofix\\.precision12\\.coach['\"]\\s*\\)",
+    "t\\(\\s*['\"]autofix\\.precision12\\.real['\"]\\s*\\)\\s*\\+\\s*['\"]AI['\"]\\s*\\+\\s*t\\(\\s*['\"]autofix\\.precision12\\.coach['\"]\\s*\\)"
+  ],
+  "forbidden_i18n_keys_on_brand_surfaces": [
+    "autofix.precision12.real",
+    "autofix.precision12.coach"
+  ],
+  "required_selectors": [
+    "welcome-brand-name",
+    "platform-footer"
+  ],
+  "negative_fixture_file": "scripts/fixtures/brand-exclusion-negative.fixture.tsx",
+  "required_html_guards": {
+    "exact_brands": [
+      "RealAICoach",
+      "Realaicoach",
+      "Real AI Coach",
+      "Real-AI-Coach"
+    ],
+    "parent_patterns": [
+      "RealAICoach",
+      "Realaicoach"
+    ],
+    "regex_fragments": [
+      "\\\\bRealAICoach\\\\b",
+      "\\\\bReal\\\\s*AI\\\\s*Coach\\\\b",
+      "\\\\bReal-?AI-?Coach\\\\b"
+    ]
+  },
+  "canary_languages": [
+    "en",
+    "fr",
+    "es",
+    "ar",
+    "zh"
+  ]
+}

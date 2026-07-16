@@ -1,0 +1,18 @@
+{
+  "theme_audit": {
+    "passed": true,
+    "grade": "A",
+    "fails": 0,
+    "warns": 1248,
+    "min_grade": "A",
+    "files_scanned": 496
+  },
+  "invitation_tests": {
+    "passed": true,
+    "returncode": 0,
+    "duration_s": 18.29,
+    "stdout_tail": "    async def send_all_templates(request: Request, theme: str = Query(\"light\", regex=\"^(dark|light)$\")):\n\ntests/test_invitation_lifecycle.py::test_invitation_lifecycle\n  /app/backend/routes/platform_employees.py:1768: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/\n    doc = user.dict()\n\ntests/test_invitation_lifecycle.py::test_invitation_lifecycle\n  /app/backend/routes/platform_employees.py:1806: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/\n    await db.user_sessions.insert_one(session.dict())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================= 14 passed, 9 warnings in 17.84s ========================",
+    "stderr_tail": ""
+  },
+  "passed": true
+}

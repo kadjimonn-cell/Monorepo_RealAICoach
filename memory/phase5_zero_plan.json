@@ -1,0 +1,48 @@
+{
+  "mode": "phase_5_zero",
+  "current_total": 0,
+  "target_budget": 0,
+  "needed_reduction": 0,
+  "selected_reduction_capacity": 0,
+  "selected_file_count": 0,
+  "top_offenders": [],
+  "selected_offenders": [],
+  "batches": [
+    {
+      "batch": 1,
+      "target_reduction": 0,
+      "planned_reduction": 0,
+      "items": []
+    },
+    {
+      "batch": 2,
+      "target_reduction": 0,
+      "planned_reduction": 0,
+      "items": []
+    },
+    {
+      "batch": 3,
+      "target_reduction": 0,
+      "planned_reduction": 0,
+      "items": []
+    },
+    {
+      "batch": 4,
+      "target_reduction": 0,
+      "planned_reduction": 0,
+      "items": []
+    },
+    {
+      "batch": 5,
+      "target_reduction": 0,
+      "planned_reduction": 0,
+      "items": []
+    },
+    {
+      "batch": 6,
+      "target_reduction": 0,
+      "planned_reduction": 0,
+      "items": []
+    }
+  ]
+}

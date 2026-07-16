@@ -1,0 +1,28 @@
+{
+  "module": "autonomous_engine",
+  "version": "v1",
+  "base_path": "/api/admin/autonomous-engine",
+  "endpoints": [
+    {
+      "path": "/api/admin/autonomous-engine/status",
+      "method": "get",
+      "response_contract": {
+        "required_fields": ["mode", "gate_lock", "drift_detection", "feedback_loop", "predictive_prevention"]
+      }
+    },
+    {
+      "path": "/api/admin/autonomous-engine/failure-memory/dashboard",
+      "method": "get",
+      "response_contract": {
+        "required_fields": ["summary", "top_failure_types", "top_root_causes", "unresolved_entries"]
+      }
+    },
+    {
+      "path": "/api/admin/autonomous-engine/failure-memory/resolve",
+      "method": "post",
+      "response_contract": {
+        "required_fields": ["resolved", "resolved_at", "remaining_unresolved"]
+      }
+    }
+  ]
+}

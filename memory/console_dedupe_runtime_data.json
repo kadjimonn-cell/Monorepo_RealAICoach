@@ -1,0 +1,1352 @@
+{
+  "base_url": "https://coach-web-preview.preview.emergentagent.com",
+  "endpoints": {
+    "live_activity_stats": {
+      "status": 200,
+      "json": {
+        "events_24h": 327,
+        "events_1h": 59,
+        "unique_users_24h": 3,
+        "events_per_hour": {
+          "00": 16,
+          "01": 31,
+          "02": 70,
+          "03": 21,
+          "04": 15,
+          "05": 21,
+          "06": 11,
+          "10": 3,
+          "11": 20,
+          "12": 10,
+          "13": 12,
+          "16": 5,
+          "17": 3,
+          "18": 8,
+          "19": 15,
+          "21": 18,
+          "22": 46,
+          "23": 2
+        }
+      }
+    },
+    "live_activity_feed_page_view": {
+      "status": 200,
+      "json": {
+        "events": [
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T03:13:56.037969+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-06T03:13:50.377838+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T03:12:35.384186+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T03:12:10.760852+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > observability-center",
+            "metadata": {},
+            "timestamp": "2026-05-06T03:00:40.732959+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed job-platform",
+            "metadata": {},
+            "timestamp": "2026-05-06T03:00:02.696283+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > observability-center",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:59:51.380988+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > observability-center",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:59:17.167272+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > observability-center",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:57:53.122260+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:57:49.704816+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:53:27.978172+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > observability-center",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:52:29.631700+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:52:01.147067+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > observability-center",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:50:50.127327+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:50:35.080744+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > observability-center",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:50:31.624251+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > observability-center",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:49:51.067506+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:49:42.619864+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:49:20.439273+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:47:44.586937+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:47:34.349815+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:47:21.857514+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:47:12.906767+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:47:01.416926+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:46:53.171082+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:46:46.740974+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:46:37.565548+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:46:22.726782+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:46:15.595612+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:43:26.220093+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:43:18.924535+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed executive-dashboard",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:36:18.582319+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed executive-dashboard",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:36:11.578417+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:35:25.411875+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:35:15.745996+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:33:30.738405+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed auth > login",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:33:17.679488+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:28:02.652254+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > observability-proof",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:24:57.377523+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > observability-proof",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:24:30.004895+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > observability-proof",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:24:03.507788+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > observability-proof",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:23:34.179713+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > observability-center",
+            "metadata": {},
+            "timestamp": "2026-05-06T02:01:21.610761+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > observability-center",
+            "metadata": {},
+            "timestamp": "2026-05-06T01:59:18.017035+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > observability-center",
+            "metadata": {},
+            "timestamp": "2026-05-06T01:57:18.416693+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-06T01:55:39.616846+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > observability-center",
+            "metadata": {},
+            "timestamp": "2026-05-06T01:55:31.030726+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-06T01:55:24.232599+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-06T01:54:49.707068+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > observability-center",
+            "metadata": {},
+            "timestamp": "2026-05-06T01:52:57.415941+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-06T01:52:51.576546+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-06T01:15:43.166304+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-06T01:12:15.321546+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-06T01:04:50.366902+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin > email-delivery-ledger",
+            "metadata": {},
+            "timestamp": "2026-05-06T01:01:34.278450+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-06T01:01:32.304783+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed executive-dashboard",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:37:00.510959+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed executive-dashboard",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:36:52.007649+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:36:46.704098+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed executive-dashboard",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:34:26.187549+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed executive-dashboard",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:34:19.931183+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:34:16.313746+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed executive-dashboard",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:31:38.712098+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed executive-dashboard",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:31:32.226962+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:31:30.038299+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed executive-dashboard",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:16:51.292313+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:16:45.803556+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed executive-dashboard",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:15:52.912790+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:15:51.636576+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed executive-dashboard",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:15:02.574982+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:15:00.799570+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed executive-dashboard",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:14:02.217506+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:14:00.574745+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed executive-dashboard",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:13:18.607476+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:13:16.625220+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed executive-dashboard",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:12:35.527158+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:10:20.413433+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-05T22:10:18.404777+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed executive-dashboard",
+            "metadata": {},
+            "timestamp": "2026-05-05T21:33:34.597581+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-05T21:33:31.410105+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-05T13:33:15.654414+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-05T13:33:12.574625+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-05T13:33:07.077212+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-05T13:32:05.488181+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed executive-dashboard",
+            "metadata": {},
+            "timestamp": "2026-05-05T13:21:12.847588+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-05T13:21:08.487810+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed subscription > mobile-money",
+            "metadata": {},
+            "timestamp": "2026-05-05T13:12:43.281871+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed i18n-drift-dashboard",
+            "metadata": {},
+            "timestamp": "2026-05-05T13:12:36.168682+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-05T12:56:54.132420+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-05T12:56:50.762854+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-05T12:56:42.352058+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-05T12:56:30.677042+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed help",
+            "metadata": {},
+            "timestamp": "2026-05-05T06:06:57.640115+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-05T06:06:56.707653+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-05T06:06:46.747289+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed help",
+            "metadata": {},
+            "timestamp": "2026-05-05T06:06:39.232506+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-05T06:06:31.946745+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed Home",
+            "metadata": {},
+            "timestamp": "2026-05-05T06:06:28.297355+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed admin-console",
+            "metadata": {},
+            "timestamp": "2026-05-05T06:02:04.005665+00:00"
+          },
+          {
+            "event_type": "page_view",
+            "user_id": "user_9c264c569ca7",
+            "user_email": "admin@realaicoach.app",
+            "detail": "Viewed help",
+            "metadata": {},
+            "timestamp": "2026-05-05T06:01:53.021100+00:00"
+          }
+        ],
+        "total": 13525,
+        "type_counts": {
+          "login": 188,
+          "page_view": 121,
+          "error": 18
+        },
+        "event_types": [
+          "login",
+          "logout",
+          "feature_usage",
+          "page_view",
+          "completion",
+          "error",
+          "upgrade",
+          "api_call",
+          "admin_action"
+        ]
+      }
+    },
+    "feedback_status": {
+      "status": 200,
+      "json": {
+        "mode": "INTELLIGENT_FEEDBACK_LOOP",
+        "enabled": true,
+        "policy": {
+          "enabled": true,
+          "analyze_window_hours": 24,
+          "min_route_views_for_detection": 8,
+          "min_route_exits_for_dropoff": 5,
+          "dropoff_threshold_pct": 55.0,
+          "slow_interaction_threshold_ms": 1100,
+          "slow_interaction_count_threshold": 5,
+          "error_count_threshold": 4,
+          "interaction_bounce_ms": 20000,
+          "auto_create_tasks": true,
+          "auto_run_pipeline_on_high_severity": true,
+          "high_severity_score_threshold": 80,
+          "max_event_history": 10000,
+          "max_task_history": 250
+        },
+        "latest_run": {
+          "run_id": "feedback_run_20260502_214126_6dca9a",
+          "mode": "INTELLIGENT_FEEDBACK_LOOP",
+          "analyzed_at": "2026-05-02T21:41:26.914227+00:00",
+          "triggered_by": "continuous:scheduler_24_7",
+          "status": "STABLE",
+          "behavior_summary": {
+            "top_routes": [
+              {
+                "route": "/settings",
+                "views": 2,
+                "interactions": 3
+              },
+              {
+                "route": "/",
+                "views": 1,
+                "interactions": 1
+              }
+            ],
+            "top_targets": [
+              {
+                "target": "appshell-signout-confirm-yes-btn",
+                "count": 1
+              },
+              {
+                "target": "sidebar-nav-logout",
+                "count": 1
+              },
+              {
+                "target": "sidebar-nav-settings",
+                "count": 1
+              },
+              {
+                "target": "home-nova-fab-button",
+                "count": 1
+              }
+            ]
+          },
+          "friction_detected": [],
+          "generated_tasks": [],
+          "event_count": 9
+        },
+        "stats": {
+          "total_events": 10000,
+          "total_tasks": 18,
+          "open_tasks": 16
+        }
+      }
+    },
+    "feedback_analyze": {
+      "status": 200,
+      "json": {
+        "run_id": "feedback_run_20260506_034340_b32b6b",
+        "mode": "INTELLIGENT_FEEDBACK_LOOP",
+        "analyzed_at": "2026-05-06T03:43:40.233024+00:00",
+        "triggered_by": "admin_manual",
+        "status": "FRICTION_DETECTED",
+        "behavior_summary": {
+          "top_routes": [
+            {
+              "route": "/",
+              "views": 45,
+              "interactions": 23
+            },
+            {
+              "route": "/admin-console",
+              "views": 33,
+              "interactions": 31
+            },
+            {
+              "route": "/admin/observability-center",
+              "views": 20,
+              "interactions": 12
+            },
+            {
+              "route": "/executive-dashboard",
+              "views": 17,
+              "interactions": 40
+            },
+            {
+              "route": "/help",
+              "views": 6,
+              "interactions": 22
+            }
+          ],
+          "top_targets": [
+            {
+              "target": "home-nova-send-button",
+              "count": 13
+            },
+            {
+              "target": "tab-contact",
+              "count": 10
+            },
+            {
+              "target": "contact-mode-chat",
+              "count": 9
+            },
+            {
+              "target": "sidebar-nav-observability-center",
+              "count": 7
+            },
+            {
+              "target": "observability-center-open-label",
+              "count": 6
+            }
+          ]
+        },
+        "friction_detected": [
+          {
+            "issue_type": "route_dropoff",
+            "route": "/admin/observability-center",
+            "score": 100,
+            "severity": "high",
+            "title": "Reduce drop-off on /admin/observability-center",
+            "description": "Real users are dropping off on /admin/observability-center. Improve clarity, speed, or flow completion.",
+            "evidence": {
+              "views": 20,
+              "exits": 9,
+              "dropoff_pct": 77.8
+            }
+          },
+          {
+            "issue_type": "runtime_errors",
+            "route": "/admin/observability-center",
+            "score": 100,
+            "severity": "high",
+            "title": "Fix real-user errors on /admin/observability-center",
+            "description": "Users are hitting repeated runtime errors on /admin/observability-center. Prioritize stabilization.",
+            "evidence": {
+              "errors": 50
+            }
+          },
+          {
+            "issue_type": "route_dropoff",
+            "route": "/admin-console",
+            "score": 100,
+            "severity": "high",
+            "title": "Reduce drop-off on /admin-console",
+            "description": "Real users are dropping off on /admin-console. Improve clarity, speed, or flow completion.",
+            "evidence": {
+              "views": 33,
+              "exits": 24,
+              "dropoff_pct": 87.5
+            }
+          },
+          {
+            "issue_type": "route_dropoff",
+            "route": "/",
+            "score": 100,
+            "severity": "high",
+            "title": "Reduce drop-off on /",
+            "description": "Real users are dropping off on /. Improve clarity, speed, or flow completion.",
+            "evidence": {
+              "views": 45,
+              "exits": 41,
+              "dropoff_pct": 97.6
+            }
+          },
+          {
+            "issue_type": "runtime_errors",
+            "route": "/",
+            "score": 100,
+            "severity": "high",
+            "title": "Fix real-user errors on /",
+            "description": "Users are hitting repeated runtime errors on /. Prioritize stabilization.",
+            "evidence": {
+              "errors": 300
+            }
+          },
+          {
+            "issue_type": "runtime_errors",
+            "route": "/job-platform",
+            "score": 100,
+            "severity": "high",
+            "title": "Fix real-user errors on /job-platform",
+            "description": "Users are hitting repeated runtime errors on /job-platform. Prioritize stabilization.",
+            "evidence": {
+              "errors": 13
+            }
+          },
+          {
+            "issue_type": "route_dropoff",
+            "route": "/executive-dashboard",
+            "score": 100,
+            "severity": "high",
+            "title": "Reduce drop-off on /executive-dashboard",
+            "description": "Real users are dropping off on /executive-dashboard. Improve clarity, speed, or flow completion.",
+            "evidence": {
+              "views": 17,
+              "exits": 6,
+              "dropoff_pct": 83.3
+            }
+          },
+          {
+            "issue_type": "runtime_errors",
+            "route": "/help",
+            "score": 100,
+            "severity": "high",
+            "title": "Fix real-user errors on /help",
+            "description": "Users are hitting repeated runtime errors on /help. Prioritize stabilization.",
+            "evidence": {
+              "errors": 66
+            }
+          }
+        ],
+        "generated_tasks": [
+          {
+            "created": true,
+            "task_id": "feedback_20260506_034340_00c334",
+            "feature_id": "feat_20260506_034340_reduce_drop-off_on_/",
+            "status": "pipeline_running"
+          },
+          {
+            "created": true,
+            "task_id": "feedback_20260506_034340_a9302a",
+            "feature_id": "feat_20260506_034340_fix_real-user_errors",
+            "status": "generated"
+          },
+          {
+            "created": false,
+            "task_id": "feedback_20260425_011059_1fd1a2",
+            "feature_id": "feat_20260425_011059_reduce_drop-off_on_/",
+            "status": "generated"
+          },
+          {
+            "created": true,
+            "task_id": "feedback_20260506_034340_ceda45",
+            "feature_id": "feat_20260506_034340_reduce_drop-off_on_/",
+            "status": "generated"
+          },
+          {
+            "created": false,
+            "task_id": "feedback_20260425_011059_2d157b",
+            "feature_id": "feat_20260425_011059_fix_real-user_errors",
+            "status": "generated"
+          }
+        ],
+        "event_count": 787
+      }
+    },
+    "executive_overview": {
+      "status": 200,
+      "json": {
+        "kpis": [
+          {
+            "id": "total_revenue",
+            "label": "Total Platform Revenue",
+            "value": "$5,712",
+            "raw_value": 5712.38,
+            "daily_change": 0.2,
+            "weekly_trend": 2.6,
+            "sparkline": [
+              834.2,
+              865.54,
+              758.03,
+              792.71,
+              880.28,
+              775.95,
+              806.41
+            ],
+            "icon": "trending-up",
+            "color": "#10B981"
+          },
+          {
+            "id": "net_revenue",
+            "label": "Net Revenue After Fees",
+            "value": "$4,684",
+            "raw_value": 4684.1516,
+            "daily_change": -0.3,
+            "weekly_trend": 2.3,
+            "sparkline": [
+              665.2,
+              713.76,
+              618.51,
+              665.66,
+              698.83,
+              650.76,
+              721.14
+            ],
+            "icon": "cash",
+            "color": "#3B82F6"
+          },
+          {
+            "id": "loan_portfolio",
+            "label": "Loan Portfolio Value",
+            "value": "$0",
+            "raw_value": 0,
+            "daily_change": 1.6,
+            "weekly_trend": 2.6,
+            "sparkline": [
+              985.32,
+              1021.17,
+              1004.92,
+              1064.54,
+              940.23,
+              1103.59,
+              924.34
+            ],
+            "icon": "briefcase",
+            "color": "#8B5CF6"
+          },
+          {
+            "id": "creator_revenue",
+            "label": "Creator Revenue",
+            "value": "$420",
+            "raw_value": 420,
+            "daily_change": 3.4,
+            "weekly_trend": 7.1,
+            "sparkline": [
+              58.87,
+              57.37,
+              60.18,
+              66.37,
+              53.23,
+              51.73,
+              52.92
+            ],
+            "icon": "people",
+            "color": "#F59E0B"
+          },
+          {
+            "id": "active_subscriptions",
+            "label": "Active Subscriptions",
+            "value": "12",
+            "raw_value": 12,
+            "daily_change": 0.9,
+            "weekly_trend": 0.6,
+            "sparkline": [
+              12.54,
+              12.22,
+              12.09,
+              11.44,
+              11.57,
+              12.12,
+              11.41
+            ],
+            "icon": "card",
+            "color": "#06B6D4"
+          },
+          {
+            "id": "active_wallets",
+            "label": "Active Wallets",
+            "value": "409",
+            "raw_value": 409,
+            "daily_change": 0.2,
+            "weekly_trend": 2.1,
+            "sparkline": [
+              400.28,
+              405.53,
+              385.12,
+              430.42,
+              414.71,
+              421.54,
+              421.28
+            ],
+            "icon": "wallet",
+            "color": "#EC4899"
+          },
+          {
+            "id": "transactions_today",
+            "label": "Transactions Today",
+            "value": "0",
+            "raw_value": 0,
+            "daily_change": 4.1,
+            "weekly_trend": 2.1,
+            "sparkline": [
+              11.6,
+              8.65,
+              11.96,
+              9.17,
+              11.35,
+              9.12,
+              10.42
+            ],
+            "icon": "swap-horizontal",
+            "color": "#14B8A6"
+          },
+          {
+            "id": "avg_dynamic_fee",
+            "label": "Average Dynamic Fee",
+            "value": "2.3%",
+            "raw_value": 2.3,
+            "daily_change": -0.13,
+            "weekly_trend": 0.44,
+            "sparkline": [
+              2.37,
+              2.34,
+              2.37,
+              2.21,
+              2.21,
+              2.34,
+              2.31
+            ],
+            "icon": "calculator",
+            "color": "#F97316"
+          },
+          {
+            "id": "fraud_risk",
+            "label": "Fraud Risk Index",
+            "value": "Low",
+            "raw_value": 0.8,
+            "daily_change": 0.25,
+            "weekly_trend": -0.92,
+            "sparkline": [
+              1.34,
+              1.45,
+              1.16,
+              1.35,
+              1.08,
+              1.25,
+              1.39
+            ],
+            "icon": "shield-checkmark",
+            "color": "#10B981"
+          },
+          {
+            "id": "system_health",
+            "label": "System Health",
+            "value": "99.7%",
+            "raw_value": 99.7,
+            "daily_change": 0.0,
+            "weekly_trend": 0.1,
+            "sparkline": [
+              99.48,
+              99.42,
+              99.62,
+              99.52,
+              99.53,
+              99.63,
+              99.79
+            ],
+            "icon": "pulse",
+            "color": "#10B981"
+          }
+        ],
+        "truth_cards": {
+          "last_verified_engine_run": {
+            "status": "FAIL",
+            "run_id": "ae_20260506_030808",
+            "checked_at": "2026-05-06T03:23:42.614866+00:00",
+            "gate_open": false,
+            "freshness": "Fresh",
+            "minutes_since_last_pass": 37850,
+            "triggered_by": "zero_trust_auto_mitigation:scheduler",
+            "final_output": {
+              "TESTS": "FAIL",
+              "COVERAGE": "PASS",
+              "VALIDATION": "FAIL",
+              "PERFORMANCE": "FAIL",
+              "E2E": "PASS",
+              "VISUAL": "FAIL",
+              "DEPLOYMENT": "FAIL",
+              "STATUS": "FAIL"
+            }
+          },
+          "global_audit_status": {
+            "status": "UNKNOWN",
+            "report_id": null,
+            "checked_at": null,
+            "confidence": "UNKNOWN",
+            "backend_success": "N/A",
+            "frontend_success": "N/A",
+            "summary": "No global audit report found yet.",
+            "staleness_label": "Awaiting first audit"
+          }
+        },
+        "last_updated": "2026-05-06T03:43:40.729199+00:00",
+        "total_users": 409,
+        "premium_users": 12,
+        "active_today": 0,
+        "new_users_week": 17
+      }
+    }
+  }
+}

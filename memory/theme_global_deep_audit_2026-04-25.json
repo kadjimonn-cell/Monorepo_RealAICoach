@@ -1,0 +1,618 @@
+{
+  "app_total": 176,
+  "components_total": 369,
+  "app_high_conf_missing_theme": [
+    {
+      "file": "app/+html.tsx",
+      "hex_count": 29,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "app/careers/portal/[token].tsx",
+      "hex_count": 9,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "app/careers/schedule/[token].tsx",
+      "hex_count": 9,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "app/careers/video-qa/[token].tsx",
+      "hex_count": 8,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "app/chat/[id].tsx",
+      "hex_count": 13,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "app/login.tsx",
+      "hex_count": 2,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    }
+  ],
+  "app_bypass_pages": [
+    "app/+html.tsx",
+    "app/achievements.tsx",
+    "app/admin/gdpr-requests.tsx",
+    "app/ai-briefing.tsx",
+    "app/ai-problem-solver.tsx",
+    "app/auth/ms-callback.tsx",
+    "app/auth/qr-approve.tsx",
+    "app/auth/sso-debug.tsx",
+    "app/blog/[slug].tsx",
+    "app/blog/index.tsx",
+    "app/career.tsx",
+    "app/careers/portal/[token].tsx",
+    "app/careers/schedule/[token].tsx",
+    "app/careers/video-qa/[token].tsx",
+    "app/chat/[id].tsx",
+    "app/executive-dashboard.tsx",
+    "app/feature-gallery.tsx",
+    "app/feedback.tsx",
+    "app/id-verify-mobile.tsx",
+    "app/integrations.tsx",
+    "app/leaderboard.tsx",
+    "app/mini-apps/creator-exchange.tsx",
+    "app/mini-apps/digital-bank.tsx",
+    "app/mini-apps/drama-box.tsx",
+    "app/mini-apps/marketplace.tsx",
+    "app/mini-apps/mobile-money.tsx",
+    "app/payment-document-v2.tsx",
+    "app/payment-history-export-v2.tsx",
+    "app/privacy-security.tsx",
+    "app/privacy-verify.tsx",
+    "app/progress-tracker.tsx",
+    "app/progress.tsx",
+    "app/safe-deployment.tsx",
+    "app/scenario/[id].tsx",
+    "app/settings/payment-cards.tsx",
+    "app/subscription/kyc.tsx",
+    "app/subscription/mobile-money.tsx",
+    "app/subscription/plans.tsx",
+    "app/track-application.tsx",
+    "app/verify.tsx"
+  ],
+  "component_high_conf_missing_theme": [
+    {
+      "file": "src/components/WhiteboardCanvas.tsx",
+      "hex_count": 7,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/admin/AdminHealthDigestWidget.tsx",
+      "hex_count": 11,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/admin/CareerSchedulingAvailability.tsx",
+      "hex_count": 2,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/admin/GtecCrawlerPanel.tsx",
+      "hex_count": 2,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/admin/NewsletterSubjectABWidget.tsx",
+      "hex_count": 7,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/admin/SystemHealthPanel.tsx",
+      "hex_count": 19,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/admin/TopBrokenPanelsWidget.tsx",
+      "hex_count": 2,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/admin/booking-command/BookingCharts.tsx",
+      "hex_count": 2,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/admin/booking-command/BookingTable.tsx",
+      "hex_count": 1,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/admin/email-templates/AbTestsView.tsx",
+      "hex_count": 2,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/admin/email-templates/AnalyticsView.tsx",
+      "hex_count": 3,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/admin/email-templates/ClientSandboxView.tsx",
+      "hex_count": 1,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/admin/email-templates/DeliverabilityView.tsx",
+      "hex_count": 3,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/admin/email-templates/PerformanceChartsView.tsx",
+      "hex_count": 1,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/admin/email-templates/TemplatesView.tsx",
+      "hex_count": 35,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/admin/session-management/AlertsPanel.tsx",
+      "hex_count": 2,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/admin/session-management/BlocklistPanel.tsx",
+      "hex_count": 1,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/admin/session-management/GeoMapPanel.tsx",
+      "hex_count": 3,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/admin/session-management/PoliciesPanel.tsx",
+      "hex_count": 2,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/admin/session-management/SecurityPanel.tsx",
+      "hex_count": 1,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/admin/session-management/TabBar.tsx",
+      "hex_count": 3,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/agenda/AgendaSidebar.tsx",
+      "hex_count": 5,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/agenda/EventDetailModal.tsx",
+      "hex_count": 4,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/agenda/EventFormModal.tsx",
+      "hex_count": 8,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/agenda/MonthView.tsx",
+      "hex_count": 1,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/agenda/WeekView.tsx",
+      "hex_count": 1,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/branding/EnterpriseMotionOverlay.tsx",
+      "hex_count": 5,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/certificates/CertificatePrintLayoutModal.tsx",
+      "hex_count": 1,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/executive/ExecInlinePanels.tsx",
+      "hex_count": 3,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/executive/ExecOverviewSection.tsx",
+      "hex_count": 13,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/executive/ExecSearchModal.tsx",
+      "hex_count": 3,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/executive/ExecSidebar.tsx",
+      "hex_count": 3,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/gallery/FeatureDetailModal.tsx",
+      "hex_count": 15,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/gallery/GalleryCard.tsx",
+      "hex_count": 3,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/hiring/AILearningDashboard.tsx",
+      "hex_count": 21,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/hiring/AIMatchTab.tsx",
+      "hex_count": 1,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/hiring/CandOverviewTab.tsx",
+      "hex_count": 4,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/hiring/CareerCoachTab.tsx",
+      "hex_count": 1,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/hiring/FairnessDashboard.tsx",
+      "hex_count": 5,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/hiring/InterviewCenterTab.tsx",
+      "hex_count": 3,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/hiring/InterviewPrepTab.tsx",
+      "hex_count": 1,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/hiring/InterviewSummary.tsx",
+      "hex_count": 10,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/hiring/MockInterviewTab.tsx",
+      "hex_count": 2,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/hiring/PipelineTab.tsx",
+      "hex_count": 5,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/hiring/PredictiveTimeline.tsx",
+      "hex_count": 3,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/hiring/RankingsTab.tsx",
+      "hex_count": 3,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/hiring/RealTimeDashboard.tsx",
+      "hex_count": 3,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/hiring/ResumeBuilderTab.tsx",
+      "hex_count": 2,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/hiring/SchedulerTab.tsx",
+      "hex_count": 5,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/hiring/SystemHealthDashboard.tsx",
+      "hex_count": 8,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/hiring/shared.tsx",
+      "hex_count": 2,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/payment/BillingGlossaryTooltip.tsx",
+      "hex_count": 6,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/payment/EnterprisePaymentSummary.tsx",
+      "hex_count": 5,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/payment/ManualLinkPanel.tsx",
+      "hex_count": 2,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": false
+    },
+    {
+      "file": "src/components/payment/PdfAnnotationLayer.tsx",
+      "hex_count": 12,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/payment/PdfCanvasPreview.tsx",
+      "hex_count": 3,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    },
+    {
+      "file": "src/components/profile/ProfilePhotoCropper.tsx",
+      "hex_count": 7,
+      "has_theme_hook": false,
+      "has_css_var": false,
+      "has_bypass_marker": true
+    }
+  ],
+  "component_bypass_files": [
+    "src/components/AIChatPanel.tsx",
+    "src/components/AIScanner.tsx",
+    "src/components/AppShell.tsx",
+    "src/components/DailyGoalRing.tsx",
+    "src/components/DownloadsManagerView.tsx",
+    "src/components/MobileSubscriptionsView.tsx",
+    "src/components/OfflineBanner.tsx",
+    "src/components/OnboardingWizard.tsx",
+    "src/components/OperationsConsoleView.tsx",
+    "src/components/PWAInstallBanner.tsx",
+    "src/components/SessionExpiryBanner.tsx",
+    "src/components/SessionTimeout.tsx",
+    "src/components/SmartOnboarding.tsx",
+    "src/components/SubscriptionBadge.tsx",
+    "src/components/SubscriptionUpgradeModal.tsx",
+    "src/components/TosAcceptanceModal.tsx",
+    "src/components/UpgradeBanner.tsx",
+    "src/components/UpgradeModal.tsx",
+    "src/components/UsageLimitIndicator.tsx",
+    "src/components/WhiteboardCanvas.tsx",
+    "src/components/accessibility/SkipToContent.tsx",
+    "src/components/admin/AIAutoSupportPanel.tsx",
+    "src/components/admin/AIInsightHelpers.tsx",
+    "src/components/admin/AIInsightsPanel.tsx",
+    "src/components/admin/AIRemediationPanel.tsx",
+    "src/components/admin/AttachmentLightbox.tsx",
+    "src/components/admin/AuthComplianceDashboardPanel.tsx",
+    "src/components/admin/AutoDetectPanel.tsx",
+    "src/components/admin/AutomationEnginePanel.tsx",
+    "src/components/admin/AutonomousEnginePanel.tsx",
+    "src/components/admin/CIATrustScoreWidget.tsx",
+    "src/components/admin/CareerApplicationsPanel.tsx",
+    "src/components/admin/CareerEnhancements.tsx",
+    "src/components/admin/CareerTier1.tsx",
+    "src/components/admin/CertificateAnalyticsPanel.tsx",
+    "src/components/admin/CertificateTemplateManagerPanel.tsx",
+    "src/components/admin/CompetitorSnapshot.tsx",
+    "src/components/admin/ConversionAnalyticsPanel.tsx",
+    "src/components/admin/CookiePolicyBroadcastPanel.tsx",
+    "src/components/admin/CriticalJourneyMonitorPanel.tsx",
+    "src/components/admin/EnterpriseControlPlanePanel.tsx",
+    "src/components/admin/EnterpriseSecurityPanel.tsx",
+    "src/components/admin/FraudDetectionPanel.tsx",
+    "src/components/admin/GlobalAdaptationControlCenterPanel.tsx",
+    "src/components/admin/GooglePlayPanel.tsx",
+    "src/components/admin/IAPManagementPanel.tsx",
+    "src/components/admin/IntegrationManagementPanel.tsx",
+    "src/components/admin/LegalNoticeBroadcastPanel.tsx",
+    "src/components/admin/NewsletterAnalyticsPanel.tsx",
+    "src/components/admin/NewsletterAnalyticsPanelV2.tsx",
+    "src/components/admin/OnboardingAnalyticsPanel.tsx",
+    "src/components/admin/OperationsDashboard.tsx",
+    "src/components/admin/PerfAdvisorPanel.tsx",
+    "src/components/admin/PerformanceDashboardPanel.tsx",
+    "src/components/admin/PlatformFinanceIntegrityPanel.tsx",
+    "src/components/admin/PlatformSettingsPanel.tsx",
+    "src/components/admin/PrivacyPolicyBroadcastPanel.tsx",
+    "src/components/admin/PublicCoachingTipsPanel.tsx",
+    "src/components/admin/SIEMPanel.tsx",
+    "src/components/admin/SLAMonitorPanel.tsx",
+    "src/components/admin/SSOAnalyticsPanel.tsx",
+    "src/components/admin/SSOStatusPanel.tsx",
+    "src/components/admin/SecurityDashboardPanel.tsx",
+    "src/components/admin/SecurityIncidentBroadcastPanel.tsx",
+    "src/components/admin/SecurityPosturePanel.tsx",
+    "src/components/admin/SecurityTrendDashboard.tsx",
+    "src/components/admin/SelfRepairPanel.tsx",
+    "src/components/admin/SessionManagementPanel.tsx",
+    "src/components/admin/SubscriptionAnalyticsPanel.tsx",
+    "src/components/admin/SubscriptionPlanManagementPanel.tsx",
+    "src/components/admin/ThemeAuditPanel.tsx",
+    "src/components/admin/ThemeComplianceWidget.tsx",
+    "src/components/admin/ThemeTokenRemediationPanel.tsx",
+    "src/components/admin/ThemeValidationDashboard.tsx",
+    "src/components/admin/TickertapeAnalyticsPanel.tsx",
+    "src/components/admin/TicketFeedbackIntelPanel.tsx",
+    "src/components/admin/UBADashboardPanel.tsx",
+    "src/components/admin/UnifiedASOPanel.tsx",
+    "src/components/admin/UnifiedRevenuePanel.tsx",
+    "src/components/admin/UpcomingInterviewsWidget.tsx",
+    "src/components/admin/ZeroTrustCenterPanel.tsx",
+    "src/components/admin/email-templates/AbTestsView.tsx",
+    "src/components/admin/email-templates/AnalyticsView.tsx",
+    "src/components/admin/email-templates/ClientSandboxView.tsx",
+    "src/components/admin/email-templates/DeliverabilityView.tsx",
+    "src/components/admin/email-templates/PerformanceChartsView.tsx",
+    "src/components/admin/email-templates/TemplatesView.tsx",
+    "src/components/admin/session-management/AlertsPanel.tsx",
+    "src/components/admin/session-management/BlocklistPanel.tsx",
+    "src/components/admin/session-management/GeoMapPanel.tsx",
+    "src/components/admin/session-management/PoliciesPanel.tsx",
+    "src/components/agenda/AgendaSidebar.tsx",
+    "src/components/agenda/EventDetailModal.tsx",
+    "src/components/agenda/EventFormModal.tsx",
+    "src/components/branding/EnterpriseMotionOverlay.tsx",
+    "src/components/charts/RadarChart.tsx",
+    "src/components/executive/ExecInlinePanels.tsx",
+    "src/components/executive/ExecOverviewSection.tsx",
+    "src/components/executive/ExecSearchModal.tsx",
+    "src/components/executive/ExecSidebar.tsx",
+    "src/components/hiring/AILearningDashboard.tsx",
+    "src/components/hiring/AIMatchTab.tsx",
+    "src/components/hiring/CandOverviewTab.tsx",
+    "src/components/hiring/CareerCoachTab.tsx",
+    "src/components/hiring/FairnessDashboard.tsx",
+    "src/components/hiring/InterviewPrepTab.tsx",
+    "src/components/hiring/InterviewSummary.tsx",
+    "src/components/hiring/PipelineTab.tsx",
+    "src/components/hiring/PredictiveTimeline.tsx",
+    "src/components/hiring/RankingsTab.tsx",
+    "src/components/hiring/ResumeBuilderTab.tsx",
+    "src/components/hiring/SchedulerTab.tsx",
+    "src/components/notifications/NotificationsWorkspace.tsx",
+    "src/components/operations-console/OperationsConsoleExtracted.tsx",
+    "src/components/pages/CalendarInner.tsx",
+    "src/components/pages/LoginInner.tsx",
+    "src/components/pages/PaymentHistoryInner.tsx",
+    "src/components/pages/ReferralsInner.tsx",
+    "src/components/pages/SettingsInner.tsx",
+    "src/components/payment/BillingGlossaryTooltip.tsx",
+    "src/components/payment/EnterprisePaymentSummary.tsx",
+    "src/components/payment/PdfAnnotationLayer.tsx",
+    "src/components/payment/PdfCanvasPreview.tsx",
+    "src/components/portfolio/LearnerPortfolioScreen.tsx",
+    "src/components/profile/ProfilePhotoCropper.tsx"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-07-16T06:16:33.076Z",
+  "overallGrade": "A",
+  "warns": 0,
+  "fails": 0,
+  "infos": 1,
+  "filesScanned": 776,
+  "filesWarning": 0,
+  "filesFailing": 0,
+  "offenders": [
+    {
+      "file": "app/+html.tsx",
+      "issues": [
+        {
+          "line": 107,
+          "pattern": "t_object_hardcoded_dark",
+          "severity": "info",
+          "code": "text: '#0F172A',"
+        }
+      ],
+      "failCount": 0,
+      "warnCount": 0,
+      "infoCount": 1,
+      "totalIssues": 1
+    }
+  ]
+}

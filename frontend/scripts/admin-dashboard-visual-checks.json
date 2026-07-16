@@ -1,0 +1,20 @@
+{
+  "description": "Targeted responsive visual regression checkpoints for high-density admin dashboards.",
+  "viewports": [
+    { "name": "mobile", "width": 390, "height": 844 },
+    { "name": "tablet", "width": 768, "height": 1024 },
+    { "name": "desktop", "width": 1920, "height": 800 }
+  ],
+  "routes": [
+    "/admin",
+    "/admin?panel=employer-portal",
+    "/admin?panel=platform-health",
+    "/admin?panel=payment-billing"
+  ],
+  "assertions": [
+    "No horizontal overflow",
+    "Desktop table renders at large viewport",
+    "Compact cards render at mobile viewport",
+    "Primary actions remain visible and clickable"
+  ]
+}

@@ -1,0 +1,1460 @@
+{
+  "generated_at": "2026-07-16T17:16:49.768659+00:00",
+  "total": 207,
+  "counts": {
+    "public": 110,
+    "protected": 78,
+    "dynamic": 19
+  },
+  "routes": [
+    {
+      "file": "/app/frontend/app/index.tsx",
+      "relpath": "index.tsx",
+      "url": "/",
+      "probe_url": "/",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/(tabs)/index.tsx",
+      "relpath": "(tabs)/index.tsx",
+      "url": "/",
+      "probe_url": "/",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/about.tsx",
+      "relpath": "about.tsx",
+      "url": "/about",
+      "probe_url": "/about",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/about-us.tsx",
+      "relpath": "about-us.tsx",
+      "url": "/about-us",
+      "probe_url": "/about-us",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/achievements.tsx",
+      "relpath": "achievements.tsx",
+      "url": "/achievements",
+      "probe_url": "/achievements",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin/index.tsx",
+      "relpath": "admin/index.tsx",
+      "url": "/admin",
+      "probe_url": "/admin",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin-activity-log.tsx",
+      "relpath": "admin-activity-log.tsx",
+      "url": "/admin-activity-log",
+      "probe_url": "/admin-activity-log",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/(tabs)/admin-console.tsx",
+      "relpath": "(tabs)/admin-console.tsx",
+      "url": "/admin-console",
+      "probe_url": "/admin-console",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin-system.tsx",
+      "relpath": "admin-system.tsx",
+      "url": "/admin-system",
+      "probe_url": "/admin-system",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin/ai-agents.tsx",
+      "relpath": "admin/ai-agents.tsx",
+      "url": "/admin/ai-agents",
+      "probe_url": "/admin/ai-agents",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin/content-integrity.tsx",
+      "relpath": "admin/content-integrity.tsx",
+      "url": "/admin/content-integrity",
+      "probe_url": "/admin/content-integrity",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin/email-delivery-ledger.tsx",
+      "relpath": "admin/email-delivery-ledger.tsx",
+      "url": "/admin/email-delivery-ledger",
+      "probe_url": "/admin/email-delivery-ledger",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin/email-templates.tsx",
+      "relpath": "admin/email-templates.tsx",
+      "url": "/admin/email-templates",
+      "probe_url": "/admin/email-templates",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin/gdpr-requests.tsx",
+      "relpath": "admin/gdpr-requests.tsx",
+      "url": "/admin/gdpr-requests",
+      "probe_url": "/admin/gdpr-requests",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin/layout-control.tsx",
+      "relpath": "admin/layout-control.tsx",
+      "url": "/admin/layout-control",
+      "probe_url": "/admin/layout-control",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin/llm-billing.tsx",
+      "relpath": "admin/llm-billing.tsx",
+      "url": "/admin/llm-billing",
+      "probe_url": "/admin/llm-billing",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin/matchday-reminders.tsx",
+      "relpath": "admin/matchday-reminders.tsx",
+      "url": "/admin/matchday-reminders",
+      "probe_url": "/admin/matchday-reminders",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin/mobile-money-dashboard.tsx",
+      "relpath": "admin/mobile-money-dashboard.tsx",
+      "url": "/admin/mobile-money-dashboard",
+      "probe_url": "/admin/mobile-money-dashboard",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin/observability-center.tsx",
+      "relpath": "admin/observability-center.tsx",
+      "url": "/admin/observability-center",
+      "probe_url": "/admin/observability-center",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin/observability-proof.tsx",
+      "relpath": "admin/observability-proof.tsx",
+      "url": "/admin/observability-proof",
+      "probe_url": "/admin/observability-proof",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin/offer-studio.tsx",
+      "relpath": "admin/offer-studio.tsx",
+      "url": "/admin/offer-studio",
+      "probe_url": "/admin/offer-studio",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin/offers/[offerId].tsx",
+      "relpath": "admin/offers/[offerId].tsx",
+      "url": "/admin/offers/[offerId]",
+      "probe_url": "/admin/offers/gtec_probe",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/admin/security.tsx",
+      "relpath": "admin/security.tsx",
+      "url": "/admin/security",
+      "probe_url": "/admin/security",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin/sports-source-health.tsx",
+      "relpath": "admin/sports-source-health.tsx",
+      "url": "/admin/sports-source-health",
+      "probe_url": "/admin/sports-source-health",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin/subscription-dashboard.tsx",
+      "relpath": "admin/subscription-dashboard.tsx",
+      "url": "/admin/subscription-dashboard",
+      "probe_url": "/admin/subscription-dashboard",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/admin/talent-network.tsx",
+      "relpath": "admin/talent-network.tsx",
+      "url": "/admin/talent-network",
+      "probe_url": "/admin/talent-network",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/ai-briefing.tsx",
+      "relpath": "ai-briefing.tsx",
+      "url": "/ai-briefing",
+      "probe_url": "/ai-briefing",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/ai-coaching-team.tsx",
+      "relpath": "ai-coaching-team.tsx",
+      "url": "/ai-coaching-team",
+      "probe_url": "/ai-coaching-team",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/ai-feature-dashboard.tsx",
+      "relpath": "ai-feature-dashboard.tsx",
+      "url": "/ai-feature-dashboard",
+      "probe_url": "/ai-feature-dashboard",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/ai-learning-hub.tsx",
+      "relpath": "ai-learning-hub.tsx",
+      "url": "/ai-learning-hub",
+      "probe_url": "/ai-learning-hub",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/ai-learning-hub-kpi/[kpiId].tsx",
+      "relpath": "ai-learning-hub-kpi/[kpiId].tsx",
+      "url": "/ai-learning-hub-kpi/[kpiId]",
+      "probe_url": "/ai-learning-hub-kpi/gtec_probe",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/ai-problem-solver.tsx",
+      "relpath": "ai-problem-solver.tsx",
+      "url": "/ai-problem-solver",
+      "probe_url": "/ai-problem-solver",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/auth/index.tsx",
+      "relpath": "auth/index.tsx",
+      "url": "/auth",
+      "probe_url": "/auth",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/auth/forgot-password.tsx",
+      "relpath": "auth/forgot-password.tsx",
+      "url": "/auth/forgot-password",
+      "probe_url": "/auth/forgot-password",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/auth/login.tsx",
+      "relpath": "auth/login.tsx",
+      "url": "/auth/login",
+      "probe_url": "/auth/login",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/auth/logout.tsx",
+      "relpath": "auth/logout.tsx",
+      "url": "/auth/logout",
+      "probe_url": "/auth/logout",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/auth/ms-callback.tsx",
+      "relpath": "auth/ms-callback.tsx",
+      "url": "/auth/ms-callback",
+      "probe_url": "/auth/ms-callback",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/auth/qr-approve.tsx",
+      "relpath": "auth/qr-approve.tsx",
+      "url": "/auth/qr-approve",
+      "probe_url": "/auth/qr-approve",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/auth/register.tsx",
+      "relpath": "auth/register.tsx",
+      "url": "/auth/register",
+      "probe_url": "/auth/register",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/auth/reset-password.tsx",
+      "relpath": "auth/reset-password.tsx",
+      "url": "/auth/reset-password",
+      "probe_url": "/auth/reset-password",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/auth/signin.tsx",
+      "relpath": "auth/signin.tsx",
+      "url": "/auth/signin",
+      "probe_url": "/auth/signin",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/auth/sso-debug.tsx",
+      "relpath": "auth/sso-debug.tsx",
+      "url": "/auth/sso-debug",
+      "probe_url": "/auth/sso-debug",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/blog/index.tsx",
+      "relpath": "blog/index.tsx",
+      "url": "/blog",
+      "probe_url": "/blog",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/blog/[slug].tsx",
+      "relpath": "blog/[slug].tsx",
+      "url": "/blog/[slug]",
+      "probe_url": "/blog/gtec-probe",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/blog/authors/[slug].tsx",
+      "relpath": "blog/authors/[slug].tsx",
+      "url": "/blog/authors/[slug]",
+      "probe_url": "/blog/authors/gtec-probe",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/blog/bookmarks.tsx",
+      "relpath": "blog/bookmarks.tsx",
+      "url": "/blog/bookmarks",
+      "probe_url": "/blog/bookmarks",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/book-meeting.tsx",
+      "relpath": "book-meeting.tsx",
+      "url": "/book-meeting",
+      "probe_url": "/book-meeting",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/book/[token].tsx",
+      "relpath": "book/[token].tsx",
+      "url": "/book/[token]",
+      "probe_url": "/book/SAMPLE_TOKEN_gtec_probe",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/book/reschedule/[token].tsx",
+      "relpath": "book/reschedule/[token].tsx",
+      "url": "/book/reschedule/[token]",
+      "probe_url": "/book/reschedule/SAMPLE_TOKEN_gtec_probe",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/calendar.tsx",
+      "relpath": "calendar.tsx",
+      "url": "/calendar",
+      "probe_url": "/calendar",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/career.tsx",
+      "relpath": "career.tsx",
+      "url": "/career",
+      "probe_url": "/career",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/careers.tsx",
+      "relpath": "careers.tsx",
+      "url": "/careers",
+      "probe_url": "/careers",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/careers/interview/confirm.tsx",
+      "relpath": "careers/interview/confirm.tsx",
+      "url": "/careers/interview/confirm",
+      "probe_url": "/careers/interview/confirm",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/careers/offer/confirm.tsx",
+      "relpath": "careers/offer/confirm.tsx",
+      "url": "/careers/offer/confirm",
+      "probe_url": "/careers/offer/confirm",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/careers/portal/[token].tsx",
+      "relpath": "careers/portal/[token].tsx",
+      "url": "/careers/portal/[token]",
+      "probe_url": "/careers/portal/SAMPLE_TOKEN_gtec_probe",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/careers/schedule/[token].tsx",
+      "relpath": "careers/schedule/[token].tsx",
+      "url": "/careers/schedule/[token]",
+      "probe_url": "/careers/schedule/SAMPLE_TOKEN_gtec_probe",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/careers/track/[application_id].tsx",
+      "relpath": "careers/track/[application_id].tsx",
+      "url": "/careers/track/[application_id]",
+      "probe_url": "/careers/track/[application_id]",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/careers/track/[id].tsx",
+      "relpath": "careers/track/[id].tsx",
+      "url": "/careers/track/[id]",
+      "probe_url": "/careers/track/gtec_probe",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/careers/video-qa/[token].tsx",
+      "relpath": "careers/video-qa/[token].tsx",
+      "url": "/careers/video-qa/[token]",
+      "probe_url": "/careers/video-qa/SAMPLE_TOKEN_gtec_probe",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/certificate-compare.tsx",
+      "relpath": "certificate-compare.tsx",
+      "url": "/certificate-compare",
+      "probe_url": "/certificate-compare",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/certificate-gallery.tsx",
+      "relpath": "certificate-gallery.tsx",
+      "url": "/certificate-gallery",
+      "probe_url": "/certificate-gallery",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/certificate-operations.tsx",
+      "relpath": "certificate-operations.tsx",
+      "url": "/certificate-operations",
+      "probe_url": "/certificate-operations",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/certificate-verify.tsx",
+      "relpath": "certificate-verify.tsx",
+      "url": "/certificate-verify",
+      "probe_url": "/certificate-verify",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/certificate-verify/[verificationId].tsx",
+      "relpath": "certificate-verify/[verificationId].tsx",
+      "url": "/certificate-verify/[verificationId]",
+      "probe_url": "/certificate-verify/gtec_probe",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/chat/[id].tsx",
+      "relpath": "chat/[id].tsx",
+      "url": "/chat/[id]",
+      "probe_url": "/chat/gtec_probe",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/contact.tsx",
+      "relpath": "contact.tsx",
+      "url": "/contact",
+      "probe_url": "/contact",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/content-library.tsx",
+      "relpath": "content-library.tsx",
+      "url": "/content-library",
+      "probe_url": "/content-library",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/cookies.tsx",
+      "relpath": "cookies.tsx",
+      "url": "/cookies",
+      "probe_url": "/cookies",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/currency-selector.tsx",
+      "relpath": "currency-selector.tsx",
+      "url": "/currency-selector",
+      "probe_url": "/currency-selector",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/dashboard.tsx",
+      "relpath": "dashboard.tsx",
+      "url": "/dashboard",
+      "probe_url": "/dashboard",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/(tabs)/downloads.tsx",
+      "relpath": "(tabs)/downloads.tsx",
+      "url": "/downloads",
+      "probe_url": "/downloads",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/edit-profile.tsx",
+      "relpath": "edit-profile.tsx",
+      "url": "/edit-profile",
+      "probe_url": "/edit-profile",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/email-templates-admin.tsx",
+      "relpath": "email-templates-admin.tsx",
+      "url": "/email-templates-admin",
+      "probe_url": "/email-templates-admin",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/employer-apply.tsx",
+      "relpath": "employer-apply.tsx",
+      "url": "/employer-apply",
+      "probe_url": "/employer-apply",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/employer-console.tsx",
+      "relpath": "employer-console.tsx",
+      "url": "/employer-console",
+      "probe_url": "/employer-console",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/executive-dashboard.tsx",
+      "relpath": "executive-dashboard.tsx",
+      "url": "/executive-dashboard",
+      "probe_url": "/executive-dashboard",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/faq.tsx",
+      "relpath": "faq.tsx",
+      "url": "/faq",
+      "probe_url": "/faq",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/feature-gallery.tsx",
+      "relpath": "feature-gallery.tsx",
+      "url": "/feature-gallery",
+      "probe_url": "/feature-gallery",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/index.tsx",
+      "relpath": "features/index.tsx",
+      "url": "/features",
+      "probe_url": "/features",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/ai-automations.tsx",
+      "relpath": "features/ai-automations.tsx",
+      "url": "/features/ai-automations",
+      "probe_url": "/features/ai-automations",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/ai-chatbot.tsx",
+      "relpath": "features/ai-chatbot.tsx",
+      "url": "/features/ai-chatbot",
+      "probe_url": "/features/ai-chatbot",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/ai-cognitive.tsx",
+      "relpath": "features/ai-cognitive.tsx",
+      "url": "/features/ai-cognitive",
+      "probe_url": "/features/ai-cognitive",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/ai-copywriter.tsx",
+      "relpath": "features/ai-copywriter.tsx",
+      "url": "/features/ai-copywriter",
+      "probe_url": "/features/ai-copywriter",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/ai-enterprise.tsx",
+      "relpath": "features/ai-enterprise.tsx",
+      "url": "/features/ai-enterprise",
+      "probe_url": "/features/ai-enterprise",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/ai-found-love.tsx",
+      "relpath": "features/ai-found-love.tsx",
+      "url": "/features/ai-found-love",
+      "probe_url": "/features/ai-found-love",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/ai-photo.tsx",
+      "relpath": "features/ai-photo.tsx",
+      "url": "/features/ai-photo",
+      "probe_url": "/features/ai-photo",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/ai-private-search.tsx",
+      "relpath": "features/ai-private-search.tsx",
+      "url": "/features/ai-private-search",
+      "probe_url": "/features/ai-private-search",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/ai-search.tsx",
+      "relpath": "features/ai-search.tsx",
+      "url": "/features/ai-search",
+      "probe_url": "/features/ai-search",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/ai-speech.tsx",
+      "relpath": "features/ai-speech.tsx",
+      "url": "/features/ai-speech",
+      "probe_url": "/features/ai-speech",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/ai-video.tsx",
+      "relpath": "features/ai-video.tsx",
+      "url": "/features/ai-video",
+      "probe_url": "/features/ai-video",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/ai-vision.tsx",
+      "relpath": "features/ai-vision.tsx",
+      "url": "/features/ai-vision",
+      "probe_url": "/features/ai-vision",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/ai-writer.tsx",
+      "relpath": "features/ai-writer.tsx",
+      "url": "/features/ai-writer",
+      "probe_url": "/features/ai-writer",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/analytics-reports.tsx",
+      "relpath": "features/analytics-reports.tsx",
+      "url": "/features/analytics-reports",
+      "probe_url": "/features/analytics-reports",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/assistant.tsx",
+      "relpath": "features/assistant.tsx",
+      "url": "/features/assistant",
+      "probe_url": "/features/assistant",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/audio-studio.tsx",
+      "relpath": "features/audio-studio.tsx",
+      "url": "/features/audio-studio",
+      "probe_url": "/features/audio-studio",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/bill-generator.tsx",
+      "relpath": "features/bill-generator.tsx",
+      "url": "/features/bill-generator",
+      "probe_url": "/features/bill-generator",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/buy-smart-home.tsx",
+      "relpath": "features/buy-smart-home.tsx",
+      "url": "/features/buy-smart-home",
+      "probe_url": "/features/buy-smart-home",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/content-studio.tsx",
+      "relpath": "features/content-studio.tsx",
+      "url": "/features/content-studio",
+      "probe_url": "/features/content-studio",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/daily-meditation.tsx",
+      "relpath": "features/daily-meditation.tsx",
+      "url": "/features/daily-meditation",
+      "probe_url": "/features/daily-meditation",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/decision-coach.tsx",
+      "relpath": "features/decision-coach.tsx",
+      "url": "/features/decision-coach",
+      "probe_url": "/features/decision-coach",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/fitness.tsx",
+      "relpath": "features/fitness.tsx",
+      "url": "/features/fitness",
+      "probe_url": "/features/fitness",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/flappy-bird.tsx",
+      "relpath": "features/flappy-bird.tsx",
+      "url": "/features/flappy-bird",
+      "probe_url": "/features/flappy-bird",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/fps-game.tsx",
+      "relpath": "features/fps-game.tsx",
+      "url": "/features/fps-game",
+      "probe_url": "/features/fps-game",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/health-dashboard.tsx",
+      "relpath": "features/health-dashboard.tsx",
+      "url": "/features/health-dashboard",
+      "probe_url": "/features/health-dashboard",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/lexicon-intelligence.tsx",
+      "relpath": "features/lexicon-intelligence.tsx",
+      "url": "/features/lexicon-intelligence",
+      "probe_url": "/features/lexicon-intelligence",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/medimate.tsx",
+      "relpath": "features/medimate.tsx",
+      "url": "/features/medimate",
+      "probe_url": "/features/medimate",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/my-podcasts.tsx",
+      "relpath": "features/my-podcasts.tsx",
+      "url": "/features/my-podcasts",
+      "probe_url": "/features/my-podcasts",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/pennypilot.tsx",
+      "relpath": "features/pennypilot.tsx",
+      "url": "/features/pennypilot",
+      "probe_url": "/features/pennypilot",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/school-tutor.tsx",
+      "relpath": "features/school-tutor.tsx",
+      "url": "/features/school-tutor",
+      "probe_url": "/features/school-tutor",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/smart-cars.tsx",
+      "relpath": "features/smart-cars.tsx",
+      "url": "/features/smart-cars",
+      "probe_url": "/features/smart-cars",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/smartbuy.tsx",
+      "relpath": "features/smartbuy.tsx",
+      "url": "/features/smartbuy",
+      "probe_url": "/features/smartbuy",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/sports.tsx",
+      "relpath": "features/sports.tsx",
+      "url": "/features/sports",
+      "probe_url": "/features/sports",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/travel-visa.tsx",
+      "relpath": "features/travel-visa.tsx",
+      "url": "/features/travel-visa",
+      "probe_url": "/features/travel-visa",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/travelpal.tsx",
+      "relpath": "features/travelpal.tsx",
+      "url": "/features/travelpal",
+      "probe_url": "/features/travelpal",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/features/watch-videos.tsx",
+      "relpath": "features/watch-videos.tsx",
+      "url": "/features/watch-videos",
+      "probe_url": "/features/watch-videos",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/feedback.tsx",
+      "relpath": "feedback.tsx",
+      "url": "/feedback",
+      "probe_url": "/feedback",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/fps-match/index.tsx",
+      "relpath": "fps-match/index.tsx",
+      "url": "/fps-match",
+      "probe_url": "/fps-match",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/fps-match/[matchId].tsx",
+      "relpath": "fps-match/[matchId].tsx",
+      "url": "/fps-match/[matchId]",
+      "probe_url": "/fps-match/[matchId]",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/gdpr.tsx",
+      "relpath": "gdpr.tsx",
+      "url": "/gdpr",
+      "probe_url": "/gdpr",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/help.tsx",
+      "relpath": "help.tsx",
+      "url": "/help",
+      "probe_url": "/help",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/hiring-hub.tsx",
+      "relpath": "hiring-hub.tsx",
+      "url": "/hiring-hub",
+      "probe_url": "/hiring-hub",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/home.tsx",
+      "relpath": "home.tsx",
+      "url": "/home",
+      "probe_url": "/home",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/i18n-drift-dashboard.tsx",
+      "relpath": "i18n-drift-dashboard.tsx",
+      "url": "/i18n-drift-dashboard",
+      "probe_url": "/i18n-drift-dashboard",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/id-checker.tsx",
+      "relpath": "id-checker.tsx",
+      "url": "/id-checker",
+      "probe_url": "/id-checker",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/id-verification.tsx",
+      "relpath": "id-verification.tsx",
+      "url": "/id-verification",
+      "probe_url": "/id-verification",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/id-verify-mobile.tsx",
+      "relpath": "id-verify-mobile.tsx",
+      "url": "/id-verify-mobile",
+      "probe_url": "/id-verify-mobile",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/integrations.tsx",
+      "relpath": "integrations.tsx",
+      "url": "/integrations",
+      "probe_url": "/integrations",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/interview-room.tsx",
+      "relpath": "interview-room.tsx",
+      "url": "/interview-room",
+      "probe_url": "/interview-room",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/invite-accept.tsx",
+      "relpath": "invite-accept.tsx",
+      "url": "/invite-accept",
+      "probe_url": "/invite-accept",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/job-platform.tsx",
+      "relpath": "job-platform.tsx",
+      "url": "/job-platform",
+      "probe_url": "/job-platform",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/job-platform-admin.tsx",
+      "relpath": "job-platform-admin.tsx",
+      "url": "/job-platform-admin",
+      "probe_url": "/job-platform-admin",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/job-platform-candidate.tsx",
+      "relpath": "job-platform-candidate.tsx",
+      "url": "/job-platform-candidate",
+      "probe_url": "/job-platform-candidate",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/job-platform-employer.tsx",
+      "relpath": "job-platform-employer.tsx",
+      "url": "/job-platform-employer",
+      "probe_url": "/job-platform-employer",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/job-search.tsx",
+      "relpath": "job-search.tsx",
+      "url": "/job-search",
+      "probe_url": "/job-search",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/language-selector.tsx",
+      "relpath": "language-selector.tsx",
+      "url": "/language-selector",
+      "probe_url": "/language-selector",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/leaderboard.tsx",
+      "relpath": "leaderboard.tsx",
+      "url": "/leaderboard",
+      "probe_url": "/leaderboard",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/learner-portfolio.tsx",
+      "relpath": "learner-portfolio.tsx",
+      "url": "/learner-portfolio",
+      "probe_url": "/learner-portfolio",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/login.tsx",
+      "relpath": "login.tsx",
+      "url": "/login",
+      "probe_url": "/login",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/logout.tsx",
+      "relpath": "logout.tsx",
+      "url": "/logout",
+      "probe_url": "/logout",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/messages.tsx",
+      "relpath": "messages.tsx",
+      "url": "/messages",
+      "probe_url": "/messages",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/mini-apps/index.tsx",
+      "relpath": "mini-apps/index.tsx",
+      "url": "/mini-apps",
+      "probe_url": "/mini-apps",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/mini-apps/ai-accounting.tsx",
+      "relpath": "mini-apps/ai-accounting.tsx",
+      "url": "/mini-apps/ai-accounting",
+      "probe_url": "/mini-apps/ai-accounting",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/mini-apps/creator-exchange.tsx",
+      "relpath": "mini-apps/creator-exchange.tsx",
+      "url": "/mini-apps/creator-exchange",
+      "probe_url": "/mini-apps/creator-exchange",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/mini-apps/digital-bank.tsx",
+      "relpath": "mini-apps/digital-bank.tsx",
+      "url": "/mini-apps/digital-bank",
+      "probe_url": "/mini-apps/digital-bank",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/mini-apps/drama-box.tsx",
+      "relpath": "mini-apps/drama-box.tsx",
+      "url": "/mini-apps/drama-box",
+      "probe_url": "/mini-apps/drama-box",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/mini-apps/invoice-generator.tsx",
+      "relpath": "mini-apps/invoice-generator.tsx",
+      "url": "/mini-apps/invoice-generator",
+      "probe_url": "/mini-apps/invoice-generator",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/mini-apps/job-platform.tsx",
+      "relpath": "mini-apps/job-platform.tsx",
+      "url": "/mini-apps/job-platform",
+      "probe_url": "/mini-apps/job-platform",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/mini-apps/local-music.tsx",
+      "relpath": "mini-apps/local-music.tsx",
+      "url": "/mini-apps/local-music",
+      "probe_url": "/mini-apps/local-music",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/mini-apps/marketplace.tsx",
+      "relpath": "mini-apps/marketplace.tsx",
+      "url": "/mini-apps/marketplace",
+      "probe_url": "/mini-apps/marketplace",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/mini-apps/mobile-money.tsx",
+      "relpath": "mini-apps/mobile-money.tsx",
+      "url": "/mini-apps/mobile-money",
+      "probe_url": "/mini-apps/mobile-money",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/mini-apps/music-streaming.tsx",
+      "relpath": "mini-apps/music-streaming.tsx",
+      "url": "/mini-apps/music-streaming",
+      "probe_url": "/mini-apps/music-streaming",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/mini-apps/onboarding.tsx",
+      "relpath": "mini-apps/onboarding.tsx",
+      "url": "/mini-apps/onboarding",
+      "probe_url": "/mini-apps/onboarding",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/my-analytics.tsx",
+      "relpath": "my-analytics.tsx",
+      "url": "/my-analytics",
+      "probe_url": "/my-analytics",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/my-tickets.tsx",
+      "relpath": "my-tickets.tsx",
+      "url": "/my-tickets",
+      "probe_url": "/my-tickets",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/notifications.tsx",
+      "relpath": "notifications.tsx",
+      "url": "/notifications",
+      "probe_url": "/notifications",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/nova-curation-hub.tsx",
+      "relpath": "nova-curation-hub.tsx",
+      "url": "/nova-curation-hub",
+      "probe_url": "/nova-curation-hub",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/onboarding.tsx",
+      "relpath": "onboarding.tsx",
+      "url": "/onboarding",
+      "probe_url": "/onboarding",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/ops-performance.tsx",
+      "relpath": "ops-performance.tsx",
+      "url": "/ops-performance",
+      "probe_url": "/ops-performance",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/ops-route-health.tsx",
+      "relpath": "ops-route-health.tsx",
+      "url": "/ops-route-health",
+      "probe_url": "/ops-route-health",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/payment-document-v2.tsx",
+      "relpath": "payment-document-v2.tsx",
+      "url": "/payment-document-v2",
+      "probe_url": "/payment-document-v2",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/payment-history.tsx",
+      "relpath": "payment-history.tsx",
+      "url": "/payment-history",
+      "probe_url": "/payment-history",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/payment-history-export-v2.tsx",
+      "relpath": "payment-history-export-v2.tsx",
+      "url": "/payment-history-export-v2",
+      "probe_url": "/payment-history-export-v2",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/payment-result.tsx",
+      "relpath": "payment-result.tsx",
+      "url": "/payment-result",
+      "probe_url": "/payment-result",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/performance-observability.tsx",
+      "relpath": "performance-observability.tsx",
+      "url": "/performance-observability",
+      "probe_url": "/performance-observability",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/policy-console.tsx",
+      "relpath": "policy-console.tsx",
+      "url": "/policy-console",
+      "probe_url": "/policy-console",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/practice.tsx",
+      "relpath": "practice.tsx",
+      "url": "/practice",
+      "probe_url": "/practice",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/(tabs)/practice.tsx",
+      "relpath": "(tabs)/practice.tsx",
+      "url": "/practice",
+      "probe_url": "/practice",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/press.tsx",
+      "relpath": "press.tsx",
+      "url": "/press",
+      "probe_url": "/press",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/press/[slug].tsx",
+      "relpath": "press/[slug].tsx",
+      "url": "/press/[slug]",
+      "probe_url": "/press/gtec-probe",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/pricing.tsx",
+      "relpath": "pricing.tsx",
+      "url": "/pricing",
+      "probe_url": "/pricing",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/privacy-policy.tsx",
+      "relpath": "privacy-policy.tsx",
+      "url": "/privacy-policy",
+      "probe_url": "/privacy-policy",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/privacy-request.tsx",
+      "relpath": "privacy-request.tsx",
+      "url": "/privacy-request",
+      "probe_url": "/privacy-request",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/privacy-security.tsx",
+      "relpath": "privacy-security.tsx",
+      "url": "/privacy-security",
+      "probe_url": "/privacy-security",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/privacy-verify.tsx",
+      "relpath": "privacy-verify.tsx",
+      "url": "/privacy-verify",
+      "probe_url": "/privacy-verify",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/profile.tsx",
+      "relpath": "profile.tsx",
+      "url": "/profile",
+      "probe_url": "/profile",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/(tabs)/profile.tsx",
+      "relpath": "(tabs)/profile.tsx",
+      "url": "/profile",
+      "probe_url": "/profile",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/progress.tsx",
+      "relpath": "progress.tsx",
+      "url": "/progress",
+      "probe_url": "/progress",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/(tabs)/progress.tsx",
+      "relpath": "(tabs)/progress.tsx",
+      "url": "/progress",
+      "probe_url": "/progress",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/progress-tracker.tsx",
+      "relpath": "progress-tracker.tsx",
+      "url": "/progress-tracker",
+      "probe_url": "/progress-tracker",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/referrals.tsx",
+      "relpath": "referrals.tsx",
+      "url": "/referrals",
+      "probe_url": "/referrals",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/route-health-report.tsx",
+      "relpath": "route-health-report.tsx",
+      "url": "/route-health-report",
+      "probe_url": "/route-health-report",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/safe-deployment.tsx",
+      "relpath": "safe-deployment.tsx",
+      "url": "/safe-deployment",
+      "probe_url": "/safe-deployment",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/scan-history.tsx",
+      "relpath": "scan-history.tsx",
+      "url": "/scan-history",
+      "probe_url": "/scan-history",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/scenario/[id].tsx",
+      "relpath": "scenario/[id].tsx",
+      "url": "/scenario/[id]",
+      "probe_url": "/scenario/gtec_probe",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/security.tsx",
+      "relpath": "security.tsx",
+      "url": "/security",
+      "probe_url": "/security",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/session-history.tsx",
+      "relpath": "session-history.tsx",
+      "url": "/session-history",
+      "probe_url": "/session-history",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/settings/index.tsx",
+      "relpath": "settings/index.tsx",
+      "url": "/settings",
+      "probe_url": "/settings",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/settings/payment-cards.tsx",
+      "relpath": "settings/payment-cards.tsx",
+      "url": "/settings/payment-cards",
+      "probe_url": "/settings/payment-cards",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/settings/pro-settings.tsx",
+      "relpath": "settings/pro-settings.tsx",
+      "url": "/settings/pro-settings",
+      "probe_url": "/settings/pro-settings",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/shared-calendar/[token].tsx",
+      "relpath": "shared-calendar/[token].tsx",
+      "url": "/shared-calendar/[token]",
+      "probe_url": "/shared-calendar/SAMPLE_TOKEN_gtec_probe",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/shared/[token].tsx",
+      "relpath": "shared/[token].tsx",
+      "url": "/shared/[token]",
+      "probe_url": "/shared/SAMPLE_TOKEN_gtec_probe",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/shared/portfolio/[userId].tsx",
+      "relpath": "shared/portfolio/[userId].tsx",
+      "url": "/shared/portfolio/[userId]",
+      "probe_url": "/shared/portfolio/gtec_probe",
+      "category": "dynamic"
+    },
+    {
+      "file": "/app/frontend/app/subscription/kyc.tsx",
+      "relpath": "subscription/kyc.tsx",
+      "url": "/subscription/kyc",
+      "probe_url": "/subscription/kyc",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/subscription/mobile.tsx",
+      "relpath": "subscription/mobile.tsx",
+      "url": "/subscription/mobile",
+      "probe_url": "/subscription/mobile",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/subscription/mobile-money.tsx",
+      "relpath": "subscription/mobile-money.tsx",
+      "url": "/subscription/mobile-money",
+      "probe_url": "/subscription/mobile-money",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/subscription/payment.tsx",
+      "relpath": "subscription/payment.tsx",
+      "url": "/subscription/payment",
+      "probe_url": "/subscription/payment",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/subscription/payment-result.tsx",
+      "relpath": "subscription/payment-result.tsx",
+      "url": "/subscription/payment-result",
+      "probe_url": "/subscription/payment-result",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/subscription/plans.tsx",
+      "relpath": "subscription/plans.tsx",
+      "url": "/subscription/plans",
+      "probe_url": "/subscription/plans",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/subscription/success.tsx",
+      "relpath": "subscription/success.tsx",
+      "url": "/subscription/success",
+      "probe_url": "/subscription/success",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/system-status.tsx",
+      "relpath": "system-status.tsx",
+      "url": "/system-status",
+      "probe_url": "/system-status",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/talent-network.tsx",
+      "relpath": "talent-network.tsx",
+      "url": "/talent-network",
+      "probe_url": "/talent-network",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/talent-network-admin.tsx",
+      "relpath": "talent-network-admin.tsx",
+      "url": "/talent-network-admin",
+      "probe_url": "/talent-network-admin",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/team-management.tsx",
+      "relpath": "team-management.tsx",
+      "url": "/team-management",
+      "probe_url": "/team-management",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/terms.tsx",
+      "relpath": "terms.tsx",
+      "url": "/terms",
+      "probe_url": "/terms",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/track-application.tsx",
+      "relpath": "track-application.tsx",
+      "url": "/track-application",
+      "probe_url": "/track-application",
+      "category": "public"
+    },
+    {
+      "file": "/app/frontend/app/verify.tsx",
+      "relpath": "verify.tsx",
+      "url": "/verify",
+      "probe_url": "/verify",
+      "category": "protected"
+    },
+    {
+      "file": "/app/frontend/app/welcome.tsx",
+      "relpath": "welcome.tsx",
+      "url": "/welcome",
+      "probe_url": "/welcome",
+      "category": "public"
+    }
+  ]
+}

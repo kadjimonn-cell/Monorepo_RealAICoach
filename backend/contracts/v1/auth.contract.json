@@ -1,0 +1,51 @@
+{
+  "module": "auth",
+  "version": "v1",
+  "base_path": "/api/auth",
+  "notes": "Native clients send X-Client-Platform: android|ios|expo|mobile|native to receive session_token + refresh_token in the response body. Web clients receive httpOnly cookies. All mutating requests require the X-Requested-With CSRF header.",
+  "endpoints": [
+    {
+      "path": "/api/auth/login",
+      "method": "post",
+      "auth": "public",
+      "request_contract": {
+        "required_fields": ["email", "password"]
+      },
+      "response_contract": {
+        "required_fields": ["user"],
+        "native_only_fields": ["session_token", "refresh_token"]
+      }
+    },
+    {
+      "path": "/api/auth/register",
+      "method": "post",
+      "auth": "public",
+      "request_contract": {
+        "required_fields": ["email", "password", "name"]
+      },
+      "response_contract": {
+        "required_fields": ["user"],
+        "native_only_fields": ["session_token", "refresh_token"]
+      }
+    },
+    {
+      "path": "/api/auth/token/refresh",
+      "method": "post",
+      "auth": "public",
+      "request_contract": {
+        "required_fields": ["refresh_token"]
+      },
+      "response_contract": {
+        "native_only_fields": ["session_token", "refresh_token"]
+      }
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "get",
+      "auth": "session",
+      "response_contract": {
+        "required_fields": ["user_id", "email"]
+      }
+    }
+  ]
+}

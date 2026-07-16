@@ -1,0 +1,177 @@
+{
+  "generated_at": "2026-05-14T13:55:01.155363+00:00",
+  "base_url": "https://coach-web-preview.preview.emergentagent.com",
+  "status": {
+    "health": 200
+  },
+  "users": {
+    "admin": {
+      "login_status": 200,
+      "has_token": true
+    },
+    "free": {
+      "login_status": 200,
+      "has_token": true
+    },
+    "basic": {
+      "login_status": 200,
+      "has_token": true
+    },
+    "premium": {
+      "login_status": 200,
+      "has_token": true
+    }
+  },
+  "registry": {
+    "status_code": 200,
+    "total": 24,
+    "ids": [
+      "ai-writer",
+      "ai-chatbot",
+      "ai-search",
+      "ai-automations",
+      "ai-cognitive",
+      "medimate",
+      "fitness",
+      "pennypilot",
+      "smartbuy",
+      "travelpal",
+      "ai-found-love",
+      "smart-cars",
+      "buy-smart-home",
+      "ai-video",
+      "ai-photo",
+      "ai-speech",
+      "ai-enterprise",
+      "school-tutor",
+      "bill-generator",
+      "lexicon-intelligence",
+      "watch-videos",
+      "games-station",
+      "travel-visa",
+      "ai-learning-hub"
+    ]
+  },
+  "routes": [
+    {
+      "feature_id": "ai-writer",
+      "route": "/features/ai-writer",
+      "status": 200
+    },
+    {
+      "feature_id": "ai-chatbot",
+      "route": "/features/ai-chatbot",
+      "status": 200
+    },
+    {
+      "feature_id": "ai-search",
+      "route": "/features/ai-search",
+      "status": 200
+    },
+    {
+      "feature_id": "ai-automations",
+      "route": "/features/ai-automations",
+      "status": 200
+    },
+    {
+      "feature_id": "ai-cognitive",
+      "route": "/features/ai-cognitive",
+      "status": 200
+    },
+    {
+      "feature_id": "medimate",
+      "route": "/features/medimate",
+      "status": 200
+    },
+    {
+      "feature_id": "fitness",
+      "route": "/features/fitness",
+      "status": 200
+    },
+    {
+      "feature_id": "pennypilot",
+      "route": "/features/pennypilot",
+      "status": 200
+    },
+    {
+      "feature_id": "smartbuy",
+      "route": "/features/smartbuy",
+      "status": 200
+    },
+    {
+      "feature_id": "travelpal",
+      "route": "/features/travelpal",
+      "status": 200
+    },
+    {
+      "feature_id": "ai-found-love",
+      "route": "/features/ai-found-love",
+      "status": 200
+    },
+    {
+      "feature_id": "smart-cars",
+      "route": "/features/smart-cars",
+      "status": 200
+    },
+    {
+      "feature_id": "buy-smart-home",
+      "route": "/features/buy-smart-home",
+      "status": 200
+    },
+    {
+      "feature_id": "ai-video",
+      "route": "/features/ai-video",
+      "status": 200
+    },
+    {
+      "feature_id": "ai-photo",
+      "route": "/features/ai-photo",
+      "status": 200
+    },
+    {
+      "feature_id": "ai-speech",
+      "route": "/features/ai-speech",
+      "status": 200
+    },
+    {
+      "feature_id": "ai-enterprise",
+      "route": "/features/ai-enterprise",
+      "status": 200
+    },
+    {
+      "feature_id": "school-tutor",
+      "route": "/features/school-tutor",
+      "status": 200
+    },
+    {
+      "feature_id": "bill-generator",
+      "route": "/features/bill-generator",
+      "status": 200
+    },
+    {
+      "feature_id": "lexicon-intelligence",
+      "route": "/features/lexicon-intelligence",
+      "status": 200
+    },
+    {
+      "feature_id": "watch-videos",
+      "route": "/features/watch-videos",
+      "status": 200
+    },
+    {
+      "feature_id": "games-station",
+      "route": "/features/games-station",
+      "status": 200
+    },
+    {
+      "feature_id": "travel-visa",
+      "route": "/features/travel-visa",
+      "status": 200
+    },
+    {
+      "feature_id": "ai-learning-hub",
+      "route": "/ai-learning-hub",
+      "status": 200
+    }
+  ]
+}

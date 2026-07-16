@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-05-19T02:28:19.122Z",
+  "baseline": {
+    "exit_code": 0,
+    "pass_expected": true,
+    "pass_actual": true,
+    "stdout": [
+      "[brand-exclusion-gate] PASS",
+      " - Platform brand: RealAICoach",
+      " - Exclusion terms: 83",
+      " - Report: /app/frontend/.quality/brand_exclusion_report.json"
+    ],
+    "stderr": [
+      ""
+    ]
+  },
+  "negative_fixture": {
+    "exit_code": 1,
+    "fail_expected": true,
+    "fail_actual": true,
+    "stdout": [
+      ""
+    ],
+    "stderr": [
+      "[brand-exclusion-gate] FAILED",
+      " - Forbidden brand-surface i18n key usage detected in scripts/fixtures/brand-exclusion-negative.fixture.tsx: autofix.precision12.real",
+      " - Forbidden brand-surface i18n key usage detected in scripts/fixtures/brand-exclusion-negative.fixture.tsx: autofix.precision12.coach",
+      " - Forbidden brand composition pattern matched in scripts/fixtures/brand-exclusion-negative.fixture.tsx: t\\(\\s*['\"]autofix\\.precision12\\.real['\"]\\s*\\)\\s*\\+\\s*['\"]AI['\"]\\s*\\+\\s*t\\(\\s*['\"]autofix\\.precision12\\.coach['\"]\\s*\\)",
+      "",
+      "Report: /app/frontend/.quality/brand_exclusion_report.json",
+      "Violations: /app/frontend/.quality/brand_exclusion_violations.json"
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "generated_at": "2026-05-17T14:02:07.679Z",
+  "note": "Baseline for route-level hardcoded-copy gate. CI fails only on newly introduced route violations.",
+  "violations": []
+}

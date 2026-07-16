@@ -1,0 +1,397 @@
+{
+  "generated_at": "2026-05-14T13:39:42.999033+00:00",
+  "base_url": "https://coach-web-preview.preview.emergentagent.com",
+  "logins": {
+    "admin": {
+      "status_code": 200,
+      "ok": true,
+      "user_id": null,
+      "plan": null
+    },
+    "free": {
+      "status_code": 200,
+      "ok": true,
+      "user_id": null,
+      "plan": null
+    },
+    "basic": {
+      "status_code": 200,
+      "ok": true,
+      "user_id": null,
+      "plan": null
+    },
+    "premium": {
+      "status_code": 200,
+      "ok": true,
+      "user_id": null,
+      "plan": null
+    }
+  },
+  "registry": {
+    "status_code": 200,
+    "total": 24,
+    "feature_ids": [
+      "ai-writer",
+      "ai-chatbot",
+      "ai-search",
+      "ai-automations",
+      "ai-cognitive",
+      "medimate",
+      "fitness",
+      "pennypilot",
+      "smartbuy",
+      "travelpal",
+      "ai-found-love",
+      "smart-cars",
+      "buy-smart-home",
+      "ai-video",
+      "ai-photo",
+      "ai-speech",
+      "ai-enterprise",
+      "school-tutor",
+      "bill-generator",
+      "lexicon-intelligence",
+      "watch-videos",
+      "games-station",
+      "travel-visa",
+      "ai-learning-hub"
+    ]
+  },
+  "frontend_feature_routes": [
+    {
+      "feature_id": "ai-writer",
+      "route": "/features/ai-writer",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "ai-chatbot",
+      "route": "/features/ai-chatbot",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "ai-search",
+      "route": "/features/ai-search",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "ai-automations",
+      "route": "/features/ai-automations",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "ai-cognitive",
+      "route": "/features/ai-cognitive",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "medimate",
+      "route": "/features/medimate",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "fitness",
+      "route": "/features/fitness",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "pennypilot",
+      "route": "/features/pennypilot",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "smartbuy",
+      "route": "/features/smartbuy",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "travelpal",
+      "route": "/features/travelpal",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "ai-found-love",
+      "route": "/features/ai-found-love",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "smart-cars",
+      "route": "/features/smart-cars",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "buy-smart-home",
+      "route": "/features/buy-smart-home",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "ai-video",
+      "route": "/features/ai-video",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "ai-photo",
+      "route": "/features/ai-photo",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "ai-speech",
+      "route": "/features/ai-speech",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "ai-enterprise",
+      "route": "/features/ai-enterprise",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "school-tutor",
+      "route": "/features/school-tutor",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "bill-generator",
+      "route": "/features/bill-generator",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "lexicon-intelligence",
+      "route": "/features/lexicon-intelligence",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "watch-videos",
+      "route": "/features/watch-videos",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "games-station",
+      "route": "/features/games-station",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "travel-visa",
+      "route": "/features/travel-visa",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    },
+    {
+      "feature_id": "ai-learning-hub",
+      "route": "/ai-learning-hub",
+      "status_code": 200,
+      "ok": true,
+      "bad_marker": false
+    }
+  ],
+  "entitlement_checks": {
+    "admin": {
+      "session": {
+        "status_code": 200,
+        "effective_plan": "premium",
+        "actor_type": "admin",
+        "ai_conversations_daily": -1
+      },
+      "routes": {
+        "free_route": {
+          "status_code": 200,
+          "allowed": true,
+          "reason": "admin",
+          "required_plan": null,
+          "current_plan": null
+        },
+        "basic_route": {
+          "status_code": 200,
+          "allowed": true,
+          "reason": "admin",
+          "required_plan": null,
+          "current_plan": null
+        },
+        "premium_route": {
+          "status_code": 200,
+          "allowed": true,
+          "reason": "admin",
+          "required_plan": null,
+          "current_plan": null
+        },
+        "admin_route": {
+          "status_code": 200,
+          "allowed": true,
+          "reason": "admin",
+          "required_plan": null,
+          "current_plan": null
+        }
+      }
+    },
+    "free": {
+      "session": {
+        "status_code": 200,
+        "effective_plan": "free",
+        "actor_type": "user",
+        "ai_conversations_daily": 3
+      },
+      "routes": {
+        "free_route": {
+          "status_code": 200,
+          "allowed": true,
+          "reason": "plan_ok",
+          "required_plan": null,
+          "current_plan": null
+        },
+        "basic_route": {
+          "status_code": 200,
+          "allowed": false,
+          "reason": "subscription_required",
+          "required_plan": "basic",
+          "current_plan": "free"
+        },
+        "premium_route": {
+          "status_code": 200,
+          "allowed": false,
+          "reason": "subscription_required",
+          "required_plan": "premium",
+          "current_plan": "free"
+        },
+        "admin_route": {
+          "status_code": 200,
+          "allowed": false,
+          "reason": "admin_or_employee_permission_required",
+          "required_plan": null,
+          "current_plan": null
+        }
+      }
+    },
+    "basic": {
+      "session": {
+        "status_code": 200,
+        "effective_plan": "basic",
+        "actor_type": "user",
+        "ai_conversations_daily": 10
+      },
+      "routes": {
+        "free_route": {
+          "status_code": 200,
+          "allowed": true,
+          "reason": "plan_ok",
+          "required_plan": null,
+          "current_plan": null
+        },
+        "basic_route": {
+          "status_code": 200,
+          "allowed": true,
+          "reason": "plan_ok",
+          "required_plan": null,
+          "current_plan": null
+        },
+        "premium_route": {
+          "status_code": 200,
+          "allowed": false,
+          "reason": "subscription_required",
+          "required_plan": "premium",
+          "current_plan": "basic"
+        },
+        "admin_route": {
+          "status_code": 200,
+          "allowed": false,
+          "reason": "admin_or_employee_permission_required",
+          "required_plan": null,
+          "current_plan": null
+        }
+      }
+    },
+    "premium": {
+      "session": {
+        "status_code": 200,
+        "effective_plan": "premium",
+        "actor_type": "user",
+        "ai_conversations_daily": -1
+      },
+      "routes": {
+        "free_route": {
+          "status_code": 200,
+          "allowed": true,
+          "reason": "plan_ok",
+          "required_plan": null,
+          "current_plan": null
+        },
+        "basic_route": {
+          "status_code": 200,
+          "allowed": true,
+          "reason": "plan_ok",
+          "required_plan": null,
+          "current_plan": null
+        },
+        "premium_route": {
+          "status_code": 200,
+          "allowed": true,
+          "reason": "plan_ok",
+          "required_plan": null,
+          "current_plan": null
+        },
+        "admin_route": {
+          "status_code": 200,
+          "allowed": false,
+          "reason": "admin_or_employee_permission_required",
+          "required_plan": null,
+          "current_plan": null
+        }
+      }
+    }
+  },
+  "errors": [],
+  "summary": {
+    "registry_total": 24,
+    "frontend_routes_ok": 24,
+    "frontend_routes_total": 24,
+    "login_ok": [
+      "admin",
+      "free",
+      "basic",
+      "premium"
+    ],
+    "errors": []
+  }
+}

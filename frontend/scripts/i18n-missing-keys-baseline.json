@@ -1,0 +1,5 @@
+{
+  "generated_at": "2026-05-04T04:34:10.823Z",
+  "note": "Baseline for nightly i18n missing-keys drift check. CI fails only on newly introduced missing keys.",
+  "missing_keys": []
+}

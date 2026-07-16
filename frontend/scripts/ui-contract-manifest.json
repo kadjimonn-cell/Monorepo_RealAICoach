@@ -1,0 +1,47 @@
+{
+  "contracts": [
+    {
+      "name": "identity-badge-core",
+      "file": "src/components/SubscriptionBadge.tsx",
+      "required_testids": [
+        "subscription-badge-owner",
+        "subscription-badge-owner-compact",
+        "subscription-badge-owner-full",
+        "subscription-badge-${plan}"
+      ]
+    },
+    {
+      "name": "drawer-user-card",
+      "file": "src/components/AppShell.tsx",
+      "required_testids": [
+        "sidebar-user-badge",
+        "mobile-nav-toggle",
+        "mobile-nav-close-btn"
+      ]
+    },
+    {
+      "name": "welcome-health-strip",
+      "file": "app/welcome.tsx",
+      "required_testids": [
+        "welcome-system-status-indicator",
+        "welcome-system-status-dot",
+        "welcome-system-status-label",
+        "welcome-system-status-last-refresh"
+      ]
+    }
+  ],
+  "snapshot_matrix": {
+    "viewports": [
+      "mobile_390x844",
+      "tablet_768x1024",
+      "desktop_1920x1080"
+    ],
+    "routes": [
+      "/dashboard (open drawer)",
+      "/profile",
+      "/subscription/plans",
+      "/payment-history",
+      "/welcome"
+    ]
+  }
+}

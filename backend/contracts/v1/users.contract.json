@@ -1,0 +1,25 @@
+{
+  "module": "users",
+  "version": "v1",
+  "base_path": "/api/auth",
+  "notes": "User identity, profile and session state shared identically across web, Android and iOS clients.",
+  "endpoints": [
+    {
+      "path": "/api/auth/me",
+      "method": "get",
+      "auth": "session",
+      "response_contract": {
+        "required_fields": ["user_id", "email", "name"],
+        "forbidden_fields": ["password_hash", "_id"]
+      }
+    },
+    {
+      "path": "/api/auth/renew-session",
+      "method": "post",
+      "auth": "session",
+      "response_contract": {
+        "native_only_fields": ["session_token"]
+      }
+    }
+  ]
+}

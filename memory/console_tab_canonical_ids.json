@@ -1,0 +1,1469 @@
+[
+  {
+    "uid": "exec::overview",
+    "console": "executive",
+    "tab_id": "overview",
+    "label": "Executive Overview",
+    "icon": "grid",
+    "route": "/executive-dashboard?section=overview",
+    "category": "overview"
+  },
+  {
+    "uid": "exec::ai-command-center",
+    "console": "executive",
+    "tab_id": "ai-command-center",
+    "label": "AI Command Center",
+    "icon": "sparkles",
+    "route": "/executive-dashboard?section=ai-command-center",
+    "category": "overview"
+  },
+  {
+    "uid": "exec::page-performance",
+    "console": "executive",
+    "tab_id": "page-performance",
+    "label": "Page Load Monitor",
+    "icon": "timer",
+    "route": "/executive-dashboard?section=page-performance",
+    "category": "overview"
+  },
+  {
+    "uid": "exec::financial",
+    "console": "executive",
+    "tab_id": "financial",
+    "label": "Financial Intelligence",
+    "icon": "bar-chart",
+    "route": "/executive-dashboard?section=financial",
+    "category": "revenue"
+  },
+  {
+    "uid": "exec::unified-revenue",
+    "console": "executive",
+    "tab_id": "unified-revenue",
+    "label": "Unified Revenue",
+    "icon": "wallet",
+    "route": "/executive-dashboard?section=unified-revenue",
+    "category": "revenue"
+  },
+  {
+    "uid": "exec::revenue",
+    "console": "executive",
+    "tab_id": "revenue",
+    "label": "Revenue Analytics",
+    "icon": "trending-up",
+    "route": "/executive-dashboard?section=revenue",
+    "category": "revenue"
+  },
+  {
+    "uid": "exec::sub-analytics",
+    "console": "executive",
+    "tab_id": "sub-analytics",
+    "label": "Subscription Analytics",
+    "icon": "card",
+    "route": "/executive-dashboard?section=sub-analytics",
+    "category": "revenue"
+  },
+  {
+    "uid": "exec::mm-analytics",
+    "console": "executive",
+    "tab_id": "mm-analytics",
+    "label": "Mobile Money Analytics",
+    "icon": "phone-portrait",
+    "route": "/admin/mobile-money-dashboard",
+    "category": "revenue"
+  },
+  {
+    "uid": "exec::conversion",
+    "console": "executive",
+    "tab_id": "conversion",
+    "label": "Conversion Analytics",
+    "icon": "funnel",
+    "route": "/executive-dashboard?section=conversion",
+    "category": "revenue"
+  },
+  {
+    "uid": "exec::ab-testing",
+    "console": "executive",
+    "tab_id": "ab-testing",
+    "label": "A/B Testing",
+    "icon": "flask",
+    "route": "/executive-dashboard?section=ab-testing",
+    "category": "revenue"
+  },
+  {
+    "uid": "exec::payment-billing",
+    "console": "executive",
+    "tab_id": "payment-billing",
+    "label": "Payment & Billing",
+    "icon": "cash",
+    "route": "/executive-dashboard?section=payment-billing",
+    "category": "revenue"
+  },
+  {
+    "uid": "exec::iap-management",
+    "console": "executive",
+    "tab_id": "iap-management",
+    "label": "In-App Purchases",
+    "icon": "phone-portrait",
+    "route": "/executive-dashboard?section=iap-management",
+    "category": "revenue"
+  },
+  {
+    "uid": "exec::subscription-mgmt",
+    "console": "executive",
+    "tab_id": "subscription-mgmt",
+    "label": "Subscription Plans",
+    "icon": "pricetags",
+    "route": "/executive-dashboard?section=subscription-mgmt",
+    "category": "revenue"
+  },
+  {
+    "uid": "exec::csat",
+    "console": "executive",
+    "tab_id": "csat",
+    "label": "CSAT Dashboard",
+    "icon": "happy",
+    "route": "/executive-dashboard?section=csat",
+    "category": "intelligence"
+  },
+  {
+    "uid": "exec::ticket-feedback",
+    "console": "executive",
+    "tab_id": "ticket-feedback",
+    "label": "Ticket Feedback Intel",
+    "icon": "chatbox-ellipses",
+    "route": "/executive-dashboard?section=ticket-feedback",
+    "category": "intelligence"
+  },
+  {
+    "uid": "exec::newsletter",
+    "console": "executive",
+    "tab_id": "newsletter",
+    "label": "Newsletter Analytics",
+    "icon": "newspaper",
+    "route": "/executive-dashboard?section=newsletter",
+    "category": "intelligence"
+  },
+  {
+    "uid": "exec::ai-features",
+    "console": "executive",
+    "tab_id": "ai-features",
+    "label": "AI Feature Analytics",
+    "icon": "sparkles",
+    "route": "/executive-dashboard?section=ai-features",
+    "category": "intelligence"
+  },
+  {
+    "uid": "exec::ai-usage",
+    "console": "executive",
+    "tab_id": "ai-usage",
+    "label": "AI Usage Analytics",
+    "icon": "analytics",
+    "route": "/executive-dashboard?section=ai-usage",
+    "category": "intelligence"
+  },
+  {
+    "uid": "exec::llm-billing",
+    "console": "executive",
+    "tab_id": "llm-billing",
+    "label": "LLM Usage & Billing",
+    "icon": "cash",
+    "route": "/admin/llm-billing",
+    "category": "intelligence"
+  },
+  {
+    "uid": "exec::content-studio-analytics",
+    "console": "executive",
+    "tab_id": "content-studio-analytics",
+    "label": "Content Studio",
+    "icon": "create",
+    "route": "/executive-dashboard?section=content-studio-analytics",
+    "category": "intelligence"
+  },
+  {
+    "uid": "exec::global-adaptation",
+    "console": "executive",
+    "tab_id": "global-adaptation",
+    "label": "Global Adaptation Center",
+    "icon": "globe",
+    "route": "/executive-dashboard?section=global-adaptation",
+    "category": "intelligence"
+  },
+  {
+    "uid": "exec::sso-analytics",
+    "console": "executive",
+    "tab_id": "sso-analytics",
+    "label": "SSO Analytics",
+    "icon": "finger-print",
+    "route": "/executive-dashboard?section=sso-analytics",
+    "category": "intelligence"
+  },
+  {
+    "uid": "exec::onboarding-analytics",
+    "console": "executive",
+    "tab_id": "onboarding-analytics",
+    "label": "Onboarding Analytics",
+    "icon": "rocket",
+    "route": "/executive-dashboard?section=onboarding-analytics",
+    "category": "intelligence"
+  },
+  {
+    "uid": "exec::ai-support",
+    "console": "executive",
+    "tab_id": "ai-support",
+    "label": "AI Auto-Support",
+    "icon": "chatbubbles",
+    "route": "/executive-dashboard?section=ai-support",
+    "category": "operations"
+  },
+  {
+    "uid": "exec::sessions",
+    "console": "executive",
+    "tab_id": "sessions",
+    "label": "Session Management",
+    "icon": "key",
+    "route": "/executive-dashboard?section=sessions",
+    "category": "operations"
+  },
+  {
+    "uid": "exec::jobs",
+    "console": "executive",
+    "tab_id": "jobs",
+    "label": "Job Control Center",
+    "icon": "briefcase",
+    "route": "/executive-dashboard?section=jobs",
+    "category": "operations"
+  },
+  {
+    "uid": "exec::sla",
+    "console": "executive",
+    "tab_id": "sla",
+    "label": "SLA Monitor",
+    "icon": "timer",
+    "route": "/executive-dashboard?section=sla",
+    "category": "operations"
+  },
+  {
+    "uid": "exec::otp",
+    "console": "executive",
+    "tab_id": "otp",
+    "label": "OTP Delivery",
+    "icon": "keypad",
+    "route": "/executive-dashboard?section=otp",
+    "category": "operations"
+  },
+  {
+    "uid": "exec::webhooks",
+    "console": "executive",
+    "tab_id": "webhooks",
+    "label": "Webhook Events",
+    "icon": "git-branch",
+    "route": "/executive-dashboard?section=webhooks",
+    "category": "operations"
+  },
+  {
+    "uid": "exec::notifications",
+    "console": "executive",
+    "tab_id": "notifications",
+    "label": "Notification Mgmt",
+    "icon": "notifications",
+    "route": "/executive-dashboard?section=notifications",
+    "category": "operations"
+  },
+  {
+    "uid": "exec::performance",
+    "console": "executive",
+    "tab_id": "performance",
+    "label": "Performance",
+    "icon": "speedometer",
+    "route": "/executive-dashboard?section=performance",
+    "category": "operations"
+  },
+  {
+    "uid": "exec::automation-engine",
+    "console": "executive",
+    "tab_id": "automation-engine",
+    "label": "Automation Engine",
+    "icon": "cog",
+    "route": "/executive-dashboard?section=automation-engine",
+    "category": "operations"
+  },
+  {
+    "uid": "exec::operations-console-link",
+    "console": "executive",
+    "tab_id": "operations-console-link",
+    "label": "Operations Console",
+    "icon": "construct",
+    "route": "/admin-console?category=operations&tab=ops-dashboard",
+    "category": "operations"
+  },
+  {
+    "uid": "exec::policy-console-link",
+    "console": "executive",
+    "tab_id": "policy-console-link",
+    "label": "Policy Console",
+    "icon": "shield",
+    "route": "/policy-console",
+    "category": "operations"
+  },
+  {
+    "uid": "exec::performance-observability-link",
+    "console": "executive",
+    "tab_id": "performance-observability-link",
+    "label": "Performance Observability",
+    "icon": "speedometer",
+    "route": "/ops-performance",
+    "category": "operations"
+  },
+  {
+    "uid": "exec::route-health-link",
+    "console": "executive",
+    "tab_id": "route-health-link",
+    "label": "Route Health",
+    "icon": "pulse",
+    "route": "/ops-route-health",
+    "category": "operations"
+  },
+  {
+    "uid": "exec::security",
+    "console": "executive",
+    "tab_id": "security",
+    "label": "Security Dashboard",
+    "icon": "lock-closed",
+    "route": "/executive-dashboard?section=security",
+    "category": "security"
+  },
+  {
+    "uid": "exec::gtec",
+    "console": "executive",
+    "tab_id": "gtec",
+    "label": "GTEC \u2014 Task Enforcement",
+    "icon": "analytics",
+    "route": "/executive-dashboard?section=gtec",
+    "category": "security"
+  },
+  {
+    "uid": "exec::pdf-policy",
+    "console": "executive",
+    "tab_id": "pdf-policy",
+    "label": "PDF Policy Monitor",
+    "icon": "document-text",
+    "route": "/executive-dashboard?section=pdf-policy",
+    "category": "security"
+  },
+  {
+    "uid": "exec::compliance-digests",
+    "console": "executive",
+    "tab_id": "compliance-digests",
+    "label": "Compliance Digest Hub",
+    "icon": "mail-unread",
+    "route": "/executive-dashboard?section=compliance-digests",
+    "category": "security"
+  },
+  {
+    "uid": "exec::coaching-tips-cms",
+    "console": "executive",
+    "tab_id": "coaching-tips-cms",
+    "label": "Welcome \u00b7 Tip Catalog",
+    "icon": "bulb",
+    "route": "/executive-dashboard?section=coaching-tips-cms",
+    "category": "security"
+  },
+  {
+    "uid": "exec::tickertape-analytics",
+    "console": "executive",
+    "tab_id": "tickertape-analytics",
+    "label": "Welcome \u00b7 Tickertape CTR",
+    "icon": "analytics",
+    "route": "/executive-dashboard?section=tickertape-analytics",
+    "category": "security"
+  },
+  {
+    "uid": "exec::fraud",
+    "console": "executive",
+    "tab_id": "fraud",
+    "label": "Fraud Detection",
+    "icon": "warning",
+    "route": "/executive-dashboard?section=fraud",
+    "category": "security"
+  },
+  {
+    "uid": "exec::siem",
+    "console": "executive",
+    "tab_id": "siem",
+    "label": "SIEM",
+    "icon": "shield",
+    "route": "/executive-dashboard?section=siem",
+    "category": "security"
+  },
+  {
+    "uid": "exec::enterprise-security",
+    "console": "executive",
+    "tab_id": "enterprise-security",
+    "label": "Enterprise Security",
+    "icon": "shield-half",
+    "route": "/executive-dashboard?section=enterprise-security",
+    "category": "security"
+  },
+  {
+    "uid": "exec::device-audit",
+    "console": "executive",
+    "tab_id": "device-audit",
+    "label": "Device Audit",
+    "icon": "hardware-chip",
+    "route": "/executive-dashboard?section=device-audit",
+    "category": "security"
+  },
+  {
+    "uid": "exec::id-checker",
+    "console": "executive",
+    "tab_id": "id-checker",
+    "label": "ID Checker",
+    "icon": "shield-checkmark",
+    "route": "/executive-dashboard?section=id-checker",
+    "category": "security"
+  },
+  {
+    "uid": "exec::risk",
+    "console": "executive",
+    "tab_id": "risk",
+    "label": "Risk & Compliance",
+    "icon": "shield-checkmark",
+    "route": "/executive-dashboard?section=risk",
+    "category": "security"
+  },
+  {
+    "uid": "exec::gdpr-requests",
+    "console": "executive",
+    "tab_id": "gdpr-requests",
+    "label": "GDPR Self-Service",
+    "icon": "shield-checkmark-outline",
+    "route": "/admin/gdpr-requests",
+    "category": "security"
+  },
+  {
+    "uid": "exec::users",
+    "console": "executive",
+    "tab_id": "users",
+    "label": "User Management",
+    "icon": "people-circle",
+    "route": "/executive-dashboard?section=users",
+    "category": "management"
+  },
+  {
+    "uid": "exec::employer-portal",
+    "console": "executive",
+    "tab_id": "employer-portal",
+    "label": "Jobs Portal",
+    "icon": "business",
+    "route": "/executive-dashboard?section=employer-portal",
+    "category": "management"
+  },
+  {
+    "uid": "exec::content",
+    "console": "executive",
+    "tab_id": "content",
+    "label": "Content Management",
+    "icon": "document-text",
+    "route": "/executive-dashboard?section=content",
+    "category": "management"
+  },
+  {
+    "uid": "exec::support-tickets",
+    "console": "executive",
+    "tab_id": "support-tickets",
+    "label": "Support & Tickets",
+    "icon": "headset",
+    "route": "/executive-dashboard?section=support-tickets",
+    "category": "management"
+  },
+  {
+    "uid": "exec::templates",
+    "console": "executive",
+    "tab_id": "templates",
+    "label": "Email Gallery",
+    "icon": "images",
+    "route": "/executive-dashboard?section=templates",
+    "category": "management"
+  },
+  {
+    "uid": "exec::email-coverage",
+    "console": "executive",
+    "tab_id": "email-coverage",
+    "label": "Email Coverage Matrix",
+    "icon": "mail",
+    "route": "/executive-dashboard?section=email-coverage",
+    "category": "management"
+  },
+  {
+    "uid": "exec::feedback-heatmap",
+    "console": "executive",
+    "tab_id": "feedback-heatmap",
+    "label": "Friction Heatmap",
+    "icon": "flame",
+    "route": "/executive-dashboard?section=feedback-heatmap",
+    "category": "management"
+  },
+  {
+    "uid": "exec::leaderboard-mgmt",
+    "console": "executive",
+    "tab_id": "leaderboard-mgmt",
+    "label": "Leaderboard Mgmt",
+    "icon": "trophy",
+    "route": "/executive-dashboard?section=leaderboard-mgmt",
+    "category": "management"
+  },
+  {
+    "uid": "exec::integrations-mgmt",
+    "console": "executive",
+    "tab_id": "integrations-mgmt",
+    "label": "Integration Mgmt",
+    "icon": "git-network",
+    "route": "/executive-dashboard?section=integrations-mgmt",
+    "category": "management"
+  },
+  {
+    "uid": "exec::keyword-tracking",
+    "console": "executive",
+    "tab_id": "keyword-tracking",
+    "label": "Keyword Tracking",
+    "icon": "search",
+    "route": "/executive-dashboard?section=keyword-tracking",
+    "category": "management"
+  },
+  {
+    "uid": "exec::cdn-management",
+    "console": "executive",
+    "tab_id": "cdn-management",
+    "label": "CDN Management",
+    "icon": "globe",
+    "route": "/executive-dashboard?section=cdn-management",
+    "category": "management"
+  },
+  {
+    "uid": "exec::ai-analytics-link",
+    "console": "executive",
+    "tab_id": "ai-analytics-link",
+    "label": "AI Analytics",
+    "icon": "bar-chart",
+    "route": "/ai-feature-dashboard",
+    "category": "management"
+  },
+  {
+    "uid": "exec::logs",
+    "console": "executive",
+    "tab_id": "logs",
+    "label": "Logs & Audit",
+    "icon": "list",
+    "route": "/executive-dashboard?section=logs",
+    "category": "system"
+  },
+  {
+    "uid": "exec::system-monitor",
+    "console": "executive",
+    "tab_id": "system-monitor",
+    "label": "System Monitor",
+    "icon": "pulse",
+    "route": "/executive-dashboard?section=system-monitor",
+    "category": "system"
+  },
+  {
+    "uid": "exec::platform-settings",
+    "console": "executive",
+    "tab_id": "platform-settings",
+    "label": "Platform Settings",
+    "icon": "settings",
+    "route": "/executive-dashboard?section=platform-settings",
+    "category": "system"
+  },
+  {
+    "uid": "exec::theme-validation",
+    "console": "executive",
+    "tab_id": "theme-validation",
+    "label": "Theme Validation",
+    "icon": "color-palette",
+    "route": "/executive-dashboard?section=theme-validation",
+    "category": "system"
+  },
+  {
+    "uid": "exec::system-dashboard-link",
+    "console": "executive",
+    "tab_id": "system-dashboard-link",
+    "label": "System Dashboard",
+    "icon": "server",
+    "route": "/admin-system",
+    "category": "system"
+  },
+  {
+    "uid": "exec::activity-log-link",
+    "console": "executive",
+    "tab_id": "activity-log-link",
+    "label": "Activity Log",
+    "icon": "list",
+    "route": "/admin-activity-log",
+    "category": "system"
+  },
+  {
+    "uid": "ops::ai-command-center",
+    "console": "operations",
+    "tab_id": "ai-command-center",
+    "label": "AI Command Center",
+    "icon": "sparkles",
+    "route": "/admin-console?category=overview&tab=ai-command-center",
+    "category": "overview"
+  },
+  {
+    "uid": "ops::dashboard",
+    "console": "operations",
+    "tab_id": "dashboard",
+    "label": "Control Dashboard",
+    "icon": "grid",
+    "route": "/admin-console?category=overview&tab=dashboard",
+    "category": "overview"
+  },
+  {
+    "uid": "ops::live-activity",
+    "console": "operations",
+    "tab_id": "live-activity",
+    "label": "Live Activity Feed",
+    "icon": "pulse",
+    "route": "/admin-console?category=overview&tab=live-activity",
+    "category": "overview"
+  },
+  {
+    "uid": "ops::custom-dashboards",
+    "console": "operations",
+    "tab_id": "custom-dashboards",
+    "label": "Customize Layout",
+    "icon": "options",
+    "route": "/admin-console?category=overview&tab=custom-dashboards",
+    "category": "overview"
+  },
+  {
+    "uid": "ops::teams",
+    "console": "operations",
+    "tab_id": "teams",
+    "label": "Teams",
+    "icon": "people-circle",
+    "route": "/admin-console?category=people&tab=teams",
+    "category": "people"
+  },
+  {
+    "uid": "ops::user-insights",
+    "console": "operations",
+    "tab_id": "user-insights",
+    "label": "User Insights",
+    "icon": "eye",
+    "route": "/admin-console?category=people&tab=user-insights",
+    "category": "people"
+  },
+  {
+    "uid": "ops::reengagement",
+    "console": "operations",
+    "tab_id": "reengagement",
+    "label": "Re-engagement",
+    "icon": "arrow-undo-circle",
+    "route": "/admin-console?category=people&tab=reengagement",
+    "category": "people"
+  },
+  {
+    "uid": "ops::booking-center",
+    "console": "operations",
+    "tab_id": "booking-center",
+    "label": "Booking Center",
+    "icon": "calendar",
+    "route": "/admin-console?category=people&tab=booking-center",
+    "category": "people"
+  },
+  {
+    "uid": "ops::hiring-analytics",
+    "console": "operations",
+    "tab_id": "hiring-analytics",
+    "label": "Hiring Analytics",
+    "icon": "stats-chart",
+    "route": "/admin-console?category=people&tab=hiring-analytics",
+    "category": "people"
+  },
+  {
+    "uid": "ops::career-applications",
+    "console": "operations",
+    "tab_id": "career-applications",
+    "label": "Career Applications",
+    "icon": "document-text",
+    "route": "/admin-console?category=people&tab=career-applications",
+    "category": "people"
+  },
+  {
+    "uid": "ops::helpdesk",
+    "console": "operations",
+    "tab_id": "helpdesk",
+    "label": "Help Desk",
+    "icon": "chatbubbles",
+    "route": "/admin-console?category=support&tab=helpdesk",
+    "category": "support"
+  },
+  {
+    "uid": "ops::notification-history",
+    "console": "operations",
+    "tab_id": "notification-history",
+    "label": "Notification History",
+    "icon": "notifications",
+    "route": "/admin-console?category=support&tab=notification-history",
+    "category": "support"
+  },
+  {
+    "uid": "ops::ticket-assignment",
+    "console": "operations",
+    "tab_id": "ticket-assignment",
+    "label": "Ticket Assignment",
+    "icon": "git-branch",
+    "route": "/admin-console?category=support&tab=ticket-assignment",
+    "category": "support"
+  },
+  {
+    "uid": "ops::escalation",
+    "console": "operations",
+    "tab_id": "escalation",
+    "label": "Escalation",
+    "icon": "alert-circle",
+    "route": "/admin-console?category=support&tab=escalation",
+    "category": "support"
+  },
+  {
+    "uid": "ops::faq-mgmt",
+    "console": "operations",
+    "tab_id": "faq-mgmt",
+    "label": "FAQ Manager",
+    "icon": "help-circle",
+    "route": "/admin-console?category=support&tab=faq-mgmt",
+    "category": "support"
+  },
+  {
+    "uid": "ops::contact-submissions",
+    "console": "operations",
+    "tab_id": "contact-submissions",
+    "label": "Contact Submissions",
+    "icon": "mail",
+    "route": "/admin-console?category=support&tab=contact-submissions",
+    "category": "support"
+  },
+  {
+    "uid": "ops::churn-recovery",
+    "console": "operations",
+    "tab_id": "churn-recovery",
+    "label": "Churn Recovery",
+    "icon": "heart-dislike",
+    "route": "/admin-console?category=support&tab=churn-recovery",
+    "category": "support"
+  },
+  {
+    "uid": "ops::payment-recovery",
+    "console": "operations",
+    "tab_id": "payment-recovery",
+    "label": "Payment Recovery",
+    "icon": "card",
+    "route": "/admin-console?category=support&tab=payment-recovery",
+    "category": "support"
+  },
+  {
+    "uid": "ops::seo-dashboard",
+    "console": "operations",
+    "tab_id": "seo-dashboard",
+    "label": "SEO & ASO",
+    "icon": "search",
+    "route": "/admin-console?category=analytics&tab=seo-dashboard",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::appstore-connect",
+    "console": "operations",
+    "tab_id": "appstore-connect",
+    "label": "App Store Connect",
+    "icon": "logo-apple",
+    "route": "/admin-console?category=analytics&tab=appstore-connect",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::google-play",
+    "console": "operations",
+    "tab_id": "google-play",
+    "label": "Google Play Console",
+    "icon": "logo-google-playstore",
+    "route": "/admin-console?category=analytics&tab=google-play",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::unified-aso",
+    "console": "operations",
+    "tab_id": "unified-aso",
+    "label": "Unified ASO Reports",
+    "icon": "analytics",
+    "route": "/admin-console?category=analytics&tab=unified-aso",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::web-vitals",
+    "console": "operations",
+    "tab_id": "web-vitals",
+    "label": "Web Vitals",
+    "icon": "speedometer",
+    "route": "/admin-console?category=analytics&tab=web-vitals",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::ai-insights",
+    "console": "operations",
+    "tab_id": "ai-insights",
+    "label": "AI Insights",
+    "icon": "bulb",
+    "route": "/admin-console?category=analytics&tab=ai-insights",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::ai-learning-hub-insights",
+    "console": "operations",
+    "tab_id": "ai-learning-hub-insights",
+    "label": "AI Learning Hub Insights",
+    "icon": "school",
+    "route": "/admin-console?category=analytics&tab=ai-learning-hub-insights",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::certificate-analytics",
+    "console": "operations",
+    "tab_id": "certificate-analytics",
+    "label": "Certificate Analytics",
+    "icon": "ribbon",
+    "route": "/admin-console?category=analytics&tab=certificate-analytics",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::certificate-template-manager",
+    "console": "operations",
+    "tab_id": "certificate-template-manager",
+    "label": "Certificate Template",
+    "icon": "construct",
+    "route": "/admin-console?category=analytics&tab=certificate-template-manager",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::auth-compliance-dashboard",
+    "console": "operations",
+    "tab_id": "auth-compliance-dashboard",
+    "label": "Auth Compliance",
+    "icon": "shield-checkmark",
+    "route": "/admin-console?category=analytics&tab=auth-compliance-dashboard",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::executive-quality-dashboard",
+    "console": "operations",
+    "tab_id": "executive-quality-dashboard",
+    "label": "Executive Quality Dashboard",
+    "icon": "shield-half",
+    "route": "/admin-console?category=analytics&tab=executive-quality-dashboard",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::platform-analytics",
+    "console": "operations",
+    "tab_id": "platform-analytics",
+    "label": "Platform Analytics",
+    "icon": "pulse",
+    "route": "/admin-console?category=analytics&tab=platform-analytics",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::ai-resolution",
+    "console": "operations",
+    "tab_id": "ai-resolution",
+    "label": "AI Resolution",
+    "icon": "sparkles",
+    "route": "/admin-console?category=analytics&tab=ai-resolution",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::team-analytics",
+    "console": "operations",
+    "tab_id": "team-analytics",
+    "label": "Team Analytics",
+    "icon": "stats-chart",
+    "route": "/admin-console?category=analytics&tab=team-analytics",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::uba-dashboard",
+    "console": "operations",
+    "tab_id": "uba-dashboard",
+    "label": "User Behavior",
+    "icon": "people-circle",
+    "route": "/admin-console?category=analytics&tab=uba-dashboard",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::referral-analytics",
+    "console": "operations",
+    "tab_id": "referral-analytics",
+    "label": "Referral Program",
+    "icon": "gift",
+    "route": "/admin-console?category=analytics&tab=referral-analytics",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::nova-analytics",
+    "console": "operations",
+    "tab_id": "nova-analytics",
+    "label": "Nova AI Analytics",
+    "icon": "sparkles",
+    "route": "/admin-console?category=analytics&tab=nova-analytics",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::campaign-dashboard",
+    "console": "operations",
+    "tab_id": "campaign-dashboard",
+    "label": "Campaigns",
+    "icon": "rocket",
+    "route": "/admin-console?category=analytics&tab=campaign-dashboard",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::anomaly-detection",
+    "console": "operations",
+    "tab_id": "anomaly-detection",
+    "label": "Anomaly Detection",
+    "icon": "warning",
+    "route": "/admin-console?category=analytics&tab=anomaly-detection",
+    "category": "analytics"
+  },
+  {
+    "uid": "ops::llm-usage-billing",
+    "console": "operations",
+    "tab_id": "llm-usage-billing",
+    "label": "LLM Usage & Billing",
+    "icon": "receipt",
+    "route": "/admin-console?category=finance&tab=llm-usage-billing",
+    "category": "finance"
+  },
+  {
+    "uid": "ops::payments-tax",
+    "console": "operations",
+    "tab_id": "payments-tax",
+    "label": "Payments & Tax",
+    "icon": "card",
+    "route": "/admin-console?category=finance&tab=payments-tax",
+    "category": "finance"
+  },
+  {
+    "uid": "ops::iap",
+    "console": "operations",
+    "tab_id": "iap",
+    "label": "In-App Purchases",
+    "icon": "phone-portrait",
+    "route": "/admin-console?category=finance&tab=iap",
+    "category": "finance"
+  },
+  {
+    "uid": "ops::ops-dashboard",
+    "console": "operations",
+    "tab_id": "ops-dashboard",
+    "label": "Operations Center",
+    "icon": "earth",
+    "route": "/admin-console?category=operations&tab=ops-dashboard",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::enterprise-control-plane",
+    "console": "operations",
+    "tab_id": "enterprise-control-plane",
+    "label": "Enterprise Control Plane",
+    "icon": "git-network",
+    "route": "/admin-console?category=operations&tab=enterprise-control-plane",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::platform-settings",
+    "console": "operations",
+    "tab_id": "platform-settings",
+    "label": "Platform Settings",
+    "icon": "settings",
+    "route": "/admin-console?category=operations&tab=platform-settings",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::platform-integrations",
+    "console": "operations",
+    "tab_id": "platform-integrations",
+    "label": "Platform Integrations",
+    "icon": "git-network",
+    "route": "/admin-console?category=operations&tab=platform-integrations",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::theme-validation",
+    "console": "operations",
+    "tab_id": "theme-validation",
+    "label": "Theme Validation",
+    "icon": "color-palette",
+    "route": "/admin-console?category=operations&tab=theme-validation",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::theme-governance-dashboard",
+    "console": "operations",
+    "tab_id": "theme-governance-dashboard",
+    "label": "Theme Governance Dashboard",
+    "icon": "shield-checkmark",
+    "route": "/admin-console?category=operations&tab=theme-governance-dashboard",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::theme-audit",
+    "console": "operations",
+    "tab_id": "theme-audit",
+    "label": "Theme Audit",
+    "icon": "shield-checkmark",
+    "route": "/admin-console?category=operations&tab=theme-audit",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::feature-manager",
+    "console": "operations",
+    "tab_id": "feature-manager",
+    "label": "Feature Manager",
+    "icon": "apps",
+    "route": "/admin-console?category=operations&tab=feature-manager",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::gps-state-management",
+    "console": "operations",
+    "tab_id": "gps-state-management",
+    "label": "GPS State Management",
+    "icon": "layers",
+    "route": "/admin-console?category=operations&tab=gps-state-management",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::automation-engine",
+    "console": "operations",
+    "tab_id": "automation-engine",
+    "label": "Automation Engine",
+    "icon": "flash",
+    "route": "/admin-console?category=operations&tab=automation-engine",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::critical-journey-monitor",
+    "console": "operations",
+    "tab_id": "critical-journey-monitor",
+    "label": "Critical Journey Monitor",
+    "icon": "pulse",
+    "route": "/admin-console?category=operations&tab=critical-journey-monitor",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::deployment-orchestration",
+    "console": "operations",
+    "tab_id": "deployment-orchestration",
+    "label": "Deployments",
+    "icon": "rocket",
+    "route": "/admin-console?category=operations&tab=deployment-orchestration",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::reality-validation",
+    "console": "operations",
+    "tab_id": "reality-validation",
+    "label": "Reality Validation",
+    "icon": "checkmark-done-circle",
+    "route": "/admin-console?category=operations&tab=reality-validation",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::perf-advisor",
+    "console": "operations",
+    "tab_id": "perf-advisor",
+    "label": "Performance Advisor",
+    "icon": "speedometer",
+    "route": "/admin-console?category=operations&tab=perf-advisor",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::otp-delivery",
+    "console": "operations",
+    "tab_id": "otp-delivery",
+    "label": "OTP Delivery",
+    "icon": "keypad",
+    "route": "/admin-console?category=operations&tab=otp-delivery",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::autonomous-engine",
+    "console": "operations",
+    "tab_id": "autonomous-engine",
+    "label": "Autonomous Engine",
+    "icon": "rocket",
+    "route": "/admin-console?category=operations&tab=autonomous-engine",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::performance-guardian",
+    "console": "operations",
+    "tab_id": "performance-guardian",
+    "label": "Performance Guardian",
+    "icon": "shield-checkmark",
+    "route": "/admin-console?category=operations&tab=performance-guardian",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::ai-remediation",
+    "console": "operations",
+    "tab_id": "ai-remediation",
+    "label": "AI Remediation",
+    "icon": "medkit",
+    "route": "/admin-console?category=operations&tab=ai-remediation",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::auto-detect",
+    "console": "operations",
+    "tab_id": "auto-detect",
+    "label": "AI Auto-Detection",
+    "icon": "shield-checkmark",
+    "route": "/admin-console?category=operations&tab=auto-detect",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::auto-scaling",
+    "console": "operations",
+    "tab_id": "auto-scaling",
+    "label": "Auto-Scaling",
+    "icon": "speedometer",
+    "route": "/admin-console?category=operations&tab=auto-scaling",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::self-repair",
+    "console": "operations",
+    "tab_id": "self-repair",
+    "label": "Self-Repair Engine",
+    "icon": "construct",
+    "route": "/admin-console?category=operations&tab=self-repair",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::platform-health",
+    "console": "operations",
+    "tab_id": "platform-health",
+    "label": "Platform Health",
+    "icon": "medical",
+    "route": "/admin-console?category=operations&tab=platform-health",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::platform-trust-center",
+    "console": "operations",
+    "tab_id": "platform-trust-center",
+    "label": "Platform Trust Center",
+    "icon": "shield-checkmark",
+    "route": "/admin-console?category=operations&tab=platform-trust-center",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::ai-platform-integrity",
+    "console": "operations",
+    "tab_id": "ai-platform-integrity",
+    "label": "AI Platform Integrity & Auto-Fix Engine",
+    "icon": "shield-checkmark",
+    "route": "/admin-console?category=operations&tab=ai-platform-integrity",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::system-health",
+    "console": "operations",
+    "tab_id": "system-health",
+    "label": "System Health",
+    "icon": "pulse",
+    "route": "/admin-console?category=operations&tab=system-health",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::session-replay",
+    "console": "operations",
+    "tab_id": "session-replay",
+    "label": "Session Replay",
+    "icon": "videocam",
+    "route": "/admin-console?category=operations&tab=session-replay",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::notification-rules",
+    "console": "operations",
+    "tab_id": "notification-rules",
+    "label": "Notification Rules",
+    "icon": "notifications",
+    "route": "/admin-console?category=operations&tab=notification-rules",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::tos-management",
+    "console": "operations",
+    "tab_id": "tos-management",
+    "label": "Terms of Service",
+    "icon": "document-text",
+    "route": "/admin-console?category=operations&tab=tos-management",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::legal-notice-broadcast",
+    "console": "operations",
+    "tab_id": "legal-notice-broadcast",
+    "label": "Legal Notice Broadcast",
+    "icon": "megaphone",
+    "route": "/admin-console?category=operations&tab=legal-notice-broadcast",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::privacy-policy-broadcast",
+    "console": "operations",
+    "tab_id": "privacy-policy-broadcast",
+    "label": "Privacy Policy Updated",
+    "icon": "lock-closed",
+    "route": "/admin-console?category=operations&tab=privacy-policy-broadcast",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::cookie-policy-broadcast",
+    "console": "operations",
+    "tab_id": "cookie-policy-broadcast",
+    "label": "Cookie Policy Updated",
+    "icon": "nutrition",
+    "route": "/admin-console?category=operations&tab=cookie-policy-broadcast",
+    "category": "operations"
+  },
+  {
+    "uid": "ops::zero-trust-center",
+    "console": "operations",
+    "tab_id": "zero-trust-center",
+    "label": "Zero-Trust Center",
+    "icon": "shield-checkmark",
+    "route": "/admin-console?category=security&tab=zero-trust-center",
+    "category": "security"
+  },
+  {
+    "uid": "ops::zero-trust-root-cause-board",
+    "console": "operations",
+    "tab_id": "zero-trust-root-cause-board",
+    "label": "Zero-Trust Root-Cause Board",
+    "icon": "analytics",
+    "route": "/admin-console?category=security&tab=zero-trust-root-cause-board",
+    "category": "security"
+  },
+  {
+    "uid": "ops::security-posture",
+    "console": "operations",
+    "tab_id": "security-posture",
+    "label": "Security Posture",
+    "icon": "shield-checkmark",
+    "route": "/admin-console?category=security&tab=security-posture",
+    "category": "security"
+  },
+  {
+    "uid": "ops::security-incidents",
+    "console": "operations",
+    "tab_id": "security-incidents",
+    "label": "Security Incidents",
+    "icon": "alert-circle",
+    "route": "/admin-console?category=security&tab=security-incidents",
+    "category": "security"
+  },
+  {
+    "uid": "ops::security-incident-broadcast",
+    "console": "operations",
+    "tab_id": "security-incident-broadcast",
+    "label": "Incident Broadcast (Breach Notice)",
+    "icon": "warning",
+    "route": "/admin-console?category=security&tab=security-incident-broadcast",
+    "category": "security"
+  },
+  {
+    "uid": "ops::enterprise-security",
+    "console": "operations",
+    "tab_id": "enterprise-security",
+    "label": "Enterprise Security",
+    "icon": "shield-checkmark",
+    "route": "/admin-console?category=security&tab=enterprise-security",
+    "category": "security"
+  },
+  {
+    "uid": "ops::threat-detection",
+    "console": "operations",
+    "tab_id": "threat-detection",
+    "label": "Threat Detection",
+    "icon": "eye",
+    "route": "/admin-console?category=security&tab=threat-detection",
+    "category": "security"
+  },
+  {
+    "uid": "ops::access-matrix",
+    "console": "operations",
+    "tab_id": "access-matrix",
+    "label": "Access Matrix",
+    "icon": "grid",
+    "route": "/admin-console?category=security&tab=access-matrix",
+    "category": "security"
+  },
+  {
+    "uid": "ops::security-recs",
+    "console": "operations",
+    "tab_id": "security-recs",
+    "label": "AI Recommendations",
+    "icon": "sparkles",
+    "route": "/admin-console?category=security&tab=security-recs",
+    "category": "security"
+  },
+  {
+    "uid": "ops::mfa-settings",
+    "console": "operations",
+    "tab_id": "mfa-settings",
+    "label": "MFA Management",
+    "icon": "key",
+    "route": "/admin-console?category=security&tab=mfa-settings",
+    "category": "security"
+  },
+  {
+    "uid": "ops::sso-status",
+    "console": "operations",
+    "tab_id": "sso-status",
+    "label": "SSO Providers",
+    "icon": "log-in",
+    "route": "/admin-console?category=security&tab=sso-status",
+    "category": "security"
+  },
+  {
+    "uid": "ops::google-verification",
+    "console": "operations",
+    "tab_id": "google-verification",
+    "label": "Google Verification",
+    "icon": "logo-google",
+    "route": "/admin-console?category=security&tab=google-verification",
+    "category": "security"
+  },
+  {
+    "uid": "ops::waf-firewall",
+    "console": "operations",
+    "tab_id": "waf-firewall",
+    "label": "WAF & Firewall",
+    "icon": "flame",
+    "route": "/admin-console?category=security&tab=waf-firewall",
+    "category": "security"
+  },
+  {
+    "uid": "ops::newsletter-analytics",
+    "console": "operations",
+    "tab_id": "newsletter-analytics",
+    "label": "Newsletter Analytics",
+    "icon": "analytics",
+    "route": "/admin-console?category=comms&tab=newsletter-analytics",
+    "category": "comms"
+  },
+  {
+    "uid": "ops::subscriber-growth",
+    "console": "operations",
+    "tab_id": "subscriber-growth",
+    "label": "Subscriber Growth",
+    "icon": "trending-up",
+    "route": "/admin-console?category=comms&tab=subscriber-growth",
+    "category": "comms"
+  },
+  {
+    "uid": "ops::email-templates",
+    "console": "operations",
+    "tab_id": "email-templates",
+    "label": "Email Templates",
+    "icon": "color-palette",
+    "route": "/admin-console?category=comms&tab=email-templates",
+    "category": "comms"
+  },
+  {
+    "uid": "ops::receipt-branding",
+    "console": "operations",
+    "tab_id": "receipt-branding",
+    "label": "Receipt Branding",
+    "icon": "receipt",
+    "route": "/admin-console?category=comms&tab=receipt-branding",
+    "category": "comms"
+  },
+  {
+    "uid": "ops::languages",
+    "console": "operations",
+    "tab_id": "languages",
+    "label": "Languages",
+    "icon": "language",
+    "route": "/admin-console?category=comms&tab=languages",
+    "category": "comms"
+  },
+  {
+    "uid": "ops::whitelabel",
+    "console": "operations",
+    "tab_id": "whitelabel",
+    "label": "White-Label",
+    "icon": "color-fill",
+    "route": "/admin-console?category=comms&tab=whitelabel",
+    "category": "comms"
+  },
+  {
+    "uid": "ops::webhook-replay",
+    "console": "operations",
+    "tab_id": "webhook-replay",
+    "label": "Replay Center",
+    "icon": "refresh-circle",
+    "route": "/admin-console?category=dev&tab=webhook-replay",
+    "category": "dev"
+  },
+  {
+    "uid": "ops::ab-testing",
+    "console": "operations",
+    "tab_id": "ab-testing",
+    "label": "Email A/B Tests",
+    "icon": "flask",
+    "route": "/admin-console?category=dev&tab=ab-testing",
+    "category": "dev"
+  },
+  {
+    "uid": "ops::ab-performance",
+    "console": "operations",
+    "tab_id": "ab-performance",
+    "label": "A/B Performance",
+    "icon": "stats-chart",
+    "route": "/admin-console?category=dev&tab=ab-performance",
+    "category": "dev"
+  },
+  {
+    "uid": "ops::batch-ai",
+    "console": "operations",
+    "tab_id": "batch-ai",
+    "label": "Batch AI",
+    "icon": "color-wand",
+    "route": "/admin-console?category=dev&tab=batch-ai",
+    "category": "dev"
+  },
+  {
+    "uid": "ops::code-health",
+    "console": "operations",
+    "tab_id": "code-health",
+    "label": "Code Health",
+    "icon": "checkmark-circle",
+    "route": "/admin-console?category=dev&tab=code-health",
+    "category": "dev"
+  },
+  {
+    "uid": "ops::accessibility",
+    "console": "operations",
+    "tab_id": "accessibility",
+    "label": "Accessibility",
+    "icon": "eye",
+    "route": "/admin-console?category=dev&tab=accessibility",
+    "category": "dev"
+  }
+]

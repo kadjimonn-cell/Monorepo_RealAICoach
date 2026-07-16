@@ -1,0 +1,28 @@
+{
+  "module": "analytics",
+  "version": "v1",
+  "base_path": "/api/admin/platform-analytics",
+  "endpoints": [
+    {
+      "path": "/api/admin/platform-analytics/engagement",
+      "method": "get",
+      "response_contract": {
+        "required_fields": ["summary", "by_day"]
+      }
+    },
+    {
+      "path": "/api/admin/platform-analytics/feature-adoption",
+      "method": "get",
+      "response_contract": {
+        "required_fields": ["items"]
+      }
+    },
+    {
+      "path": "/api/analytics/dashboard/{user_id}",
+      "method": "get",
+      "response_contract": {
+        "required_fields": ["engagement_score", "usage"]
+      }
+    }
+  ]
+}

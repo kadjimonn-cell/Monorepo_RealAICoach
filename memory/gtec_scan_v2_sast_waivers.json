@@ -1,0 +1,117 @@
+{
+  "_schema": "GTEC SAST waiver — each entry has (label, file, line, justification, reviewed_by, reviewed_at). Scan classifies matching findings as 'low' severity instead of 'medium/high' because they have been reviewed and documented per directive §4 (no silent suppression — explicit acceptance).",
+  "waivers": [
+    {
+      "label": "react_dangerous_inner_html",
+      "file": "frontend/app/+html.tsx",
+      "line_range": [1, 1300],
+      "justification": "Static Expo Web root template. All 16 occurrences inject hardcoded SEO JSON-LD, PWA manifest, service-worker registration, analytics init, and font-face CSS — template-literal strings with zero runtime interpolation from user input. This is the React-approved way to inject inline <style>/<script> in SSR/static-export web output.",
+      "reviewed_at": "2026-04-24T01:56:00Z",
+      "reviewed_by": "admin@realaicoach.app"
+    },
+    {
+      "label": "react_dangerous_inner_html",
+      "file": "frontend/app/contact.tsx",
+      "line_range": [570, 580],
+      "justification": "Hardcoded CSS keyframes block for the contact form reveal animation. No variables interpolated.",
+      "reviewed_at": "2026-04-24T01:56:00Z",
+      "reviewed_by": "admin@realaicoach.app"
+    },
+    {
+      "label": "react_dangerous_inner_html",
+      "file": "frontend/app/blog/index.tsx",
+      "line_range": [645, 655],
+      "justification": "Hardcoded CSS for blog typography prose styling. No user input.",
+      "reviewed_at": "2026-04-24T01:56:00Z",
+      "reviewed_by": "admin@realaicoach.app"
+    },
+    {
+      "label": "react_dangerous_inner_html",
+      "file": "frontend/app/subscription/kyc.tsx",
+      "line_range": [35, 45],
+      "justification": "Renders SVG output from the 'qrcode' npm library (QRCode.toString()). Input is a KYC verification URL generated server-side, not free-text user input. Library-generated SVG is safe by design.",
+      "reviewed_at": "2026-04-24T01:56:00Z",
+      "reviewed_by": "admin@realaicoach.app"
+    },
+    {
+      "label": "react_dangerous_inner_html",
+      "file": "frontend/src/components/StaggerChildren.tsx",
+      "line_range": [80, 95],
+      "justification": "Hardcoded CSS keyframes for stagger animations.",
+      "reviewed_at": "2026-04-24T01:56:00Z",
+      "reviewed_by": "admin@realaicoach.app"
+    },
+    {
+      "label": "react_dangerous_inner_html",
+      "file": "frontend/src/components/FloatingImageShowcase.tsx",
+      "line_range": [70, 85],
+      "justification": "Hardcoded CSS keyframes for floating image animation.",
+      "reviewed_at": "2026-04-24T01:56:00Z",
+      "reviewed_by": "admin@realaicoach.app"
+    },
+    {
+      "label": "react_dangerous_inner_html",
+      "file": "frontend/src/components/welcome/WelcomePricing.tsx",
+      "line_range": [290, 300],
+      "justification": "Hardcoded CSS for pricing card hover animation.",
+      "reviewed_at": "2026-04-24T01:56:00Z",
+      "reviewed_by": "admin@realaicoach.app"
+    },
+    {
+      "label": "react_dangerous_inner_html",
+      "file": "frontend/src/components/welcome/WelcomeBenefits.tsx",
+      "line_range": [48, 58],
+      "justification": "Hardcoded CSS keyframes.",
+      "reviewed_at": "2026-04-24T01:56:00Z",
+      "reviewed_by": "admin@realaicoach.app"
+    },
+    {
+      "label": "react_dangerous_inner_html",
+      "file": "frontend/src/components/pages/login/WebStyleInjector.tsx",
+      "line_range": [15, 30],
+      "justification": "Hardcoded CSS for login page web-only styling.",
+      "reviewed_at": "2026-04-24T01:56:00Z",
+      "reviewed_by": "admin@realaicoach.app"
+    },
+    {
+      "label": "react_dangerous_inner_html",
+      "file": "frontend/src/components/admin/AutomationEnginePanel.tsx",
+      "line_range": [345, 355],
+      "justification": "Hardcoded pulse keyframe.",
+      "reviewed_at": "2026-04-24T01:56:00Z",
+      "reviewed_by": "admin@realaicoach.app"
+    },
+    {
+      "label": "react_dangerous_inner_html",
+      "file": "frontend/src/components/admin/ChurnRecoveryPanel.tsx",
+      "line_range": [165, 175],
+      "justification": "Renders email-preview HTML fetched from /api/churn-recovery/admin/email-preview/:type. Admin-only route (RBAC-gated). HTML is server-side-rendered from Python email template engine with no user-controlled substitution in the preview variant. Trust boundary: server.",
+      "reviewed_at": "2026-04-24T01:56:00Z",
+      "reviewed_by": "admin@realaicoach.app"
+    },
+    {
+      "label": "react_dangerous_inner_html",
+      "file": "frontend/src/components/admin/ReengagementPanel.tsx",
+      "line_range": [390, 400],
+      "justification": "Same pattern as ChurnRecoveryPanel — renders server-generated preview HTML behind admin RBAC gate.",
+      "reviewed_at": "2026-04-24T01:56:00Z",
+      "reviewed_by": "admin@realaicoach.app"
+    },
+    {
+      "label": "react_dangerous_inner_html",
+      "file": "frontend/src/components/home/HomeContinueToast.tsx",
+      "line_range": [185, 200],
+      "justification": "Hardcoded slide-in keyframe injected once per mount.",
+      "reviewed_at": "2026-04-24T01:56:00Z",
+      "reviewed_by": "admin@realaicoach.app"
+    },
+    {
+      "label": "dom_innerhtml_write",
+      "file": "frontend/src/components/home/HomeOnboardingTour.tsx",
+      "line_range": [165, 180],
+      "justification": "buildTourDOM() interpolates only hardcoded STEPS copy (title/desc) and computed palette colors. No user input path. Event handlers use inline onclick attached to hardcoded global functions — internal-only DOM.",
+      "reviewed_at": "2026-04-24T01:56:00Z",
+      "reviewed_by": "admin@realaicoach.app"
+    }
+  ]
+}

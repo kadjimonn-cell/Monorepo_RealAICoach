@@ -1,0 +1,123 @@
+<tr>
+  <td style="padding:0;" data-global-footer-component="{{ footer_component_id }}" data-global-footer-version="{{ footer_version }}" data-global-footer-variant="{{ footer_variant }}" data-global-footer-last-updated="{{ footer_last_updated }}">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="padding:0;height:3px;background:linear-gradient(90deg,{{ accent }},{{ purple }},{{ teal }});font-size:0;line-height:0;">&nbsp;</td>
+      </tr>
+    </table>
+
+    {% if show_badges_only or show_full_footer %}
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-footer-bg" style="background:{{ bg_main }};">
+      <tr>
+        <td class="footer-app-section" style="padding:32px 24px 24px;text-align:center;">
+          <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto 10px;">
+            <tr>
+              <td style="padding-right:8px;vertical-align:middle;"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="width:22px;height:1px;background:linear-gradient(90deg,transparent,{{ teal }});font-size:0;line-height:0;">&nbsp;</td></tr></table></td>
+              <td style="vertical-align:middle;"><p style="margin:0;color:{{ teal }};font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;font-family:-apple-system,Helvetica,Arial,sans-serif;">Mobile App</p></td>
+              <td style="padding-left:8px;vertical-align:middle;"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="width:22px;height:1px;background:linear-gradient(90deg,{{ teal }},transparent);font-size:0;line-height:0;">&nbsp;</td></tr></table></td>
+            </tr>
+          </table>
+          <p class="footer-app-title em-footer-t1" style="color:{{ t_primary }};font-size:21px;font-weight:800;margin:0 0 8px;letter-spacing:-0.5px;font-family:-apple-system,Helvetica,Arial,sans-serif;">Take your coach everywhere</p>
+          <p class="em-footer-t2" style="color:{{ t_secondary }};font-size:12px;line-height:1.6;margin:0 0 18px;font-family:-apple-system,Helvetica,Arial,sans-serif;">Install on iOS or Android for faster practice sessions and instant insights.</p>
+          {{ store_badges_html }}
+        </td>
+      </tr>
+    </table>
+    {% endif %}
+
+    {% if show_full_footer %}
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-footer-bg" style="background:{{ bg_main }};">
+      <tr><td style="padding:0 24px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="height:1px;background:linear-gradient(90deg,transparent,{{ border_c }},transparent);font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr>
+      <tr>
+        <td class="footer-nav-section" style="padding:8px 24px;text-align:center;">
+          <a href="{{ dashboard_url }}" target="_blank" rel="noopener noreferrer" style="color:{{ accent }};font-size:13px;font-weight:700;text-decoration:none;padding:14px 10px;display:inline-block;font-family:-apple-system,Helvetica,Arial,sans-serif;">Dashboard</a>
+          <span style="color:{{ t_muted }};font-size:7px;vertical-align:middle;">&#9670;</span>
+          <a href="{{ support_url }}" target="_blank" rel="noopener noreferrer" style="color:{{ accent }};font-size:13px;font-weight:700;text-decoration:none;padding:14px 10px;display:inline-block;font-family:-apple-system,Helvetica,Arial,sans-serif;">My Tickets</a>
+          <span style="color:{{ t_muted }};font-size:7px;vertical-align:middle;">&#9670;</span>
+          <a href="{{ help_url }}" target="_blank" rel="noopener noreferrer" style="color:{{ accent }};font-size:13px;font-weight:700;text-decoration:none;padding:14px 10px;display:inline-block;font-family:-apple-system,Helvetica,Arial,sans-serif;">Help</a>
+          <span style="color:{{ t_muted }};font-size:7px;vertical-align:middle;">&#9670;</span>
+          <a href="{{ privacy_url }}" target="_blank" rel="noopener noreferrer" style="color:{{ accent }};font-size:13px;font-weight:700;text-decoration:none;padding:14px 10px;display:inline-block;font-family:-apple-system,Helvetica,Arial,sans-serif;">Privacy</a>
+          <span style="color:{{ t_muted }};font-size:7px;vertical-align:middle;">&#9670;</span>
+          <a href="{{ terms_url }}" target="_blank" rel="noopener noreferrer" style="color:{{ accent }};font-size:13px;font-weight:700;text-decoration:none;padding:14px 10px;display:inline-block;font-family:-apple-system,Helvetica,Arial,sans-serif;">Terms</a>
+        </td>
+      </tr>
+    </table>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-footer-card" style="background:{{ bg_card }};">
+      <tr><td style="padding:0;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="height:2px;background:linear-gradient(90deg,{{ accent }},{{ purple }},{{ teal }});font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr>
+      <tr>
+        <td class="footer-brand-section" style="padding:32px 24px 16px;text-align:center;">
+          <p class="footer-brand-name em-footer-t1" translate="no" style="font-size:26px;font-weight:900;letter-spacing:-0.9px;margin:0 0 8px;line-height:1;font-family:-apple-system,Helvetica,Arial,sans-serif;">
+            <span class="notranslate em-footer-t1" style="color:{{ t_primary }};">Real</span><span class="notranslate" style="color:{{ teal }};">AI</span><span class="notranslate em-footer-t1" style="color:{{ t_primary }};">Coach</span>
+          </p>
+          <p class="em-footer-t2" style="color:{{ t_secondary }};font-size:12px;line-height:1.6;margin:0 0 20px;font-family:-apple-system,Helvetica,Arial,sans-serif;">AI-powered professional coaching for interviews, leadership &amp; career growth.</p>
+
+          <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto 20px;" class="footer-trust-row" aria-label="RealAICoach trust badges">
+            <tr>
+              <td style="padding:0 4px;"><span class="em-footer-chip" style="display:inline-block;padding:6px 12px;background:{{ chip_bg }};border:1px solid {{ chip_border }};border-radius:99px;color:{{ chip_text }};font-size:10px;font-weight:700;letter-spacing:0.4px;font-family:-apple-system,Helvetica,Arial,sans-serif;white-space:nowrap;"><span class="em-footer-chip-check" style="color:{{ chip_check }};font-weight:900;">&#10003;</span>&nbsp;Encrypted</span></td>
+              <td style="padding:0 4px;"><span class="em-footer-chip" style="display:inline-block;padding:6px 12px;background:{{ chip_bg }};border:1px solid {{ chip_border }};border-radius:99px;color:{{ chip_text }};font-size:10px;font-weight:700;letter-spacing:0.4px;font-family:-apple-system,Helvetica,Arial,sans-serif;white-space:nowrap;"><span class="em-footer-chip-check" style="color:{{ chip_check }};font-weight:900;">&#10003;</span>&nbsp;24/7 Support</span></td>
+              <td style="padding:0 4px;"><span class="em-footer-chip" style="display:inline-block;padding:6px 12px;background:{{ chip_bg }};border:1px solid {{ chip_border }};border-radius:99px;color:{{ chip_text }};font-size:10px;font-weight:700;letter-spacing:0.4px;font-family:-apple-system,Helvetica,Arial,sans-serif;white-space:nowrap;"><span class="em-footer-chip-check" style="color:{{ chip_check }};font-weight:900;">&#10003;</span>&nbsp;GDPR-ready</span></td>
+            </tr>
+          </table>
+
+          <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto 22px;" class="footer-social-row notranslate" data-notranslate="true" translate="no" aria-label="RealAICoach social links">
+            <tr>
+              <td style="padding:0 5px;"><a href="https://twitter.com/realaicoach" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:inline-block;" data-social-logo="x" data-notranslate="true" translate="no" aria-label="RealAICoach on X"><table cellpadding="0" cellspacing="0" style="background:#000000;border-radius:12px;border:1px solid #374151;" class="notranslate" data-notranslate="true" translate="no"><tr><td style="width:40px;height:40px;text-align:center;vertical-align:middle;padding:0;font-size:17px;font-weight:900;color:#FFFFFF;font-family:-apple-system,Helvetica,Arial,sans-serif;line-height:40px;" class="notranslate" data-notranslate="true" translate="no">&#120143;</td></tr></table></a></td>
+              <td style="padding:0 5px;"><a href="https://linkedin.com/company/realaicoach" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:inline-block;" data-social-logo="linkedin" data-notranslate="true" translate="no" aria-label="RealAICoach on LinkedIn"><table cellpadding="0" cellspacing="0" style="background:#0A66C2;border-radius:12px;border:1px solid #1480DB;" class="notranslate" data-notranslate="true" translate="no"><tr><td style="width:40px;height:40px;text-align:center;vertical-align:middle;padding:0;font-size:17px;font-weight:900;color:#FFFFFF;font-family:Georgia,serif;line-height:40px;" class="notranslate" data-notranslate="true" translate="no">in</td></tr></table></a></td>
+              <td style="padding:0 5px;"><a href="https://facebook.com/realaicoach" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:inline-block;" data-social-logo="facebook" data-notranslate="true" translate="no" aria-label="RealAICoach on Facebook"><table cellpadding="0" cellspacing="0" style="background:#1877F2;border-radius:12px;border:1px solid #4293F5;" class="notranslate" data-notranslate="true" translate="no"><tr><td style="width:40px;height:40px;text-align:center;vertical-align:middle;padding:0;font-size:19px;font-weight:900;color:#FFFFFF;font-family:-apple-system,Helvetica,Arial,sans-serif;line-height:40px;" class="notranslate" data-notranslate="true" translate="no">f</td></tr></table></a></td>
+              <td style="padding:0 5px;"><a href="https://instagram.com/realaicoach" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:inline-block;" data-social-logo="instagram" data-notranslate="true" translate="no" aria-label="RealAICoach on Instagram"><table cellpadding="0" cellspacing="0" style="background:linear-gradient(135deg,#833AB4,#E1306C,#F56040,#FCAF45);border-radius:12px;border:1px solid #E1306C;" class="notranslate" data-notranslate="true" translate="no"><tr><td style="width:40px;height:40px;text-align:center;vertical-align:middle;padding:0;font-size:18px;color:#FFFFFF;font-family:-apple-system,Helvetica,Arial,sans-serif;line-height:40px;" class="notranslate" data-notranslate="true" translate="no">&#9673;</td></tr></table></a></td>
+              <td style="padding:0 5px;"><a href="https://youtube.com/@realaicoach" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:inline-block;" data-social-logo="youtube" data-notranslate="true" translate="no" aria-label="RealAICoach on YouTube"><table cellpadding="0" cellspacing="0" style="background:#FF0000;border-radius:12px;border:1px solid #FF3333;" class="notranslate" data-notranslate="true" translate="no"><tr><td style="width:40px;height:40px;text-align:center;vertical-align:middle;padding:0;font-size:16px;color:#FFFFFF;font-family:-apple-system,Helvetica,Arial,sans-serif;line-height:40px;" class="notranslate" data-notranslate="true" translate="no">&#9654;</td></tr></table></a></td>
+            </tr>
+          </table>
+
+          <p class="footer-address" style="color:{{ t_muted }};font-size:11px;line-height:1.6;margin:0 0 16px;font-family:-apple-system,Helvetica,Arial,sans-serif;"><span translate="no" class="notranslate">RealAICoach LLC</span> &bull; 11501 Domain Dr, Suite 200, Austin, TX 78758, USA</p>
+          <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;" class="footer-support-row"><tr><td style="padding:0 4px;"><a href="{{ support_url }}" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:10px 22px;background:{{ accent }};border-radius:99px;color:#FFFFFF;font-size:12px;font-weight:700;text-decoration:none;font-family:-apple-system,Helvetica,Arial,sans-serif;">Contact Support</a></td><td style="padding:0 4px;"><a href="{{ contact_url }}" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:10px 22px;background:transparent;border:1.5px solid {{ accent }};border-radius:99px;color:{{ accent }};font-size:12px;font-weight:700;text-decoration:none;font-family:-apple-system,Helvetica,Arial,sans-serif;">Reach Out</a></td></tr></table>
+        </td>
+      </tr>
+    </table>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-footer-bg" style="background:{{ bg_main }};">
+      <tr><td style="padding:0 24px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="height:1px;background:linear-gradient(90deg,transparent,{{ border_c }},transparent);font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr>
+      <tr>
+        <td class="footer-legal-section" style="padding:18px 24px 26px;text-align:center;">
+          <p class="footer-legal-text" style="color:{{ t_muted }};font-size:10px;line-height:1.9;margin:0;font-family:-apple-system,Helvetica,Arial,sans-serif;">
+            &copy; {{ year_str }} <span translate="no" class="notranslate">{{ brand }}</span> LLC. All rights reserved. &bull;
+            <a href="{{ privacy_url }}" target="_blank" rel="noopener noreferrer" style="color:{{ t_secondary }};text-decoration:underline;">Privacy Policy</a> &bull;
+            <a href="{{ terms_url }}" target="_blank" rel="noopener noreferrer" style="color:{{ t_secondary }};text-decoration:underline;">Terms of Service</a><br/>
+            {% if show_account_reason %}
+            {{ reason_copy|safe }}<br/>
+            {% else %}
+            You received this email because you have an account with <span translate="no" class="notranslate">{{ brand }}</span>.<br/>
+            {% endif %}
+            {% if show_preferences_copy %}
+            To manage your email preferences, visit your <a href="{{ settings_url }}" target="_blank" rel="noopener noreferrer" style="color:{{ accent }};font-weight:600;text-decoration:underline;">notification settings</a> or use one-click <a href="{{ unsubscribe_url }}" target="_blank" rel="noopener noreferrer" style="color:{{ accent }};font-weight:600;text-decoration:underline;">unsubscribe</a>.
+            {% endif %}
+          </p>
+        </td>
+      </tr>
+    </table>
+    {% endif %}
+
+    {% if show_compact_footer %}
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-footer-bg em-footer-card compact-footer-shell" style="background:#F8FAFC;">
+      <tr>
+        <td style="padding:26px 32px;text-align:center;">
+          <p class="footer-brand-name em-footer-t1" style="font-size:19px;font-weight:900;letter-spacing:-0.5px;margin:0 0 10px;line-height:1;font-family:-apple-system,Helvetica,Arial,sans-serif;" translate="no">
+            <span class="notranslate em-footer-t1" style="color:#0F172A;">Real</span><span class="notranslate" style="color:#06D6A0;">AI</span><span class="notranslate em-footer-t1" style="color:#0F172A;">Coach</span>
+          </p>
+          <p style="margin:0 0 12px;">
+            <span class="em-footer-chip" style="display:inline-block;padding:5px 12px;background:#F1F5F9;border:1px solid #E2E8F0;border-radius:99px;color:#475569;font-size:9px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;font-family:-apple-system,Helvetica,Arial,sans-serif;white-space:nowrap;"><span class="em-footer-chip-check" style="color:#059669;font-weight:900;">&#10003;</span>&nbsp;Verified sender &nbsp;&middot;&nbsp; Encrypted</span>
+          </p>
+          <p class="footer-legal-text em-footer-t2 compact-footer-copy" style="color:#64748B;font-size:11px;line-height:1.9;margin:0;font-family:-apple-system,Helvetica,Arial,sans-serif;">
+            <span translate="no" class="notranslate">RealAICoach LLC</span> &bull; 11501 Domain Dr, Suite 200, Austin, TX 78758, USA<br/>
+            {% if show_account_reason %}{{ reason_copy|safe }}{% else %}You received this email because you have an account with <span translate="no" class="notranslate">{{ brand }}</span>.{% endif %}
+            {% if show_unsubscribe_link %}<br/><a href="{{ settings_url }}" target="_blank" rel="noopener noreferrer" class="compact-footer-link" style="color:#3B82F6;font-weight:600;text-decoration:underline;">Manage preferences</a> &middot; <a href="{{ unsubscribe_url }}" target="_blank" rel="noopener noreferrer" class="compact-footer-link-secondary" style="color:#94A3B8;text-decoration:underline;">Unsubscribe</a>{% endif %}<br/>
+            <a href="{{ privacy_url }}" target="_blank" rel="noopener noreferrer" class="compact-footer-link" style="color:#3B82F6;text-decoration:underline;">Privacy Policy</a> &bull;
+            <a href="{{ terms_url }}" target="_blank" rel="noopener noreferrer" class="compact-footer-link" style="color:#3B82F6;text-decoration:underline;">Terms of Service</a>
+          </p>
+        </td>
+      </tr>
+    </table>
+    {% endif %}
+  </td>
+</tr>

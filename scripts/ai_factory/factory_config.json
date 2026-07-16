@@ -1,0 +1,51 @@
+{
+  "max_repair_loops": 2,
+  "steps": [
+    {
+      "id": "validator-contracts",
+      "agent": "validator",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "backend/tests/test_ai_factory_validator_contracts_1325.py"
+      ],
+      "env": {
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1"
+      }
+    },
+    {
+      "id": "validator-runtime",
+      "agent": "validator",
+      "command": [
+        "python",
+        "scripts/ai_factory/validator_agent.py"
+      ]
+    },
+    {
+      "id": "testing-visual-contracts",
+      "agent": "testing",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "backend/tests/test_visual_regression_dashboard_header_1324.py",
+        "backend/tests/test_visual_regression_email_preview_1324.py"
+      ],
+      "env": {
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1"
+      }
+    },
+    {
+      "id": "performance-lighthouse",
+      "agent": "performance",
+      "command": [
+        "python",
+        "scripts/ai_factory/performance_agent.py",
+        "--allow-pagespeed-fallback"
+      ]
+    }
+  ]
+}

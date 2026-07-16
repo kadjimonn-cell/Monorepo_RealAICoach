@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-05-03T18:03:41.217Z",
+  "writeMode": true,
+  "scanRoots": [
+    "app/team-management.tsx",
+    "app/executive-dashboard.tsx"
+  ],
+  "minRepeats": 1,
+  "minWords": 1,
+  "allowSingleVisible": true,
+  "namespace": "autofix.watchSweep2",
+  "filesScanned": 2,
+  "repeatedLiteralCount": 0,
+  "changedFiles": 0,
+  "replacementsApplied": 0,
+  "newLocaleKeyCount": 0,
+  "newLocaleEntries": {},
+  "changedFilePaths": []
+}

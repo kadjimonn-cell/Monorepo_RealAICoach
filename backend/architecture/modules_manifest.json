@@ -1,0 +1,43 @@
+{
+  "mode": "ARCHITECTURE_MODE",
+  "version": "v1",
+  "modules": [
+    {
+      "id": "autonomous_engine",
+      "description": "Enterprise autonomous orchestration, gating, drift, predictive, failure memory.",
+      "service_app": "modules.autonomous_service_app:app",
+      "base_path": "/api/admin/autonomous-engine",
+      "contracts_file": "backend/contracts/v1/autonomous_engine.contract.json",
+      "deployment_manifest": "backend/deploy/modules/autonomous_engine/deployment.yaml",
+      "test_files": [
+        "backend/tests/test_controlled_scaling_continuous_cycle_refactor_regression.py",
+        "backend/tests/test_architecture_mode_module_apps.py"
+      ]
+    },
+    {
+      "id": "communications",
+      "description": "Email notifications, previews, deliverability and dark-mode template safety.",
+      "service_app": "modules.communications_service_app:app",
+      "base_path": "/api/email-notifications",
+      "contracts_file": "backend/contracts/v1/communications.contract.json",
+      "deployment_manifest": "backend/deploy/modules/communications/deployment.yaml",
+      "gateway_mapping": "backend/deploy/gateway/communications_pilot_ingress.yaml",
+      "test_files": [
+        "backend/tests/test_autonomous_email_darkmode_permanent_fix.py",
+        "backend/tests/test_architecture_mode_module_apps.py"
+      ]
+    },
+    {
+      "id": "analytics",
+      "description": "Platform/user analytics and trend intelligence APIs.",
+      "service_app": "modules.analytics_service_app:app",
+      "base_path": "/api/admin/platform-analytics",
+      "contracts_file": "backend/contracts/v1/analytics.contract.json",
+      "deployment_manifest": "backend/deploy/modules/analytics/deployment.yaml",
+      "test_files": [
+        "backend/tests/test_executive_command_center_failure_memory.py",
+        "backend/tests/test_architecture_mode_module_apps.py"
+      ]
+    }
+  ]
+}

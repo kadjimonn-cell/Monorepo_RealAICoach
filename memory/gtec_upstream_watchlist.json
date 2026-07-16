@@ -1,0 +1,96 @@
+{
+  "version": 2,
+  "description": "Declarative watchlist of currently-blocked upstream packages. The GTEC Upstream Watchdog polls each nightly (02:30 UTC) and opens a P2 ticket + sends ONE Resend email when the blocker clears.",
+  "watchlist": [
+    {
+      "id": "eslint_config_expo_v10",
+      "registry": "npm",
+      "package": "eslint-config-expo",
+      "blocker_reason": "ESLint 10 upgrade blocked: `eslint-config-expo` 55.x pulls eslint-plugin-react <8 which breaks on ESLint 10 (`context.getFilename is not a function`).",
+      "unblock_when": {
+        "peer_dep_of": "eslint",
+        "peer_satisfies": ">=10.0.0"
+      },
+      "unblocks_packages": ["eslint", "ajv", "undici", "picomatch"],
+      "ticket_template": "P2_REMAINING_MAJOR_DEPS.md",
+      "systemic_fix_ref": "gtec_upstream_watchdog_auto_p2_eslint_bundle"
+    },
+    {
+      "id": "async_storage_v3",
+      "registry": "npm",
+      "package": "@react-native-async-storage/async-storage",
+      "blocker_reason": "Native storage schema migration from v2 to v3 + React Native new-arch compatibility.",
+      "unblock_when": {
+        "latest_gte": "3.1.0",
+        "docs_contain": "migration"
+      },
+      "unblocks_packages": ["@react-native-async-storage/async-storage"],
+      "ticket_template": "P3_ASYNC_STORAGE_V3_MIGRATION.md",
+      "systemic_fix_ref": "gtec_upstream_watchdog_auto_p3_async_storage"
+    },
+    {
+      "id": "expo_sdk_56",
+      "registry": "npm",
+      "package": "expo",
+      "blocker_reason": "Expo 55 pins react-native@0.83, react-native-worklets, @xmldom/xmldom. Need SDK 56 to clear these.",
+      "unblock_when": {
+        "latest_major_gte": 56
+      },
+      "unblocks_packages": ["react-native", "react-native-worklets", "@xmldom/xmldom"],
+      "ticket_template": "P1_EXPO_SDK_56_UPGRADE.md",
+      "systemic_fix_ref": "gtec_upstream_watchdog_auto_p1_expo_56"
+    },
+    {
+      "id": "motor_v4",
+      "registry": "pypi",
+      "package": "motor",
+      "blocker_reason": "Motor 4.x is expected to drop the synchronous wrapper layer and require direct AsyncIOMotorClient usage. We currently pin motor==3.3.1 in backend/requirements.txt; upgrading requires auditing every collection call-site.",
+      "unblock_when": {
+        "latest_major_gte": 4
+      },
+      "unblocks_packages": ["motor"],
+      "ticket_template": "P2_BACKEND_MOTOR_V4_UPGRADE.md",
+      "systemic_fix_ref": "gtec_upstream_watchdog_auto_p2_motor_v4"
+    },
+    {
+      "id": "uvicorn_v1_stable",
+      "registry": "pypi",
+      "package": "uvicorn",
+      "blocker_reason": "uvicorn is on 0.46 — still pre-1.0. We want a stable 1.0 milestone before pinning at the server boundary; each 0.x bump occasionally changes graceful-shutdown semantics.",
+      "unblock_when": {
+        "latest_major_gte": 1
+      },
+      "unblocks_packages": ["uvicorn"],
+      "ticket_template": "P2_BACKEND_UVICORN_V1_UPGRADE.md",
+      "systemic_fix_ref": "gtec_upstream_watchdog_auto_p2_uvicorn_v1"
+    },
+    {
+      "id": "pytest_v10",
+      "registry": "pypi",
+      "package": "pytest",
+      "blocker_reason": "pytest 10 is expected to drop `@pytest.fixture(autouse=True)` scope-inheritance quirks and ship stricter async handling. The plugin ecosystem typically lags one minor behind the pytest majors; we hold back until pytest-asyncio confirms compat.",
+      "unblock_when": {
+        "latest_major_gte": 10
+      },
+      "unblocks_packages": ["pytest", "pytest-asyncio", "pytest-cov"],
+      "ticket_template": "P2_BACKEND_PYTEST_V10_UPGRADE.md",
+      "systemic_fix_ref": "gtec_upstream_watchdog_auto_p2_pytest_v10"
+    },
+    {
+      "id": "otel_exporter_protobuf_chain",
+      "registry": "npm",
+      "package": "@opentelemetry/exporter-trace-otlp-http",
+      "blocker_reason": "`yarn audit` flags protobufjs advisories through OTEL exporter transformer path. Upstream OTEL package chain controls the nested protobuf dependency graph.",
+      "unblock_when": {
+        "latest_contains": "protobuf advisory cleared"
+      },
+      "unblocks_packages": [
+        "@opentelemetry/exporter-trace-otlp-http",
+        "@opentelemetry/otlp-transformer",
+        "protobufjs"
+      ],
+      "ticket_template": "P2_FRONTEND_OTEL_PROTOBUF_CHAIN_UPGRADE.md",
+      "systemic_fix_ref": "gtec_upstream_watchdog_auto_p2_otel_protobuf_chain"
+    }
+  ]
+}

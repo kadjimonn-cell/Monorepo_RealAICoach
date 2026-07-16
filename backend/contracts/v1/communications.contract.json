@@ -1,0 +1,28 @@
+{
+  "module": "communications",
+  "version": "v1",
+  "base_path": "/api/email-notifications",
+  "endpoints": [
+    {
+      "path": "/api/email-notifications/catalog",
+      "method": "get",
+      "response_contract": {
+        "required_fields": ["templates"]
+      }
+    },
+    {
+      "path": "/api/email-notifications/preview/{template_type}",
+      "method": "get",
+      "response_contract": {
+        "required_fields": ["template_type", "subject", "html"]
+      }
+    },
+    {
+      "path": "/api/email-notifications/templates/audit",
+      "method": "get",
+      "response_contract": {
+        "required_fields": ["summary", "results"]
+      }
+    }
+  ]
+}

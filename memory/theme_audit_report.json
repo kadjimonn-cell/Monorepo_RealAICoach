@@ -1,0 +1,581 @@
+{
+  "generated_at": "2026-04-19T23:37:07.081Z",
+  "scanned_directories": [
+    "/frontend/src/components/admin",
+    "/frontend/src/components",
+    "/frontend/app"
+  ],
+  "files_with_hits": 196,
+  "total_hits": 696,
+  "token_totals": {
+    "#0F172A": 186,
+    "#111827": 99,
+    "#1E293B": 308,
+    "#050A18": 78,
+    "#0B0F1A": 17,
+    "#1A2236": 6,
+    "#151D2E": 2
+  },
+  "top_files": [
+    {
+      "file": "/frontend/src/components/admin/AuthComplianceDashboardPanel.tsx",
+      "total": 17,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 7
+        },
+        {
+          "token": "#111827",
+          "count": 4
+        },
+        {
+          "token": "#1E293B",
+          "count": 5
+        },
+        {
+          "token": "#050A18",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/AuthComplianceDashboardPanel.tsx",
+      "total": 17,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 7
+        },
+        {
+          "token": "#111827",
+          "count": 4
+        },
+        {
+          "token": "#1E293B",
+          "count": 5
+        },
+        {
+          "token": "#050A18",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "/frontend/app/employer-apply.tsx",
+      "total": 17,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 12
+        },
+        {
+          "token": "#050A18",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/CertificateAnalyticsPanel.tsx",
+      "total": 13,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 4
+        },
+        {
+          "token": "#111827",
+          "count": 5
+        },
+        {
+          "token": "#1E293B",
+          "count": 3
+        },
+        {
+          "token": "#050A18",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/CertificateAnalyticsPanel.tsx",
+      "total": 13,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 4
+        },
+        {
+          "token": "#111827",
+          "count": 5
+        },
+        {
+          "token": "#1E293B",
+          "count": 3
+        },
+        {
+          "token": "#050A18",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/pages/ReferralsInner.tsx",
+      "total": 11,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 5
+        },
+        {
+          "token": "#1E293B",
+          "count": 2
+        },
+        {
+          "token": "#050A18",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/TicketEmailPanel.tsx",
+      "total": 9,
+      "hits": [
+        {
+          "token": "#1E293B",
+          "count": 9
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/WebhookEventStreamPanel.tsx",
+      "total": 9,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 1
+        },
+        {
+          "token": "#1E293B",
+          "count": 6
+        },
+        {
+          "token": "#050A18",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/TicketEmailPanel.tsx",
+      "total": 9,
+      "hits": [
+        {
+          "token": "#1E293B",
+          "count": 9
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/WebhookEventStreamPanel.tsx",
+      "total": 9,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 1
+        },
+        {
+          "token": "#1E293B",
+          "count": 6
+        },
+        {
+          "token": "#050A18",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/learning-hub/EnterpriseLearningHubScreen.tsx",
+      "total": 8,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 2
+        },
+        {
+          "token": "#111827",
+          "count": 1
+        },
+        {
+          "token": "#1E293B",
+          "count": 3
+        },
+        {
+          "token": "#050A18",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/AILearningHubInsightsPanel.tsx",
+      "total": 7,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 1
+        },
+        {
+          "token": "#111827",
+          "count": 2
+        },
+        {
+          "token": "#1E293B",
+          "count": 2
+        },
+        {
+          "token": "#050A18",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/email-templates/TemplatesView.tsx",
+      "total": 7,
+      "hits": [
+        {
+          "token": "#1E293B",
+          "count": 3
+        },
+        {
+          "token": "#0B0F1A",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/AIChatPanel.tsx",
+      "total": 7,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 3
+        },
+        {
+          "token": "#1E293B",
+          "count": 3
+        },
+        {
+          "token": "#050A18",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/AILearningHubInsightsPanel.tsx",
+      "total": 7,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 1
+        },
+        {
+          "token": "#111827",
+          "count": 2
+        },
+        {
+          "token": "#1E293B",
+          "count": 2
+        },
+        {
+          "token": "#050A18",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/email-templates/TemplatesView.tsx",
+      "total": 7,
+      "hits": [
+        {
+          "token": "#1E293B",
+          "count": 3
+        },
+        {
+          "token": "#0B0F1A",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin-console/AdminConsoleExtracted.tsx",
+      "total": 7,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 2
+        },
+        {
+          "token": "#1E293B",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/certificates/CertificatePrintLayoutModal.tsx",
+      "total": 7,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 1
+        },
+        {
+          "token": "#111827",
+          "count": 1
+        },
+        {
+          "token": "#1E293B",
+          "count": 4
+        },
+        {
+          "token": "#050A18",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/home/HomeCTA.tsx",
+      "total": 7,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 3
+        },
+        {
+          "token": "#111827",
+          "count": 1
+        },
+        {
+          "token": "#1E293B",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "file": "/frontend/app/+html.tsx",
+      "total": 7,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 3
+        },
+        {
+          "token": "#050A18",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "file": "/frontend/app/verify.tsx",
+      "total": 7,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 2
+        },
+        {
+          "token": "#111827",
+          "count": 1
+        },
+        {
+          "token": "#1E293B",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/AIUsageAnalyticsPanel.tsx",
+      "total": 6,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 1
+        },
+        {
+          "token": "#111827",
+          "count": 1
+        },
+        {
+          "token": "#1E293B",
+          "count": 3
+        },
+        {
+          "token": "#1A2236",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/CertificateTemplateManagerPanel.tsx",
+      "total": 6,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 1
+        },
+        {
+          "token": "#111827",
+          "count": 1
+        },
+        {
+          "token": "#1E293B",
+          "count": 2
+        },
+        {
+          "token": "#050A18",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/CsatDashboardPanel.tsx",
+      "total": 6,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 1
+        },
+        {
+          "token": "#111827",
+          "count": 2
+        },
+        {
+          "token": "#1E293B",
+          "count": 1
+        },
+        {
+          "token": "#050A18",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/EnterpriseControlPlanePanel.tsx",
+      "total": 6,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 2
+        },
+        {
+          "token": "#111827",
+          "count": 2
+        },
+        {
+          "token": "#1E293B",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/NewsletterAnalyticsPanelV2.tsx",
+      "total": 6,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 4
+        },
+        {
+          "token": "#111827",
+          "count": 1
+        },
+        {
+          "token": "#1E293B",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/AIUsageAnalyticsPanel.tsx",
+      "total": 6,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 1
+        },
+        {
+          "token": "#111827",
+          "count": 1
+        },
+        {
+          "token": "#1E293B",
+          "count": 3
+        },
+        {
+          "token": "#1A2236",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/CertificateTemplateManagerPanel.tsx",
+      "total": 6,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 1
+        },
+        {
+          "token": "#111827",
+          "count": 1
+        },
+        {
+          "token": "#1E293B",
+          "count": 2
+        },
+        {
+          "token": "#050A18",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/CsatDashboardPanel.tsx",
+      "total": 6,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 1
+        },
+        {
+          "token": "#111827",
+          "count": 2
+        },
+        {
+          "token": "#1E293B",
+          "count": 1
+        },
+        {
+          "token": "#050A18",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "file": "/frontend/src/components/admin/EnterpriseControlPlanePanel.tsx",
+      "total": 6,
+      "hits": [
+        {
+          "token": "#0F172A",
+          "count": 2
+        },
+        {
+          "token": "#111827",
+          "count": 2
+        },
+        {
+          "token": "#1E293B",
+          "count": 2
+        }
+      ]
+    }
+  ]
+}

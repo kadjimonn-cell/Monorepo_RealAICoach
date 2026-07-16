@@ -1,0 +1,13 @@
+Feature 26 Sprint 4 contract
+
+Admin route expected test IDs:
+- job-platform-admin-deprecation-panel
+- job-platform-admin-canary-panel
+- job-platform-admin-canary-status
+- job-platform-admin-premium-cohort-panel
+- job-platform-admin-premium-repeat-rate
+
+Expected admin API usage in route:
+- /hiring/v2/admin/deprecation-telemetry
+- /hiring/v2/admin/canary-controls
+- /hiring/v2/admin/premium-conversion-cohorts
