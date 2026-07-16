@@ -1,0 +1,41 @@
+{
+  "summary": "Iter4: Verified no regression from the two new code guards (WEBHOOK_AUTO_SYNC_ENABLED and NONPROD_EMAIL_SUPPRESS_TEMPLATES_ALL_RECIPIENTS). Backend boots clean on preview; import-verification regression suite is 7/7 green; email suppression works as configured; welcome (not in suppress list) is not affected; admin UI login reaches the Executive Operations dashboard.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/import_verification/test_import_bringup.py",
+    "/app/backend/tests/test_email_suppression_iter4.py",
+    "/app/test_reports/pytest/import_bringup_iter4.xml",
+    "/app/test_reports/pytest/email_suppression_iter4.xml"
+  ],
+  "action_items": [
+    "None. All three deployment/quiet-mode changes verified. Safe to leave preview in current state."
+  ],
+  "critical_code_review_comments": [
+    "server.py:2951 — _webhook_auto_sync_enabled flag correctly parses truthy env values ({'0','false','no','off'} → False) and gates ALL FOUR auto-sync blocks (FedaPay/Resend/Stripe/PayPal). Verified via runtime log at 2026-07-16T21:13:36Z: only the FedaPay 'skipped: auto-sync disabled by WEBHOOK_AUTO_SYNC_ENABLED' info line is emitted; ZERO 'AUTO-SYNCED' lines after that boot. Prior boots (pre-fix, e.g. 20:59) still show AUTO-SYNCED to spotify-style-2/anthropic-chat-v2 endpoints — good historical proof the fix inverted behavior.",
+    "email_service.py:1512-1529 — NONPROD_EMAIL_SUPPRESS_TEMPLATES_ALL_RECIPIENTS parses comma-separated template keys, lowercases/strips, and short-circuits inside send_email() before Resend dispatch, returning {'success': False, 'error': 'email-guardrail: non-production template suppressed (all recipients)'}. Verified: 'system_alert_admin' emits `[email-guardrail] non-production template suppressed for all recipients (template=system_alert_admin ...)` with NO subsequent '[Resend] Email sent' for the same corr_id. Non-listed templates (welcome) still route through provider (blocked here only by unrelated cap/dedupe guardrails, which is correct).",
+    "Guard is runtime-only (checked at send-time via os.environ) — hot-reloadable and disabled automatically when ENVIRONMENT=production (per code path comments 'non-production template suppressed'). Behaves as designed for preview vs production separation.",
+    "Historical Traceback at line 40 and asyncio.CancelledError in auto_detect.py:168 at 21:04:07 are BOTH from prior boots (before the 21:13:36 restart). Current boot has zero Traceback. Watchdog expo_manual ERROR spam and expected /api/auth/me 401 (anon) are known non-issues per handoff.",
+    "backend/.env populated correctly: WEBHOOK_AUTO_SYNC_ENABLED=false and 12 template keys in NONPROD_EMAIL_SUPPRESS_TEMPLATES_ALL_RECIPIENTS matching the intended monitoring set."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_email_suppression_iter4.py (new)",
+    "/app/test_reports/iteration_4.json (new)",
+    "/app/test_reports/pytest/import_bringup_iter4.xml (new)",
+    "/app/test_reports/pytest/email_suppression_iter4.xml (new)"
+  ],
+  "success_rate": {
+    "backend": "100% (7/7 import_bringup + 2/2 email_suppression_iter4 = 9/9)",
+    "frontend": "100% (admin login → Executive Operations dashboard, 'Welcome back, Admin', System Healthy, Owner badge)"
+  },
+  "test_credentials": "admin@realaicoach.app / NewAdminPass2026! — working (cookie session, is_admin=true).",
+  "seed_data_creation": "One throwaway user importtest+<rand>@example.com created by regression test (same behavior as iter1-3). No provider/webhook state changed; live payment keys untouched.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Both code guards are verified live. Fast re-verification: (1) `grep 'auto-sync disabled by WEBHOOK_AUTO_SYNC_ENABLED' /var/log/supervisor/backend.err.log | tail -1` must show a timestamp newer than the most recent backend restart AND `awk` for 'AUTO-SYNCED' after that timestamp must return zero lines. (2) POST as admin (cookie + X-Requested-With header) to /api/email-notifications/send-test/system_alert_admin — endpoint returns HTTP 200 with success:true (deliberate — send_test wraps outcome), but log must record `[email-guardrail] non-production template suppressed for all recipients (template=system_alert_admin ...)` and NO `[Resend] Email sent` for that correlation_id. Non-listed templates (welcome) do not emit the suppression line; a cap-guardrail or dedupe line may appear if repeated within the cap window — that is expected and unrelated. Regression file: /app/backend/tests/import_verification/test_import_bringup.py (7/7 green). Email guard test: /app/backend/tests/test_email_suppression_iter4.py (2/2 green). LIVE payment keys still hot in backend/.env — treat as read-only.",
+  "rca of the issue": "Not a bug fix — this iteration validates two intentional preview-only guards: (A) a startup gate that keeps preview restarts from ping-ponging production webhook URLs back to preview URLs (WEBHOOK_AUTO_SYNC_ENABLED=false), and (B) a runtime email suppression list that silences 12 monitoring/scheduler templates from being emitted by preview (NONPROD_EMAIL_SUPPRESS_TEMPLATES_ALL_RECIPIENTS). Both behave correctly and do not regress the app."
+}

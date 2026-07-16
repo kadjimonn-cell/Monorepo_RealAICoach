@@ -2948,12 +2948,13 @@ async def create_db_indexes():
         logger.warning(f"Lighthouse scheduler start error (non-blocking): {e}")
 
     # Auto-sync FedaPay webhook URL (runs even if index creation had errors)
+    _webhook_auto_sync_enabled = str(os.environ.get("WEBHOOK_AUTO_SYNC_ENABLED") or "true").strip().lower() not in {"0", "false", "no", "off"}
     try:
         from routes.fedapay_client import sync_webhook_url, get_current_webhook_url
 
         webhook_url = get_current_webhook_url()
         logger.info(f"FedaPay: Current webhook URL = {webhook_url}")
-        result = await sync_webhook_url()
+        result = {"status": "skipped", "reason": "auto-sync disabled by WEBHOOK_AUTO_SYNC_ENABLED"} if not _webhook_auto_sync_enabled else await sync_webhook_url()
         if result.get("status") == "ok":
             action = result.get("action", "none")
             if action in ("updated", "recreated"):
@@ -2975,7 +2976,7 @@ async def create_db_indexes():
     try:
         resend_key = str(os.environ.get("RESEND_API_KEY") or "").strip()
         base_url = str(os.environ.get("FRONTEND_BASE_URL") or "").strip().rstrip("/")
-        if resend_key and base_url:
+        if _webhook_auto_sync_enabled and resend_key and base_url:
             expected_endpoint = f"{base_url}/api/webhooks/resend"
             headers = {"Authorization": f"Bearer {resend_key}", "Content-Type": "application/json"}
             timeout = 20
@@ -3062,7 +3063,7 @@ async def create_db_indexes():
     # Auto-sync Stripe webhook URL
     try:
         stripe_key = os.environ.get("STRIPE_API_KEY")
-        if stripe_key:
+        if _webhook_auto_sync_enabled and stripe_key:
             import stripe
             stripe.api_key = stripe_key
             base_url = os.environ.get("FRONTEND_BASE_URL", "").rstrip("/")
@@ -3097,7 +3098,7 @@ async def create_db_indexes():
         paypal_client_id = os.environ.get("PAYPAL_CLIENT_ID")
         paypal_secret = os.environ.get("PAYPAL_SECRET")
         paypal_mode = os.environ.get("PAYPAL_MODE", "sandbox")
-        if paypal_client_id and paypal_secret:
+        if _webhook_auto_sync_enabled and paypal_client_id and paypal_secret:
             import httpx as _httpx
             paypal_api = "https://api-m.paypal.com" if paypal_mode == "live" else "https://api-m.sandbox.paypal.com"
             base_url = os.environ.get("FRONTEND_BASE_URL", "").rstrip("/")

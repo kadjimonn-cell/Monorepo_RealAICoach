@@ -1509,6 +1509,28 @@ async def send_email(
             "recipient": recipient_email,
         }
 
+    # Suppress configured templates for ALL recipients in non-production.
+    # Preview-only quieting of monitoring/alert emails; the default (empty set)
+    # keeps production and default preview behavior unchanged.
+    _nonprod_all_recipient_suppressed = {
+        item.strip().lower()
+        for item in str(os.environ.get("NONPROD_EMAIL_SUPPRESS_TEMPLATES_ALL_RECIPIENTS") or "").split(",")
+        if item.strip()
+    }
+    if _is_non_production_runtime() and normalized_template in _nonprod_all_recipient_suppressed:
+        logger.info(
+            "[email-guardrail] non-production template suppressed for all recipients (template=%s recipient=%s)",
+            normalized_template,
+            recipient_email,
+        )
+        return {
+            "success": True,
+            "skipped": True,
+            "error": "email-guardrail: non-production template suppressed (all recipients)",
+            "template_key": normalized_template,
+            "recipient": recipient_email,
+        }
+
     if enforce_verified_primary:
         primary_email, primary_error = await _resolve_verified_primary_email_for_user(expected_user_id or "")
         if primary_error:
