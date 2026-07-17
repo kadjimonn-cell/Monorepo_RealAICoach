@@ -37,6 +37,20 @@ from utils.iap_secret_runtime import hydrate_iap_runtime_secrets, enforce_iap_st
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / ".env", override=False)
 
+# ── Deployment override support ──────────────────────────────────────────────
+# MONGO_URL and DB_NAME are platform-reserved keys in the Emergent publishing
+# panel (the platform injects its own values for the deployed app), so they
+# cannot be edited as custom secrets. Production DB targeting therefore arrives
+# via the non-reserved *_OVERRIDE keys below. Empty/unset values are ignored,
+# keeping preview behavior 100% unchanged.
+for _override_key, _target_key in (
+    ("MONGO_URL_OVERRIDE", "MONGO_URL"),
+    ("DB_NAME_OVERRIDE", "DB_NAME"),
+):
+    _override_value = str(os.environ.get(_override_key) or "").strip()
+    if _override_value:
+        os.environ[_target_key] = _override_value
+
 
 def _is_production_runtime() -> bool:
     candidates = [
