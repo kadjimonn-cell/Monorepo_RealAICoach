@@ -1470,3 +1470,9 @@ Verified: testing_agent iteration_3 — 100% backend (7/7) + frontend (admin UI 
 - RCA: web.output="server" export layout (dist/server html + dist/client assets) vs fullstack template's static nginx serving of build/ -> no root index.html -> default nginx page. Full protocol doc: PROD_NGINX_DEFAULT_PAGE_RCA_CHECKPOINTS_A_D_2026-07-17.md.
 - Fix: scripts/assemble-static-build.js (client assets + route HTML + X/index.html mirrors + 200/404 fallbacks); build script now `yarn export:web && node scripts/assemble-static-build.js`.
 - Proof: yarn build EXIT:0 (364s), 215 pages + 204 mirrors, static-serve simulation all 200 with content; verified by testing_agent iteration_7 (100%, regression 7/7). Requires Re-publish.
+
+## PROD HEARTBEAT-TIMEOUT FIX: DEFERRED STARTUP INIT (2026-07-17)
+- RCA: heavy init (create_db_indexes: dedupe + ~230-collection index creation + admin ensure + webhook sync + FX + Lighthouse; zero_assumptions scrubber; preprod lock read) ran inside FastAPI startup events -> uvicorn couldn't serve until done -> minutes on Atlas -> K8s Heartbeat timeout.
+- Fix: three heavy handlers un-decorated and run via asyncio.create_task from a lightweight startup kickoff; _DEFERRED_INIT status exposed in /health + /api/health ("init": pending|in_progress|complete|completed_with_errors); always 200 once bound. Kept inline: secret vault policy + IAP hydration (local-only, fast, intentionally hard-fail). Scheduler registration unchanged.
+- Proof: Uvicorn serving logged BEFORE deferred-init; TTFB-200 = 7.5s (dominated by importing 3417 routes); init completes in background (0.4s local); verified testing_agent iteration_8 100%, regression 7/7. Production frontend is pure static (no server process) — unaffected.
+- Requires Re-publish.
