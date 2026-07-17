@@ -10,14 +10,16 @@ MONGO_URL=mongodb+srv://spotify-style-2:d9ck125dkjgc73bg1u6g@customer-apps.rcho5
 # resolves (cluster exists). Direct connect from preview pod is blocked by the Atlas IP
 # allowlist — EXPECTED, deployed infra is allowlisted; not a blocker.
 
-DB_NAME=visa-polish-v2
-# !! VERIFY FIRST — the cluster CHANGED. The old checklist pointed at cluster
-# customer-apps.ralxxc (user visa-polish-v2); the new string is cluster customer-apps.rcho5e
-# (user spotify-style-2). If the spotify-style-2 deployment previously ran this app, its
-# data is in whichever DB name it used on rcho5e — candidates: "visa-polish-v2" (old
-# convention) or "realtalk_db" (code/.env default). Check in Atlas -> Browse Collections
-# (rcho5e cluster) which DB actually holds collections, or check the old deployment's
-# panel DB_NAME, and use EXACTLY that. Wrong DB_NAME = app boots against an empty DB.
+DB_NAME=spotify-style-2-realtalk_db
+# !! 2026-07-16 UPDATE from user's MongoDB Viewer: cluster rcho5e holds TWO databases:
+#   "spotify-style-2-realai..." (7 items)  and  "spotify-style-2-realt..." (761 items).
+# Names are TRUNCATED in the viewer; the 761-item one is clearly the active production
+# data and almost certainly reads "spotify-style-2-realtalk_db" (platform prefixes the
+# app slot name onto the app's DB_NAME "realtalk_db"). Direct verification from preview
+# is impossible (Atlas IP allowlist blocks SRV AND direct shard connections — tested).
+# ACTION: in MongoDB Viewer/Atlas, click the 761-item database to see its FULL name and
+# set DB_NAME to EXACTLY that full string. Do NOT use "visa-polish-v2" — that was the
+# OLD cluster's (ralxxc) convention and does not exist on rcho5e.
 
 ## 2. REQUIRED — Runtime markers & policy overrides
 ENVIRONMENT=production
