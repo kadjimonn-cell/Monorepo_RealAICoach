@@ -1476,3 +1476,10 @@ Verified: testing_agent iteration_3 — 100% backend (7/7) + frontend (admin UI 
 - Fix: three heavy handlers un-decorated and run via asyncio.create_task from a lightweight startup kickoff; _DEFERRED_INIT status exposed in /health + /api/health ("init": pending|in_progress|complete|completed_with_errors); always 200 once bound. Kept inline: secret vault policy + IAP hydration (local-only, fast, intentionally hard-fail). Scheduler registration unchanged.
 - Proof: Uvicorn serving logged BEFORE deferred-init; TTFB-200 = 7.5s (dominated by importing 3417 routes); init completes in background (0.4s local); verified testing_agent iteration_8 100%, regression 7/7. Production frontend is pure static (no server process) — unaffected.
 - Requires Re-publish.
+
+## MEMORY-TIER HEAP CHANGE 5632->768 + EMPIRICAL MINIMUMS (2026-07-17)
+- Applied as instructed: all 3 package.json script lines now --max-old-space-size=768 (gate passes).
+- COLD-build matrix (caches wiped each run): 768=OOM(134), 1024=OOM(134), 2048=OK(383s), 3072=OK(383s), 4096=OK(386s). MINIMUM=2048MB, recommended 3072MB.
+- Dev server at 768: crash-loop (heap hits 762MB, V8 fatal, port 3000 never serves). PREVIEW FRONTEND DOWN; service stopped intentionally pending user decision (restore: set start-script heap >=2048 and `sudo supervisorctl start frontend`).
+- Verified by testing_agent iteration_9 (backend 7/7 unaffected; all evidence logs authenticated).
+- DO NOT Re-publish at 768: the deploy's cold build will OOM -> BUILD_IMAGE failure returns.
