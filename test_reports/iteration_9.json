@@ -1,0 +1,68 @@
+{
+  "summary": "Backend-only verification of the memory-tier heap change. Verified package.json state, all 5 cold-build logs, dev-server crash-loop evidence, and backend health. All 7 tests in /app/backend/tests/import_verification/test_import_bringup.py PASS. Frontend crash-loop is the intended/current state per task instruction — no modifications made.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verification_evidence": {
+    "package_json": {
+      "occurrences_of_max_old_space_size_768": 3,
+      "occurrences_of_5632": 0,
+      "verify_package_json_exit_code": 0,
+      "verify_package_json_stdout": "[verify-package-json] all required scripts resolve to the local expo CLI"
+    },
+    "build_logs": {
+      "/tmp/build_768.log":  {"exit": 134, "heap_out_of_memory_hits": 1, "done_in_hits": 0, "final_line": "error Command failed with exit code 134."},
+      "/tmp/build_1024.log": {"exit": 134, "heap_out_of_memory_hits": 1, "done_in_hits": 0, "final_line": "error Command failed with exit code 134."},
+      "/tmp/build_2048.log": {"exit": 0,   "heap_out_of_memory_hits": 0, "done_in_hits": 1, "final_line": "Done in 383.48s."},
+      "/tmp/build_3072.log": {"exit": 0,   "heap_out_of_memory_hits": 0, "done_in_hits": 1, "final_line": "Done in 382.81s."},
+      "/tmp/build_4096.log": {"exit": 0,   "heap_out_of_memory_hits": 0, "done_in_hits": 1, "final_line": "Done in 386.06s."}
+    },
+    "dev_server_crash_loop_at_768": {
+      "supervisor_status": "RUNNING pid 3263, uptime 0:00:03 (constant restart)",
+      "frontend_err_log_oom_matches": 20,
+      "curl_localhost_3000_http_code": "000 (connection refused / not serving)",
+      "expected_state": true,
+      "action_taken": "none — left as-is per instruction"
+    },
+    "backend_preview": {
+      "api_health_status": 200,
+      "api_health_body": "{\"status\":\"healthy\",\"service\":\"RealAICoach API\",\"init\":\"complete\"}",
+      "admin_login_status": 200,
+      "admin_login_sets_session_token_cookie": true,
+      "pytest_result": "7 passed in 3.77s",
+      "pytest_junit": "/app/test_reports/pytest/pytest_import_bringup_iter9.xml"
+    }
+  },
+  "test_report_links": [
+    "/app/backend/tests/import_verification/test_import_bringup.py",
+    "/app/test_reports/pytest/pytest_import_bringup_iter9.xml"
+  ],
+  "action_items": [
+    "Decision required from user/main agent: revert to a working dev-server heap value (>=2048MB start line) OR keep 768 and accept broken preview frontend. Cold-build minimum is 2048MB; recommended 3072MB for margin.",
+    "Consider splitting dev vs build heap sizes in package.json scripts (e.g., start=2048, export:web=2048/3072) rather than a single 768 everywhere."
+  ],
+  "critical_code_review_comments": [
+    "package.json line 6 (start): NODE_OPTIONS=--max-old-space-size=768 is insufficient for the Expo/Metro dev server — reproducibly OOMs within ~50s of boot (heap grows to ~762MB against 768MB cap, GC ineffective, exit 134). Constant crash-loop under supervisor.",
+    "package.json line 13 (export:web): 768 is well below the empirically measured cold-build minimum of 2048MB. Even 1024 OOMs. Recommend 3072 (383s success with margin) for production builds.",
+    "The single unified heap value across dev/build scripts is a design smell — dev-server (long-lived, hot-reload, source watching) and cold export (one-shot, worker-heavy) have very different memory profiles and should be tuned independently."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100% (7/7 import_bringup tests pass)", "frontend": "N/A — intentionally down per instruction"},
+  "test_credentials": "admin@realaicoach.app / NewAdminPass2026! — verified working (200 with session_token cookie)",
+  "seed_data_creation": "One transient test user created by test_register_new_user (email=importtest+<rand>@example.com); no cleanup needed (isolated to test DB, unique email each run).",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Task was pure evidence verification of a deploy-tier heap-size change. All 5 build logs already existed at /tmp/build_{768,1024,2048,3072,4096}.log — do NOT rebuild (each ~6.5 min). Frontend is intentionally crash-looping at 768MB; do NOT edit package.json or attempt to fix it — the user will decide next step. Backend fully healthy and independent of frontend. import_bringup suite (7 tests) is the canonical bring-up regression and passes without any frontend serving.",
+  "rca of the issue": {
+    "issue": "Frontend dev-server (yarn start / expo start on port 3000) crash-loops after main agent set NODE_OPTIONS=--max-old-space-size=768 in all 3 script lines of /app/frontend/package.json.",
+    "root_cause": "The Expo/Metro dev-server for this SDK54 app (react-native-web + 215 routes + expo-router + reanimated + three.js + recharts + pdfjs) has a working-set well above 768MB. Log shows heap reaching 762MB and GC scavenges becoming ineffective (mu=0.293), triggering V8 OOM fatal (exit 134).",
+    "reproduction": "sudo supervisorctl restart frontend; wait ~60s; tail /var/log/supervisor/frontend.err.log -> 'FATAL ERROR: Ineffective mark-compacts near heap limit ... JavaScript heap out of memory'. curl http://localhost:3000/ -> connection refused. Supervisor uptime never exceeds ~50s.",
+    "mitigation": "Restore start-script heap to >=2048MB (recommend 3072MB). export:web heap must also be >=2048MB (recommend 3072MB) — 1024 also OOMs during cold builds. If tier limit forces 768MB total, the app is not runnable in this environment; push back on memory tier."
+  }
+}
