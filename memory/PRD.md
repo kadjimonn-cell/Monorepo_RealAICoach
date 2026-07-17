@@ -1483,3 +1483,17 @@ Verified: testing_agent iteration_3 — 100% backend (7/7) + frontend (admin UI 
 - Dev server at 768: crash-loop (heap hits 762MB, V8 fatal, port 3000 never serves). PREVIEW FRONTEND DOWN; service stopped intentionally pending user decision (restore: set start-script heap >=2048 and `sudo supervisorctl start frontend`).
 - Verified by testing_agent iteration_9 (backend 7/7 unaffected; all evidence logs authenticated).
 - DO NOT Re-publish at 768: the deploy's cold build will OOM -> BUILD_IMAGE failure returns.
+
+## 2026-07-17 — Auto-Scaling LLM Circuit Breaker (COMPLETE, tested iteration_10)
+- `backend/routes/auto_scaling.py`: pauses APScheduler job `auto_scaling_eval` after 3 consecutive LLM failures.
+  - State persisted in `scaling_state` doc `{type: "llm_circuit_breaker"}` (consecutive_failure_count, paused, paused_at, pause_reason, rearmed_at/by).
+  - Survives restarts: first job run after restart re-applies pause from Mongo (job is re-registered active by scheduler), no LLM call made.
+  - `POST /api/admin/scaling/rearm` (admin + X-Requested-With CSRF header): resets state, resumes job.
+  - Success resets counter to 0. `GET /api/admin/scaling/status` now includes `llm_circuit_breaker` field.
+  - Every scaling LLM call logged via `services/llm_usage_logger.log_llm_call` (feature=auto_scaling_eval, model=gpt-4o) incl. failures with error text.
+- Verified end-to-end with temporary user-approved failure-injection hook; hook FULLY REMOVED after verification (grep-confirmed 0 occurrences).
+- Regression suite: /app/backend/tests/test_llm_circuit_breaker.py (11/11 pass, iteration_10.json).
+
+## Preview frontend heap split (confirmed 2026-07-17)
+- package.json: start/expo=5632MB, export:web=3072MB. No new FATAL/OOM this session (count static at 103, all historical).
+- Known pre-existing behavior: Metro dev server (maxWorkers=1) takes ~78s per full JS-bundle pass; concurrent requests queue behind it → occasional slow first-hits / external 502 during a pass. Production unaffected (serves static build/).
