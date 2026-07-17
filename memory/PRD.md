@@ -1451,3 +1451,9 @@ Verified: testing_agent iteration_3 — 100% backend (7/7) + frontend (admin UI 
 - Alert quieting: new NONPROD_EMAIL_SUPPRESS_TEMPLATES_ALL_RECIPIENTS in email_service.send_email (default empty = unchanged; active ONLY in non-production runtime). Preview list: system_alert_admin, anomaly_digest, admin_detailed_system_alert, automation_alert, server_anomaly_alert, security_scan_alert, security_runbook_monitor_report, nightly_acceptance_report, nightly_blocked_export_v7, logo_render_probe, gtec_scan_v2_report, daily_usage_summary. Product/user emails untouched.
 - Verified: testing_agent iteration_4 100% (9/9 backend incl. new email suppression tests, frontend login smoke). Quiet window observed: 0 emails sent post-restart.
 - KNOWN EXTERNAL RISK: other preview pods sharing the same live keys (observed: spotify-style-2, anthropic-chat-v2) can re-hijack provider webhooks; uncontrollable from this pod.
+
+## RESERVED-KEY OVERRIDE MECHANISM (2026-07-17)
+- Problem: MONGO_URL/DB_NAME are platform-reserved in the publishing panel (not editable as custom secrets).
+- Fix: server.py promotes non-empty MONGO_URL_OVERRIDE/DB_NAME_OVERRIDE into os.environ right after load_dotenv (single central point; all readers covered). Empty = ignored (preview unchanged). Keys added to .env with empty values so the panel captures them.
+- Production values to fill in panel: MONGO_URL_OVERRIDE=<spotify-style-2 Atlas URI>, DB_NAME_OVERRIDE=spotify-style-2-realtalk_db.
+- Verified: testing_agent iteration_5 100% (precedence proven via scratch DB probe, full revert, regression 7/7 pre+post).

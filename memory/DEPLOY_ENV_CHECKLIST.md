@@ -4,13 +4,17 @@
 # (panel values OVERRIDE backend/.env at deploy time — confirmed by Emergent support 2026-07-16).
 
 ## 1. REQUIRED — Database
-MONGO_URL=mongodb+srv://spotify-style-2:d9ck125dkjgc73bg1u6g@customer-apps.rcho5e.mongodb.net/?retryWrites=true&w=majority&appName=spotify-style-2&maxPoolSize=5
+# !! MONGO_URL and DB_NAME are PLATFORM-RESERVED panel keys (Emergent injects its own
+# values for deployments) and do NOT surface as editable custom secrets. Use the
+# non-reserved override keys instead (supported in server.py since 2026-07-17;
+# non-empty value wins over the platform-injected MONGO_URL/DB_NAME):
+MONGO_URL_OVERRIDE=mongodb+srv://spotify-style-2:d9ck125dkjgc73bg1u6g@customer-apps.rcho5e.mongodb.net/?retryWrites=true&w=majority&appName=spotify-style-2&maxPoolSize=5
 # VALIDATED 2026-07-16: URI parses clean with the backend's pymongo/motor stack; no db in
 # the path (correct — the code reads the database from DB_NAME separately). SRV DNS
 # resolves (cluster exists). Direct connect from preview pod is blocked by the Atlas IP
 # allowlist — EXPECTED, deployed infra is allowlisted; not a blocker.
 
-DB_NAME=spotify-style-2-realtalk_db
+DB_NAME_OVERRIDE=spotify-style-2-realtalk_db
 # !! 2026-07-16 UPDATE from user's MongoDB Viewer: cluster rcho5e holds TWO databases:
 #   "spotify-style-2-realai..." (7 items)  and  "spotify-style-2-realt..." (761 items).
 # Names are TRUNCATED in the viewer; the 761-item one is clearly the active production
