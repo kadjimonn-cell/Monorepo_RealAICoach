@@ -1457,3 +1457,11 @@ Verified: testing_agent iteration_3 — 100% backend (7/7) + frontend (admin UI 
 - Fix: server.py promotes non-empty MONGO_URL_OVERRIDE/DB_NAME_OVERRIDE into os.environ right after load_dotenv (single central point; all readers covered). Empty = ignored (preview unchanged). Keys added to .env with empty values so the panel captures them.
 - Production values to fill in panel: MONGO_URL_OVERRIDE=<spotify-style-2 Atlas URI>, DB_NAME_OVERRIDE=spotify-style-2-realtalk_db.
 - Verified: testing_agent iteration_5 100% (precedence proven via scratch DB probe, full revert, regression 7/7 pre+post).
+
+## PROD DEPLOY FIXES: ROOT /health + ANTI-HIJACK GUARDS (2026-07-17)
+- F1: K8s probes hit GET /health at root -> 404. Added @app.get+head("/health") on the app object (not /api router), same payload as /api/health, include_in_schema=False.
+- F2a: webhook auto-sync now requires flag AND _is_production_runtime() AND non-empty FRONTEND_BASE_URL AND refuses *.preview.emergentagent.com hosts (warning log, skip).
+- F2d: domain self-heal neutralizes _CURRENT_DOMAIN in production when detection yields a preview host (panel URL values win; all downstream rewrites skipped).
+- Guards proven via simulated hijack boot (both REFUSED lines, zero provider calls); verified by testing_agent iteration_6 (100%, regression 7/7, env reverted byte-identical).
+- Webhooks re-pointed (3rd time) and verified: Stripe/Resend/PayPal/FedaPay all -> https://realaicoach.app production paths.
+- User must Re-publish to ship these fixes.
