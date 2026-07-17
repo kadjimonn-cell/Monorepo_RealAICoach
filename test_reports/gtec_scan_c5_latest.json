@@ -1,6 +1,6 @@
 {
-  "task_id": "gtec_c5_912765ccb160",
-  "execution_hash": "89458d2ca333ec0a",
+  "task_id": "gtec_c5_36e091c6288a",
+  "execution_hash": "c1a56b058110b059",
   "status": "INFRA_BLOCKED",
   "critical_vulns": 0,
   "high_vulns": 1,
@@ -235,7 +235,7 @@
     "threat_model"
   ],
   "directive_version": "3ab3a705bf380cab",
-  "generated_at": "2026-07-16T21:05:52.913282+00:00",
+  "generated_at": "2026-07-17T00:29:19.153706+00:00",
   "v3_output": {
     "SYSTEM_STATUS": "INFRA_BLOCKED",
     "SECURITY_STATUS": "FAIL",
@@ -293,13 +293,13 @@
               "error": null
             }
           ],
-          "checked_at": "2026-07-16T21:05:52.909201+00:00"
+          "checked_at": "2026-07-17T00:29:19.148620+00:00"
         }
       }
     ],
     "require_external_preview": true,
     "require_local_backend": true,
-    "checked_at": "2026-07-16T21:05:52.909226+00:00"
+    "checked_at": "2026-07-17T00:29:19.148646+00:00"
   },
   "preflight_policy": {
     "require_external_preview": true,
@@ -319,13 +319,13 @@
       "clean_rescans_required": 3,
       "pending_verification_hours": 24
     },
-    "evaluated_at": "2026-07-16T21:05:52.913327+00:00"
+    "evaluated_at": "2026-07-17T00:29:19.153750+00:00"
   },
   "c5_notification_snapshot": {
     "snapshot_version": "c5-notification-snapshot.v2",
-    "source_task_id": "gtec_c5_912765ccb160",
-    "source_execution_hash": "89458d2ca333ec0a",
-    "source_generated_at": "2026-07-16T21:05:52.913282+00:00",
+    "source_task_id": "gtec_c5_36e091c6288a",
+    "source_execution_hash": "c1a56b058110b059",
+    "source_generated_at": "2026-07-17T00:29:19.153706+00:00",
     "global_binding": {
       "bound_to_latest_trust_task": false,
       "latest_trust_task_id": ""
@@ -334,7 +334,7 @@
       "score_percent": 0.0,
       "passed_gates": 0,
       "total_gates": 0,
-      "generated_at": "2026-07-16T21:05:52.915038+00:00"
+      "generated_at": "2026-07-17T00:29:19.155413+00:00"
     },
     "white_screen_sentry": {
       "status": "UNKNOWN",
@@ -343,7 +343,7 @@
       "total_checks": 0,
       "routes_tested": 0,
       "route_source": "",
-      "generated_at": "2026-07-16T21:05:52.915045+00:00"
+      "generated_at": "2026-07-17T00:29:19.155417+00:00"
     },
     "responsive_viewport_matrix": {
       "artifact_count": 0,
@@ -377,7 +377,7 @@
         "clean_rescans_required": 3,
         "pending_verification_hours": 24
       },
-      "evaluated_at": "2026-07-16T21:05:52.915050+00:00"
+      "evaluated_at": "2026-07-17T00:29:19.155422+00:00"
     },
     "run_policy": {
       "scan_mode": "STRICT_GLOBAL",
@@ -387,7 +387,7 @@
       "preflight_require_external_preview": true,
       "preflight_require_local_backend": true
     },
-    "generated_at": "2026-07-16T21:05:52.915055+00:00",
+    "generated_at": "2026-07-17T00:29:19.155427+00:00",
     "snapshot_status": "INCOMPLETE",
     "data_freshness": "INFRA_BLOCKED",
     "consistency": {

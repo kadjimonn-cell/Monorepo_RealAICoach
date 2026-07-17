@@ -67,3 +67,11 @@ APPLE_SSO_CANONICAL_REDIRECT_BASE=https://realaicoach.app
   self-corrects at every boot once deployed.
 - SECURITY: the new MONGO_URL password was shared in chat — rotate the Atlas password
   after a successful deploy if this matters to you (update the panel value afterwards).
+
+## 6. SECRETS PANEL MECHANISM (confirmed by Emergent support, 2026-07-17)
+- The publishing panel captures the KEYS present in /app/backend/.env; the USER edits the
+  production VALUES in Manage Publishing -> Secrets. Panel values apply ONLY to the
+  deployed app (separate from preview) and require a Re-publish to take effect.
+- All 13 production keys now exist in preview .env (preview-safe values added 2026-07-17:
+  ENVIRONMENT=preview, SECRET_VAULT_ENFORCE=false). In the panel set the production
+  values from sections 1-3 above, then Re-publish.
