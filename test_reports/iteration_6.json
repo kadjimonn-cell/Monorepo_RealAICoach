@@ -1,0 +1,41 @@
+{
+  "summary": "Verified F1 (root /health endpoint for K8s probes) and F2 (production self-heal guard + webhook auto-sync preview-host refuse) fixes end-to-end. All acceptance criteria met, .env fully reverted to preview state, regression suite 7/7 PASSED.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/import_verification/test_import_bringup.py",
+    "/app/test_reports/pytest/import_bringup_iter6.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "F1 CORRECT: root_health_check is registered directly on the FastAPI `app` object (@app.get/@app.head at server.py L893-898), NOT under `api_router` (which has prefix='/api'). include_in_schema=False keeps it out of OpenAPI. Payload identical to /api/health. GET and HEAD both handled.",
+    "F2d CORRECT: production self-heal hard guard at server.py L296-302 runs immediately AFTER _CURRENT_DOMAIN = _detect_deployment_domain() and BEFORE any of the _sync_env_* rewrites. It neutralizes _CURRENT_DOMAIN='' only when (a) _is_production_runtime() AND (b) detected domain is a preview host. All downstream self-heal rewrites are conditioned on `if _CURRENT_DOMAIN` / `if not _CURRENT_DOMAIN: return`, so neutralizing here safely skips every subsequent URL rewrite (FRONTEND_BASE_URL, SSO_REDIRECT_BASE_URL, RESET_LINK_BASE, VERIFY_LINK_BASE, GOOGLE_OAUTH_REDIRECT_URI, MS/APPLE SSO CSVs, preview-host CSV rewriter, frontend/.env sync).",
+    "F2a CORRECT: webhook auto-sync guard at server.py L2987-3007 correctly ANDs three conditions before enabling live-provider sync: (1) WEBHOOK_AUTO_SYNC_ENABLED flag-truthy, (2) _is_production_runtime(), (3) non-empty FRONTEND_BASE_URL that is NOT *.preview.emergentagent.com. All four provider blocks (FedaPay, Resend, Stripe, PayPal) gate their API calls on `_webhook_auto_sync_enabled`, so the guard covers every downstream sync path.",
+    "Minor observation (informational, not a bug): the Self-heal REFUSED warning is emitted at module-import time before configure_structured_logging() runs (L600), so it appears in backend.err.log as raw text rather than JSON. This is expected and does not affect functionality — the warning is fully visible in logs (verified in this iteration). Webhook REFUSED and skip messages fire after structured logging init and appear in JSON format.",
+    "Minor observation (informational): the L2987 default for WEBHOOK_AUTO_SYNC_ENABLED when unset is 'true'. Combined with the new triple guard this is still safe (must also be production + non-preview base URL), but consider defaulting to 'false' unless the operator explicitly opts in — belt-and-braces."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "N/A (frontend testing skipped per request)"},
+  "test_credentials": "Admin: admin@realaicoach.app / NewAdminPass2026! — verified working after revert (200, is_admin=true, session_token cookie set).",
+  "seed_data_creation": "test_register_new_user created one ephemeral user importtest+<rand>@example.com in realtalk_db (as part of the standard bring-up regression). No other seed data created. .env fully reverted.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Fixes verified end-to-end. .env final state: ENVIRONMENT=preview, WEBHOOK_AUTO_SYNC_ENABLED=false (byte-identical to /tmp/env.backup.iter6 taken before the simulation — diff clean). Backend restarted in preview mode after revert, /api/health and root /health both 200. Regression suite (7 tests) PASSES. Webhooks were NOT touched by this test — the simulation boot fired both guards (Self-heal REFUSED + Webhook auto-sync REFUSED) with ZERO provider API calls, exactly as designed. Log excerpts captured in /tmp/boot_iter6.log (production sim) and /tmp/boot_iter6_revert.log (preview revert). Note: the Self-heal REFUSED warning emits BEFORE configure_structured_logging(), so it appears as raw stderr text (not JSON) — this is expected and not a bug.",
+  "rca of the issue": "Not a bug — this iteration is verification of two production-safety fixes for a K8s deploy incident. (1) The K8s liveness/readiness probes hit ROOT `GET /health` on the pod, but the app only registered `/api/health` (under the /api router prefix), causing a 404 and marking the pod unhealthy. Mitigation: add `@app.get('/health', include_in_schema=False)` + `@app.head` at the FastAPI app object (not under the api_router prefix), returning the same {status:healthy} payload — verified L893-898. (2) The deployed pod auto-synced LIVE provider webhooks BACK to the preview URL because (a) the domain self-heal detected a preview host from .env-shipped preview values in the production pod and overwrote FRONTEND_BASE_URL, and (b) the webhook auto-sync then blindly used it. Mitigation: two independent guards. F2d neutralizes _CURRENT_DOMAIN='' when in production AND the detected domain is preview (defense-in-depth: panel values win, self-heal skips every URL rewrite). F2a hard-refuses webhook sync when the base URL host ends with `.preview.emergentagent.com`, also requires _is_production_runtime() and non-empty FRONTEND_BASE_URL.",
+  "verification_steps_executed": [
+    "1. Code inspection: root_health_check at server.py L893-898 registered on `app` (not api_router); production self-heal guard at L296-302; webhook auto-sync triple guard at L2987-3007 — all correctly implemented.",
+    "2. F1: curl http://localhost:8001/health -> HTTP 200 {status:healthy,service:RealAICoach API}. HEAD /health -> 200. /api/health -> 200. External https://full-stack-migrate-1.preview.emergentagent.com/api/health -> 200. (Root /health via external ingress is NOT tested per instructions — ingress routes / to frontend.)",
+    "3. F2 simulation: backed up .env, flipped ENVIRONMENT=preview->production and WEBHOOK_AUTO_SYNC_ENABLED=false->true, restarted backend, waited 18s, captured boot log slice from log offset 19132983.",
+    "4. F2 log assertions on simulation boot: (a) 'Self-heal REFUSED in production: detected domain https://full-stack-migrate-1.preview.emergentagent.com is a preview host; keeping existing URL configuration untouched' PRESENT (raw stderr line, pre-structured-logging); (b) 'Webhook auto-sync REFUSED: base URL https://full-stack-migrate-1.preview.emergentagent.com is a preview host — refusing to point live provider webhooks at a preview environment' PRESENT (JSON WARNING at server.py L3003); (c) 'FedaPay webhook sync skipped: auto-sync disabled by WEBHOOK_AUTO_SYNC_ENABLED' PRESENT; (d) grep -c 'AUTO-SYNCED|AUTO-CREATED' = 0. Zero provider API calls made.",
+    "5. Revert: sed .env back to ENVIRONMENT=preview + WEBHOOK_AUTO_SYNC_ENABLED=false. diff /tmp/env.backup.iter6 /app/backend/.env == empty (byte-identical). Restarted backend, waited 18s.",
+    "6. Preview-mode assertions post-revert: no 'Self-heal REFUSED' (correct), 'FedaPay webhook sync skipped: auto-sync disabled by WEBHOOK_AUTO_SYNC_ENABLED' PRESENT (flag-off path — different from the production-runtime skip path), /api/health -> 200, admin login POST https://.../api/auth/login -> 200 with session_token cookie set and roles include admin (is_admin=true in response).",
+    "7. Regression: pytest /app/backend/tests/import_verification/test_import_bringup.py --junitxml=/app/test_reports/pytest/import_bringup_iter6.xml -> 7 passed in 4.39s."
+  ]
+}

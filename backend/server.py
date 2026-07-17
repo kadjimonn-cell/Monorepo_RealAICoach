@@ -287,6 +287,20 @@ def _detect_deployment_domain():
 
 _CURRENT_DOMAIN = _detect_deployment_domain()
 
+# ── Production hard guard (defense in depth) ─────────────────────────────────
+# In a production runtime, a preview-host detection is always bogus (it comes
+# from preview values shipped inside .env files). Never let it rewrite the
+# production URL config — panel-provided values must win. Every downstream
+# self-heal rewrite is conditioned on a truthy _CURRENT_DOMAIN, so neutralizing
+# it here safely skips them all.
+if _is_production_runtime() and _CURRENT_DOMAIN and _is_preview_host(_CURRENT_DOMAIN):
+    logging.getLogger("server").warning(
+        "Self-heal REFUSED in production: detected domain '%s' is a preview host; "
+        "keeping existing URL configuration untouched",
+        _CURRENT_DOMAIN,
+    )
+    _CURRENT_DOMAIN = ""
+
 _KNOWN_GOOD_CREDS = {
     "AZURE_CLIENT_ID": "888e987c-d5c5-4582-8371-65f9a22167a0",
     "AZURE_TENANT_ID": "44ba0d5f-c69a-464d-81a2-9b8f55c6daa8",
@@ -873,6 +887,14 @@ async def root():
 
 @api_router.get("/health")
 async def health_check():
+    return {"status": "healthy", "service": "RealAICoach API"}
+
+
+@app.get("/health", include_in_schema=False)
+@app.head("/health", include_in_schema=False)
+async def root_health_check():
+    """Root-level health endpoint for platform/Kubernetes probes (they hit GET /health,
+    not /api/health). Unauthenticated, same payload as /api/health."""
     return {"status": "healthy", "service": "RealAICoach API"}
 
 
@@ -2963,6 +2985,26 @@ async def create_db_indexes():
 
     # Auto-sync FedaPay webhook URL (runs even if index creation had errors)
     _webhook_auto_sync_enabled = str(os.environ.get("WEBHOOK_AUTO_SYNC_ENABLED") or "true").strip().lower() not in {"0", "false", "no", "off"}
+    # Defense in depth: live provider webhooks may only ever be synced from a
+    # production runtime, and never to a preview host.
+    _webhook_sync_base = str(os.environ.get("FRONTEND_BASE_URL") or "").strip().rstrip("/")
+    _webhook_sync_host = (_urlparse(_webhook_sync_base).hostname or "").lower()
+    if _webhook_auto_sync_enabled:
+        if not _is_production_runtime():
+            _webhook_auto_sync_enabled = False
+            logger.info(
+                "Webhook auto-sync skipped: not a production runtime (ENVIRONMENT=production required)"
+            )
+        elif not _webhook_sync_base:
+            _webhook_auto_sync_enabled = False
+            logger.warning("Webhook auto-sync skipped: FRONTEND_BASE_URL is empty")
+        elif _webhook_sync_host.endswith("preview.emergentagent.com"):
+            _webhook_auto_sync_enabled = False
+            logger.warning(
+                "Webhook auto-sync REFUSED: base URL %s is a preview host — refusing to point "
+                "live provider webhooks at a preview environment",
+                _webhook_sync_base,
+            )
     try:
         from routes.fedapay_client import sync_webhook_url, get_current_webhook_url
 
