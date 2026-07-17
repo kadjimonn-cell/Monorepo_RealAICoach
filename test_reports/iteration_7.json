@@ -1,0 +1,55 @@
+{
+  "summary": "Verified production static-build fix for RealAICoach: build/ artifacts, static-serve simulation on port 9099, package.json build script, verify-package-json, preview backend/admin login, and 7-test import_bringup pytest suite. All checks passed; no regressions to Metro dev flow.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "verification_details": {
+    "build_artifacts": {
+      "build/index.html": "EXISTS 141854 bytes, contains 'RealAICoach' (9 matches)",
+      "build/200.html": "EXISTS 141854 bytes",
+      "build/404.html": "EXISTS 141854 bytes",
+      "build/pricing/index.html": "EXISTS 141891 bytes (directory-index mirror)",
+      "build/features/index.html": "EXISTS 141486 bytes (directory-index mirror)",
+      "build/_expo/static/js/web/index-c04b6fb050162e98e2d0af44b66ea5d3.js": "EXISTS (entry bundle referenced by index.html)"
+    },
+    "static_serve_simulation_port_9099": {
+      "GET /": "200, RealAICoach present",
+      "GET /pricing/": "200, RealAICoach present",
+      "GET /features/": "200, RealAICoach present",
+      "GET /auth/": "200, RealAICoach present",
+      "GET /_expo/static/js/web/index-c04b6fb0...js": "200",
+      "server_cleanup": "python http.server killed after test"
+    },
+    "package_json": {
+      "build_script": "yarn export:web && node scripts/assemble-static-build.js (correct)",
+      "start_script": "unchanged (Metro dev server on port 3000)",
+      "verify_package_json_js": "EXIT:0"
+    },
+    "build_log_tmp_yarn_build_fix_log": "ends with '[assemble-static-build] done: build/ = client assets + 215 route HTML pages (+204 directory-index mirrors); root index.html OK' and 'BUILD_EXIT:0' after 364.05s",
+    "preview_regression": {
+      "localhost:3000/": "200 (Metro serving)",
+      "localhost:8001/api/health": "200",
+      "preview /api/health": "200",
+      "preview admin login (admin@realaicoach.app)": "200 with is_admin:true, full_access:true",
+      "pytest test_import_bringup.py": "7/7 PASSED in 3.20s"
+    }
+  },
+  "test_report_links": [
+    "/app/backend/tests/import_verification/test_import_bringup.py",
+    "/app/test_reports/pytest/iteration_7_import_bringup.xml",
+    "/tmp/yarn_build_fix.log"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "scripts/assemble-static-build.js correctly assembles dist/client + dist/server route HTML into build/ with directory-index mirrors + 200/404 fallbacks; fails loudly if dist/server/index.html missing — matches nginx directory-index resolution used in prod.",
+    "app.json web.output='server' intentionally preserved; assembler bridges the server-mode export output to a static-servable tree without needing a Node server.",
+    "No changes to Metro `start` flow — dev/preview experience unchanged."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "N/A (skipped per request)"},
+  "test_credentials": "admin@realaicoach.app / NewAdminPass2026! (verified working on preview)",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Fix verified end-to-end: static-servable build/ tree produced by scripts/assemble-static-build.js, all requested URLs (/, /pricing/, /features/, /auth/, JS bundle) serve correctly under plain-static simulation. Preview Metro flow and backend endpoints unaffected. Do NOT rebuild — takes ~6 min; proof in /tmp/yarn_build_fix.log.",
+  "rca_of_the_issue": "app.json web.output='server' causes `expo export` to emit dist/server/ (per-route HTML) + dist/client/ (assets), a layout that requires a Node runtime. Previous `build` script copied dist verbatim so no root build/index.html existed, and the platform's production nginx (which serves build/ as static) fell back to the default nginx welcome page. Mitigation: new assemble-static-build.js merges dist/client + dist/server route HTMLs into build/, mirrors X.html to X/index.html for nginx directory-index resolution, and writes 200.html/404.html. Verified all target routes return 200 with RealAICoach content."
+}

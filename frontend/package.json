@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node scripts/enforce-exact-expo-pin.js && NODE_OPTIONS=--max-old-space-size=5632 node --max-old-space-size=5632 node_modules/expo/bin/cli start --port 3000",
-    "build": "yarn export:web && node -e \"const fs=require('fs');fs.rmSync('build',{recursive:true,force:true});fs.cpSync('dist','build',{recursive:true});console.log('build/ synced from dist/');\"",
+    "build": "yarn export:web && node scripts/assemble-static-build.js",
     "expo": "expo_run(){ NODE_OPTIONS=--max-old-space-size=5632 node --max-old-space-size=5632 node_modules/expo/bin/cli \"$@\"; }; expo_run",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",

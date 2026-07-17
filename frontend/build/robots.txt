@@ -1,10 +1,7 @@
 User-agent: *
 Allow: /
-Disallow: /api/
-Disallow: /auth/
-Disallow: /admin-*
-Disallow: /executive-dashboard
-Disallow: /edit-profile
-Disallow: /settings
+Disallow: /admin
+Disallow: /auth
+Disallow: /api
 
-Sitemap: https://realaicoach.app/api/sitemap.xml
+Sitemap: https://full-stack-migrate-1.preview.emergentagent.com/sitemap.xml
