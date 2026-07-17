@@ -12,6 +12,8 @@ from dotenv import load_dotenv
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
+import asyncio
+import time
 import socket
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
@@ -887,15 +889,16 @@ async def root():
 
 @api_router.get("/health")
 async def health_check():
-    return {"status": "healthy", "service": "RealAICoach API"}
+    return {"status": "healthy", "service": "RealAICoach API", "init": _DEFERRED_INIT["status"]}
 
 
 @app.get("/health", include_in_schema=False)
 @app.head("/health", include_in_schema=False)
 async def root_health_check():
     """Root-level health endpoint for platform/Kubernetes probes (they hit GET /health,
-    not /api/health). Unauthenticated, same payload as /api/health."""
-    return {"status": "healthy", "service": "RealAICoach API"}
+    not /api/health). Unauthenticated, same payload as /api/health. Reports healthy as
+    soon as the server binds; deferred init progress is exposed via "init"."""
+    return {"status": "healthy", "service": "RealAICoach API", "init": _DEFERRED_INIT["status"]}
 
 
 @api_router.get("/system/instance-marker")
@@ -2675,7 +2678,6 @@ async def enforce_iap_runtime_preflight_startup():
         raise
 
 
-@app.on_event("startup")
 async def enforce_zero_assumptions_policy():
     """Boot-time scrubber for ZERO ASSUMPTIONS POLICY.
 
@@ -2697,7 +2699,6 @@ async def enforce_zero_assumptions_policy():
         logger.error("[ZERO-ASSUMPTIONS] Startup scrubber failed: %s", e)
 
 
-@app.on_event("startup")
 async def create_db_indexes():
     """Create database indexes for faster queries."""
 
@@ -3201,6 +3202,46 @@ async def create_db_indexes():
                                     logger.info(f"PayPal webhook AUTO-CREATED: {correct_url} (ID: {new_id})")
     except Exception as e:
         logger.warning(f"PayPal webhook sync error (non-blocking): {e}")
+
+
+# ── Deferred startup initialization ──────────────────────────────────────────
+# Heavy init (DB dedupe/migrations, index creation across ~230 collections,
+# admin seeding, webhook sync, FX fetch, Lighthouse auditor, policy scrubbers)
+# used to run INSIDE FastAPI startup events, which blocks uvicorn from serving
+# until finished. Against remote Atlas this can exceed the platform's readiness
+# window (K8s rollout "Heartbeat timeout", production incident 2026-07-17).
+# It now runs as a background task kicked off AFTER the server starts serving,
+# so /health returns 200 within seconds. /health exposes progress via "init".
+
+_DEFERRED_INIT = {"status": "pending", "error": None}
+
+
+async def _run_deferred_startup_init():
+    _DEFERRED_INIT["status"] = "in_progress"
+    _t0 = time.time()
+    errors = []
+    for _name, _fn in (
+        ("preprod_entitlement_lock", load_preprod_entitlement_lock_startup),
+        ("zero_assumptions_policy", enforce_zero_assumptions_policy),
+        ("db_indexes_and_platform_init", create_db_indexes),
+    ):
+        _step_t0 = time.time()
+        try:
+            await _fn()
+            logger.info(f"[deferred-init] {_name} completed in {time.time() - _step_t0:.1f}s")
+        except Exception as exc:
+            errors.append(f"{_name}: {exc}")
+            logger.error(f"[deferred-init] {_name} FAILED after {time.time() - _step_t0:.1f}s: {exc}")
+    _DEFERRED_INIT["status"] = "completed_with_errors" if errors else "complete"
+    _DEFERRED_INIT["error"] = "; ".join(errors) or None
+    logger.info(f"[deferred-init] finished in {time.time() - _t0:.1f}s status={_DEFERRED_INIT['status']}")
+
+
+@app.on_event("startup")
+async def kickoff_deferred_startup_init():
+    """Return immediately so uvicorn starts serving; heavy init runs in background."""
+    asyncio.create_task(_run_deferred_startup_init())
+    logger.info("[deferred-init] background initialization task scheduled")
 
 
 # ── Scheduler ────────────────────────────────────────────────────────────────
