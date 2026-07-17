@@ -1465,3 +1465,8 @@ Verified: testing_agent iteration_3 — 100% backend (7/7) + frontend (admin UI 
 - Guards proven via simulated hijack boot (both REFUSED lines, zero provider calls); verified by testing_agent iteration_6 (100%, regression 7/7, env reverted byte-identical).
 - Webhooks re-pointed (3rd time) and verified: Stripe/Resend/PayPal/FedaPay all -> https://realaicoach.app production paths.
 - User must Re-publish to ship these fixes.
+
+## PROD "WELCOME TO NGINX" FIX (2026-07-17)
+- RCA: web.output="server" export layout (dist/server html + dist/client assets) vs fullstack template's static nginx serving of build/ -> no root index.html -> default nginx page. Full protocol doc: PROD_NGINX_DEFAULT_PAGE_RCA_CHECKPOINTS_A_D_2026-07-17.md.
+- Fix: scripts/assemble-static-build.js (client assets + route HTML + X/index.html mirrors + 200/404 fallbacks); build script now `yarn export:web && node scripts/assemble-static-build.js`.
+- Proof: yarn build EXIT:0 (364s), 215 pages + 204 mirrors, static-serve simulation all 200 with content; verified by testing_agent iteration_7 (100%, regression 7/7). Requires Re-publish.
