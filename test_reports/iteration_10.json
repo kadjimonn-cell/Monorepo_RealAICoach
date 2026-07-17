@@ -1,0 +1,72 @@
+{
+  "summary": "Backend-only verification of the LLM circuit-breaker feature in routes/auto_scaling.py plus light scaling/health regression. Created /app/backend/tests/test_llm_circuit_breaker.py (11 pytest cases, all PASS in 2.41s). Verified: admin login sets session_token cookie; GET /api/admin/scaling/status includes llm_circuit_breaker { paused=False, consecutive_failure_count=0 }; POST /api/admin/scaling/rearm returns 200 with correct payload when admin+CSRF header present, 403 when anon, 403 when CSRF header missing; regression on /rules /history /ai-history all 200; /api/health 200 via ingress and /health 200 on backend port; Mongo llm_usage_log has 8 entries with feature='auto_scaling_eval' model='gpt-4o' success=True. Breaker left in paused=False state via teardown re-arm.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verification_evidence": {
+    "pytest": {
+      "file": "/app/backend/tests/test_llm_circuit_breaker.py",
+      "result": "11 passed in 2.41s",
+      "junit_xml": "/app/test_reports/pytest/iter10_circuit_breaker.xml"
+    },
+    "endpoint_status_codes": {
+      "POST /api/auth/login (admin)": 200,
+      "GET /api/health": 200,
+      "GET /health (localhost:8001 direct)": 200,
+      "GET /health (preview ingress)": "502 — expected; ingress only routes /api/* to backend, root /health is a k8s readiness probe not exposed publicly",
+      "GET /api/admin/scaling/status": 200,
+      "POST /api/admin/scaling/rearm (admin + X-Requested-With)": 200,
+      "POST /api/admin/scaling/rearm (anon)": 403,
+      "POST /api/admin/scaling/rearm (admin, NO X-Requested-With)": 403,
+      "GET /api/admin/scaling/rules": 200,
+      "GET /api/admin/scaling/history": 200,
+      "GET /api/admin/scaling/ai-history": 200
+    },
+    "rearm_response_body": {
+      "message": "Auto-scaling LLM circuit breaker re-armed",
+      "scheduler_resumed": "bool (True observed)"
+    },
+    "status_llm_circuit_breaker_field": {
+      "present": true,
+      "paused": false,
+      "consecutive_failure_count": 0
+    },
+    "mongo_llm_usage_log": {
+      "count_feature_auto_scaling_eval": 8,
+      "sample_model": "gpt-4o",
+      "sample_success": true,
+      "sample_keys": ["timestamp","model","provider","feature","user_id","session_id","input_tokens","output_tokens","total_tokens","cost_usd","latency_ms","success","error"]
+    },
+    "mongo_breaker_doc_final": {
+      "type": "llm_circuit_breaker",
+      "paused": false,
+      "consecutive_failure_count": 0,
+      "rearmed_at": "2026-07-17T23:03:39.523292+00:00"
+    }
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_llm_circuit_breaker.py",
+    "/app/test_reports/pytest/iter10_circuit_breaker.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "routes/auto_scaling.py L340 fallback `breaker or {paused:False, consecutive_failure_count:0}` is correct for first-boot (no doc yet). Verified end-to-end. No changes required.",
+    "Rearm endpoint (L508–530) correctly enforces admin gate BEFORE state changes and uses upsert=True — safe to call idempotently. Response payload matches spec exactly.",
+    "CSRF middleware behaviour verified: POST without X-Requested-With header is rejected with 403 by the global middleware before the route handler runs — this is the layer under test, not the route itself. No app-level regression observed."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_llm_circuit_breaker.py"
+  ],
+  "success_rate": {"backend": "100% (11/11)", "frontend": "N/A — backend-only per request"},
+  "test_credentials": "admin@realaicoach.app / NewAdminPass2026! — verified working (200 + session_token cookie set)",
+  "seed_data_creation": "None. Test only touches db.scaling_state (llm_circuit_breaker doc — normalized back to paused=False in teardown as instructed) and reads db.llm_usage_log entries produced by the live auto_scaling_eval job.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Circuit-breaker suite lives at /app/backend/tests/test_llm_circuit_breaker.py — reusable regression. It intentionally does NOT force LLM failures (per user instruction that the failure-injection hook was removed). It calls /api/admin/scaling/rearm in teardown_module so the breaker is always left in paused=False. If the breaker somehow ends up paused before a run, the first test (test_rearm_first_to_normalize_state) will resume it. Root /health (localhost:8001) works but is NOT exposed via preview ingress — this is expected k8s ingress behavior, do NOT flag as a bug."
+}

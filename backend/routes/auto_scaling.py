@@ -9,10 +9,12 @@ API:
 - POST /api/admin/scaling/trigger      — Manually trigger scaling
 - GET  /api/admin/scaling/history      — Scaling event history
 - POST /api/admin/scaling/ai-analyze   — On-demand AI scaling analysis
+- POST /api/admin/scaling/rearm        — Re-arm LLM circuit breaker (resume auto_scaling_eval)
 """
 
 import os
 import json
+import time
 import uuid
 import asyncio
 import logging
@@ -22,6 +24,7 @@ from typing import Optional
 
 from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel
+from pymongo import ReturnDocument
 from dotenv import load_dotenv
 from emergentintegrations.llm.chat import LlmChat, UserMessage
 
@@ -32,6 +35,95 @@ logger = logging.getLogger(__name__)
 router = APIRouter()
 
 EMERGENT_LLM_KEY = os.environ.get("EMERGENT_LLM_KEY", "")
+
+# ── LLM Circuit Breaker (pauses auto_scaling_eval after consecutive LLM failures) ──
+LLM_FAILURE_PAUSE_THRESHOLD = 3
+SCALING_JOB_ID = "auto_scaling_eval"
+_BREAKER_FILTER = {"type": "llm_circuit_breaker"}
+
+
+def _pause_scaling_job() -> bool:
+    """Pause the APScheduler auto_scaling_eval job. Returns True if paused."""
+    try:
+        from scheduler import scheduler
+        if scheduler.get_job(SCALING_JOB_ID):
+            scheduler.pause_job(SCALING_JOB_ID)
+            return True
+    except Exception as e:
+        logger.warning(f"auto_scaling: unable to pause scheduler job: {e}")
+    return False
+
+
+def _resume_scaling_job() -> bool:
+    """Resume the APScheduler auto_scaling_eval job. Returns True if resumed."""
+    try:
+        from scheduler import scheduler
+        if scheduler.get_job(SCALING_JOB_ID):
+            scheduler.resume_job(SCALING_JOB_ID)
+            return True
+    except Exception as e:
+        logger.warning(f"auto_scaling: unable to resume scheduler job: {e}")
+    return False
+
+
+async def _record_llm_failure() -> None:
+    """Increment consecutive LLM failure counter; trip breaker at threshold (persisted in Mongo)."""
+    now = datetime.now(timezone.utc).isoformat()
+    doc = await db.scaling_state.find_one_and_update(
+        _BREAKER_FILTER,
+        {"$inc": {"consecutive_failure_count": 1}, "$set": {"updated_at": now}},
+        upsert=True,
+        return_document=ReturnDocument.AFTER,
+    )
+    count = (doc or {}).get("consecutive_failure_count", 1)
+    logger.warning(f"auto_scaling: consecutive LLM failure {count}/{LLM_FAILURE_PAUSE_THRESHOLD}")
+    if count >= LLM_FAILURE_PAUSE_THRESHOLD and not (doc or {}).get("paused"):
+        await db.scaling_state.update_one(
+            _BREAKER_FILTER,
+            {"$set": {
+                "paused": True,
+                "paused_at": now,
+                "pause_reason": f"{count} consecutive LLM failures",
+                "updated_at": now,
+            }},
+        )
+        _pause_scaling_job()
+        logger.error(
+            "auto_scaling_eval paused after 3 consecutive LLM failures; "
+            "re-arm required (POST /api/admin/scaling/rearm)"
+        )
+
+
+async def _record_llm_success() -> None:
+    """Reset the consecutive failure counter after a successful LLM call."""
+    await db.scaling_state.update_one(
+        {**_BREAKER_FILTER, "consecutive_failure_count": {"$gt": 0}},
+        {"$set": {"consecutive_failure_count": 0, "updated_at": datetime.now(timezone.utc).isoformat()}},
+    )
+
+
+async def _log_scaling_llm_usage(
+    prompt: str,
+    response_text: str,
+    started_at: float,
+    *,
+    success: bool,
+    error: Optional[str] = None,
+    session_id: Optional[str] = None,
+) -> None:
+    """Record the scaling LLM call in the billing/usage log (llm_usage_log collection)."""
+    from services.llm_usage_logger import log_llm_call
+    await log_llm_call(
+        model="gpt-4o",
+        provider="openai",
+        feature="auto_scaling_eval",
+        session_id=session_id,
+        prompt_text=prompt or "",
+        response_text=response_text or "",
+        latency_ms=int((time.time() - started_at) * 1000),
+        success=success,
+        error=error,
+    )
 
 AI_SYSTEM_PROMPT = """You are an expert infrastructure auto-scaling advisor for a production SaaS platform.
 You analyze real-time system metrics and scaling rules to make intelligent scaling decisions.
@@ -134,10 +226,12 @@ async def _ai_scaling_analysis(metrics: dict, state: dict, rules: list, recent_e
 
 Based on all this data, what scaling action should be taken right now?"""
 
+    _llm_session_id = f"scaling-{uuid.uuid4().hex[:8]}"
+    _llm_started_at = time.time()
     try:
         chat = LlmChat(
             api_key=EMERGENT_LLM_KEY,
-            session_id=f"scaling-{uuid.uuid4().hex[:8]}",
+            session_id=_llm_session_id,
             system_message=AI_SYSTEM_PROMPT,
         ).with_model("openai", "gpt-4o")
 
@@ -162,10 +256,13 @@ Based on all this data, what scaling action should be taken right now?"""
         result.setdefault("risk_level", "low")
         result.setdefault("predicted_trend", "stable")
         result.setdefault("recommendation", "")
+        await _log_scaling_llm_usage(prompt, response, _llm_started_at, success=True, session_id=_llm_session_id)
+        result["_llm_ok"] = True
         return result
 
     except json.JSONDecodeError as e:
         logger.error(f"AI response not valid JSON: {e}")
+        await _log_scaling_llm_usage(prompt, resp_text, _llm_started_at, success=False, error=f"json_decode: {e}", session_id=_llm_session_id)
         return {
             "decision": "no_action",
             "confidence": 0.0,
@@ -174,9 +271,11 @@ Based on all this data, what scaling action should be taken right now?"""
             "risk_level": "low",
             "predicted_trend": "stable",
             "recommendation": "Falling back to rule-based evaluation",
+            "_llm_ok": False,
         }
     except asyncio.TimeoutError:
         logger.warning("AI scaling analysis timed out after 15s — falling back to rule-based")
+        await _log_scaling_llm_usage(prompt, "", _llm_started_at, success=False, error="timeout after 15s", session_id=_llm_session_id)
         return {
             "decision": "no_action",
             "confidence": 0.0,
@@ -185,9 +284,11 @@ Based on all this data, what scaling action should be taken right now?"""
             "risk_level": "low",
             "predicted_trend": "stable",
             "recommendation": "Falling back to rule-based evaluation",
+            "_llm_ok": False,
         }
     except Exception as e:
         logger.error(f"AI scaling analysis error: {e}")
+        await _log_scaling_llm_usage(prompt, "", _llm_started_at, success=False, error=str(e)[:200], session_id=_llm_session_id)
         return {
             "decision": "no_action",
             "confidence": 0.0,
@@ -196,6 +297,7 @@ Based on all this data, what scaling action should be taken right now?"""
             "risk_level": "low",
             "predicted_trend": "stable",
             "recommendation": "Check LLM API key and connectivity",
+            "_llm_ok": False,
         }
 
 
@@ -232,7 +334,10 @@ async def scaling_status(request: Request):
     # Get last AI analysis
     last_analysis = await db.ai_scaling_analyses.find_one({}, {"_id": 0}, sort=[("timestamp", -1)])
 
+    breaker = await db.scaling_state.find_one(_BREAKER_FILTER, {"_id": 0})
+
     return {
+        "llm_circuit_breaker": breaker or {"paused": False, "consecutive_failure_count": 0},
         "instances": {
             "current": state.get("current_instances", 1),
             "desired": state.get("desired_instances", 1),
@@ -400,6 +505,31 @@ async def manual_scale(request: Request, body: ManualScale):
     return {"message": f"Scaled from {current} to {new_count}", "event": event}
 
 
+@router.post("/admin/scaling/rearm")
+async def rearm_auto_scaling(request: Request):
+    """Re-arm the auto-scaling LLM circuit breaker and resume the auto_scaling_eval job."""
+    user = await get_current_user(request)
+    if not user or not user.is_admin:
+        raise HTTPException(403, "Admin required")
+
+    now = datetime.now(timezone.utc).isoformat()
+    await db.scaling_state.update_one(
+        _BREAKER_FILTER,
+        {"$set": {
+            "paused": False,
+            "consecutive_failure_count": 0,
+            "pause_reason": None,
+            "rearmed_at": now,
+            "rearmed_by": user.user_id,
+            "updated_at": now,
+        }},
+        upsert=True,
+    )
+    resumed = _resume_scaling_job()
+    logger.info(f"auto_scaling_eval re-armed by admin {user.user_id} (scheduler_resumed={resumed})")
+    return {"message": "Auto-scaling LLM circuit breaker re-armed", "scheduler_resumed": resumed}
+
+
 @router.get("/admin/scaling/history")
 async def scaling_history(request: Request, limit: int = 30):
     """Get scaling event history."""
@@ -506,6 +636,7 @@ async def ai_analyze(request: Request):
     )
 
     analysis = await _ai_scaling_analysis(metrics, state, rules, recent)
+    analysis.pop("_llm_ok", None)  # internal flag — not part of the stored decision
 
     # Store the analysis
     record = {
@@ -575,6 +706,14 @@ async def ai_analyze(request: Request):
 async def evaluate_scaling_rules():
     """Background task: AI-powered evaluation of scaling needs using GPT-4o."""
     try:
+        # LLM circuit breaker: honor persisted pause (also re-applies pause after restart,
+        # since the job is re-registered active by the scheduler on startup)
+        breaker = await db.scaling_state.find_one(_BREAKER_FILTER, {"_id": 0})
+        if breaker and breaker.get("paused"):
+            _pause_scaling_job()
+            logger.info("auto_scaling_eval: paused by LLM circuit breaker — skipping (admin re-arm required)")
+            return
+
         metrics = _collect_metrics()
 
         state = await db.scaling_state.find_one({"type": "global"}, {"_id": 0})
@@ -597,6 +736,13 @@ async def evaluate_scaling_rules():
         )
 
         analysis = await _ai_scaling_analysis(metrics, state, rules, recent)
+
+        # LLM circuit breaker accounting: reset on success, count consecutive failures
+        llm_ok = analysis.pop("_llm_ok", None)
+        if llm_ok is True:
+            await _record_llm_success()
+        elif llm_ok is False:
+            await _record_llm_failure()
 
         # Store analysis
         record = {
