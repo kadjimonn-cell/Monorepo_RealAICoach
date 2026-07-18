@@ -1,0 +1,91 @@
+{
+  "summary": "Backend-only curl regression to verify the ADMIN_PASSWORD_ENFORCE_SYNC opt-in change in routes/db.py:ensure_admin_users. All 6 requested checks PASSED. Auth (web cookie + native Bearer), admin session gating, and log hygiene all intact. Preview .env has ADMIN_PASSWORD_ENFORCE_SYNC=false as expected.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verification_evidence": {
+    "base_url": "https://full-stack-migrate-1.preview.emergentagent.com",
+    "1_health": {"endpoint": "GET /api/health", "status": 200, "body": {"status": "healthy", "service": "RealAICoach API", "init": "complete"}},
+    "2a_login_web_ok": {
+      "endpoint": "POST /api/auth/login (Content-Type: json + X-Requested-With: XMLHttpRequest)",
+      "status": 200,
+      "session_token_in_body": false,
+      "set_cookie_present": true,
+      "cookie_attrs": "HttpOnly; Secure; SameSite=none; Path=/; Max-Age=18000",
+      "user_email": "admin@realaicoach.app",
+      "is_admin": true,
+      "roles": ["admin", "premium", "user"]
+    },
+    "2b_login_wrong_password": {
+      "endpoint": "POST /api/auth/login (wrong password)",
+      "status": 401,
+      "body": {"detail": "Invalid credentials"}
+    },
+    "3_auth_me_cookie": {
+      "endpoint": "GET /api/auth/me (cookie)",
+      "status": 200,
+      "email": "admin@realaicoach.app",
+      "is_admin": true,
+      "roles": ["admin", "premium", "user"]
+    },
+    "4a_login_native": {
+      "endpoint": "POST /api/auth/login (X-Client-Platform: mobile)",
+      "status": 200,
+      "session_token_in_body": true,
+      "token_prefix": "eyJh (JWT)",
+      "token_length": 235,
+      "email": "admin@realaicoach.app"
+    },
+    "4b_auth_me_bearer": {
+      "endpoint": "GET /api/auth/me (Authorization: Bearer <token>)",
+      "status": 200,
+      "email": "admin@realaicoach.app",
+      "is_admin": true,
+      "roles": ["admin", "premium", "user"]
+    },
+    "5_admin_scaling_status": {
+      "endpoint": "GET /api/admin/scaling/status (admin cookie)",
+      "status": 200,
+      "llm_circuit_breaker_present": true,
+      "top_level_keys": ["llm_circuit_breaker", "instances", "metrics", "recent_events", "scaling_mode", "rules_active", "last_ai_analysis"],
+      "llm_circuit_breaker_snapshot": {
+        "type": "llm_circuit_breaker",
+        "paused": true,
+        "consecutive_failure_count": 3,
+        "pause_reason": "3 consecutive LLM failures",
+        "note": "Pre-existing runtime state (LLM upstream) — unrelated to this change; contract (llm_circuit_breaker key present) is intact."
+      }
+    },
+    "6_log_hygiene": {
+      "current_boot_uptime_s": 126,
+      "current_boot_admin_password_log_lines": "Only 'Admin privileges ensured for admin@realaicoach.app' — NO 'rotated' and NO 'SKIPPED' entries from the current boot (password already matches env hash, so neither branch fires; matches spec 'OR no admin-password rewrite lines from the CURRENT boot').",
+      "grep_Admin_password_for_all_boots": "Historical: 2x 'rotated ... (ADMIN_PASSWORD_ENFORCE_SYNC enabled)' at 19:03:37 and 19:05:18 (from earlier boots when flag was true); 1x 'differs from ADMIN_PASSWORD env; sync SKIPPED' at 19:04:27 (proves flag=false path works).",
+      "plaintext_password_leaks_in_backend_logs": 0,
+      "grep_NewAdminPass2026_in_backend_err_log": 0,
+      "grep_NewAdminPass2026_in_backend_out_log": 0,
+      "env_flag": "ADMIN_PASSWORD_ENFORCE_SYNC=false (verified in /app/backend/.env)"
+    }
+  },
+  "test_report_links": [
+    "/app/test_reports/iteration_12.json"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "routes/db.py:496-546 ensure_admin_users: opt-in sync logic is correct. Three branches are mutually exclusive: (a) no existing hash -> initial seed [safe], (b) hash matches ADMIN_SEED_PASSWORD -> no-op [expected steady state], (c) hash differs -> gated by ADMIN_PASSWORD_ENFORCE_SYNC. All three log via .info() with the email only, no password value ever concatenated into log strings — grep of full log corpus for 'NewAdminPass2026' returns 0 hits, confirming no leak surface.",
+    "Minor observation (not a bug): llm_circuit_breaker.paused=True with consecutive_failure_count=3 is a pre-existing runtime condition (LLM upstream failures) — unrelated to this change. Contract of scaling/status endpoint (200 + llm_circuit_breaker key present) is intact. Main agent may want to review the LLM failures separately in a different task.",
+    "verify_password() is wrapped in try/except (db.py:520-523) — good defensive posture in case an admin account has a legacy/malformed hash. Prevents startup from crashing."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100% (6/6)", "frontend": "N/A - skipped per request"},
+  "test_credentials": "admin@realaicoach.app / NewAdminPass2026! (from /app/memory/test_credentials.md) — verified working on both web-cookie and native-Bearer login paths.",
+  "seed_data_creation": "None — read-only regression, no data mutation.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "ADMIN_PASSWORD_ENFORCE_SYNC=false in preview /app/backend/.env. Steady-state boot logs only 'Admin privileges ensured for admin@realaicoach.app' (no rewrite line) because the DB password_hash already matches ADMIN_SEED_PASSWORD from env. To exercise the SKIPPED branch you'd need to (a) change admin password in-app so hash diverges from env, then (b) restart backend with flag still false -> log will show 'differs from ADMIN_PASSWORD env; sync SKIPPED'. Historical evidence of this exact SKIPPED line is at 2026-07-18T19:04:27 in backend.err.log. Auth contract unchanged from iter11: web -> cookie only (no token in body); X-Client-Platform: {mobile,native,android,ios,expo} -> session_token also in JSON body; Bearer works end-to-end. Note: llm_circuit_breaker is currently in paused=true state (3 upstream LLM failures) — pre-existing, unrelated to this task, but flagged for main agent awareness."
+}

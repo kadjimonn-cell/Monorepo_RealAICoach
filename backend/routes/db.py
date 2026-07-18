@@ -521,9 +521,26 @@ async def ensure_admin_users() -> None:
                 password_matches_seed = verify_password(ADMIN_SEED_PASSWORD, existing_hash)
             except Exception:
                 password_matches_seed = False
-        if ADMIN_SEED_PASSWORD and not password_matches_seed:
+        if ADMIN_SEED_PASSWORD and not existing_hash:
+            # Initial seed: account has no password yet (e.g. SSO-registered) — safe, not a rewrite.
             update_payload["password_hash"] = hash_password(ADMIN_SEED_PASSWORD)
             update_payload["admin_seed_password_rotated_at"] = datetime.now(timezone.utc)
+            logger.info(f"Admin password for {email} initially seeded from ADMIN_PASSWORD env.")
+        elif ADMIN_SEED_PASSWORD and not password_matches_seed:
+            # Opt-in only: rewriting an EXISTING credential from env must be explicit,
+            # otherwise in-app password changes are silently reverted on every restart.
+            enforce_sync = os.environ.get("ADMIN_PASSWORD_ENFORCE_SYNC", "").strip().lower() in {"1", "true", "yes"}
+            if enforce_sync:
+                update_payload["password_hash"] = hash_password(ADMIN_SEED_PASSWORD)
+                update_payload["admin_seed_password_rotated_at"] = datetime.now(timezone.utc)
+                logger.info(
+                    f"Admin password for {email} rotated from ADMIN_PASSWORD env (ADMIN_PASSWORD_ENFORCE_SYNC enabled)."
+                )
+            else:
+                logger.info(
+                    f"Admin password for {email} differs from ADMIN_PASSWORD env; sync SKIPPED "
+                    "(set ADMIN_PASSWORD_ENFORCE_SYNC=true to enforce rotation from env)."
+                )
         await db.users.update_one({"email": email}, {"$set": update_payload})
         logger.info(f"Admin privileges ensured for {email}.")
     return None
