@@ -1,0 +1,120 @@
+{
+  "run_id": "platform_integrity_20260718T014000Z_3114d3",
+  "generated_at": "2026-07-18T01:40:00.682959+00:00",
+  "source": "scheduler_nightly",
+  "gps_counts": {
+    "features": 37,
+    "plans": 3,
+    "faq": 3
+  },
+  "catalog_completeness": {
+    "features_count": 37,
+    "plans_count": 3,
+    "faq_count": 3,
+    "testimonials_count": 10,
+    "activities_count": 4,
+    "state_updated_at": "2026-07-16T18:04:36.176544+00:00",
+    "freshness_reference_at": null,
+    "state_age_seconds": 113723,
+    "missing_plan_ids": [],
+    "missing_feature_ids": [],
+    "feature_ids": [
+      "ai-automations",
+      "ai-briefing",
+      "ai-chatbot",
+      "ai-coaching-team",
+      "ai-cognitive",
+      "ai-enterprise",
+      "ai-found-love",
+      "ai-learning-hub",
+      "ai-photo",
+      "ai-search",
+      "ai-speech",
+      "ai-video",
+      "ai-writer",
+      "audio-studio",
+      "bill-generator",
+      "book-meeting",
+      "buy-smart-home",
+      "daily-meditation",
+      "fitness",
+      "flappy-bird",
+      "games-station",
+      "id-checker",
+      "integrations",
+      "jobs-portal",
+      "lexicon-intelligence",
+      "library",
+      "medimate",
+      "my-podcasts",
+      "pennypilot",
+      "referrals",
+      "school-tutor",
+      "smart-cars",
+      "smartbuy",
+      "sports",
+      "travel-visa",
+      "travelpal",
+      "watch-videos"
+    ],
+    "plan_ids": [
+      "basic",
+      "free",
+      "premium"
+    ],
+    "thresholds": {
+      "min_features": 25,
+      "min_plans": 3,
+      "min_faq": 3,
+      "min_testimonials": 3,
+      "min_activities": 3,
+      "max_state_stale_seconds": 900
+    },
+    "failed_checks": [
+      "freshness_contract"
+    ],
+    "is_complete": false
+  },
+  "subscription_catalog": {
+    "count": 3,
+    "plan_ids": [
+      "free",
+      "basic",
+      "premium"
+    ]
+  },
+  "public_endpoint_contract": {
+    "subscriptions_plans_public": true,
+    "gps_state_public": true,
+    "features_registry_public": true,
+    "live_metrics_public": true
+  },
+  "social_proof_integrity": {
+    "testimonials_total": 10,
+    "testimonials_seeded": 10,
+    "activities_total": 4,
+    "activities_seeded": 4
+  },
+  "theme_gate": {
+    "grade": "A",
+    "warns": 0,
+    "fails": 0,
+    "files_scanned": 776,
+    "raw_excerpt": "\n\ud83d\udd12 Theme Compliance Build Gate (strict)\n\n   Running local V2 theme audit scanner...\n   Grade: A | Warns: 0 | Fails: 0 | Infos: 1 | Files: 776\n   Report: /app/frontend/.quality/theme_build_gate_report.json\n   \u2705 GATE PASSED (strict) \u2014 zero warn/fail issues\n\n",
+    "exit_code": 0
+  },
+  "matrix64": {
+    "run_id": "matrix64_20260717T010000Z_b471af",
+    "status": "FAIL",
+    "strict_passed": false,
+    "failed_checks": 0
+  },
+  "rollback_criteria": {
+    "trigger_when": [
+      "catalog_completeness.is_complete == false",
+      "theme_gate.fails > 0",
+      "matrix64.strict_passed == false"
+    ],
+    "action": "mark_degraded_and_require_operator_review"
+  }
+}
