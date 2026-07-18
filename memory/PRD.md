@@ -1518,3 +1518,9 @@ Verified: testing_agent iteration_3 — 100% backend (7/7) + frontend (admin UI 
 - Outage cause: pod restart -> Metro cold SSR rebuild takes 60-185s/route; dashboard iframes and ingress (60s) time out -> both preview tabs looked broken. Nothing crashed (services RUNNING, oom_kill 0, FATAL static).
 - Fix: /app/mobile/metro-proxy.js now includes a post-restart warmer: polls Metro "/" with 280s timeout until two consecutive fast 200s, then warms the native manifest. Proxy remains per-request (never crash-loops if Metro is down).
 - Verified: `supervisorctl restart all` -> hands-free recovery in ~3.5 min (warm 0: 185s -> warm 1-2: 3s); external web 200, external expo manifest 200 (RealAICoach); 6-min stability window green (FATAL 108 static, oom_kill 0).
+
+## 2026-07-18 — Admin password rotation RCA + opt-in env sync (COMPLETE, iteration_12 6/6)
+- Root cause of "old password still works after Secrets rotation": panel secrets only reach production on Re-publish; code already synced pw from ADMIN_PASSWORD on every boot (always-on) — and silently reverted in-app password changes.
+- Fix (routes/db.py ensure_admin_users): rewrite of an EXISTING hash now opt-in via ADMIN_PASSWORD_ENFORCE_SYNC (default off); initial seed (no hash) still automatic; no plaintext in logs.
+- Verified in preview: flag on -> old 401/new 200; flag off -> no rewrite; reverted to original creds, flag=false. Full RCA: /app/memory/ADMIN_PASSWORD_ROTATION_RCA_CHECKPOINTS_A_D_2026-07-18.md
+- Side finding: llm_circuit_breaker currently paused=true (3 real upstream LLM failures) — breaker working as designed; needs LLM key/balance check + POST /api/admin/scaling/rearm.
