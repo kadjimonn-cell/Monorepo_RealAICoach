@@ -1513,3 +1513,8 @@ Verified: testing_agent iteration_3 — 100% backend (7/7) + frontend (admin UI 
 - KNOWN CONSTRAINT: 8GB pod at physical limit — single Metro holding web+android graphs can V8-OOM at 6144 heap during cold rebuilds; supervisor auto-heals. First route hits 60-180s; external 502s possible during warmup. Recommend higher-memory preview tier for sustained dual-platform dev.
 - Expo Go (user): open Mobile tab QR, or in Expo Go enter exp://full-stack-migrate-1.expo.preview.emergentagent.com — first load takes minutes (73MB dev bundle).
 - Device-verification pending (human): login/session-restore tap-through, tabs/coaching/careers/profile rendering, gated-screen placeholders; push does NOT work in Expo Go (needs dev build, Phase 2); native SSO + voice = Phase 2.
+
+## 2026-07-18 — Preview outage RCA + auto-warmer (RESOLVED)
+- Outage cause: pod restart -> Metro cold SSR rebuild takes 60-185s/route; dashboard iframes and ingress (60s) time out -> both preview tabs looked broken. Nothing crashed (services RUNNING, oom_kill 0, FATAL static).
+- Fix: /app/mobile/metro-proxy.js now includes a post-restart warmer: polls Metro "/" with 280s timeout until two consecutive fast 200s, then warms the native manifest. Proxy remains per-request (never crash-loops if Metro is down).
+- Verified: `supervisorctl restart all` -> hands-free recovery in ~3.5 min (warm 0: 185s -> warm 1-2: 3s); external web 200, external expo manifest 200 (RealAICoach); 6-min stability window green (FATAL 108 static, oom_kill 0).
