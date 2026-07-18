@@ -1,0 +1,312 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<style type="text/css">
+    :root{color-scheme:light dark;supported-color-schemes:light dark}
+    body,table,td,p,a,li{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+    table,td{mso-table-lspace:0pt;mso-table-rspace:0pt}
+    img{-ms-interpolation-mode:bicubic;border:0;outline:none;text-decoration:none}
+    .email-card{width:100%!important;max-width:560px!important}
+    .email-cta-stack{width:100%!important}
+    .email-primary-cta{display:inline-block!important}
+    .email-secondary-cta{display:inline-block!important;background:transparent!important;border:1.5px solid #3B82F6!important;color:#3B82F6!important}
+    .email-header-shell{border-bottom:1px solid #93C5FD}
+    .email-header-logo-fallback{background:rgba(255,255,255,0.15);color:#ffffff}
+    .email-header-kicker{color:#BFDBFE}
+    .email-header-pill{background-color:#1E40AF;border:1px solid #3B82F6;color:#FFFFFF}
+    .footer-store-badge{display:block!important;width:auto!important;max-width:100%;height:auto;border:0;outline:none;text-decoration:none}
+    .footer-store-badge-regular{height:43px!important;max-height:43px!important}
+    .footer-store-badge-compact{height:43px!important;max-height:43px!important}
+    @media only screen and (max-width:479px){
+      .email-outer{padding:12px 4px!important}
+      .email-card{border-radius:14px!important}
+      .email-header{padding:22px 16px 18px!important}
+      .email-header-title{font-size:18px!important}
+      .email-body{padding:18px 16px!important}
+      .email-cta td{border-radius:14px!important}
+      .email-cta a{padding:16px 48px!important;font-size:15px!important}
+      .email-cta-stack td{display:block!important;width:100%!important;padding:0!important;text-align:center!important}
+      .email-primary-cta{padding:15px 36px!important;font-size:15px!important}
+      .email-secondary-cta{margin-top:10px!important;padding:12px 24px!important;font-size:13px!important}
+      .footer-app-section{padding:22px 14px 16px!important}
+      .footer-app-title{font-size:17px!important}
+      .footer-badge-row td{display:block!important;padding:4px 0!important;text-align:center!important}
+      .footer-badge-row a{display:inline-block!important}
+      .footer-store-badge-regular{height:43px!important;max-height:43px!important}
+      .footer-store-badge-compact{height:43px!important;max-height:43px!important}
+      .footer-nav-section{padding:10px 14px!important}
+      .footer-nav-section a{font-size:11px!important;padding:4px 6px!important}
+      .footer-brand-section{padding:20px 14px 10px!important}
+      .footer-brand-name{font-size:20px!important}
+      .footer-address{font-size:10px!important}
+      .footer-social-row td{padding:0 3px!important}
+      .footer-support-row td{padding:0 3px!important}
+      .footer-support-row a{padding:7px 14px!important;font-size:11px!important}
+      .footer-legal-section{padding:12px 14px 18px!important}
+      .footer-legal-text{font-size:9px!important;line-height:1.6!important}
+    }
+    @media only screen and (min-width:480px) and (max-width:599px){
+      .email-outer{padding:20px 8px!important}
+      .email-header{padding:28px 22px 22px!important}
+      .email-header-title{font-size:20px!important}
+      .email-body{padding:22px 20px!important}
+    }
+    @media (prefers-color-scheme:dark){
+      .email-outer{background-color:#0B0F1A!important}
+      .email-card{background-color:#111827!important;border-color:#1E293B!important}
+      .email-body{background-color:transparent!important;color:#E2E8F0!important}
+      .em-outer{background-color:#0B0F1A!important}
+      .em-card{background-color:#111827!important;border-color:#1E293B!important;border-style:solid!important}
+      .em-body{background-color:transparent!important;color:#E2E8F0!important}
+      .em-body p,.em-body li,.em-body div,.email-body p,.email-body li,.email-body div{color:#CBD5E1!important;-webkit-text-fill-color:#CBD5E1!important}
+      .em-title{color:#F1F5F9!important}
+      .em-text{color:#CBD5E1!important}
+      .em-text-secondary{color:#94A3B8!important}
+      .em-text-muted{color:#94A3B8!important}
+      .em-info-tbl{background:#FFFFFF!important;border-color:#E2E8F0!important}
+      .em-info-td{background:#FFFFFF!important;border-color:#E2E8F0!important;color:#475569!important}
+      .em-info-val{color:#0F172A!important}
+      .em-callout{background:#FFFFFF!important;border-color:#E2E8F0!important;color:#475569!important}
+      .em-callout *{color:#475569!important;-webkit-text-fill-color:#475569!important}
+      .em-tip-box{background:#1E293B!important;border-color:#334155!important}
+      .em-tip-title{color:#F1F5F9!important}
+      .em-tip-list,.em-tip-list li{color:#CBD5E1!important;-webkit-text-fill-color:#CBD5E1!important}
+      .em-alert{background:#FFFFFF!important;border-color:#E2E8F0!important}
+      .em-alert-title{color:#0F172A!important}
+      .em-alert-text{color:#475569!important}
+      .em-lead{color:#F1F5F9!important}
+      .em-step-td{background:#FFFFFF!important;border-color:#E2E8F0!important;color:#0F172A!important;-webkit-text-fill-color:#0F172A!important}
+      .em-step-title{color:#0F172A!important}
+      .em-strong{color:#F1F5F9!important}
+      .em-force-light-card{background:#FFFFFF!important;border-color:#E2E8F0!important;color:#0F172A!important;-webkit-text-fill-color:#0F172A!important}
+      .em-force-dark-text{color:#0F172A!important}
+      .em-force-muted-text{color:#64748B!important}
+      .em-force-light-card p,.em-force-light-card div,.em-force-light-card span,.em-force-light-card td,.em-force-light-card th,.em-force-light-card li{color:#0F172A!important;-webkit-text-fill-color:#0F172A!important}
+      .em-force-light-card .em-force-muted-text{color:#475569!important;-webkit-text-fill-color:#475569!important}
+      .em-force-light-card .em-badge{color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important;mix-blend-mode:normal!important}
+      .em-info-tbl{border-color:#E2E8F0!important}
+      .em-info-tbl td{border-color:#E2E8F0!important;color:#0F172A!important;-webkit-text-fill-color:#0F172A!important}
+      .em-callout{border-color:#E2E8F0!important;color:#374151!important;-webkit-text-fill-color:#374151!important}
+      .em-step-td{border-color:#E2E8F0!important;color:#0F172A!important;-webkit-text-fill-color:#0F172A!important}
+      .email-header-kicker,.em-header-kicker{color:rgba(255,255,255,0.75)!important;-webkit-text-fill-color:rgba(255,255,255,0.75)!important}
+      .email-header-pill,.em-header-pill{background:rgba(0,0,0,0.25)!important;border-color:rgba(255,255,255,0.2)!important;color:#FFFFFF!important}
+      .email-header-logo-fallback,.em-header-logo-fallback{background:rgba(255,255,255,0.15)!important;color:#FFFFFF!important}
+      .em-footer-bg{background:#060B18!important}
+      .em-footer-card{background:#0D1425!important;border-color:#1A2744!important}
+      .em-footer-t1{color:#F1F5F9!important}
+      .em-footer-t2{color:#94A3B8!important}
+      .em-footer-t3{color:#475569!important}
+      .compact-footer-shell{background:#0D1425!important;border-color:#1A2744!important}
+      .compact-footer-copy,.compact-footer-copy *{color:#94A3B8!important;-webkit-text-fill-color:#94A3B8!important}
+      .compact-footer-link{color:#93C5FD!important;-webkit-text-fill-color:#93C5FD!important}
+      .compact-footer-link-secondary{color:#CBD5E1!important;-webkit-text-fill-color:#CBD5E1!important}
+      .email-secondary-cta{border-color:#60A5FA!important;color:#93C5FD!important}
+      .em-badge{border-style:solid!important}
+      .email-primary-cta{color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important}
+      .em-body .email-primary-cta,.email-body .email-primary-cta{color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important}
+      .em-info-val:not(.em-info-val-accent){color:#E2E8F0!important}
+      .em-force-light-card{background:#FFFFFF!important;border-color:#E2E8F0!important;color:#0F172A!important;-webkit-text-fill-color:#0F172A!important}
+      .em-force-light-card *{color:#0F172A!important;-webkit-text-fill-color:#0F172A!important}
+      .em-force-light-card .em-badge{color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important;mix-blend-mode:normal!important}
+      a{color:#93C5FD!important}
+      .em-body a,.email-body a{-webkit-text-fill-color:#93C5FD!important}
+      .footer-store-badge{background:transparent!important}
+    }
+    /* ── Outlook Desktop Dark Mode: Preserve v7 Colorful Design ── */
+    /* Desktop Outlook ignores @media(prefers-color-scheme) — uses [data-ogsc]/[data-ogsb] instead */
+    /* We force LIGHT backgrounds so colorful gradient headers remain vibrant */
+    [data-ogsc] .em-outer{background:#F1F5F9!important}
+    [data-ogsc] .em-card{background:#FFFFFF!important;border-color:#E2E8F0!important}
+    [data-ogsc] .em-body{color:#374151!important}
+    [data-ogsc] .email-outer{background:#F1F5F9!important}
+    [data-ogsc] .email-card{background:#FFFFFF!important;border-color:#E2E8F0!important}
+    [data-ogsc] .email-body{color:#374151!important}
+    [data-ogsc] .em-body p,[data-ogsc] .em-body li,[data-ogsc] .em-body div,[data-ogsc] .email-body p,[data-ogsc] .email-body li,[data-ogsc] .email-body div{color:#374151!important;-webkit-text-fill-color:#374151!important}
+    [data-ogsc] .em-title{color:#0F172A!important}
+    [data-ogsc] .em-text{color:#374151!important}
+    [data-ogsc] .em-text-secondary{color:#64748B!important}
+    [data-ogsc] .em-text-muted{color:#94A3B8!important}
+    [data-ogsc] .em-info-tbl{background:#FFFFFF!important;border-color:#E2E8F0!important}
+    [data-ogsc] .em-info-td{background:#FFFFFF!important;border-color:#E2E8F0!important;color:#475569!important}
+    [data-ogsc] .em-info-val{color:#0F172A!important}
+    [data-ogsc] .email-header-kicker,[data-ogsc] .em-header-kicker{color:rgba(255,255,255,0.75)!important;-webkit-text-fill-color:rgba(255,255,255,0.75)!important}
+    [data-ogsc] .email-header-pill,[data-ogsc] .em-header-pill{background:rgba(255,255,255,0.2)!important;border-color:rgba(255,255,255,0.35)!important;color:#FFFFFF!important}
+    [data-ogsc] .email-header-logo-fallback,[data-ogsc] .em-header-logo-fallback{background:rgba(255,255,255,0.15)!important;color:#FFFFFF!important}
+    [data-ogsc] .em-footer-bg{background:#F8FAFC!important}
+    [data-ogsc] .em-footer-card{background:#FFFFFF!important;border-color:#E2E8F0!important}
+    [data-ogsc] .em-footer-t1{color:#0F172A!important}
+    [data-ogsc] .em-footer-t2{color:#64748B!important}
+    [data-ogsc] .em-footer-t3{color:#94A3B8!important}
+    [data-ogsc] .compact-footer-shell{background:#FFFFFF!important;border-color:#E2E8F0!important}
+    [data-ogsc] .compact-footer-copy,[data-ogsc] .compact-footer-copy *{color:#64748B!important;-webkit-text-fill-color:#64748B!important}
+    [data-ogsc] .compact-footer-link{color:#2563EB!important;-webkit-text-fill-color:#2563EB!important}
+    [data-ogsc] .compact-footer-link-secondary{color:#64748B!important;-webkit-text-fill-color:#64748B!important}
+    [data-ogsc] .em-badge{border-style:solid!important;color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important}
+    [data-ogsc] .em-callout{background:#FFFFFF!important;border-color:#E2E8F0!important;color:#475569!important}
+    [data-ogsc] .em-callout *{color:#475569!important;-webkit-text-fill-color:#475569!important}
+    [data-ogsc] .em-tip-box{background:#F8FAFC!important;border-color:#E2E8F0!important}
+    [data-ogsc] .em-tip-title{color:#0F172A!important}
+    [data-ogsc] .em-tip-list,[data-ogsc] .em-tip-list li{color:#374151!important;-webkit-text-fill-color:#374151!important}
+    [data-ogsc] .em-alert{background:#FFFFFF!important;border-color:#E2E8F0!important}
+    [data-ogsc] .em-alert-title{color:#0F172A!important}
+    [data-ogsc] .em-alert-text{color:#475569!important}
+    [data-ogsc] .email-primary-cta{color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important}
+    [data-ogsc] .em-body .email-primary-cta,[data-ogsc] .email-body .email-primary-cta{color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important}
+    [data-ogsc] .em-info-val:not(.em-info-val-accent){color:#0F172A!important}
+    [data-ogsc] .em-force-light-card{background:#FFFFFF!important;border-color:#E2E8F0!important;color:#0F172A!important;-webkit-text-fill-color:#0F172A!important}
+    [data-ogsc] .em-force-light-card *{color:#0F172A!important;-webkit-text-fill-color:#0F172A!important}
+    [data-ogsc] .em-force-light-card .em-badge{color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF!important;mix-blend-mode:normal!important}
+    [data-ogsc] .em-step-td{background:#FFFFFF!important;border-color:#E2E8F0!important;color:#0F172A!important;-webkit-text-fill-color:#0F172A!important}
+    [data-ogsc] .footer-store-badge{background:transparent!important}
+    </style></head>
+<body style="margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#F8FAFC;-webkit-font-smoothing:antialiased;" class="em-outer">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-outer em-outer"><tr><td align="center" style="padding:24px 16px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;" class="email-card em-card">
+  <!-- Gradient Header -->
+  <tr><td style="background-image:linear-gradient(135deg,#059669,#34D399);border-radius:16px 16px 0 0;text-align:center;padding:28px 24px 20px;">
+    <img src="https://customer-assets.emergentagent.com/job_d355dc88-11c6-414c-934e-ec9411611b7f/artifacts/nhyei82g_IMG_0525.PNG" alt="RealAICoach" style="width:56px;height:56px;border-radius:14px;display:block;margin:0 auto 12px;border:2px solid rgba(255,255,255,0.2);" />
+    <span style="display:inline-block;padding:5px 14px;background:rgba(255,255,255,0.18);border-radius:99px;color:#FFFFFF;font-size:11px;font-weight:700;letter-spacing:0.5px;">RealAICoach</span>
+  </td></tr>
+  <!-- Body -->
+  <tr><td style="padding:0 4px;">
+    <div class="em-card em-force-light-card" style="background:#FFFFFF;border-radius:0 0 16px 16px;border:1px solid #E2E8F0;border-top:none;overflow:hidden;color:#0F172A;">
+      
+<div style="padding:24px;">
+  <h2 style="color:#0F172A;font-size:18px;">Payment Receipt</h2>
+  <p style="color:#334155;font-size:14px;">Hi Alex, here is your payment receipt for March 2026.</p>
+  <table style="width:100%;border-collapse:collapse;margin:16px 0;">
+    <tr style="background:#F8FAFC;">
+      <th style="padding:10px;text-align:left;font-size:12px;color:#64748B;">Item</th>
+      <th style="padding:10px;text-align:right;font-size:12px;color:#64748B;">Amount</th>
+    </tr>
+    <tr>
+      <td style="padding:10px;border-bottom:1px solid #E2E8F0;font-size:13px;">Premium Plan (Monthly)</td>
+      <td style="padding:10px;border-bottom:1px solid #E2E8F0;text-align:right;font-weight:700;color:#059669;font-size:13px;">$15.99</td>
+    </tr>
+    <tr>
+      <td style="padding:10px;font-size:13px;font-weight:700;">Total</td>
+      <td style="padding:10px;text-align:right;font-weight:800;color:#0F172A;font-size:15px;">$15.99</td>
+    </tr>
+  </table>
+  <p style="color:#64748B;font-size:12px;">Transaction ID: TXN-2026-03-15-A1B2</p>
+  <div style="text-align:center;margin-top:20px;">
+    <a href="#" style="display:inline-block;background:#6366F1;color:#fff;padding:12px 28px;border-radius:10px;text-decoration:none;font-weight:700;">View Payment History</a>
+  </div>
+</div>
+
+    </div>
+  </td></tr>
+  <!-- Enterprise Footer -->
+  <tr>
+  <td style="padding:0;" data-global-footer-component="realaicoach-global-email-footer" data-global-footer-version="gef_v2026_04_06_gmail_badge_http_hosted" data-global-footer-variant="full" data-global-footer-last-updated="2026-04-06T02:50:00Z">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="padding:0;height:3px;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#06D6A0);font-size:0;line-height:0;">&nbsp;</td>
+      </tr>
+    </table>
+
+    
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-footer-bg" style="background:#F8FAFC;">
+      <tr>
+        <td class="footer-app-section" style="padding:28px 24px 20px;text-align:center;">
+          <p style="margin:0 0 6px;color:#06D6A0;font-size:10px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;font-family:-apple-system,Helvetica,Arial,sans-serif;">Mobile App</p>
+          <p class="footer-app-title em-footer-t1" style="color:#0F172A;font-size:20px;font-weight:800;margin:0 0 6px;letter-spacing:-0.4px;font-family:-apple-system,Helvetica,Arial,sans-serif;">Take your coach everywhere</p>
+          <p class="em-footer-t2" style="color:#64748B;font-size:12px;margin:0 0 16px;font-family:-apple-system,Helvetica,Arial,sans-serif;">Install on iOS or Android for faster practice sessions and instant insights.</p>
+          
+      <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;" class="footer-badge-row footer-badge-row-regular" data-footer-badges="official" data-footer-badge-variant="regular">
+        <tr>
+          <td style="padding-right:8px;text-align:center;vertical-align:middle;">
+            <a href="https://play.google.com/store/search?q=RealAICoach&c=apps" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:inline-block;" class="footer-badge-link footer-badge-link-google" data-footer-badge="google-play" data-footer-badge-lock-height="43" data-footer-badge-lock-width="142" data-notranslate="true" translate="no" aria-label="Get RealAICoach on Google Play">
+              <table role="presentation" cellpadding="0" cellspacing="0" class="footer-badge-frame footer-badge-frame-google footer-badge-frame-regular" style="width:142px;height:43px;margin:0 auto;">
+                <tr>
+                  <td align="center" valign="middle" style="width:142px;height:43px;padding:0;vertical-align:middle;">
+                    <img src="https://realaicoach.app/api/static/images/email/google_play_exact_trimmed.png" alt="Get it on Google Play" width="142" height="43" class="footer-store-badge footer-store-badge-regular footer-store-badge-google notranslate" data-notranslate="true" translate="no" data-footer-badge-render-height="43" data-footer-badge-render-width="142" data-footer-badge-label="Get it on Google Play" style="display:block;width:142px;max-width:100%;height:43px;border:0;outline:none;text-decoration:none;border-radius:8px;" />
+                  </td>
+                </tr>
+              </table>
+            </a>
+          </td>
+          <td style="padding-left:8px;text-align:center;vertical-align:middle;">
+            <a href="https://apps.apple.com/us/search?term=RealAICoach" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:inline-block;" class="footer-badge-link footer-badge-link-app" data-footer-badge="app-store" data-footer-badge-lock-height="43" data-footer-badge-lock-width="142" data-notranslate="true" translate="no" aria-label="Download RealAICoach on the App Store">
+              <table role="presentation" cellpadding="0" cellspacing="0" class="footer-badge-frame footer-badge-frame-app footer-badge-frame-regular" style="width:142px;height:43px;margin:0 auto;">
+                <tr>
+                  <td align="center" valign="middle" style="width:142px;height:43px;padding:0;vertical-align:middle;">
+                    <img src="https://realaicoach.app/api/static/images/email/app_store_exact_trimmed.png" alt="Download on the App Store" width="142" height="43" class="footer-store-badge footer-store-badge-regular footer-store-badge-app notranslate" data-notranslate="true" translate="no" data-footer-badge-render-height="43" data-footer-badge-render-width="142" data-footer-badge-label="Download on the App Store" style="display:block;width:142px;max-width:100%;height:43px;border:0;outline:none;text-decoration:none;border-radius:8px;" />
+                  </td>
+                </tr>
+              </table>
+            </a>
+          </td>
+        </tr>
+      </table>
+        </td>
+      </tr>
+    </table>
+    
+
+    
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-footer-bg" style="background:#F8FAFC;">
+      <tr><td style="padding:0 24px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="height:1px;background:linear-gradient(90deg,transparent,#E2E8F0,transparent);font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr>
+      <tr>
+        <td class="footer-nav-section" style="padding:14px 24px;text-align:center;">
+          <a href="https://realaicoach.app/?utm_source=email_notification&utm_medium=email&utm_campaign=navigation&utm_content=footer_dashboard" target="_blank" rel="noopener noreferrer" style="color:#3B82F6;font-size:12px;font-weight:700;text-decoration:none;padding:6px 12px;display:inline-block;font-family:-apple-system,Helvetica,Arial,sans-serif;">Dashboard</a>
+          <span style="color:#94A3B8;font-size:8px;vertical-align:middle;">&#9679;</span>
+          <a href="https://realaicoach.app/my-tickets?utm_source=email_notification&utm_medium=email&utm_campaign=support&utm_content=footer_support" target="_blank" rel="noopener noreferrer" style="color:#3B82F6;font-size:12px;font-weight:700;text-decoration:none;padding:6px 12px;display:inline-block;font-family:-apple-system,Helvetica,Arial,sans-serif;">My Tickets</a>
+          <span style="color:#94A3B8;font-size:8px;vertical-align:middle;">&#9679;</span>
+          <a href="https://realaicoach.app/help?utm_source=email_notification&utm_medium=email&utm_campaign=support&utm_content=footer_help" target="_blank" rel="noopener noreferrer" style="color:#3B82F6;font-size:12px;font-weight:700;text-decoration:none;padding:6px 12px;display:inline-block;font-family:-apple-system,Helvetica,Arial,sans-serif;">Help</a>
+          <span style="color:#94A3B8;font-size:8px;vertical-align:middle;">&#9679;</span>
+          <a href="https://realaicoach.app/privacy-policy?utm_source=email_notification&utm_medium=email&utm_campaign=legal&utm_content=footer_privacy" target="_blank" rel="noopener noreferrer" style="color:#3B82F6;font-size:12px;font-weight:700;text-decoration:none;padding:6px 12px;display:inline-block;font-family:-apple-system,Helvetica,Arial,sans-serif;">Privacy</a>
+          <span style="color:#94A3B8;font-size:8px;vertical-align:middle;">&#9679;</span>
+          <a href="https://realaicoach.app/terms?utm_source=email_notification&utm_medium=email&utm_campaign=legal&utm_content=footer_terms" target="_blank" rel="noopener noreferrer" style="color:#3B82F6;font-size:12px;font-weight:700;text-decoration:none;padding:6px 12px;display:inline-block;font-family:-apple-system,Helvetica,Arial,sans-serif;">Terms</a>
+        </td>
+      </tr>
+    </table>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-footer-card" style="background:#FFFFFF;">
+      <tr><td style="padding:0;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="height:2px;background:linear-gradient(90deg,#3B82F6,#8B5CF6,#06D6A0);font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr>
+      <tr>
+        <td class="footer-brand-section" style="padding:28px 24px 12px;text-align:center;">
+          <p class="footer-brand-name em-footer-t1" translate="no" style="font-size:24px;font-weight:900;letter-spacing:-0.8px;margin:0 0 6px;line-height:1;font-family:-apple-system,Helvetica,Arial,sans-serif;">
+            <span class="notranslate em-footer-t1" style="color:#0F172A;">Real</span><span class="notranslate" style="color:#06D6A0;">AI</span><span class="notranslate em-footer-t1" style="color:#0F172A;">Coach</span>
+          </p>
+          <p class="em-footer-t2" style="color:#64748B;font-size:12px;line-height:1.5;margin:0 0 22px;font-family:-apple-system,Helvetica,Arial,sans-serif;">AI-powered professional coaching for interviews, leadership &amp; career growth.</p>
+          <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto 22px;" class="footer-social-row notranslate" data-notranslate="true" translate="no" aria-label="RealAICoach social links">
+            <tr>
+              <td style="padding:0 5px;"><a href="https://twitter.com/realaicoach" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:inline-block;" data-social-logo="x" data-notranslate="true" translate="no" aria-label="RealAICoach on X"><table cellpadding="0" cellspacing="0" style="background:#000000;border-radius:50%;border:2px solid #374151;" class="notranslate" data-notranslate="true" translate="no"><tr><td style="width:40px;height:40px;text-align:center;vertical-align:middle;padding:0;font-size:17px;font-weight:900;color:#FFFFFF;font-family:-apple-system,Helvetica,Arial,sans-serif;line-height:40px;" class="notranslate" data-notranslate="true" translate="no">&#120143;</td></tr></table></a></td>
+              <td style="padding:0 5px;"><a href="https://linkedin.com/company/realaicoach" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:inline-block;" data-social-logo="linkedin" data-notranslate="true" translate="no" aria-label="RealAICoach on LinkedIn"><table cellpadding="0" cellspacing="0" style="background:#0A66C2;border-radius:50%;border:2px solid #1480DB;" class="notranslate" data-notranslate="true" translate="no"><tr><td style="width:40px;height:40px;text-align:center;vertical-align:middle;padding:0;font-size:17px;font-weight:900;color:#FFFFFF;font-family:Georgia,serif;line-height:40px;" class="notranslate" data-notranslate="true" translate="no">in</td></tr></table></a></td>
+              <td style="padding:0 5px;"><a href="https://facebook.com/realaicoach" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:inline-block;" data-social-logo="facebook" data-notranslate="true" translate="no" aria-label="RealAICoach on Facebook"><table cellpadding="0" cellspacing="0" style="background:#1877F2;border-radius:50%;border:2px solid #4293F5;" class="notranslate" data-notranslate="true" translate="no"><tr><td style="width:40px;height:40px;text-align:center;vertical-align:middle;padding:0;font-size:19px;font-weight:900;color:#FFFFFF;font-family:-apple-system,Helvetica,Arial,sans-serif;line-height:40px;" class="notranslate" data-notranslate="true" translate="no">f</td></tr></table></a></td>
+              <td style="padding:0 5px;"><a href="https://instagram.com/realaicoach" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:inline-block;" data-social-logo="instagram" data-notranslate="true" translate="no" aria-label="RealAICoach on Instagram"><table cellpadding="0" cellspacing="0" style="background:linear-gradient(135deg,#833AB4,#E1306C,#F56040,#FCAF45);border-radius:50%;border:2px solid #E1306C;" class="notranslate" data-notranslate="true" translate="no"><tr><td style="width:40px;height:40px;text-align:center;vertical-align:middle;padding:0;font-size:18px;color:#FFFFFF;font-family:-apple-system,Helvetica,Arial,sans-serif;line-height:40px;" class="notranslate" data-notranslate="true" translate="no">&#9673;</td></tr></table></a></td>
+              <td style="padding:0 5px;"><a href="https://youtube.com/@realaicoach" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:inline-block;" data-social-logo="youtube" data-notranslate="true" translate="no" aria-label="RealAICoach on YouTube"><table cellpadding="0" cellspacing="0" style="background:#FF0000;border-radius:50%;border:2px solid #FF3333;" class="notranslate" data-notranslate="true" translate="no"><tr><td style="width:40px;height:40px;text-align:center;vertical-align:middle;padding:0;font-size:16px;color:#FFFFFF;font-family:-apple-system,Helvetica,Arial,sans-serif;line-height:40px;" class="notranslate" data-notranslate="true" translate="no">&#9654;</td></tr></table></a></td>
+            </tr>
+          </table>
+          <p class="footer-address" style="color:#94A3B8;font-size:11px;line-height:1.6;margin:0 0 12px;font-family:-apple-system,Helvetica,Arial,sans-serif;"><span translate="no" class="notranslate">RealAICoach LLC</span> &bull; 11501 Domain Dr, Suite 200, Austin, TX 78758, USA</p>
+          <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;" class="footer-support-row"><tr><td style="padding:0 4px;"><a href="https://realaicoach.app/my-tickets?utm_source=email_notification&utm_medium=email&utm_campaign=support&utm_content=footer_support" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:8px 18px;background:#3B82F6;border-radius:8px;color:#FFFFFF;font-size:12px;font-weight:700;text-decoration:none;font-family:-apple-system,Helvetica,Arial,sans-serif;">Contact Support</a></td><td style="padding:0 4px;"><a href="https://realaicoach.app/contact?utm_source=email_notification&utm_medium=email&utm_campaign=support&utm_content=footer_contact" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:8px 18px;background:transparent;border:1.5px solid #3B82F6;border-radius:8px;color:#3B82F6;font-size:12px;font-weight:700;text-decoration:none;font-family:-apple-system,Helvetica,Arial,sans-serif;">Reach Out</a></td></tr></table>
+        </td>
+      </tr>
+    </table>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="em-footer-bg" style="background:#F8FAFC;">
+      <tr><td style="padding:0 24px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="height:1px;background:linear-gradient(90deg,transparent,#E2E8F0,transparent);font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr>
+      <tr>
+        <td class="footer-legal-section" style="padding:16px 24px 24px;text-align:center;">
+          <p class="footer-legal-text" style="color:#94A3B8;font-size:10px;line-height:1.8;margin:0;font-family:-apple-system,Helvetica,Arial,sans-serif;">
+            &copy; 2026 <span translate="no" class="notranslate">RealAICoach</span> LLC. All rights reserved. &bull;
+            <a href="https://realaicoach.app/privacy-policy?utm_source=email_notification&utm_medium=email&utm_campaign=legal&utm_content=footer_privacy" target="_blank" rel="noopener noreferrer" style="color:#64748B;text-decoration:underline;">Privacy Policy</a> &bull;
+            <a href="https://realaicoach.app/terms?utm_source=email_notification&utm_medium=email&utm_campaign=legal&utm_content=footer_terms" target="_blank" rel="noopener noreferrer" style="color:#64748B;text-decoration:underline;">Terms of Service</a><br/>
+            
+            You received this email because you have an account with <span translate="no" class="notranslate">RealAICoach</span>.<br/>
+            
+            
+            To manage your email preferences, visit your <a href="https://realaicoach.app/settings?tab=notifications&utm_source=email_notification&utm_medium=email&utm_campaign=notifications&utm_content=footer_preferences" target="_blank" rel="noopener noreferrer" style="color:#3B82F6;font-weight:600;text-decoration:underline;">notification settings</a> or use one-click <a href="https://realaicoach.app/settings?tab=notifications&unsub=all&utm_source=email_notification&utm_medium=email&utm_campaign=notifications&utm_content=footer_unsubscribe" target="_blank" rel="noopener noreferrer" style="color:#3B82F6;font-weight:600;text-decoration:underline;">unsubscribe</a>.
+            
+          </p>
+        </td>
+      </tr>
+    </table>
+    
+
+    
+  </td>
+</tr>
+</table>
+</td></tr></table>
+</body></html>

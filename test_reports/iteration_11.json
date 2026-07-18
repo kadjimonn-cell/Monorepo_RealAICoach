@@ -1,0 +1,71 @@
+{
+  "summary": "Backend-only smoke regression (curl, no browser) for Phase-1 native/mobile auth contract on RealAICoach. All 7 requested checks PASSED. Web cookie path and native Bearer path both verified against admin credentials; /api/admin/scaling/status still contains llm_circuit_breaker (previous feature intact); Expo native manifest served on localhost:3001 with expo-platform: android returns valid JSON with name=RealAICoach.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verification_evidence": {
+    "base_url": "https://full-stack-migrate-1.preview.emergentagent.com",
+    "endpoint_status_codes": {
+      "1_GET_/api/health": 200,
+      "2_POST_/api/auth/login (web: Content-Type json + X-Requested-With)": 200,
+      "3_GET_/api/auth/me (cookie)": 200,
+      "4a_POST_/api/auth/login (native: X-Client-Platform: mobile)": 200,
+      "4b_GET_/api/auth/me (Authorization: Bearer, no cookie)": 200,
+      "5_GET_/api/admin/scaling/status (admin cookie)": 200,
+      "6_GET_http://localhost:3001 (expo-platform: android)": 200,
+      "7_GET_http://localhost:8001/health": 200
+    },
+    "web_login_cookie": {
+      "session_token_in_body": false,
+      "set_cookie_header_present": true,
+      "cookie_attrs": "HttpOnly; Secure; SameSite=None; Path=/; Max-Age=18000",
+      "user_email_in_body": "admin@realaicoach.app",
+      "is_admin_in_body": true
+    },
+    "native_login_body_token": {
+      "session_token_in_body": true,
+      "token_prefix": "eyJ (JWT)",
+      "token_length": 235,
+      "user_email_in_body": "admin@realaicoach.app"
+    },
+    "auth_me_bearer_response": {
+      "email": "admin@realaicoach.app",
+      "is_admin": true,
+      "roles": ["admin", "premium", "user"]
+    },
+    "scaling_status_llm_circuit_breaker": {
+      "present": true,
+      "paused": false,
+      "consecutive_failure_count": 0,
+      "type": "llm_circuit_breaker"
+    },
+    "expo_manifest_localhost_3001": {
+      "content_type": "application/json",
+      "runtimeVersion": "exposdk:54.0.0",
+      "extra.expoClient.name": "RealAICoach",
+      "launch_asset_url_host": "full-stack-migrate-1.preview.emergentagent.com/index.bundle?platform=android"
+    }
+  },
+  "test_report_links": [
+    "/app/test_reports/iteration_11.json"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "routes/auth.py L192-200 _allow_native_auth_tokens correctly gates token-in-body on X-Client-Platform in {mobile,native,android,ios,expo} (or X-Auth-Channel). Verified: web (no header) -> no token in body; mobile header -> token in body. Contract holds.",
+    "routes/auth.py L279-292 _auth_token_payload returns {} when web-origin, so session_token stays in httpOnly cookie only — matches security posture in /app/memory/test_credentials.md. No leakage regression detected.",
+    "routes/auth.py L7012 /auth/me depends on get_current_user which per files_of_reference (routes/db.py:703) prefers Authorization Bearer then cookie fallback — verified end-to-end: same admin user resolved via both channels."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100% (7/7)", "frontend": "N/A - skipped per request"},
+  "test_credentials": "admin@realaicoach.app / NewAdminPass2026! - verified working on both web-cookie and native-bearer paths",
+  "seed_data_creation": "None - read-only verification, no data mutation.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Native (mobile) auth contract lives at routes/auth.py L192-200 (_allow_native_auth_tokens) and L279-292 (_auth_token_payload). To exercise the token-in-body path, send header 'X-Client-Platform: mobile' (or native/android/ios/expo) with the login POST; response JSON will include session_token. Then use 'Authorization: Bearer <token>' on /api/auth/me to prove Bearer end-to-end (no cookie required). Web path (no X-Client-Platform header) intentionally omits session_token from JSON body and only sets the httpOnly cookie. Metro proxy on localhost:3001 serves the Expo native manifest — respond only when expo-platform header is present; response is a JSON object with launchAsset.url pointing to /index.bundle on the preview host and extra.expoClient.name=RealAICoach. /health on localhost:8001 works but is not exposed via preview ingress (only /api/* is)."
+}

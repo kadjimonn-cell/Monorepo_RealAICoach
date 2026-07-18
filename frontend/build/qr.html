@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealAICoach - Mobile Preview QR Code</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha384-3zSEDfvllQohrq0PHL1fOXJuC/jSOO34H46t6UQfobFOmxE5BpjjaIJY5F2/bMnU" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+        }
+        h1 {
+            margin: 0 0 10px 0;
+            font-size: 32px;
+            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle {
+            color: #94A3B8;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        #qrcode {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            display: inline-block;
+            margin: 20px 0;
+        }
+        .instructions {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        .instructions h3 {
+            margin: 0 0 15px 0;
+            color: #60A5FA;
+            font-size: 18px;
+        }
+        .instructions ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .instructions li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        .url-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 15px 0;
+            word-break: break-all;
+            font-family: monospace;
+            font-size: 12px;
+            color: #A5F3FC;
+        }
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .warning {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #FCD34D;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="badge">📱 MOBILE APP PREVIEW</div>
+        <h1>RealAICoach</h1>
+        <p class="subtitle">Scan this QR code with Expo Go app</p>
+        
+        <div id="qrcode"></div>
+        <div class="url-box" id="expo-url">Loading...</div>
+        
+        <div class="instructions">
+            <h3>📋 How to test on your phone:</h3>
+            <ol>
+                <li>Download <strong>Expo Go</strong> app from App Store (iOS) or Google Play (Android)</li>
+                <li>Open Expo Go app on your phone</li>
+                <li>Scan this QR code from within the Expo Go app</li>
+                <li>Wait for the app to load on your device</li>
+            </ol>
+        </div>
+        
+        <div class="warning">
+            ⚠️ Make sure your phone and this computer are on the same network, OR use the tunnel URL for external access.
+        </div>
+    </div>
+
+    <script>
+        // Expo Go requires the full manifest URL, not just the hostname
+        // Format: exp://[host]/_expo/loading?projectRoot=[encoded_path]
+        const expoUrl = `exp://streak-shields-build.ngrok.io`;
+        const expoUrlHttps = `exps://streak-shields-build.ngrok.io`;
+        
+        // Display both URLs for testing
+        document.getElementById('expo-url').innerHTML = `
+            <div style="margin-bottom: 10px;"><strong>Option 1 (HTTP):</strong><br>${expoUrl}</div>
+            <div><strong>Option 2 (HTTPS):</strong><br>${expoUrlHttps}</div>
+        `;
+        
+        // Generate QR code with HTTPS version
+        new QRCode(document.getElementById("qrcode"), {
+            text: expoUrlHttps,
+            width: 256,
+            height: 256,
+            colorDark: "#0F172A",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+        
+        // Add a second QR code for HTTP version as backup
+        const qrContainer = document.getElementById("qrcode").parentElement;
+        const httpQrDiv = document.createElement("div");
+        httpQrDiv.id = "qrcode-http";
+        httpQrDiv.style.background = "white";
+        httpQrDiv.style.padding = "20px";
+        httpQrDiv.style.borderRadius = "16px";
+        httpQrDiv.style.display = "inline-block";
+        httpQrDiv.style.marginTop = "20px";
+        qrContainer.appendChild(document.createElement("br"));
+        qrContainer.appendChild(document.createElement("br"));
+        const httpLabel = document.createElement("p");
+        httpLabel.textContent = "Try this QR code if the above doesn't work:";
+        httpLabel.style.color = "#94A3B8";
+        httpLabel.style.marginTop = "30px";
+        qrContainer.appendChild(httpLabel);
+        qrContainer.appendChild(httpQrDiv);
+        
+        new QRCode(document.getElementById("qrcode-http"), {
+            text: expoUrl,
+            width: 256,
+            height: 256,
+            colorDark: "#0F172A",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    </script>
+</body>
+</html>

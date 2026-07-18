@@ -37,6 +37,7 @@ import {
 import { ExecShortcutSheet } from '../src/components/executive/ExecShortcutSheet';
 import EnterpriseSignOutConfirmModal from '../src/components/auth/EnterpriseSignOutConfirmModal';
 import GtecDirectiveBanner from '../src/components/admin/GtecDirectiveBanner';
+import { WebOnlyScreen } from '../src/components/WebOnlyScreen';
 import GtecScanV2Panel from '../src/components/admin/GtecScanV2Panel';
 import GtecUpstreamWatchdogPanel from '../src/components/admin/GtecUpstreamWatchdogPanel';
 import { handleAppRecoverableError } from '../src/utils/appRecoverableError';
@@ -181,6 +182,9 @@ const normalizeExecutiveSection = (value: string | null | undefined) => {
 };
 
 export default function ExecutiveDashboard() {
+  if (Platform.OS !== 'web') {
+    return <WebOnlyScreen featureNameKey="webOnly.executiveDashboard" featureNameFallback="Executive Dashboard" />;
+  }
   const s = useExecStyles();
   const { user, loading: authLoading, logout } = useAuth();
   const {darkMode, colors} = useTheme();

@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Platform } from 'react-native';
+import { secureGetToken, secureClearToken } from '../utils/secureTokenStore';
 import { beginGlobalLoading, endGlobalLoading } from './loadingOrchestrator';
 import { recordShellHealthMetric } from './shellHealthMonitor';
 import { emitFeatureQuotaLimit } from './featureQuotaEvents';
@@ -77,6 +78,13 @@ async function getAuthToken(): Promise<string | null> {
   }
 
   if (cachedToken) return cachedToken;
+
+  if (Platform.OS !== 'web') {
+    try {
+      const secure = await secureGetToken();
+      if (secure) { cachedToken = secure; return secure; }
+    } catch { /* fall through */ }
+  }
 
   try {
     const token = await AsyncStorage.getItem('session_token');
@@ -902,6 +910,9 @@ async function request(
           if (shouldReset) {
             cachedToken = null;
             await AsyncStorage.removeItem('session_token').catch(() => {});
+            if (Platform.OS !== 'web') {
+              await secureClearToken();
+            }
             if (typeof window !== 'undefined') {
               try {
                 window.localStorage.removeItem('session_token');

@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Platform } from 'react-native';
 import { setCachedToken } from '../../services/api';
+import { secureGetToken, secureSetToken, secureClearToken } from '../../utils/secureTokenStore';
 import type { User } from './types';
 import { handleAppRecoverableError } from '../../utils/appRecoverableError';
 import { canonicalizeAdminIdentity } from '../../utils/adminAccess';
@@ -13,6 +14,9 @@ const WEB_COOKIE_ONLY_AUTH = true;
 export async function getSessionToken(): Promise<string | null> {
   if (WEB_COOKIE_ONLY_AUTH && Platform.OS === 'web') {
     return null;
+  }
+  if (Platform.OS !== 'web') {
+    return secureGetToken();
   }
   try {
     return await AsyncStorage.getItem(SESSION_TOKEN_KEY);
@@ -38,6 +42,10 @@ export async function persistSessionToken(token: string): Promise<void> {
   // Set fast-path token first so immediate route/API transitions after login
   // do not race against AsyncStorage writes.
   setCachedToken(token);
+  if (Platform.OS !== 'web') {
+    await secureSetToken(token);
+    return;
+  }
   if (Platform.OS === 'web' && typeof window !== 'undefined') {
     try {
       window.localStorage.setItem(SESSION_TOKEN_KEY, token);
@@ -97,6 +105,9 @@ export async function clearGuestModeFlag(): Promise<void> {
 }
 
 export async function clearPersistedSession(): Promise<void> {
+  if (Platform.OS !== 'web') {
+    await secureClearToken();
+  }
   await AsyncStorage.multiRemove([SESSION_TOKEN_KEY, GUEST_MODE_KEY, USER_SNAPSHOT_KEY]).catch(() => {});
   if (Platform.OS === 'web' && typeof window !== 'undefined') {
     try {

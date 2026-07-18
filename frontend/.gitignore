@@ -40,3 +40,4 @@ app-example
 
 # Metro persistent cache
 .metro-cache/
+.metro-cache-native/
