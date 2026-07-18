@@ -1503,3 +1503,13 @@ Verified: testing_agent iteration_3 — 100% backend (7/7) + frontend (admin UI 
 - verify-package-json.js gate passes. Preview serves 200 local + external; /api/health 200.
 - One transient OOM (FATAL count 103->104) occurred during the fully-cold Metro rebuild right after the change (package.json is hashed into Metro cacheVersion -> full cache invalidation) amid a container restart; self-recovered, no recurrence in stability window (RSS ~3.6GB thereafter).
 - NOTE: deploy build machine must have >6GB available for BUILD_IMAGE/export at this setting; a deploy-time OOM at that step indicates tier limits, not code (2048-minimum export evidence preserved from earlier testing).
+
+## 2026-07-18 — PHASE 1: Single cross-platform codebase, mobile enabled (COMPLETE, iteration_11 7/7)
+- Single Metro (port 3000, /app/frontend) serves BOTH web and native. Port 3001 ('mobile' supervisor service) = tiny reverse proxy (/app/mobile/metro-proxy.js -> 3000) because pod cgroup = 8GB and two Metros OOM-kill the pod. /app/mobile/package.json "expo" script intercepts the readonly supervisor command -> launch-frontend-expo.sh -> proxy. NO second codebase.
+- Native manifests verified via proxy + external expo host (android + ios, name=RealAICoach). Android dev bundle compiles: 200, 73.5MB, 3613 modules, no errors.
+- Native auth: expo-secure-store@15.0.8 added (plugin in app.json). New src/utils/secureTokenStore.ts (SecureStore primary, AsyncStorage legacy migration). storage.ts + api.ts native branches use it; web cookie flow byte-identical (verified: no token in web login body, no localStorage token). Backend contract verified E2E: X-Client-Platform: mobile -> session_token in body -> Authorization: Bearer -> /api/auth/me OK.
+- Web-gated for native (WebOnlyScreen placeholder, theme-token compliant): app/(tabs)/admin-console.tsx, app/executive-dashboard.tsx, app/features/fps-game.tsx. Web rendering unchanged (0 placeholder hits in SSR export pages).
+- i18n: webOnly.* keys seeded in en.ts (i18n gate green). Full export pipeline EXIT:0 (215 route pages assembled to build/).
+- KNOWN CONSTRAINT: 8GB pod at physical limit — single Metro holding web+android graphs can V8-OOM at 6144 heap during cold rebuilds; supervisor auto-heals. First route hits 60-180s; external 502s possible during warmup. Recommend higher-memory preview tier for sustained dual-platform dev.
+- Expo Go (user): open Mobile tab QR, or in Expo Go enter exp://full-stack-migrate-1.expo.preview.emergentagent.com — first load takes minutes (73MB dev bundle).
+- Device-verification pending (human): login/session-restore tap-through, tabs/coaching/careers/profile rendering, gated-screen placeholders; push does NOT work in Expo Go (needs dev build, Phase 2); native SSO + voice = Phase 2.
