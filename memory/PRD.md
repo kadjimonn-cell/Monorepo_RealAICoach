@@ -1497,3 +1497,9 @@ Verified: testing_agent iteration_3 — 100% backend (7/7) + frontend (admin UI 
 ## Preview frontend heap split (confirmed 2026-07-17)
 - package.json: start/expo=5632MB, export:web=3072MB. No new FATAL/OOM this session (count static at 103, all historical).
 - Known pre-existing behavior: Metro dev server (maxWorkers=1) takes ~78s per full JS-bundle pass; concurrent requests queue behind it → occasional slow first-hits / external 502 during a pass. Production unaffected (serves static build/).
+
+## 2026-07-17 — Heap unified to 6144 MB (deployment-side instruction, supersedes split config)
+- package.json: all 6 occurrences of --max-old-space-size (NODE_OPTIONS + node flag) in start, expo, export:web set to 6144.
+- verify-package-json.js gate passes. Preview serves 200 local + external; /api/health 200.
+- One transient OOM (FATAL count 103->104) occurred during the fully-cold Metro rebuild right after the change (package.json is hashed into Metro cacheVersion -> full cache invalidation) amid a container restart; self-recovered, no recurrence in stability window (RSS ~3.6GB thereafter).
+- NOTE: deploy build machine must have >6GB available for BUILD_IMAGE/export at this setting; a deploy-time OOM at that step indicates tier limits, not code (2048-minimum export evidence preserved from earlier testing).
