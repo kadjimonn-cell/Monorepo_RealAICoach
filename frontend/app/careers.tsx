@@ -3,7 +3,13 @@
  * Enterprise search & filter + AI-assisted Apply modal.
  */
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { ActivityIndicator, Modal, Pressable, ScrollView, Text, TextInput, TouchableOpacity, View, useWindowDimensions } from 'react-native';
+import { ActivityIndicator, KeyboardAvoidingView, Modal, Platform, Pressable, RefreshControl, ScrollView, Text, TextInput, TouchableOpacity, View, useWindowDimensions } from 'react-native';
+
+// Native-only keyboard avoidance wrapper for the Apply modal (Fragment on web = zero DOM change).
+const KeyboardWrap: any = Platform.OS === 'web' ? React.Fragment : KeyboardAvoidingView;
+const keyboardWrapProps: any = Platform.OS === 'web'
+  ? {}
+  : { behavior: Platform.OS === 'ios' ? 'padding' : undefined, style: { width: '100%', alignItems: 'center', flexShrink: 1 } };
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../src/context/ThemeContext';
@@ -226,8 +232,14 @@ export default function CareersScreen() {
     }
   }, [careersTalentNetworkCardSource, pageIntent, refSource, talentAlertFrequency, talentEmail, talentLocations, talentName, talentRoleInterests, talentWorkTypes]);
 
+  const [refreshing, setRefreshing] = useState(false);
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    try { await load(); } finally { setRefreshing(false); }
+  }, [load]);
+
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: colors.bg }} data-testid="careers-page" testID="careers-page">
+    <ScrollView style={{ flex: 1, backgroundColor: colors.bg }} data-testid="careers-page" testID="careers-page" refreshControl={Platform.OS === 'web' ? undefined : <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={colors.primary} />}>
       {/* Hero */}
       <View style={{ paddingHorizontal: pad, paddingTop: isMobile ? 24 : 56, paddingBottom: isMobile ? 20 : 32, maxWidth: 1240, width: '100%', alignSelf: 'center' }}>
         <TouchableOpacity onPress={() => router.push('/')} style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 16 }} data-testid="careers-back-home" testID="careers-back-home">
@@ -955,6 +967,7 @@ function ApplyModal({ job, onClose, colors, isMobile }: { job: Job | null; onClo
   return (
     <Modal visible transparent animationType="fade" onRequestClose={onClose}>
       <Pressable onPress={onClose} style={{ flex: 1, backgroundColor: (globalThis as any).__alphaColor(colors.text, '8C'), alignItems: 'center', justifyContent: isMobile ? 'flex-end' : 'center', padding: isMobile ? 0 : 24 }}>
+        <KeyboardWrap {...keyboardWrapProps}>
         <Pressable onPress={(e) => e.stopPropagation()} style={{ width: '100%', maxWidth: 960, maxHeight: '92%', backgroundColor: colors.card, borderRadius: isMobile ? 20 : 18, borderTopLeftRadius: 20, borderTopRightRadius: 20, overflow: 'hidden' }} data-testid="careers-apply-modal" testID="careers-apply-modal">
           <ScrollView contentContainerStyle={{ padding: 22 }} keyboardShouldPersistTaps="handled">
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
@@ -1086,6 +1099,7 @@ function ApplyModal({ job, onClose, colors, isMobile }: { job: Job | null; onClo
             )}
           </ScrollView>
         </Pressable>
+        </KeyboardWrap>
       </Pressable>
     </Modal>
   );

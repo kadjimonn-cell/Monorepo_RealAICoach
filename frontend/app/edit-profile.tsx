@@ -1,4 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { KeyboardAvoidingView, Platform } from 'react-native';
+
+// Native-only keyboard avoidance wrapper (Fragment on web = zero DOM change).
+const FormKeyboardWrap: any = Platform.OS === 'web' ? React.Fragment : KeyboardAvoidingView;
+const formKeyboardWrapProps: any = Platform.OS === 'web'
+  ? {}
+  : { behavior: Platform.OS === 'ios' ? 'padding' : undefined, style: { flex: 1 } };
 import {
   View,
   Text,
@@ -150,6 +157,7 @@ export default function EditProfileScreen() {
         </TouchableOpacity>
       </View>
 
+      <FormKeyboardWrap {...formKeyboardWrapProps}>
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={[styles.scrollContent, { maxWidth: 960, alignSelf: 'center' as any, width: '100%' as any, paddingHorizontal: isWide ? 32 : 20 }]}>
         {/* Profile Photo Section */}
         <View style={styles.photoSection}>
@@ -327,6 +335,7 @@ export default function EditProfileScreen() {
           <Text style={styles.footerText}>{tx('editProfile.footer.copyright', '© 2026-2030 RealAICoach LLC. All rights reserved. (USA)')}</Text>
         </View>
       </ScrollView>
+      </FormKeyboardWrap>
 
       {/* Crop Modal (Web only) */}
       <ProfilePhotoCropper

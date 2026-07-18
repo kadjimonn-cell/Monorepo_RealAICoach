@@ -146,6 +146,7 @@ export default function ForgotPasswordScreen() {
                     keyboardType="email-address"
                     autoCapitalize="none"
                     autoCorrect={false}
+                    {...(Platform.OS !== 'web' ? { autoComplete: 'email' as const } : {})}
                     data-testid="forgot-password-email-input" testID="forgot-password-email-input"
                   />
                 </View>

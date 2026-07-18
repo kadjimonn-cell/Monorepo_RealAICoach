@@ -500,6 +500,7 @@ export default function PrivacySecurityScreen() {
                       placeholder={tx('privacySecurity.password.currentPlaceholder', 'Enter current password')}
                       placeholderTextColor={COLORS.textMuted}
                       secureTextEntry={!showCurrentPassword}
+                      {...(Platform.OS !== 'web' ? { autoComplete: 'current-password' as const } : {})}
                       value={currentPassword}
                       onChangeText={setCurrentPassword}
                     />
@@ -521,6 +522,7 @@ export default function PrivacySecurityScreen() {
                       placeholder={tx('privacySecurity.password.newPlaceholder', 'Enter new password')}
                       placeholderTextColor={COLORS.textMuted}
                       secureTextEntry={!showNewPassword}
+                      {...(Platform.OS !== 'web' ? { autoComplete: 'new-password' as const } : {})}
                       value={newPassword}
                       onChangeText={setNewPassword}
                     />
@@ -540,6 +542,7 @@ export default function PrivacySecurityScreen() {
                     style={[styles.textInput, styles.textInputFull]}
                     placeholder={tx('privacySecurity.password.confirmPlaceholder', 'Confirm new password')}
                     placeholderTextColor={COLORS.textMuted}
+                    {...(Platform.OS !== 'web' ? { autoComplete: 'new-password' as const } : {})}
                     secureTextEntry={!showNewPassword}
                     value={confirmPassword}
                     onChangeText={setConfirmPassword}

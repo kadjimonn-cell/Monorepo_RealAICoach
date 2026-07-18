@@ -209,6 +209,7 @@ export default function ResetPasswordScreen() {
             value={newPassword}
             onChangeText={setNewPassword}
             secureTextEntry={!showPassword}
+            {...(Platform.OS !== 'web' ? { autoComplete: 'new-password' as const } : {})}
             data-testid="reset-new-password-input" testID="reset-new-password-input"
           />
           <TouchableOpacity onPress={() => setShowPassword(!showPassword)} data-testid="reset-new-password-toggle" testID="reset-new-password-toggle">

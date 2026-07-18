@@ -238,6 +238,7 @@ export default function RegisterScreen() {
                     value={name}
                     onChangeText={setName}
                     autoCapitalize="words"
+                    {...(Platform.OS !== 'web' ? { autoComplete: 'name' as const } : {})}
                     data-testid="register-name-input" testID="register-name-input"
                   />
                 </View>
@@ -256,6 +257,7 @@ export default function RegisterScreen() {
                     keyboardType="email-address"
                     autoCapitalize="none"
                     autoCorrect={false}
+                    {...(Platform.OS !== 'web' ? { autoComplete: 'email' as const } : {})}
                     data-testid="register-email-input" testID="register-email-input"
                   />
                 </View>
@@ -273,6 +275,7 @@ export default function RegisterScreen() {
                     onChangeText={setPassword}
                     secureTextEntry={!showPassword}
                     autoCapitalize="none"
+                    {...(Platform.OS !== 'web' ? { autoComplete: 'new-password' as const } : {})}
                     data-testid="register-password-input" testID="register-password-input"
                   />
                   <TouchableOpacity onPress={() => setShowPassword(!showPassword)} data-testid="register-toggle-password" testID="register-toggle-password">
@@ -296,6 +299,7 @@ export default function RegisterScreen() {
                     onChangeText={setConfirmPassword}
                     secureTextEntry={!showPassword}
                     autoCapitalize="none"
+                    {...(Platform.OS !== 'web' ? { autoComplete: 'new-password' as const } : {})}
                     data-testid="register-confirm-password-input" testID="register-confirm-password-input"
                   />
                 </View>

@@ -1524,3 +1524,15 @@ Verified: testing_agent iteration_3 — 100% backend (7/7) + frontend (admin UI 
 - Fix (routes/db.py ensure_admin_users): rewrite of an EXISTING hash now opt-in via ADMIN_PASSWORD_ENFORCE_SYNC (default off); initial seed (no hash) still automatic; no plaintext in logs.
 - Verified in preview: flag on -> old 401/new 200; flag off -> no rewrite; reverted to original creds, flag=false. Full RCA: /app/memory/ADMIN_PASSWORD_ROTATION_RCA_CHECKPOINTS_A_D_2026-07-18.md
 - Side finding: llm_circuit_breaker currently paused=true (3 real upstream LLM failures) — breaker working as designed; needs LLM key/balance check + POST /api/admin/scaling/rearm.
+
+## 2026-07-18 — PHASE 2A: Mobile screens against shared backend (COMPLETE)
+- Circuit breaker re-armed; LLM verified healthy (2 auto-scaling successes + live coaching replies).
+- Native bottom tab bar enabled in app/(tabs)/_layout.tsx (Ionicons + theme tokens; web keeps display:none + drawer nav, unchanged). Admin-console hidden from native tab bar (web-gated screen).
+- careers.tsx: pull-to-refresh (native-only RefreshControl) + KeyboardWrap (KAV native / Fragment web) around Apply modal.
+- edit-profile.tsx: FormKeyboardWrap (KAV native / Fragment web) around form ScrollView.
+- Native autofill (spread only when Platform!=web): login email/password (email/current-password), register name/email/password/confirm, forgot-password email, reset-password new-password, privacy-security change-password current/new/confirm.
+- Screens consume EXISTING routes only (no backend changes): auth /api/auth/*, home /api/home/*+/api/onboarding/*, coaching /api/scenarios + /api/conversations/{start,message} + /api/session-history/{user_id}, careers /api/careers/jobs+apply, profile /api/auth/me + change-password.
+- E2E verified via native Bearer contract: login->scenarios(30)->start conversation->AI opener->send->assistant_message+feedback scores; careers jobs 200; session-history 200.
+- Android bundle compiles clean post-changes (200, 73.58MB; fixed one duplicate Platform import in privacy-security). tsc clean; theme gate A/0/0; static build EXIT:0.
+- Web verified: login page screenshot renders fully; testing agent browser runs timed out twice (env too slow) — screenshot + curl evidence used instead.
+- Chat/coaching + register/forgot + home/session-history screens were already native-ready (KAV/SafeArea/RefreshControl present) — verified, not rebuilt.

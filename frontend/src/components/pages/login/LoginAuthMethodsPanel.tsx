@@ -219,6 +219,7 @@ export function LoginAuthMethodsPanel({ ctx }: LoginAuthMethodsPanelProps) {
                     keyboardType="email-address"
                     autoCapitalize="none"
                     autoCorrect={false}
+                    {...(Platform.OS !== 'web' ? { autoComplete: 'email' as const } : {})}
                     onFocus={() => setFocusedField('email')}
                     onBlur={() => setFocusedField('')}
                     data-testid="login-email-input" testID="login-email-input"
@@ -252,6 +253,7 @@ export function LoginAuthMethodsPanel({ ctx }: LoginAuthMethodsPanelProps) {
                         }}
                         secureTextEntry={!showPassword}
                         autoCapitalize="none"
+                        {...(Platform.OS !== 'web' ? { autoComplete: 'current-password' as const } : {})}
                         onFocus={() => setFocusedField('password')}
                         onBlur={() => setFocusedField('')}
                         data-testid="login-password-input" testID="login-password-input"
