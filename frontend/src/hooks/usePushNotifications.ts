@@ -32,6 +32,15 @@ export function usePushNotifications(userId?: string) {
     if (Platform.OS === 'web' || !Notifications || !Device) return null;
     if (!Device.isDevice) return null;
 
+    // Expo Go (SDK 53+) does not support remote push tokens — no-op gracefully.
+    const isExpoGo =
+      (Constants as any)?.executionEnvironment === 'storeClient' ||
+      (Constants as any)?.appOwnership === 'expo';
+    if (isExpoGo) {
+      clientLogger.log('Push registration skipped: remote push requires a development/production build (Expo Go limitation).');
+      return null;
+    }
+
     if (Platform.OS === 'android') {
       await Notifications.setNotificationChannelAsync('default', {
         name: 'Default',
@@ -50,12 +59,18 @@ export function usePushNotifications(userId?: string) {
 
     if (finalStatus !== 'granted') return null;
 
-    const projectId =
-      Constants?.expoConfig?.extra?.eas?.projectId ?? (Constants as any)?.easConfig?.projectId;
-    const tokenData = await Notifications.getExpoPushTokenAsync(
-      projectId ? { projectId } : undefined
-    );
-    const token = tokenData.data;
+    let token: string | null = null;
+    try {
+      const projectId =
+        Constants?.expoConfig?.extra?.eas?.projectId ?? (Constants as any)?.easConfig?.projectId;
+      const tokenData = await Notifications.getExpoPushTokenAsync(
+        projectId ? { projectId } : undefined
+      );
+      token = tokenData.data;
+    } catch (e) {
+      clientLogger.log('Expo push token unavailable on this device/build:', e);
+      return null;
+    }
 
     try {
       await api.post('/notifications/push-token', { push_token: token });

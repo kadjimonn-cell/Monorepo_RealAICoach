@@ -21,7 +21,7 @@ const ENABLE_P0_LOGIN_BANNER_CONTRACT = String(process.env.REACT_APP_ENABLE_AUTH
 export function useLoginController(forceCompactMode = false) {
   const router = useRouter();
   const { reset, logout: logoutParam, return_to: returnToParam } = useLocalSearchParams<{ reset?: string | string[]; logout?: string | string[]; return_to?: string | string[] }>();
-  const { user, login, verify2FA, loginWithGoogle, loginWithMicrosoft, requestOtp, loginWithOtp, loading, refreshUser } = useAuth();
+  const { user, login, verify2FA, loginWithGoogle, loginWithMicrosoft, loginWithApple, requestOtp, loginWithOtp, loading, refreshUser } = useAuth();
   const { t } = useTranslation();
   const { width } = useWindowDimensions();
   const { darkMode, colors, setThemeMode } = useTheme();
@@ -304,6 +304,7 @@ export function useLoginController(forceCompactMode = false) {
     showSuccess,
     loginWithGoogle,
     loginWithMicrosoft,
+    loginWithApple,
     refreshUser,
     redirectToApp,
     saveLastMethod,

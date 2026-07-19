@@ -6905,6 +6905,227 @@ async def apple_exchange(request: Request):
         raise HTTPException(status_code=500, detail="Apple login failed")
 
 
+# ══════════ NATIVE (EXPO) SSO: direct provider-token verification ══════════
+# These endpoints serve the native mobile app (iOS/Android builds) which obtains
+# provider identity tokens on-device (expo-auth-session / expo-apple-authentication)
+# instead of the browser redirect flows used by web.
+
+
+def _native_google_allowed_audiences() -> list[str]:
+    auds: list[str] = []
+    for key in ("GOOGLE_CLIENT_ID", "GOOGLE_IOS_CLIENT_ID", "GOOGLE_ANDROID_CLIENT_ID"):
+        val = str(os.environ.get(key, "") or "").strip()
+        if val:
+            auds.append(val)
+    return auds
+
+
+@router.get("/auth/sso-config/native")
+async def native_sso_config():
+    """Public, non-secret OAuth client identifiers used by the native (Expo) app."""
+    ios_client_id = str(os.environ.get("GOOGLE_IOS_CLIENT_ID", "") or "").strip()
+    android_client_id = str(os.environ.get("GOOGLE_ANDROID_CLIENT_ID", "") or "").strip()
+    apple_bundle_id = str(os.environ.get("APPLE_BUNDLE_ID", "") or "").strip()
+    apple_client_id = str(os.environ.get("APPLE_CLIENT_ID", "") or "").strip()
+    return {
+        "google_ios_client_id": ios_client_id or None,
+        "google_android_client_id": android_client_id or None,
+        "apple_native_enabled": bool(apple_bundle_id or apple_client_id),
+        "apple_bundle_id": apple_bundle_id or None,
+    }
+
+
+async def _issue_native_sso_session(
+    *,
+    email: str,
+    name: str,
+    picture: str,
+    provider: str,
+    request: Request,
+    response: Response,
+    extra_user_fields: Optional[dict] = None,
+) -> dict:
+    """Find-or-create the user for a verified native SSO identity and issue a session.
+
+    Mirrors the post-verification behavior of the web Google/Apple SSO flows.
+    """
+    existing = await db.users.find_one({"email": email}, {"_id": 0})
+    if existing:
+        user = User(**existing)
+        update_fields: dict = {"auth_provider": provider}
+        if picture and not existing.get("profile_image"):
+            update_fields["profile_image"] = picture
+        if name and not user.name:
+            update_fields["name"] = name
+        if extra_user_fields:
+            update_fields.update(extra_user_fields)
+        await db.users.update_one({"user_id": user.user_id}, {"$set": update_fields})
+        await db.user_sessions.delete_many({"user_id": user.user_id})
+    else:
+        user_id = f"user_{uuid.uuid4().hex[:12]}"
+        user = User(
+            user_id=user_id,
+            email=email,
+            name=name or email.split("@")[0],
+            picture=picture or "",
+            auth_provider=provider,
+        )
+        user_dict = user.dict()
+        if picture:
+            user_dict["profile_image"] = picture
+        if extra_user_fields:
+            user_dict.update(extra_user_fields)
+        await db.users.insert_one(user_dict)
+
+    user = await apply_access_overrides(user)
+
+    token_version = user.token_version
+    expires_minutes = await _resolve_session_timeout_minutes(bool(user.is_admin))
+    session_token = create_jwt_token(user.user_id, user.email, token_version, expires_minutes)
+    refresh_token = secrets.token_urlsafe(32)
+    session = UserSession(
+        user_id=user.user_id,
+        session_token=session_token,
+        refresh_token=refresh_token,
+        token_version=token_version,
+        issued_at=datetime.now(timezone.utc),
+        expires_at=datetime.now(timezone.utc) + timedelta(minutes=expires_minutes),
+        ip_address=request.client.host if request.client else None,
+    )
+    await db.user_sessions.insert_one(session.dict())
+
+    _set_session_cookie(response, session_token, expires_minutes * 60, request)
+    await log_security_event(user.user_id, f"login_{provider}_native_sso", "low", request, {"email": email})
+
+    return {
+        "user_id": user.user_id,
+        "email": user.email,
+        "name": user.name,
+        "picture": user.picture,
+        "subscription_plan": user.subscription_plan,
+        "subscription_status": user.subscription_status,
+        "is_admin": user.is_admin,
+        "full_access": user.full_access,
+        "roles": user.roles,
+        **_auth_token_payload(request, session_token=session_token, refresh_token=refresh_token),
+    }
+
+
+@router.post("/auth/google/native")
+async def google_native_auth(request: Request, response: Response):
+    """Native Google Sign-In: verify a Google id_token issued to one of our OAuth clients."""
+    body = await request.json()
+    token_str = str(body.get("id_token") or "").strip()
+    if not token_str:
+        raise HTTPException(status_code=400, detail="id_token required")
+
+    allowed_audiences = _native_google_allowed_audiences()
+    if not allowed_audiences:
+        raise HTTPException(status_code=503, detail="Native Google Sign-In is not configured")
+
+    try:
+        from google.oauth2 import id_token as google_id_token
+        from google.auth.transport import requests as google_requests
+
+        idinfo = await _asyncio.to_thread(
+            google_id_token.verify_oauth2_token, token_str, google_requests.Request(), None
+        )
+    except Exception as exc:
+        logger.warning(f"Native Google id_token verification failed: {exc}")
+        raise HTTPException(status_code=401, detail="Invalid Google token")
+
+    if idinfo.get("iss") not in {"accounts.google.com", "https://accounts.google.com"}:
+        raise HTTPException(status_code=401, detail="Invalid Google token issuer")
+    if idinfo.get("aud") not in allowed_audiences:
+        raise HTTPException(status_code=401, detail="Google token audience mismatch")
+
+    email = str(idinfo.get("email") or "").strip().lower()
+    if not email:
+        raise HTTPException(status_code=401, detail="Google token missing email")
+    if not idinfo.get("email_verified", False):
+        raise HTTPException(status_code=401, detail="Google email is not verified")
+
+    return await _issue_native_sso_session(
+        email=email,
+        name=str(idinfo.get("name") or ""),
+        picture=str(idinfo.get("picture") or ""),
+        provider="google",
+        request=request,
+        response=response,
+    )
+
+
+_APPLE_NATIVE_JWKS_CLIENT = None
+
+
+def _apple_native_jwks_client():
+    global _APPLE_NATIVE_JWKS_CLIENT
+    if _APPLE_NATIVE_JWKS_CLIENT is None:
+        from jwt import PyJWKClient
+
+        _APPLE_NATIVE_JWKS_CLIENT = PyJWKClient("https://appleid.apple.com/auth/keys", cache_keys=True)
+    return _APPLE_NATIVE_JWKS_CLIENT
+
+
+@router.post("/auth/apple/native")
+async def apple_native_auth(request: Request, response: Response):
+    """Native Apple Sign-In: verify an identityToken (JWT) against Apple's public JWKS."""
+    body = await request.json()
+    identity_token = str(body.get("identity_token") or "").strip()
+    full_name = str(body.get("full_name") or "").strip()
+    if not identity_token:
+        raise HTTPException(status_code=400, detail="identity_token required")
+
+    allowed_audiences = [
+        aud
+        for aud in {
+            str(os.environ.get("APPLE_BUNDLE_ID", "") or "").strip(),
+            str(os.environ.get("APPLE_CLIENT_ID", "") or "").strip(),
+        }
+        if aud
+    ]
+    if not allowed_audiences:
+        raise HTTPException(status_code=503, detail="Native Apple Sign-In is not configured")
+
+    try:
+        import jwt as pyjwt
+
+        def _verify() -> dict:
+            signing_key = _apple_native_jwks_client().get_signing_key_from_jwt(identity_token)
+            return pyjwt.decode(
+                identity_token,
+                key=signing_key.key,
+                algorithms=["RS256", "ES256"],
+                audience=allowed_audiences,
+                issuer="https://appleid.apple.com",
+            )
+
+        claims = await _asyncio.to_thread(_verify)
+    except Exception as exc:
+        logger.warning(f"Native Apple identity token verification failed: {exc}")
+        raise HTTPException(status_code=401, detail="Invalid Apple identity token")
+
+    apple_sub = str(claims.get("sub") or "")
+    email = str(claims.get("email") or "").strip().lower()
+    if not email and apple_sub:
+        # Apple omits email in rare re-auth cases; correlate by stable Apple subject.
+        existing_by_sub = await db.users.find_one({"apple_id": apple_sub}, {"_id": 0})
+        if existing_by_sub:
+            email = str(existing_by_sub.get("email") or "").strip().lower()
+    if not email:
+        raise HTTPException(status_code=401, detail="Apple token missing email")
+
+    return await _issue_native_sso_session(
+        email=email,
+        name=full_name,
+        picture="",
+        provider="apple",
+        request=request,
+        response=response,
+        extra_user_fields={"apple_id": apple_sub} if apple_sub else None,
+    )
+
+
 async def _process_apple_auth(
     code: str,
     id_token_str: str | None,

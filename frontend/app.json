@@ -5,7 +5,11 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "realaicoach",
+    "scheme": [
+      "realaicoach",
+      "com.realaicoach.app",
+      "com.googleusercontent.apps.673589036405-rlh7ossl137uud6k2vl5ccmlq8ab2q94"
+    ],
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash-icon.png",
@@ -16,6 +20,8 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.realaicoach.app",
       "buildNumber": "1",
+      "usesAppleSignIn": true,
+      "associatedDomains": ["applinks:realaicoach.app"],
       "infoPlist": {
         "NSCameraUsageDescription": "Take profile photos and scan documents",
         "NSPhotoLibraryUsageDescription": "Upload profile photos from your gallery",
@@ -31,6 +37,14 @@
       },
       "package": "com.realaicoach.app",
       "versionCode": 1,
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [{ "scheme": "https", "host": "realaicoach.app", "pathPrefix": "/" }],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ],
       "permissions": [
         "CAMERA",
         "READ_EXTERNAL_STORAGE",
@@ -71,7 +85,8 @@
       "expo-font",
       "expo-web-browser",
       "expo-notifications",
-      "expo-secure-store"
+      "expo-secure-store",
+      "expo-apple-authentication"
     ],
     "experiments": {
       "typedRoutes": true

@@ -117,6 +117,7 @@ class VoiceMessageRequest(BaseModel):
     conversation_id: str
     user_id: str
     audio_base64: str  # Base64 encoded audio
+    audio_format: str = "webm"  # File extension hint: webm (web), m4a/caf (native recordings)
 
 
 # ══════════ STATIC DATA ══════════
@@ -1665,8 +1666,9 @@ async def send_voice_message(request: VoiceMessageRequest):
         # Decode base64 audio
         audio_data = base64.b64decode(request.audio_base64)
 
-        # Save to temp file
-        with tempfile.NamedTemporaryFile(suffix=".webm", delete=False) as f:
+        # Save to temp file (suffix drives transcription format detection)
+        fmt = "".join(ch for ch in str(request.audio_format or "webm").lower() if ch.isalnum()) or "webm"
+        with tempfile.NamedTemporaryFile(suffix=f".{fmt}", delete=False) as f:
             f.write(audio_data)
             temp_path = f.name
 

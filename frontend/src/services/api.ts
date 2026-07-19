@@ -1216,6 +1216,25 @@ export const sendMessage = async (conversationId: string, userId: string, messag
   return response.data;
 };
 
+export const sendVoiceMessage = async (
+  conversationId: string,
+  userId: string,
+  audioBase64: string,
+  audioFormat: string = 'm4a',
+) => {
+  const response = await api.post(
+    '/conversations/voice-message',
+    {
+      conversation_id: conversationId,
+      user_id: userId,
+      audio_base64: audioBase64,
+      audio_format: audioFormat,
+    },
+    { timeout: 120000 },
+  );
+  return response.data;
+};
+
 export const completeConversation = async (conversationId: string, userId: string) => {
   const response = await api.post(`/conversations/${conversationId}/complete?user_id=${userId}`);
   return response.data;

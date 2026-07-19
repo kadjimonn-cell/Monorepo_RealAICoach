@@ -17,6 +17,7 @@ type UseLoginSsoParams = {
   showSuccess: boolean;
   loginWithGoogle: () => Promise<any>;
   loginWithMicrosoft: () => Promise<any>;
+  loginWithApple: () => Promise<{ success: boolean; message?: string }>;
   refreshUser: () => Promise<any>;
   redirectToApp: (lastRoute?: string, platformRole?: string | null) => void;
   saveLastMethod: (method: string) => Promise<void>;
@@ -33,6 +34,7 @@ export function useLoginSso({
   showSuccess,
   loginWithGoogle,
   loginWithMicrosoft,
+  loginWithApple,
   refreshUser,
   redirectToApp,
   saveLastMethod,
@@ -336,7 +338,7 @@ export function useLoginSso({
     }
   }, [isInIframe, isMobile, liveApiBase, logSsoTelemetry, loginWithMicrosoft, openSsoFullWindow, saveLastMethod]);
 
-  const handleAppleLogin = useCallback(() => {
+  const handleAppleLogin = useCallback(async () => {
     saveLastMethod('apple');
     logSsoTelemetry('apple', 'click');
     if (Platform.OS === 'web' && typeof window !== 'undefined') {
@@ -347,8 +349,16 @@ export function useLoginSso({
         logSsoTelemetry('apple', 'direct_redirect', { popup_method: 'top_navigation' });
         (window.top || window).location.href = url;
       }
+    } else {
+      // Phase 2B: native Apple Sign-In (expo-apple-authentication, iOS builds).
+      try {
+        const result = await loginWithApple();
+        if (!result.success && result.message) setError(result.message);
+      } catch {
+        setError('Apple login failed');
+      }
     }
-  }, [isInIframe, isMobile, liveApiBase, logSsoTelemetry, openSsoFullWindow, saveLastMethod]);
+  }, [isInIframe, isMobile, liveApiBase, logSsoTelemetry, loginWithApple, openSsoFullWindow, saveLastMethod, setError]);
 
   const generateQR = useCallback(async () => {
     setQrStatus('generating');

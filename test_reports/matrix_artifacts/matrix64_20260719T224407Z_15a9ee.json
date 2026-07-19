@@ -1,0 +1,55 @@
+{
+  "run_id": "matrix64_20260719T224407Z_15a9ee",
+  "status": "FAIL",
+  "strict_passed": false,
+  "triggered_by": "scheduler_nightly_global_system",
+  "generated_at": "2026-07-19T22:44:07.594380+00:00",
+  "stored_at": "2026-07-19T22:44:07.594383+00:00",
+  "artifact_schema_version": "gtec_c5_matrix64.v1",
+  "scheduler": {
+    "job_id": "gtec_c5_matrix64_nightly",
+    "cron_utc": "0 1 * * *",
+    "timezone": "UTC",
+    "hour_utc": 1,
+    "minute_utc": 0
+  },
+  "base_url": "http://127.0.0.1:3000",
+  "dimensions": {
+    "routes": [
+      "/welcome",
+      "/auth/login",
+      "/executive-dashboard",
+      "/route-health-report"
+    ],
+    "viewports": [
+      "mobile_compact",
+      "tablet",
+      "laptop",
+      "desktop"
+    ],
+    "languages": [
+      "en",
+      "fr",
+      "es",
+      "ar"
+    ],
+    "required_total_checks": 64
+  },
+  "counts": {
+    "total_checks": 0,
+    "passed_checks": 0,
+    "failed_checks": 0,
+    "coverage_complete": false,
+    "pass_rate_pct": 0.0
+  },
+  "route_source": null,
+  "matrix_summary": {},
+  "matrix_summary_by_language": {},
+  "white_screen_sentry": {
+    "run_id": "wss_e3058cf360",
+    "white_screen_gate_passed": false,
+    "failure_reason": "sentry_script_non_zero_exit"
+  },
+  "failed_artifacts": [],
+  "artifact_path": "/app/test_reports/matrix_artifacts/matrix64_20260719T224407Z_15a9ee.json"
+}

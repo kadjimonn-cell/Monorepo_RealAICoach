@@ -50,6 +50,7 @@ export interface AuthContextType {
   register: (email: string, password: string, name: string) => Promise<void>;
   loginWithGoogle: () => Promise<void>;
   loginWithMicrosoft: () => Promise<void>;
+  loginWithApple: () => Promise<{ success: boolean; message?: string }>;
   logout: (options?: LogoutOptions) => Promise<void>;
   refreshUser: () => Promise<void>;
   hasServerSession: () => Promise<boolean>;

@@ -612,8 +612,10 @@ def register(app: FastAPI):
         "/api/auth/renew-session",
         "/api/auth/token/refresh",
         "/api/auth/google/session",
+        "/api/auth/google/native",
         "/api/auth/microsoft/exchange",
         "/api/auth/apple/exchange",
+        "/api/auth/apple/native",
     }
     MAX_AUTH_SANITIZE_BYTES = 256 * 1024
 

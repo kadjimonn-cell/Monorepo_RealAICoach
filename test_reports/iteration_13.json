@@ -1,0 +1,103 @@
+{
+  "summary": "Phase 2B backend-only regression PASSED. All 13 pytest cases green covering: /api/health, web-cookie login (no token in body), native-mobile login (token in body), public /auth/sso-config/native shape, /auth/google/native and /auth/apple/native error branches (400 missing + 401 garbage, no 500), /auth/me via Bearer, /api/scenarios via Bearer, /conversations/voice-message audio_format field accepted (returns 404 not 422), push-token register+delete, and full coaching regression (start + message → assistant_message returned; LLM path unaffected, circuit breaker NOT paused).",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {
+        "endpoint": "POST /api/auth/google/native",
+        "issue": "On the garbage-token 401 branch, the WARNING log line 'Native Google id_token verification failed: Wrong number of segments in token: b\\'not-a-real-google-token\\'' includes the raw token string that the client sent. This is because google-auth's ValueError echoes the malformed token in its exception message, and routes/auth.py:7034 does f'{exc}'. For real 3-segment JWTs this path won't fire (signature-verification errors don't echo the token), so real Google id_tokens are not leaked. Still, consider logging only exc.__class__.__name__ or a truncated hash for defense-in-depth. Middleware AUTH_TOKEN_REDACT_PATHS correctly protects request-body logging; this is app-level exception logging, which is outside that scope."
+      }
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verification_evidence": {
+    "base_url": "https://full-stack-migrate-1.preview.emergentagent.com",
+    "pytest_result": "13 passed in 6.59s",
+    "junit_xml": "/app/test_reports/pytest/iter13_phase2b.xml",
+    "1_health": {"status": 200, "body_status": "healthy", "service": "RealAICoach API"},
+    "2_web_login_cookie": {
+      "status": 200,
+      "session_token_in_body": false,
+      "set_cookie_httponly": true,
+      "email": "admin@realaicoach.app",
+      "is_admin": true
+    },
+    "3_native_login_bearer": {
+      "status": 200,
+      "session_token_in_body": true,
+      "token_shape": "JWT (three dot-separated segments)",
+      "email": "admin@realaicoach.app",
+      "is_admin": true,
+      "roles_contains_admin": true
+    },
+    "4_sso_config_native": {
+      "status": 200,
+      "auth_required": false,
+      "google_ios_client_id_non_null": true,
+      "google_ios_client_id_shape": "ends with .apps.googleusercontent.com",
+      "google_android_client_id": null,
+      "apple_native_enabled": true,
+      "apple_bundle_id": "com.realaicoach.app"
+    },
+    "5_google_native_error_branches": {
+      "missing_id_token": {"status": 400, "detail_contains": "id_token required"},
+      "garbage_id_token": {"status": 401, "detail_contains": "Invalid Google token", "not_500": true}
+    },
+    "6_apple_native_error_branches": {
+      "missing_identity_token": {"status": 400, "detail_contains": "identity_token required"},
+      "garbage_identity_token": {"status": 401, "detail_contains": "Invalid Apple identity token", "not_500": true}
+    },
+    "7_auth_me_bearer": {"status": 200, "email": "admin@realaicoach.app", "is_admin": true},
+    "8_scenarios_bearer": {"status": 200, "list_non_empty": true},
+    "9_voice_message_audio_format": {
+      "status": 404,
+      "detail": "Conversation not found",
+      "not_422": true,
+      "note": "Proves audio_format='m4a' is accepted by VoiceMessageRequest model (Pydantic did not reject); endpoint reached DB lookup and returned expected 404 for nonexistent conversation_id."
+    },
+    "10_push_token_lifecycle": {
+      "register": {"endpoint": "POST /api/notifications/push-token", "status": 200, "success": true},
+      "delete": {"endpoint": "DELETE /api/notifications/push-token", "status": 200, "success": true}
+    },
+    "11_coaching_regression": {
+      "start": {"status": 200, "conversation_id_present": true},
+      "message": {"status": 200, "assistant_message_present": true, "feedback_present": true},
+      "llm_circuit_breaker_state": "NOT paused during this run — LLM path fully exercised end-to-end"
+    },
+    "token_redaction_middleware": {
+      "AUTH_TOKEN_REDACT_PATHS_includes": ["/api/auth/google/native", "/api/auth/apple/native"],
+      "http_request_log_lines_confirmed": "middleware logs only 'method=POST path=/api/auth/google/native status=400|401' with NO token body dump — redaction intact.",
+      "app_level_exception_log_note": "See minor issue above — google-auth ValueError text (which echoes malformed non-JWT tokens) reaches WARNING log via f'{exc}'. Only affects garbage-shape tokens, not real 3-segment JWTs."
+    }
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_phase2b_native_mobile_regression.py",
+    "/app/test_reports/pytest/iter13_phase2b.xml"
+  ],
+  "action_items": [
+    "OPTIONAL (defense-in-depth): In routes/auth.py:7034 and :7105, log exc.__class__.__name__ instead of full str(exc) so google-auth/PyJWT can't accidentally echo the raw token bytes in ERROR/WARNING logs. Not blocking — real JWTs won't trigger this path."
+  ],
+  "critical_code_review_comments": [
+    "routes/auth.py:6923-6935 native_sso_config — correctly public (no Depends(get_current_user)), reads only non-secret client IDs, returns None for unset env vars via 'or None'. Contract matches spec (google_android_client_id null when env missing).",
+    "routes/auth.py:6938-7011 _issue_native_sso_session — clean find-or-create; deletes prior sessions to prevent replay; uses _auth_token_payload(request, ...) so token-in-body is still gated by X-Client-Platform header (native-only). Good.",
+    "routes/auth.py:7014-7055 google_native_auth — validates id_token present (400), verifies via google.oauth2.id_token.verify_oauth2_token in a thread (non-blocking), then re-checks iss/aud/email/email_verified. All error paths return 401, no 500 surface confirmed by tests.",
+    "routes/auth.py:7070-7126 apple_native_auth — uses PyJWKClient with cache_keys=True (good — avoids per-request JWKS fetch), audience list built from APPLE_BUNDLE_ID + APPLE_CLIENT_ID, correlate-by-apple_id fallback for re-auth cases where email is omitted. Solid.",
+    "routes/core_platform.py:116-120 VoiceMessageRequest.audio_format defaults to 'webm' — backward compatible with existing web clients. L1670 alnum-only sanitization prevents path traversal in tempfile suffix. Good.",
+    "routes/notifications.py:80-98 register_push_token — proper upsert on user_id, stores updated_at ISO timestamp, requires auth. Delete counterpart at :134-142 removes all tokens for user (idempotent, no-op if none). Both endpoints depend on get_current_user which supports Bearer + cookie — mobile-ready.",
+    "middleware.py:609-618 AUTH_TOKEN_REDACT_PATHS correctly extended to include the new native paths; confirmed no request-body dumps in logs. See minor issue above for app-level exception logging suggestion."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_phase2b_native_mobile_regression.py"
+  ],
+  "success_rate": {"backend": "100% (13/13)", "frontend": "N/A - skipped per request"},
+  "test_credentials": "admin@realaicoach.app (password from /app/memory/test_credentials.md) — verified working on both web-cookie and native-Bearer login paths.",
+  "seed_data_creation": "None persistent. Test transiently upserted and then deleted a push_token document for the admin user (register→delete cycle in test_push_token_register_then_delete). One conversation may have been created by the coaching-regression test (test_coaching_start_and_message) under admin user_id — not cleaned up, but harmless (Conversation collection is expected to accumulate).",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Phase 2B native mobile backend surface (google/apple native SSO verification, voice-message audio_format, push-token lifecycle) all validated. Full pytest suite at /app/backend/tests/test_phase2b_native_mobile_regression.py — reusable regression. Notable env state observed this run: LLM circuit breaker is CURRENTLY NOT paused (iter12 saw paused=true; the coaching-message call succeeded end-to-end in ~2s). Google native uses GOOGLE_CLIENT_ID + GOOGLE_IOS_CLIENT_ID as allowed audiences (GOOGLE_ANDROID_CLIENT_ID not set → android client id in /auth/sso-config/native is null by design). Apple native uses PyJWKClient (cache_keys=True) with allowed_audiences = {APPLE_BUNDLE_ID, APPLE_CLIENT_ID}. To exercise success paths in future, real Google id_tokens must be signed for one of these audiences; real Apple identity_tokens must be signed with an ES256 key from appleid.apple.com/auth/keys and issued for com.realaicoach.app or com.realaicoach.signin.",
+  "rca of the issue": "No bugs found in this iteration."
+}

@@ -21,6 +21,7 @@ import { clearLastSidebarRoute } from '../hooks/useLastSidebarRoute';
 import { useSessionReplay } from '../hooks/useSessionReplay';
 import { handleAppRecoverableError } from '../utils/appRecoverableError';
 import { canonicalizeAdminIdentity, hasAdminConsoleVisibility } from '../utils/adminAccess';
+import { signInWithGoogleNative, signInWithAppleNative } from '../utils/nativeSso';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 const AUTH_ME_TIMEOUT_MS = 3000;
@@ -583,6 +584,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           window.location.href = authUrl;
         }
       } else {
+        // Phase 2B: prefer the fully-native Google flow (expo-auth-session,
+        // dev/prod builds with native client IDs). Falls back to the existing
+        // browser-broker flow when unavailable (Expo Go, missing client ID).
+        const nativeResult = await signInWithGoogleNative();
+        if (nativeResult.status === 'success') {
+          await applyAuthSession(nativeResult.data);
+          return;
+        }
+        if (nativeResult.status === 'cancelled') return;
+        if (nativeResult.status === 'error') {
+          clientLogger.log('Native Google sign-in failed, falling back to browser flow:', nativeResult.message);
+        }
         const result = await WebBrowser.openAuthSessionAsync(authUrl, redirectUrl);
         if (result.type === 'success' && result.url) {
           if (result.url.includes('session_id=')) {
@@ -594,7 +607,27 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     } catch (error) {
       console.error('Google login error:', error);
     }
-  }, [handleGoogleCallback, webOrigin]);
+  }, [applyAuthSession, handleGoogleCallback, webOrigin]);
+
+  const loginWithApple = useCallback(async (): Promise<{ success: boolean; message?: string }> => {
+    // Native-only (iOS): expo-apple-authentication. Web keeps its redirect flow.
+    const result = await signInWithAppleNative();
+    if (result.status === 'success') {
+      await applyAuthSession(result.data);
+      return { success: true };
+    }
+    if (result.status === 'cancelled') return { success: false };
+    if (result.status === 'unavailable') {
+      return {
+        success: false,
+        message:
+          result.reason === 'ios_only'
+            ? 'Apple Sign-In is available on iOS devices.'
+            : 'Apple Sign-In is not available on this device. It requires a development or production iOS build.',
+      };
+    }
+    return { success: false, message: result.message };
+  }, [applyAuthSession]);
 
   const loginWithMicrosoft = useCallback(async () => {
     try {
@@ -767,6 +800,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         register,
         loginWithGoogle,
         loginWithMicrosoft,
+        loginWithApple,
         logout,
         refreshUser,
         hasServerSession,

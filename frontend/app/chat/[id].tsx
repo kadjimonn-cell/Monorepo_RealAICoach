@@ -20,8 +20,9 @@ import { useAppStore } from '../../src/store/appStore';
 import { useAuth } from '../../src/context/AuthContext';
 import { useTheme } from '../../src/context/ThemeContext';
 import { useTranslation } from '../../src/hooks/useTranslation';
-import { getConversation, sendMessage, completeConversation, getScenario } from '../../src/services/api';
+import { getConversation, sendMessage, sendVoiceMessage, completeConversation, getScenario } from '../../src/services/api';
 import { ChatSkeleton } from '../../src/components/SkeletonLoaders';
+import { useVoiceRecorder } from '../../src/hooks/useVoiceRecorder';
 
 interface Message {
   id: string;
@@ -98,6 +99,7 @@ export default function ChatScreen() {
   
   const flatListRef = useRef<FlatList>(null);
   const feedbackAnimation = useRef(new Animated.Value(0)).current;
+  const { isRecording, startRecording, stopRecording } = useVoiceRecorder();
 
   const loadConversation = useCallback(async () => {
     if (!id) return;
@@ -190,6 +192,54 @@ export default function ChatScreen() {
       // Remove temp message on error
       setMessages(prev => prev.filter(m => !m.id.startsWith('temp-')));
       Alert.alert(tx('chat.alerts.errorTitle', 'Error'), tx('chat.alerts.sendMessageFailed', 'Failed to send message. Please try again.'));
+    } finally {
+      setSending(false);
+    }
+  };
+
+  const handleVoicePress = async () => {
+    if (sending || !id || !effectiveUserId) return;
+    if (!isRecording) {
+      const started = await startRecording();
+      if (!started) {
+        Alert.alert(
+          tx('chat.alerts.errorTitle', 'Error'),
+          tx('chat.alerts.micUnavailable', 'Microphone is not available. Please check permissions.'),
+        );
+      }
+      return;
+    }
+    const audio = await stopRecording();
+    if (!audio) return;
+    setSending(true);
+    setShowFeedback(false);
+    try {
+      const response = await sendVoiceMessage(id, effectiveUserId, audio.base64, audio.format);
+      setMessages(prev => [
+        ...prev,
+        {
+          id: `user-${Date.now()}`,
+          role: 'user' as const,
+          content: response.transcribed_text,
+          timestamp: new Date().toISOString(),
+          feedback: response.feedback,
+        },
+        {
+          id: `assistant-${Date.now()}`,
+          role: 'assistant' as const,
+          content: response.assistant_message,
+          timestamp: new Date().toISOString(),
+        },
+      ]);
+      setLastFeedback(response.feedback);
+      setShowFeedback(true);
+      setTimeout(() => setShowFeedback(false), 5000);
+    } catch (error) {
+      console.error('Error sending voice message:', error);
+      Alert.alert(
+        tx('chat.alerts.errorTitle', 'Error'),
+        tx('chat.alerts.voiceMessageFailed', 'Failed to send voice message. Please try again.'),
+      );
     } finally {
       setSending(false);
     }
@@ -418,15 +468,31 @@ export default function ChatScreen() {
         {/* Input */}
         <View style={styles.inputContainer}>
           <View style={styles.inputWrapper}>
+            {Platform.OS !== 'web' && (
+              <TouchableOpacity
+                style={[
+                  styles.voiceButton,
+                  isRecording && { backgroundColor: COLORS.error },
+                  sending && styles.sendButtonDisabled,
+                ]}
+                onPress={handleVoicePress}
+                disabled={sending}
+                accessibilityLabel={isRecording ? 'Stop recording' : 'Record voice message'}
+                data-testid="chat-voice-record-button"
+                testID="chat-voice-record-button"
+              >
+                <Ionicons name={isRecording ? 'stop' : 'mic'} size={20} color={isRecording ? COLORS.onPrimary : COLORS.primary} />
+              </TouchableOpacity>
+            )}
             <TextInput
               style={styles.textInput}
               value={inputText}
               onChangeText={setInputText}
-              placeholder={tx('chat.input.placeholder', 'Type your response...')}
-              placeholderTextColor={COLORS.textMuted}
+              placeholder={isRecording ? tx('chat.input.recording', 'Recording... tap stop to send') : tx('chat.input.placeholder', 'Type your response...')}
+              placeholderTextColor={isRecording ? COLORS.error : COLORS.textMuted}
               multiline
               maxLength={500}
-              editable={!sending}
+              editable={!sending && !isRecording}
             />
             <TouchableOpacity
               style={[
@@ -678,6 +744,17 @@ const createStyles = (COLORS: any) => StyleSheet.create({
     backgroundColor: COLORS.primary,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  voiceButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'transparent',
+    borderWidth: 1.5,
+    borderColor: COLORS.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 6,
   },
   sendButtonDisabled: {
     backgroundColor: (globalThis as any).__alphaColor(COLORS.primary, '50'),
