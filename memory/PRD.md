@@ -1536,3 +1536,25 @@ Verified: testing_agent iteration_3 — 100% backend (7/7) + frontend (admin UI 
 - Android bundle compiles clean post-changes (200, 73.58MB; fixed one duplicate Platform import in privacy-security). tsc clean; theme gate A/0/0; static build EXIT:0.
 - Web verified: login page screenshot renders fully; testing agent browser runs timed out twice (env too slow) — screenshot + curl evidence used instead.
 - Chat/coaching + register/forgot + home/session-history screens were already native-ready (KAV/SafeArea/RefreshControl present) — verified, not rebuilt.
+
+## 2026-07-19 — PHASE 2B: Native platform capabilities (COMPLETE, iteration_13 13/13) + deploy blocker fix
+### Deploy blocker (Re-publish 03:37 BUILD_IMAGE failure) — ROOT CAUSE + FIX
+- Cause: i18n missing-key regression gate (scripts/i18n-seed-safe.js in yarn export:web) failed on 3 new chat voice keys (chat.alerts.micUnavailable, chat.alerts.voiceMessageFailed, chat.input.recording) introduced by Phase 2B chat screen.
+- Fix: keys added with translations to all 23 locale files (src/i18n/locales/*.ts).
+- Evidence: clean `yarn install --frozen-lockfile` EXIT 0; cold `yarn build` (caches wiped) EXIT 0 in 378s; 215 route HTML pages assembled.
+- Side incident: `npx expo install` raced with app.json edits and corrupted it (trailing JSON junk + reverted scheme) -> Metro FATAL; fixed, app.json valid.
+
+### Phase 2B implementation
+- Native Google SSO: src/utils/nativeSso.ts (code+PKCE via expo-auth-session; iOS uses GOOGLE_IOS_CLIENT_ID reversed-scheme redirect; Android uses GOOGLE_ANDROID_CLIENT_ID if set in backend env, else falls back to existing Emergent-broker browser flow which also covers Expo Go). AuthContext.loginWithGoogle tries native first, falls back to broker.
+- Native Apple Sign-In: expo-apple-authentication (iOS builds only), AuthContext.loginWithApple; login screen Apple button now works natively via useLoginSso.handleAppleLogin native branch; graceful error message on Android/Expo Go.
+- NEW backend endpoints (routes/auth.py): GET /api/auth/sso-config/native (public client IDs), POST /api/auth/google/native (google-auth id_token verify, iss+aud+email_verified enforced), POST /api/auth/apple/native (PyJWT PyJWKClient vs appleid.apple.com JWKS, aud=APPLE_BUNDLE_ID/APPLE_CLIENT_ID, iss enforced). Shared _issue_native_sso_session mirrors web SSO user find/create + session issuance + cookie + _auth_token_payload. middleware.py AUTH_TOKEN_REDACT_PATHS includes both new POST routes. Exception logs redact token content (class name only).
+- Deep links: app.json scheme is now array [realaicoach, com.realaicoach.app, com.googleusercontent.apps.<ios-client>]; ios.associatedDomains applinks:realaicoach.app; android intentFilters autoVerify https://realaicoach.app. Expo Router resolves realaicoach://auth/reset-password, /careers/*, /chat/<id> (segments in KNOWN_TOP_LEVEL_SEGMENTS).
+- Voice loop: src/hooks/useVoiceRecorder.ts (expo-av HIGH_QUALITY, base64 via expo-file-system/legacy); chat/[id].tsx native-only mic button (data-testid chat-voice-record-button); api.ts sendVoiceMessage -> POST /api/conversations/voice-message. Backend VoiceMessageRequest gained audio_format (default webm; native m4a) driving temp-file suffix for Whisper.
+- Push: usePushNotifications hardened — Expo Go no-ops gracefully (executionEnvironment storeClient) and getExpoPushTokenAsync wrapped; register/delete lifecycle verified against /api/notifications/push-token.
+- New deps (expo install, SDK54): expo-auth-session ~7.0.11, expo-apple-authentication ~8.0.8, expo-crypto ~15.0.9, expo-file-system ~19.0.23. app.json plugins += expo-apple-authentication; ios.usesAppleSignIn=true.
+- Verification: Android bundle 200 (72.0MB) includes all Phase 2B modules; tsc — zero NEW errors (legacy errors pre-existing); backend iteration_13 13/13 PASS incl. full LLM coaching flow; cold static build EXIT 0.
+### Outstanding for production native SSO (user actions)
+- Google Cloud Console: create ANDROID OAuth client (type Android, package com.realaicoach.app, release-keystore SHA-1) -> set GOOGLE_ANDROID_CLIENT_ID in backend env; no code change needed.
+- Apple: enable Sign in with Apple capability for com.realaicoach.app in Apple Developer portal (EAS handles entitlement via plugin).
+- Universal links require hosted /.well-known/apple-app-site-association + assetlinks.json on realaicoach.app.
+- Real-device checklist: Apple sign-in, push delivery (EAS dev build + APNs/FCM), mic recording, deep links.

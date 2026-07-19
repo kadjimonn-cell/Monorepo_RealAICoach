@@ -7031,7 +7031,7 @@ async def google_native_auth(request: Request, response: Response):
             google_id_token.verify_oauth2_token, token_str, google_requests.Request(), None
         )
     except Exception as exc:
-        logger.warning(f"Native Google id_token verification failed: {exc}")
+        logger.warning(f"Native Google id_token verification failed: {exc.__class__.__name__}")
         raise HTTPException(status_code=401, detail="Invalid Google token")
 
     if idinfo.get("iss") not in {"accounts.google.com", "https://accounts.google.com"}:
@@ -7102,7 +7102,7 @@ async def apple_native_auth(request: Request, response: Response):
 
         claims = await _asyncio.to_thread(_verify)
     except Exception as exc:
-        logger.warning(f"Native Apple identity token verification failed: {exc}")
+        logger.warning(f"Native Apple identity token verification failed: {exc.__class__.__name__}")
         raise HTTPException(status_code=401, detail="Invalid Apple identity token")
 
     apple_sub = str(claims.get("sub") or "")
