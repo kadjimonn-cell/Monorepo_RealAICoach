@@ -444,15 +444,20 @@ export default function PaymentScreen() {
   const initialPaymentMethod = String(params.paymentMethod || '').toLowerCase();
   const isAdmin = Boolean(user?.is_admin);
   const [paymentMethod, setPaymentMethod] = useState<'card' | 'paypal' | 'fedapay' | 'apple_iap' | 'google_iap'>(
-    initialPaymentMethod === 'paypal'
-      ? 'paypal'
-      : initialPaymentMethod === 'fedapay'
-        ? 'fedapay'
-        : initialPaymentMethod === 'apple_iap'
-          ? 'apple_iap'
-          : initialPaymentMethod === 'google_iap'
-            ? 'google_iap'
-            : 'card'
+    // Store compliance: native builds default (and are limited) to platform IAP.
+    Platform.OS === 'ios'
+      ? 'apple_iap'
+      : Platform.OS === 'android'
+        ? 'google_iap'
+        : initialPaymentMethod === 'paypal'
+          ? 'paypal'
+          : initialPaymentMethod === 'fedapay'
+            ? 'fedapay'
+            : initialPaymentMethod === 'apple_iap'
+              ? 'apple_iap'
+              : initialPaymentMethod === 'google_iap'
+                ? 'google_iap'
+                : 'card'
   );
   const [processing, setProcessing] = useState(false);
   const [paymentStep, setPaymentStep] = useState<'form' | 'processing' | 'success'>('form');
@@ -658,6 +663,14 @@ export default function PaymentScreen() {
       testId: 'payment-method-google-iap',
     },
   ]), [COLORS.paypal, COLORS.primary, COLORS.success, COLORS.successText, COLORS.textMuted, paymentMethod, t]);
+
+  // Store compliance (App Store 3.1.1 / Play Payments policy): on native builds,
+  // digital-goods checkout must use the platform's IAP only. Web keeps all providers.
+  const visiblePaymentMethodOptions = useMemo(() => {
+    if (Platform.OS === 'web') return paymentMethodOptions;
+    const nativeMethodId = Platform.OS === 'ios' ? 'apple_iap' : 'google_iap';
+    return paymentMethodOptions.filter((option) => option.id === nativeMethodId);
+  }, [paymentMethodOptions]);
 
   const selectedHealthTone = useMemo(() => {
     if (selectedGatewayHealth.status === 'healthy') return { color: COLORS.successText, bg: `${COLORS.success}22`, border: colors.successSoft, icon: 'checkmark-circle' };
@@ -1720,7 +1733,7 @@ export default function PaymentScreen() {
             <Text style={styles.sectionTitle}>{t('payment.method.title', 'Payment Method')}</Text>
             <PaymentMethodSelector
               mode="select"
-              options={paymentMethodOptions}
+              options={visiblePaymentMethodOptions}
               availability={methodAvailability}
               selected={paymentMethod === 'card' ? 'stripe' : paymentMethod}
               onSelect={(id) => setPaymentMethod(id === 'stripe' ? 'card' : id)}

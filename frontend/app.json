@@ -21,7 +21,9 @@
       "bundleIdentifier": "com.realaicoach.app",
       "buildNumber": "1",
       "usesAppleSignIn": true,
-      "associatedDomains": ["applinks:realaicoach.app"],
+      "associatedDomains": [
+        "applinks:realaicoach.app"
+      ],
       "infoPlist": {
         "NSCameraUsageDescription": "Take profile photos and scan documents",
         "NSPhotoLibraryUsageDescription": "Upload profile photos from your gallery",
@@ -41,8 +43,17 @@
         {
           "action": "VIEW",
           "autoVerify": true,
-          "data": [{ "scheme": "https", "host": "realaicoach.app", "pathPrefix": "/" }],
-          "category": ["BROWSABLE", "DEFAULT"]
+          "data": [
+            {
+              "scheme": "https",
+              "host": "realaicoach.app",
+              "pathPrefix": "/"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
         }
       ],
       "permissions": [
@@ -86,7 +97,8 @@
       "expo-web-browser",
       "expo-notifications",
       "expo-secure-store",
-      "expo-apple-authentication"
+      "expo-apple-authentication",
+      "expo-iap"
     ],
     "experiments": {
       "typedRoutes": true

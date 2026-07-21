@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { ActivityIndicator, AppState, Linking, Platform, ScrollView, Text, View } from 'react-native';
+import { ActivityIndicator, AppState, Linking, Platform, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
@@ -21,6 +21,7 @@ import { stashSubscriptionReturnToast } from '../utils/subscriptionReturnToast';
 import { notificationEvents } from '../utils/notificationEvents';
 import { getTestProps } from '../utils/testProps';
 import { getPaymentFailureCopy, normalizePaymentFailureState } from '../utils/paymentFailureCopy';
+import { useNativeIap } from '../hooks/useNativeIap';
 
 const IAP_REFRESH_MS = 60000;
 
@@ -54,6 +55,7 @@ export default function MobileSubscriptionsViewV2() {
   const [iapReadiness, setIapReadiness] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [selectedCheckout, setSelectedCheckout] = useState<any | null>(null);
+  const { supported: nativeIapSupported, busy: iapBusy, purchase: nativeIapPurchase, restore: nativeIapRestore } = useNativeIap();
 
   const loadData = useCallback(async (refreshMode = false) => {
     try {
@@ -190,6 +192,67 @@ export default function MobileSubscriptionsViewV2() {
     });
   }, [getStoreLink, iapReadiness?.providers]);
 
+  // Phase 3: real native purchase (expo-iap) with backend receipt verification.
+  const runNativePurchase = useCallback(async (product: any) => {
+    const productId = String(product?.product_id || '');
+    const result = await nativeIapPurchase(productId);
+    if (result.status === 'success') {
+      notificationEvents.emit('toast', {
+        title: tx('iap.native.purchaseSuccessTitle', 'Purchase successful'),
+        message: tx('iap.native.purchaseSuccessBody', 'Your store subscription is verified and active.'),
+        type: 'success',
+      });
+      setLoading(true);
+      loadData();
+      return;
+    }
+    if (result.status === 'cancelled') return;
+    if (result.status === 'unavailable') {
+      notificationEvents.emit('toast', {
+        title: tx('iap.native.unavailableTitle', 'Store purchase unavailable'),
+        message: tx('iap.native.requiresBuild', 'In-app purchases require the installed app from the App Store or Google Play.'),
+        type: 'warning',
+      });
+      return;
+    }
+    notificationEvents.emit('toast', {
+      title: tx('iap.native.purchaseFailedTitle', 'Purchase failed'),
+      message: result.message || tx('common.tryAgain', 'Try Again'),
+      type: 'payment_failed',
+    });
+  }, [loadData, nativeIapPurchase, tx]);
+
+  const handleRestorePurchases = useCallback(async () => {
+    const result = await nativeIapRestore();
+    if (result.status === 'success') {
+      notificationEvents.emit('toast', {
+        title: tx('iap.native.restoreTitle', 'Restore Purchases'),
+        message: result.restoredCount > 0
+          ? tx('iap.native.restoreSuccess', 'Your purchases were restored and synced.')
+          : tx('iap.native.restoreNone', 'No active purchases found to restore.'),
+        type: result.restoredCount > 0 ? 'success' : 'warning',
+      });
+      if (result.restoredCount > 0) {
+        setLoading(true);
+        loadData();
+      }
+      return;
+    }
+    if (result.status === 'unavailable') {
+      notificationEvents.emit('toast', {
+        title: tx('iap.native.restoreTitle', 'Restore Purchases'),
+        message: tx('iap.native.requiresBuild', 'In-app purchases require the installed app from the App Store or Google Play.'),
+        type: 'warning',
+      });
+      return;
+    }
+    notificationEvents.emit('toast', {
+      title: tx('iap.native.restoreTitle', 'Restore Purchases'),
+      message: result.message || tx('common.tryAgain', 'Try Again'),
+      type: 'payment_failed',
+    });
+  }, [loadData, nativeIapRestore, tx]);
+
   const handoffPanelConfig = useMemo(() => {
     if (!isStoreCheckoutJourney || !routeProvider) return null;
 
@@ -209,15 +272,23 @@ export default function MobileSubscriptionsViewV2() {
 
     return {
       title: tx('iap.handoff.title', 'Store checkout ready'),
-      subtitle: tx('iap.handoff.subtitle', 'Continue in {provider} to complete the purchase. When you come back, this page will refresh and confirm your access.').replace('{provider}', routeProviderLabel),
-      ctaLabel: tx('mobileSubscriptions.pricing.continueToStore', 'Continue to store'),
+      subtitle: nativeIapSupported
+        ? tx('iap.native.handoffSubtitle', 'Complete the purchase with the native store sheet. Your access is verified and unlocked automatically.')
+        : tx('iap.handoff.subtitle', 'Continue in {provider} to complete the purchase. When you come back, this page will refresh and confirm your access.').replace('{provider}', routeProviderLabel),
+      ctaLabel: nativeIapSupported
+        ? tx('iap.native.buyNow', 'Buy now')
+        : tx('mobileSubscriptions.pricing.continueToStore', 'Continue to store'),
       amountText: requestedAmountText,
       badgeText: `${routePlanLabel} • ${routeProviderLabel}`,
       onPressCta: () => {
+        if (nativeIapSupported && requestedProduct) {
+          void runNativePurchase(requestedProduct);
+          return;
+        }
         void openStoreLink(getStoreLink(routeProvider));
       },
     };
-  }, [getStoreLink, hasActivatedRequestedStorePlan, isStoreCheckoutJourney, openStoreLink, requestedAmountText, routePlanLabel, routeProvider, routeProviderLabel, router, smartReturnTarget, tx]);
+  }, [getStoreLink, hasActivatedRequestedStorePlan, isStoreCheckoutJourney, nativeIapSupported, openStoreLink, requestedAmountText, requestedProduct, routePlanLabel, routeProvider, routeProviderLabel, router, runNativePurchase, smartReturnTarget, tx]);
 
   useEffect(() => {
     if (!hasObservedInactiveStoreStatus || !routeProvider) return;
@@ -323,6 +394,27 @@ export default function MobileSubscriptionsViewV2() {
         </View>
 
         <IAPPlansGrid colors={palette} products={products} status={status} tx={tx} onOpenReview={openCheckoutReview} />
+
+        {Platform.OS !== 'web' ? (
+          <TouchableOpacity
+            onPress={() => { void handleRestorePurchases(); }}
+            disabled={iapBusy}
+            style={{ borderRadius: 16, borderWidth: 1, borderColor: palette.border, backgroundColor: palette.card, padding: 16, flexDirection: 'row', alignItems: 'center', gap: 10, opacity: iapBusy ? 0.6 : 1 }}
+            data-testid="iap-restore-purchases-button"
+            testID="iap-restore-purchases-button"
+          >
+            {iapBusy ? (
+              <ActivityIndicator size="small" color={palette.primary} />
+            ) : (
+              <Ionicons name="refresh-circle-outline" size={20} color={palette.primary} />
+            )}
+            <View style={{ flex: 1 }}>
+              <Text style={{ color: palette.text, fontSize: 14, fontWeight: '800' }}>{tx('iap.native.restoreTitle', 'Restore Purchases')}</Text>
+              <Text style={{ color: palette.textMuted, fontSize: 12, marginTop: 2 }}>{tx('iap.native.restoreHint', 'Reinstalled or switched devices? Re-sync your store subscription.')}</Text>
+            </View>
+          </TouchableOpacity>
+        ) : null}
+
         <IAPTimelineHistory colors={palette} timeline={timeline} history={history} tx={tx} />
       </ScrollView>
 
@@ -334,6 +426,10 @@ export default function MobileSubscriptionsViewV2() {
         onClose={() => setSelectedCheckout(null)}
         onContinue={(selection) => {
           setSelectedCheckout(null);
+          if (nativeIapSupported && selection?.product) {
+            void runNativePurchase(selection.product);
+            return;
+          }
           void openStoreLink(selection.manageUrl);
         }}
       />
