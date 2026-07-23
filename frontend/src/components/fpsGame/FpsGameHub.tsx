@@ -6,7 +6,9 @@ import api from '../../services/api';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../i18n/LanguageContext';
-import FpsArena from './FpsArena';
+
+// Perf: three.js-heavy arena loads on-demand (only when a match session starts).
+const FpsArena = React.lazy(() => import('./FpsArena'));
 
 type RoomRow = { room_id: string; name: string; players: number; max_players: number };
 type LeaderRow = { rank: number; display_name: string; kills: number; deaths: number; kd_ratio: number; matches_played: number };
@@ -143,14 +145,16 @@ export default function FpsGameHub() {
 
   if (session && user?.user_id) {
     return (
-      <FpsArena
-        roomId={session.roomId}
-        roomName={session.roomName}
-        userId={user.user_id}
-        playerName={session.playerName}
-        model={session.model}
-        onExit={exitArena}
-      />
+      <React.Suspense fallback={null}>
+        <FpsArena
+          roomId={session.roomId}
+          roomName={session.roomName}
+          userId={user.user_id}
+          playerName={session.playerName}
+          model={session.model}
+          onExit={exitArena}
+        />
+      </React.Suspense>
     );
   }
 

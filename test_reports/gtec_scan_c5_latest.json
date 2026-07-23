@@ -1,6 +1,6 @@
 {
-  "task_id": "gtec_c5_77b1079140be",
-  "execution_hash": "7bc1fa6700476352",
+  "task_id": "gtec_c5_28a62fb398db",
+  "execution_hash": "c7374d0b715f8501",
   "status": "INFRA_BLOCKED",
   "critical_vulns": 0,
   "high_vulns": 1,
@@ -235,7 +235,7 @@
     "threat_model"
   ],
   "directive_version": "3ab3a705bf380cab",
-  "generated_at": "2026-07-23T15:45:51.981424+00:00",
+  "generated_at": "2026-07-23T19:02:57.898306+00:00",
   "v3_output": {
     "SYSTEM_STATUS": "INFRA_BLOCKED",
     "SECURITY_STATUS": "FAIL",
@@ -282,24 +282,24 @@
           "checks": [
             {
               "path": "/_preview/health",
-              "status_code": 404,
+              "status_code": 0,
               "ok": false,
-              "error": null
+              "error": "RuntimeError: ReadTimeout: "
             },
             {
               "path": "/auth/login",
-              "status_code": 200,
-              "ok": true,
+              "status_code": 502,
+              "ok": false,
               "error": null
             }
           ],
-          "checked_at": "2026-07-23T15:45:51.972216+00:00"
+          "checked_at": "2026-07-23T19:02:57.882819+00:00"
         }
       }
     ],
     "require_external_preview": true,
     "require_local_backend": true,
-    "checked_at": "2026-07-23T15:45:51.972239+00:00"
+    "checked_at": "2026-07-23T19:02:57.882839+00:00"
   },
   "preflight_policy": {
     "require_external_preview": true,
@@ -319,13 +319,13 @@
       "clean_rescans_required": 3,
       "pending_verification_hours": 24
     },
-    "evaluated_at": "2026-07-23T15:45:51.981469+00:00"
+    "evaluated_at": "2026-07-23T19:02:57.898350+00:00"
   },
   "c5_notification_snapshot": {
     "snapshot_version": "c5-notification-snapshot.v2",
-    "source_task_id": "gtec_c5_77b1079140be",
-    "source_execution_hash": "7bc1fa6700476352",
-    "source_generated_at": "2026-07-23T15:45:51.981424+00:00",
+    "source_task_id": "gtec_c5_28a62fb398db",
+    "source_execution_hash": "c7374d0b715f8501",
+    "source_generated_at": "2026-07-23T19:02:57.898306+00:00",
     "global_binding": {
       "bound_to_latest_trust_task": false,
       "latest_trust_task_id": ""
@@ -334,7 +334,7 @@
       "score_percent": 0.0,
       "passed_gates": 0,
       "total_gates": 0,
-      "generated_at": "2026-07-23T15:45:51.983986+00:00"
+      "generated_at": "2026-07-23T19:02:57.900936+00:00"
     },
     "white_screen_sentry": {
       "status": "UNKNOWN",
@@ -343,7 +343,7 @@
       "total_checks": 0,
       "routes_tested": 0,
       "route_source": "",
-      "generated_at": "2026-07-23T15:45:51.983991+00:00"
+      "generated_at": "2026-07-23T19:02:57.900940+00:00"
     },
     "responsive_viewport_matrix": {
       "artifact_count": 0,
@@ -377,7 +377,7 @@
         "clean_rescans_required": 3,
         "pending_verification_hours": 24
       },
-      "evaluated_at": "2026-07-23T15:45:51.983995+00:00"
+      "evaluated_at": "2026-07-23T19:02:57.900945+00:00"
     },
     "run_policy": {
       "scan_mode": "STRICT_GLOBAL",
@@ -387,7 +387,7 @@
       "preflight_require_external_preview": true,
       "preflight_require_local_backend": true
     },
-    "generated_at": "2026-07-23T15:45:51.984000+00:00",
+    "generated_at": "2026-07-23T19:02:57.900948+00:00",
     "snapshot_status": "INCOMPLETE",
     "data_freshness": "INFRA_BLOCKED",
     "consistency": {

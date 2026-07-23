@@ -1,6 +1,6 @@
 {
-  "run_id": "wss_error_20260723T172248Z",
-  "generated_at": "2026-07-23T17:22:48.479183+00:00",
+  "run_id": "wss_error_20260723T201641Z",
+  "generated_at": "2026-07-23T20:16:41.578230+00:00",
   "base_url": "http://127.0.0.1:3000",
   "route_source": "error",
   "routes_tested": [],

@@ -3,11 +3,13 @@ import { View, Text, ScrollView, ActivityIndicator, Platform, useWindowDimension
 import { Ionicons } from '@expo/vector-icons';
 import api from '../../services/api';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Legend } from 'recharts';
-import ASOAnalyticsSection from './ASOAnalyticsSection';
 import MobileIndexingSection from './MobileIndexingSection';
-import GlobalPerformanceSection from './GlobalPerformanceSection';
 import ResponsivenessSection from './ResponsivenessSection';
 import AutoFixBanner from './AutoFixBanner';
+
+// Perf: recharts-heavy subsections load on-demand when their sub-tab is opened.
+const ASOAnalyticsSection = React.lazy(() => import('./ASOAnalyticsSection'));
+const GlobalPerformanceSection = React.lazy(() => import('./GlobalPerformanceSection'));
 import { useAdminTheme } from '../../hooks/useAdminTheme';
 import { useTranslation } from '../../hooks/useTranslation';
 import { useHybridPolling } from '../../hooks/useHybridPolling';
@@ -176,9 +178,9 @@ export default function SEODashboardPanel({ colors }: Props) {
   });
 
   const renderSubTabContent = () => {
-    if (activeSubTab === 'aso-analytics') return <ASOAnalyticsSection colors={colors} />;
+    if (activeSubTab === 'aso-analytics') return <React.Suspense fallback={null}><ASOAnalyticsSection colors={colors} /></React.Suspense>;
     if (activeSubTab === 'mobile-indexing') return <MobileIndexingSection colors={colors} />;
-    if (activeSubTab === 'global-performance') return <GlobalPerformanceSection colors={colors} />;
+    if (activeSubTab === 'global-performance') return <React.Suspense fallback={null}><GlobalPerformanceSection colors={colors} /></React.Suspense>;
     if (activeSubTab === 'responsiveness') return <ResponsivenessSection colors={colors} />;
     return null;
   };

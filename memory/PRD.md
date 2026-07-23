@@ -1574,3 +1574,12 @@ Verified: testing_agent iteration_3 — 100% backend (7/7) + frontend (admin UI 
 - Real Apple IAP API key + Google Play service account values in backend env (current ones fail provider auth).
 - EAS dev builds; device checklist in EAS_BUILD_RUNBOOK.md section 6.
 - GOOGLE_ANDROID_CLIENT_ID + ANDROID_CERT_SHA256 after first Android build.
+
+## 2026-07-23 — PERF TASK: startup load-time optimization (spec-exact)
+- three.js: FpsGameHub now React.lazy(FpsArena)+Suspense; three fully out of web entry bundle (0 refs), isolated to async FpsArena-*.js chunk.
+- otel: otelClient.initializeBrowserObservability() no-op'd, imports removed; 7 @opentelemetry packages dropped from package.json (only importer). api.ts call site untouched.
+- pdfjs-dist: confirmed imported nowhere; removed from deps.
+- recharts: 5 admin panels lazy per spec (AIInsightsPanel/SEODashboardPanel/AutomationEnginePanel were ALREADY lazy at their use sites; ASOAnalyticsSection + GlobalPerformanceSection made lazy inside SEODashboardPanel). DEVIATION REPORT: recharts library remains in the entry bundle because 7 UNLISTED files use require('recharts'): home/HomeDashboardCharts (home tab = startup graph), welcome/WelcomeMetrics, admin/KeywordRow, admin/SubscriptionAnalyticsPanel, admin/PaymentsTaxPanel, admin/email-templates/PerformanceChartsView, admin/ABPerformanceDashboard. Converting home/welcome ones would change first-paint behavior (out of scope). Follow-up candidate.
+- start script: EXPO_OFFLINE=1 + METRO_MAX_WORKERS=2 added; both 6144 heap flags preserved.
+- Results: main entry 10,379,556 -> 9,236,887 B (-1.14MB, -11.0%); tsc zero new errors (2887 pre-existing; SEODashboardPanel(551) proven byte-identical at HEAD); frozen-lockfile clean; cold build EXIT:0 (verify-package-json + i18n gates pass); web 200 local+external; native manifest 200; admin executive dashboard renders as admin (screenshot). Direct chart click-through screenshot could not be captured: preview pod restarted repeatedly during checks (also wiped /tmp, reverted /pw-browsers, aborted a git stash mid-cycle - recovered). Chunks AIInsightsPanel/ASOAnalyticsSection/FpsArena etc. exist in build output.
+- Incidents: git stash pop conflict with auto-generated security_reports/latest_iap_startup_preflight.json (checked out, popped clean).
