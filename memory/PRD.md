@@ -1558,3 +1558,19 @@ Verified: testing_agent iteration_3 — 100% backend (7/7) + frontend (admin UI 
 - Apple: enable Sign in with Apple capability for com.realaicoach.app in Apple Developer portal (EAS handles entitlement via plugin).
 - Universal links require hosted /.well-known/apple-app-site-association + assetlinks.json on realaicoach.app.
 - Real-device checklist: Apple sign-in, push delivery (EAS dev build + APNs/FCM), mic recording, deep links.
+
+## 2026-07-23 — PHASE 3: Store-shipping gate (COMPLETE, iteration_14 12/12)
+- Native IAP client: expo-iap@4.5.2 (playbook choice; expo-in-app-purchases deprecated). src/services/nativeIap.ts (version-tolerant purchase/restore, finishTransaction ONLY after backend verify), src/hooks/useNativeIap.ts. Wired into MobileSubscriptionsViewV2 (native Buy-now CTA, checkout-review modal, Restore Purchases button testid iap-restore-purchases-button) using EXISTING backend contracts POST /api/iap/apple/verify {transaction_id, receipt_data} and /api/iap/google/verify {purchase_token, product_id}. ZERO backend code changes.
+- Store compliance: payment.tsx native builds default AND limit method options to platform IAP (visiblePaymentMethodOptions filter); Stripe/PayPal/FedaPay hidden on iOS/Android, web byte-identical.
+- i18n: 11 iap.native.* keys seeded to all 23 locales (gate reads en.ts; tx() falls back to EN elsewhere).
+- EAS: eas.json already had dev/preview/production profiles (kept as-is); runbook at /app/memory/EAS_BUILD_RUNBOOK.md.
+- Universal links: scripts/generate-wellknown.js (env: APPLE_TEAM_ID default L568YJ4KFH, APPLE_BUNDLE_ID, ANDROID_PACKAGE_NAME, ANDROID_CERT_SHA256) runs at build start; public/.well-known/{apple-app-site-association,assetlinks.json} served by Metro (200) and included in static build. assetlinks fingerprints EMPTY until user provides release SHA-256.
+- TTS voice-to-voice: DEFERRED (timeboxed out; no standalone backend TTS endpoint exists — only project-scoped ai_speech_studio synthesize; needs new endpoint + playbook next phase).
+- Admin config task: ADMIN_PASSWORD_ENFORCE_SYNC=true set in preview .env; .env ADMIN_PASSWORD still ORIGINAL value (no rotation occurred — DB already matched; rotated log fires only on drift). Login 200. Flag left ON per user; in-app admin pw changes revert each restart until flipped false.
+- Incidents fixed en route: es-toolkit package had incomplete node_modules extraction (Metro UnableToResolveError minBy.js) — repaired via yarn install --check-files.
+- Verification: tsc zero NEW errors (payment.tsx 35 pre-existing before & after via git-stash baseline); Android bundle 200/72.2MB with IAP modules; IAP contracts curl-verified (products list OK; verify endpoints reach real Apple/Google APIs — provider credentials appear placeholder/invalid: Apple 'API authentication failed', Google 'invalid_grant account not found' → user must confirm real store credentials); cold build EXIT:0 (deploy-clean — latest BUILD_IMAGE failure likely snapshotted interrupted mid-edit state; retry Re-publish); web 200 local+external; backend iteration_14 12/12.
+### P0 remaining for store ship (user actions)
+- App Store Connect + Play Console: create subscription products with the 4 exact product IDs; sandbox testers.
+- Real Apple IAP API key + Google Play service account values in backend env (current ones fail provider auth).
+- EAS dev builds; device checklist in EAS_BUILD_RUNBOOK.md section 6.
+- GOOGLE_ANDROID_CLIENT_ID + ANDROID_CERT_SHA256 after first Android build.
