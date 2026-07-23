@@ -8,9 +8,9 @@
 // Went Wrong" errors caused by old clients holding dangling chunk URLs
 // after `expo export` regenerates bundle hashes.
 
-const CACHE_NAME = 'realaicoach-v-5ea4a773';
-const STATIC_CACHE = 'realaicoach-static-5ea4a773';
-const API_CACHE = 'realaicoach-api-5ea4a773';
+const CACHE_NAME = 'realaicoach-v-eae9133a';
+const STATIC_CACHE = 'realaicoach-static-eae9133a';
+const API_CACHE = 'realaicoach-api-eae9133a';
 
 // Static assets to precache on install (critical path)
 const PRECACHE_URLS = [

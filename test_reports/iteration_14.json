@@ -1,0 +1,106 @@
+{
+  "summary": "Phase 3 backend-only regression PASSED. 12/12 pytest cases green covering: /api/health init=complete, web-cookie login (no token in body, httpOnly cookie set), native-mobile login (session_token in body — confirms ADMIN_PASSWORD_ENFORCE_SYNC=true restart did NOT break auth), public /api/iap/products returns all 4 expected product IDs, /api/iap/apple/verify with bogus payload returns structured 400 'Apple API authentication failed' (NOT 422), /api/iap/google/verify with bogus payload returns structured 400 'invalid_grant: Invalid grant: account not found' (NOT 422 — proves google-auth is reached), /api/iap/status returns full plan/status JSON, Phase 2B sso-config-native public with google_ios_client_id non-null, google/native + apple/native garbage-token both return 401 (never 500), push-token register+delete lifecycle, and /api/scenarios native-bearer returns non-empty list. Zero backend code changed this phase (only .env ADMIN_PASSWORD_ENFORCE_SYNC=true + static assets + frontend IAP client) — nothing regressed.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {
+        "endpoint": "POST /api/iap/google/verify",
+        "issue": "Structured error is functional but the detail string is a raw Python tuple repr: \"('invalid_grant: Invalid grant: account not found', {'error': 'invalid_grant', 'error_description': 'Invalid grant: account not found'})\". This is due to _verify_google_receipt propagating the exception args tuple as-is into parsed['error']. Contract-wise it is still a 400 (not 422/500) and mobile clients can key on 'invalid_grant' substring, but a clean detail string (str(exc) or exc.args[0]) would be tidier."
+      }
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verification_evidence": {
+    "base_url": "https://full-stack-migrate-1.preview.emergentagent.com",
+    "pytest_result": "12 passed in 2.92s",
+    "junit_xml": "/app/test_reports/pytest/iter14_phase3.xml",
+    "1_health": {"status": 200, "body_status": "healthy", "init": "complete", "service": "RealAICoach API"},
+    "2_web_login_cookie": {
+      "status": 200,
+      "session_token_in_body": false,
+      "set_cookie_httponly": true,
+      "is_admin": true,
+      "admin_password_enforce_sync_effect": "admin login still succeeds after restart with .env-sourced password — sync did not break auth"
+    },
+    "3_native_login_bearer": {
+      "status": 200,
+      "session_token_in_body": true,
+      "token_shape": "JWT (3 dot-separated segments)",
+      "is_admin": true,
+      "roles_contains_admin": true
+    },
+    "4_iap_products_public": {
+      "status": 200,
+      "auth_required": false,
+      "products_returned": [
+        "com.realaicoach.basic.monthly",
+        "com.realaicoach.basic.yearly",
+        "com.realaicoach.premium.monthly",
+        "com.realaicoach.premium.yearly"
+      ],
+      "count": 4,
+      "matches_expected_contract": true
+    },
+    "5_iap_apple_verify_contract": {
+      "status": 400,
+      "detail": "Apple API authentication failed",
+      "not_422": true,
+      "not_500": true,
+      "interpretation": "Pydantic accepted the contract shape; endpoint reached Apple provider-auth stage and failed there — exactly as expected without a real StoreKit receipt."
+    },
+    "6_iap_google_verify_contract": {
+      "status": 400,
+      "detail_contains": "invalid_grant",
+      "not_422": true,
+      "not_500": true,
+      "interpretation": "Pydantic accepted the contract shape; endpoint reached Google service-account auth and failed with invalid_grant — expected without a live Google service account matched to purchase_token."
+    },
+    "7_iap_status_authed": {
+      "status": 200,
+      "fields_present": ["plan", "status", "platform", "product_id", "expires_at", "auto_renewing", "latest_transaction", "jurisdiction_context"],
+      "admin_plan": "premium",
+      "admin_status": "active"
+    },
+    "8_sso_config_native": {
+      "status": 200,
+      "auth_required": false,
+      "google_ios_client_id_non_null": true,
+      "google_ios_client_id_shape": "ends with .apps.googleusercontent.com"
+    },
+    "9_google_native_garbage_token": {"status": 401, "not_500": true},
+    "10_apple_native_garbage_token": {"status": 401, "not_500": true},
+    "11_push_token_lifecycle": {
+      "register": {"endpoint": "POST /api/notifications/push-token", "status": 200, "success": true},
+      "delete": {"endpoint": "DELETE /api/notifications/push-token", "status": 200, "success": true}
+    },
+    "12_scenarios_bearer": {"status": 200, "list_non_empty": true}
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_phase3_iap_native_regression_iter14.py",
+    "/app/test_reports/pytest/iter14_phase3.xml"
+  ],
+  "action_items": [
+    "OPTIONAL/COSMETIC: In routes/iap.py _verify_google_receipt error propagation (~L2240), coerce the propagated exception into a clean string (str(exc) or exc.args[0]) instead of letting the tuple-repr flow into HTTPException detail. Not blocking — mobile client can still key on 'invalid_grant' substring."
+  ],
+  "critical_code_review_comments": [
+    "routes/iap.py:1725-1748 get_iap_products — correctly resolves current user with a soft get_current_user (works anon), returns product list with jurisdictional fee estimates. Matches the 4 expected product IDs.",
+    "routes/iap.py:2099-2131 get_iap_status — proper 401 gate, projects _id off Mongo doc, includes latest_transaction from iap_transactions collection, returns full plan/status/platform/product_id/expires_at/auto_renewing contract expected by the native expo-iap client.",
+    "routes/iap.py:2198-2230 verify_apple_receipt — Pydantic body (transaction_id required, receipt_data optional) matches native client payload shape; provider auth failure surfaces as structured 400 'Apple API authentication failed' (never 500) — good contract behavior.",
+    "routes/iap.py:2233-2264 verify_google_receipt — Pydantic body (purchase_token, product_id required) matches native client; provider auth failure surfaces as 400 with invalid_grant description. Minor: detail string is a tuple repr — see minor issue.",
+    "Phase 2B endpoints (native SSO, push-token, scenarios) confirmed unchanged and unaffected by the .env-only Phase 3 change. Middleware AUTH_TOKEN_REDACT_PATHS still in effect for /api/auth/google/native and /api/auth/apple/native — no request-body dumps observed."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_phase3_iap_native_regression_iter14.py"
+  ],
+  "success_rate": {"backend": "100% (12/12)", "frontend": "N/A - skipped per request"},
+  "test_credentials": "admin@realaicoach.app (password from /app/memory/test_credentials.md) — password NOT printed. Verified working in both web-cookie and native-Bearer modes after ADMIN_PASSWORD_ENFORCE_SYNC=true restart.",
+  "seed_data_creation": "None persistent. Only a transient push_token document upserted then deleted for admin user during test_push_token_register_then_delete. No IAP transactions created (both verify endpoints failed at provider-auth stage, before _apply_iap_subscription).",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Phase 3 (frontend-only expo-iap native client + universal-links static assets + ADMIN_PASSWORD_ENFORCE_SYNC=true) has zero backend code changes and this regression proves nothing broke. IAP endpoint contracts verified with bogus payloads: /apple/verify → 400 'Apple API authentication failed'; /google/verify → 400 with 'invalid_grant' in detail. IAP products endpoint is PUBLIC (get_current_user is soft, returns 200 even without auth) and returns exactly the 4 expected product IDs. Native expo-iap client can safely rely on this contract. Admin user is currently plan=premium/status=active (from earlier iterations). Google detail string is a raw tuple repr — cosmetic only, mobile client can still substring-match 'invalid_grant'. For future success-path testing, real Apple StoreKit receipts and real Google Play purchase_tokens are required (impossible in preview).",
+  "rca of the issue": "No bugs found in this iteration. Only one cosmetic observation: routes/iap.py _verify_google_receipt propagates the caught exception's .args tuple into parsed['error'], so the HTTPException detail becomes a Python tuple repr string. Reproduction: POST /api/iap/google/verify with any bogus purchase_token → detail = \"('invalid_grant: ...', {...})\". Mitigation (optional): in _verify_google_receipt catch block, set error = str(exc) or exc.args[0] before returning."
+}

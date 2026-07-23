@@ -1,0 +1,26 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "L568YJ4KFH.com.realaicoach.app"
+        ],
+        "appID": "L568YJ4KFH.com.realaicoach.app",
+        "paths": [
+          "*"
+        ],
+        "components": [
+          {
+            "/": "*"
+          }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "L568YJ4KFH.com.realaicoach.app"
+    ]
+  }
+}
